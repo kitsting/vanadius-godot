@@ -196,7 +196,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"dead",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -216,7 +216,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"dead_right",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -236,7 +236,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"dead_up",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [],
 "loop": true,

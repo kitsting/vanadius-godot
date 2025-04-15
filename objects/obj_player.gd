@@ -48,7 +48,7 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
-	$sentry_indicator/texture.modulate.a = 255*indicatoralpha
+	$sentry_indicator/texture.modulate.a = indicatoralpha
 	
 	if Game.alert and get_tree().get_node_count_in_group("objSentry") != 0:
 		$sentry_indicator/warning_anim.play("warning")
@@ -57,32 +57,23 @@ func _process(delta: float) -> void:
 		$sentry_indicator/warning.visible = false
 	
 	if pstate == PLAYERSTATE.ALIVE:
-		indicatoralpha = min(0.8,indicatoralpha+0.05)
+		indicatoralpha = min(0.8,indicatoralpha+(0.05*delta*60))
 	
 	if pstate == PLAYERSTATE.NOCLIP:
 		$sprite.animation = "noclip"
 	
 	if pstate == PLAYERSTATE.CUTSCENE:
-		indicatoralpha = max(0,indicatoralpha-0.05)
+		indicatoralpha = max(0,indicatoralpha-(0.05*delta*60))
 		
 	if pstate == PLAYERSTATE.FALLING:
-		indicatoralpha = max(0,indicatoralpha-0.05)
+		indicatoralpha = max(0,indicatoralpha-(0.05*delta*60))
 		position.y += 2
 		$sprite.frame = 1
 		$sprite.speed_scale = 0
 		
 	if pstate == PLAYERSTATE.DEAD:
 		
-		Game.beingchased = false
-		$sprite.speed_scale = 1
-		if dir == PLAYERDIR.DOWN:
-			$sprite.play("dead")
-		elif dir == PLAYERDIR.UP:
-			$sprite.play("dead_up")
-		else:
-			$sprite.play("dead_right")
-		
-		indicatoralpha = max(0,indicatoralpha-0.05)
+		indicatoralpha = max(0,indicatoralpha-(0.05*delta*60))
 		
 		deathtimer += 1
 
@@ -145,29 +136,29 @@ func _physics_process(delta: float) -> void:
 				$sprite.play("walk_down")
 			
 		#Check for opposite key presses
-		if (Input.is_action_pressed("ui_right") && Input.is_action_just_pressed("ui_left")) || (Input.is_action_pressed("ui_up") && Input.is_action_just_pressed("ui_down")):
+		if (Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_left")) or (Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_down")):
 			direction.x = 0
 			direction.y = 0
-			$sprite.speed_scale = 0
-			$sprite.frame = 0
+			idle = true
+			
+		if idle:
+			$sprite.speed_scale = 1
+			key_pressed = 0
+			if dir == PLAYERDIR.DOWN:
+				$sprite.play("idle_down")
+			elif dir == PLAYERDIR.UP:
+				$sprite.play("idle_up")
+			else:
+				$sprite.play("idle_right")
+				
+		if key_pressed > 0 && key_pressed < 3:
+			$sprite.frame = 1
 	
 	#Move
 	direction = direction.normalized()
 	velocity = direction * (spd * delta * 60)
 	move_and_slide()
 	
-	if key_pressed > 0 && key_pressed < 3:
-		$sprite.frame = 1
-	
-	if idle:
-		$sprite.speed_scale = 1
-		key_pressed = 0
-		if dir == PLAYERDIR.DOWN:
-			$sprite.play("idle_down")
-		elif dir == PLAYERDIR.UP:
-			$sprite.play("idle_up")
-		else:
-			$sprite.play("idle_right")
 	
 
 func _input(event: InputEvent) -> void:
@@ -221,6 +212,16 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			die()
 
 func die():
+	Game.beingchased = false
+	$sprite.speed_scale = 1
+	
+	if dir == PLAYERDIR.DOWN:
+		$sprite.play("dead")
+	elif dir == PLAYERDIR.UP:
+		$sprite.play("dead_up")
+	else:
+		$sprite.play("dead_right")
+	
 	$death_sound.play()
 	$AnimationPlayer.play("show_death_screen")
 	if deathmsg == "":

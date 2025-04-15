@@ -10,13 +10,16 @@ config_version=5
 
 [application]
 
-config/name="Vanadius Port"
+config/name="Vanadius"
 config/description="Vanadius"
-run/main_scene="uid://of0pinpxw1p8"
+config/version="1.3.0"
+run/main_scene="uid://ckc27oay2kubo"
+config/use_custom_user_dir=true
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps="60"
 boot_splash/show_image=false
-config/icon="res://icon.png"
+config/icon="uid://dkfam20l06jd5"
+config/windows_native_icon="res://icon.ico"
 window/size/borderless=false
 
 [autoload]
@@ -40,6 +43,7 @@ version_control/autoload_on_startup=true
 [global_group]
 
 player=""
+damage=""
 
 [input]
 

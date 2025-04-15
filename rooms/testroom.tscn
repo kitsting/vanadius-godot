@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckc27oay2kubo"]
+
+[ext_resource type="PackedScene" uid="uid://of0pinpxw1p8" path="res://objects/objPlayer.tscn" id="1_gxvrf"]
+[ext_resource type="PackedScene" uid="uid://0nlghbaf23te" path="res://objects/objGenericSpike.tscn" id="2_6f5g6"]
+
+[node name="Testroom" type="Node2D"]
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="ObjPlayer" parent="Objects" instance=ExtResource("1_gxvrf")]
+position = Vector2(77, 79)
+
+[node name="FloorObjects" type="Node2D" parent="."]
+
+[node name="objGenericSpike" parent="FloorObjects" instance=ExtResource("2_6f5g6")]
+position = Vector2(186, 111)
