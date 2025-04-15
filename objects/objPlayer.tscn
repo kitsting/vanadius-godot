@@ -1,0 +1,134 @@
+[gd_scene load_steps=12 format=3 uid="uid://of0pinpxw1p8"]
+
+[ext_resource type="Script" uid="uid://dprumdiryoe2j" path="res://objects/obj_player.gd" id="1_sqw18"]
+[ext_resource type="SpriteFrames" uid="uid://2c6vloxowiw1" path="res://resources/objPlayerSprites.tres" id="2_lajuu"]
+[ext_resource type="AudioStream" uid="uid://mtbpxox4snyl" path="res://sounds/sndDeath.ogg" id="13_btj8e"]
+[ext_resource type="FontFile" uid="uid://bha4ogv0jof7x" path="res://fonts/fntBig.ttf" id="14_svt7u"]
+[ext_resource type="FontFile" uid="uid://we5onkvfxecy" path="res://fonts/van_small_font.ttf" id="15_oybt8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oybt8"]
+font = ExtResource("14_svt7u")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fwrv3"]
+font = ExtResource("15_oybt8")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_fwrv3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("death_screen/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oybt8"]
+resource_name = "show_death_screen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("death_screen/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fwrv3"]
+_data = {
+&"RESET": SubResource("Animation_fwrv3"),
+&"show_death_screen": SubResource("Animation_oybt8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oybt8"]
+size = Vector2(12, 12)
+
+[node name="ObjPlayer" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_sqw18")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("2_lajuu")
+animation = &"idle_down"
+
+[node name="death_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_btj8e")
+
+[node name="death_screen" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="death_screen"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.784314)
+
+[node name="Label" type="Label" parent="death_screen/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.5
+offset_top = 22.0
+offset_right = 43.5
+offset_bottom = 45.0
+grow_horizontal = 2
+text = "You Died!"
+label_settings = SubResource("LabelSettings_oybt8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="deathmsg" type="Label" parent="death_screen/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.0
+offset_top = 40.0
+offset_right = 37.0
+offset_bottom = 63.0
+grow_horizontal = 2
+text = "death message"
+label_settings = SubResource("LabelSettings_fwrv3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="death_screen/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.0
+offset_top = 120.0
+offset_right = 37.0
+offset_bottom = 143.0
+grow_horizontal = 2
+text = "Press space to respawn, escape to quit"
+label_settings = SubResource("LabelSettings_fwrv3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fwrv3")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_oybt8")
