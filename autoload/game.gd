@@ -3,8 +3,6 @@ extends Node
 const m_surface_takeover = false
 const m_devtools = false
 
-const m_p1_pad = 1
-
 const m_debug_overlay = false
 
 const m_area_ruin = "Forgotten Ruins"
@@ -66,6 +64,7 @@ var roomtargetstate : PLAYERSTATE = PLAYERSTATE.ALIVE
 var safepressureplatepressed : bool = false
 var lasers : bool = false
 var beingchased : bool = false
+var alert = false
 
 var conveyorspeed = 1
 var explosiontime = 0
