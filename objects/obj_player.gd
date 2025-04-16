@@ -40,7 +40,8 @@ var dir : PLAYERDIR = PLAYERDIR.DOWN
 
 
 func _ready() -> void:
-	
+	$sentry_indicator.visible = true
+
 	#save
 	
 	pass

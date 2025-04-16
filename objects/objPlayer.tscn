@@ -79,10 +79,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oybt8"]
-size = Vector2(13, 12)
+size = Vector2(12, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lajuu"]
-size = Vector2(11, 10)
+size = Vector2(10, 10)
 
 [sub_resource type="Animation" id="Animation_y75pg"]
 length = 0.001
@@ -244,13 +244,13 @@ libraries = {
 }
 
 [node name="Collision" type="CollisionShape2D" parent="." groups=["player"]]
-position = Vector2(0.5, 9)
+position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_oybt8")
 
 [node name="Hitbox" type="Area2D" parent="." groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0.5, 9)
+position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_lajuu")
 debug_color = Color(0.90275, 0.302055, 0.158734, 0.42)
 
