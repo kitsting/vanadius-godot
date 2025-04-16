@@ -44,6 +44,7 @@ version_control/autoload_on_startup=true
 
 player=""
 damage=""
+objSentry=""
 
 [input]
 

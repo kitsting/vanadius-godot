@@ -1,16 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckc27oay2kubo"]
+[gd_scene load_steps=6 format=3 uid="uid://ckc27oay2kubo"]
 
 [ext_resource type="PackedScene" uid="uid://of0pinpxw1p8" path="res://objects/objPlayer.tscn" id="1_gxvrf"]
 [ext_resource type="PackedScene" uid="uid://0nlghbaf23te" path="res://objects/objGenericSpike.tscn" id="2_6f5g6"]
+[ext_resource type="PackedScene" uid="uid://bsi4d2keoj851" path="res://objects/objPressurePlateActivate.tscn" id="3_0oq46"]
+[ext_resource type="PackedScene" uid="uid://bfap3c0mnqlb6" path="res://objects/objSentry.tscn" id="4_heske"]
+
+[sub_resource type="Curve2D" id="Curve2D_heske"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 208, 13, -60.2212, -39.8288, 60.2212, 39.8288, 190, 110, 0, 0, 0, 0, 280, 97, 48.1132, 17.8433, -48.1132, -17.8433, 262, 11, 0, 0, 0, 0, 207, 12)
+}
+point_count = 5
 
 [node name="Testroom" type="Node2D"]
 
-[node name="Objects" type="Node2D" parent="."]
-
-[node name="ObjPlayer" parent="Objects" instance=ExtResource("1_gxvrf")]
-position = Vector2(77, 79)
-
 [node name="FloorObjects" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="objGenericSpike" parent="FloorObjects" instance=ExtResource("2_6f5g6")]
 position = Vector2(186, 111)
+
+[node name="ObjPressurePlateActivate" parent="FloorObjects" instance=ExtResource("3_0oq46")]
+position = Vector2(227, 77)
+
+[node name="ObjPressurePlateActivate2" parent="FloorObjects" instance=ExtResource("3_0oq46")]
+position = Vector2(293, 108)
+behavior = 4
+
+[node name="ObjPressurePlateActivate3" parent="FloorObjects" instance=ExtResource("3_0oq46")]
+position = Vector2(260, 108)
+behavior = 3
+
+[node name="ObjPressurePlateActivate4" parent="FloorObjects" instance=ExtResource("3_0oq46")]
+position = Vector2(293, 77)
+behavior = 2
+
+[node name="ObjPressurePlateActivate5" parent="FloorObjects" instance=ExtResource("3_0oq46")]
+position = Vector2(260, 77)
+behavior = 1
+
+[node name="Objects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ObjPlayer" parent="Objects" instance=ExtResource("1_gxvrf")]
+position = Vector2(70, 78)
+
+[node name="TopObjects" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="TopObjects"]
+curve = SubResource("Curve2D_heske")
+
+[node name="ObjSentry" parent="TopObjects/Path2D" instance=ExtResource("4_heske")]
+position = Vector2(208, 13)

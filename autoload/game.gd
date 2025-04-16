@@ -108,6 +108,8 @@ var musvol = 0.5
 
 var tutorialmode = "Autodetect"
 
+var room_width = 320
+
 #Returns a generic death message
 func genericDeathMessage():
 	return extstd.choose(["Game Over","And it all ended here...","...Then there was darkness","...But it was not over","I love death, don't you?"]);

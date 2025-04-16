@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfap3c0mnqlb6"]
+
+[ext_resource type="Script" uid="uid://cgdskyjan8ma6" path="res://objects/obj_sentry.gd" id="1_8mbie"]
+[ext_resource type="Texture2D" uid="uid://belqdiasfwqqs" path="res://sprites/sprSentry1.png" id="1_r8mkm"]
+[ext_resource type="Texture2D" uid="uid://bxjppf817emxp" path="res://sprites/sprSentry2.png" id="2_8mbie"]
+[ext_resource type="AudioStream" uid="uid://co5srcebphvu5" path="res://sounds/sndSentryAlert.mp3" id="4_2tmn3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tmn3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r8mkm")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8mbie")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r8mkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8mbie")
+}],
+"loop": true,
+"name": &"patrol",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wsvx"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2tmn3"]
+radius = 45.0
+
+[node name="ObjSentry" type="PathFollow2D"]
+rotates = false
+script = ExtResource("1_8mbie")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_2tmn3")
+animation = &"patrol"
+
+[node name="collision" type="Area2D" parent="." groups=["damage", "objSentry"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision"]
+shape = SubResource("RectangleShape2D_1wsvx")
+
+[node name="radius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="radius"]
+shape = SubResource("CircleShape2D_2tmn3")
+
+[node name="alert" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2tmn3")
+
+[connection signal="body_entered" from="radius" to="." method="_on_radius_body_entered"]
