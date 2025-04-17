@@ -22,7 +22,6 @@ enum PLAYERSTATE {
 var respawnoptions : bool = false
 var indicatoralpha : float = 0.8
 var idle : bool = false
-var key_pressed : int = 0
 
 var spd : float = 1.4 * 60
 var walkspd : float = 1
@@ -88,34 +87,28 @@ func _process(delta: float) -> void:
 	
 	
 	
-	
-	
-	
-	
 func _physics_process(delta: float) -> void:
 	var direction : Vector2 = Vector2.ZERO
 	idle = true
+	
 	
 	if pstate == PLAYERSTATE.ALIVE:
 		#Get key presses and set direction
 		if Input.is_action_pressed("ui_up"):
 			$sprite.speed_scale = walkspd
 			direction.y = -spd
-			key_pressed += 1
 			dir = PLAYERDIR.UP
 			idle = false
 			
 		if Input.is_action_pressed("ui_down"):
 			$sprite.speed_scale = walkspd
 			direction.y = spd
-			key_pressed += 1
 			dir = PLAYERDIR.DOWN
 			idle = false
 			
 		if Input.is_action_pressed("ui_left"):
 			$sprite.speed_scale = walkspd
 			direction.x = -spd
-			key_pressed += 1
 			dir = PLAYERDIR.LEFT
 			$sprite.flip_h = true
 			idle = false
@@ -123,7 +116,6 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("ui_right"):
 			$sprite.speed_scale = walkspd
 			direction.x = spd
-			key_pressed += 1
 			dir = PLAYERDIR.LEFT
 			$sprite.flip_h = false
 			idle = false
@@ -144,7 +136,6 @@ func _physics_process(delta: float) -> void:
 			
 		if idle:
 			$sprite.speed_scale = 1
-			key_pressed = 0
 			if dir == PLAYERDIR.DOWN:
 				$sprite.play("idle_down")
 			elif dir == PLAYERDIR.UP:
@@ -152,13 +143,12 @@ func _physics_process(delta: float) -> void:
 			else:
 				$sprite.play("idle_right")
 				
-		if key_pressed > 0 && key_pressed < 3:
-			$sprite.frame = 1
-	
+
 	#Move
 	direction = direction.normalized()
-	velocity = direction * (spd * delta * 60)
+	velocity += direction * (spd * delta * 60)
 	move_and_slide()
+	velocity = Vector2.ZERO
 	
 	
 

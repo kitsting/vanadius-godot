@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://yr1dbtb5qsdr"]
+
+[ext_resource type="PackedScene" uid="uid://hktosbx6boif" path="res://objects/conveyor/objConveyor.tscn" id="1_myl6e"]
+
+[node name="objConveyor" instance=ExtResource("1_myl6e")]
+fast = true
+direction = "Left"
+
+[node name="sprite" parent="." index="0"]
+animation = &"editor_left_fast"

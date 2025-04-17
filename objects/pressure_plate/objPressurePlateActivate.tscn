@@ -1,0 +1,96 @@
+[gd_scene load_steps=15 format=3 uid="uid://bsi4d2keoj851"]
+
+[ext_resource type="Script" uid="uid://dxifcoppyad52" path="res://objects/pressure_plate/obj_pressure_plate_activate.gd" id="1_bniaf"]
+[ext_resource type="Texture2D" uid="uid://wqisnllqesyq" path="res://sprites/sprPressurePlate1.png" id="1_byykc"]
+[ext_resource type="Texture2D" uid="uid://c6s20qgpmstly" path="res://sprites/sprPressurePlateDeactivate1.png" id="2_3nd3u"]
+[ext_resource type="AudioStream" uid="uid://cqeo6dpxkn35u" path="res://sounds/sndPressurePlate.ogg" id="3_d2xrm"]
+[ext_resource type="Texture2D" uid="uid://di1xwmbi0frej" path="res://sprites/sprPressurePlateDeactivate2.png" id="3_gmfx3"]
+[ext_resource type="Texture2D" uid="uid://dwvunab2ehfws" path="res://sprites/sprPressurePlate2.png" id="5_38s10"]
+[ext_resource type="Texture2D" uid="uid://do571blh16xm5" path="res://sprites/sprPressurePlateLasers1.png" id="6_7frk7"]
+[ext_resource type="Texture2D" uid="uid://ba48j2rgkkgya" path="res://sprites/sprPressurePlateLasers2.png" id="7_ef3kj"]
+[ext_resource type="Texture2D" uid="uid://k8d15jtgnyfx" path="res://sprites/sprPressurePlateSafe2.png" id="8_ncw6b"]
+[ext_resource type="Texture2D" uid="uid://dty6kx82hin3o" path="res://sprites/sprPressurePlateSafe1.png" id="9_tbo23"]
+[ext_resource type="Texture2D" uid="uid://c78im4ipa3ppr" path="res://sprites/sprPressurePlateWeighted1.png" id="10_ylcim"]
+[ext_resource type="Texture2D" uid="uid://c0071477c7ukr" path="res://sprites/sprPressurePlateWeighted2.png" id="11_d8lae"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_84eic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_byykc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_38s10")
+}],
+"loop": true,
+"name": &"lasers_off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3nd3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gmfx3")
+}],
+"loop": true,
+"name": &"lasers_on",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ef3kj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7frk7")
+}],
+"loop": true,
+"name": &"lasers_toggle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ncw6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tbo23")
+}],
+"loop": true,
+"name": &"safe",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ylcim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_d8lae")
+}],
+"loop": true,
+"name": &"weighted",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7cvj"]
+
+[node name="ObjPressurePlateActivate" type="Node2D"]
+script = ExtResource("1_bniaf")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-11, -12)
+sprite_frames = SubResource("SpriteFrames_84eic")
+animation = &"lasers_off"
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_q7cvj")
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d2xrm")
+pitch_scale = 0.9
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

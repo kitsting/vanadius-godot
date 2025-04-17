@@ -169,13 +169,13 @@ _data = {
 &"warning": SubResource("Animation_o8n1n")
 }
 
-[node name="ObjPlayer" type="CharacterBody2D" groups=["player"]]
+[node name="ObjPlayer" type="CharacterBody2D" groups=["conveyable", "player"]]
 script = ExtResource("1_sqw18")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = ExtResource("2_lajuu")
-animation = &"idle_down"
+animation = &"walk_up"
 
 [node name="death_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_btj8e")

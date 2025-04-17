@@ -1,0 +1,49 @@
+[gd_resource type="TileSet" load_steps=18 format=3 uid="uid://b7tdr1iqo8324"]
+
+[ext_resource type="PackedScene" uid="uid://bsi4d2keoj851" path="res://objects/pressure_plate/objPressurePlateActivate.tscn" id="1_6k601"]
+[ext_resource type="PackedScene" uid="uid://hktosbx6boif" path="res://objects/conveyor/objConveyor.tscn" id="1_gtd35"]
+[ext_resource type="PackedScene" uid="uid://bele43bt7fyui" path="res://objects/pressure_plate/objPressurePlateDeactivate.tscn" id="2_gtd35"]
+[ext_resource type="PackedScene" uid="uid://jb68yvp53kxq" path="res://objects/conveyor/objConveyorFast.tscn" id="2_x24mr"]
+[ext_resource type="PackedScene" uid="uid://d3fys72ritd34" path="res://objects/conveyor/objConveyorDown.tscn" id="3_oyvnr"]
+[ext_resource type="PackedScene" uid="uid://bfwx7oohpkajn" path="res://objects/pressure_plate/objPressurePlateLasers.tscn" id="3_x24mr"]
+[ext_resource type="PackedScene" uid="uid://cxx80iyow7x3i" path="res://objects/pressure_plate/objPressurePlateSafe.tscn" id="4_oyvnr"]
+[ext_resource type="PackedScene" uid="uid://b8k5beqfbu6gp" path="res://objects/conveyor/objConveyorDownFast.tscn" id="4_vxe0c"]
+[ext_resource type="PackedScene" uid="uid://dper60xdf68kn" path="res://objects/conveyor/objConveyorLeft.tscn" id="5_nqmdd"]
+[ext_resource type="PackedScene" uid="uid://bc8mc1rc1g8xh" path="res://objects/pressure_plate/objPressurePlateWeighted.tscn" id="5_vxe0c"]
+[ext_resource type="PackedScene" uid="uid://yr1dbtb5qsdr" path="res://objects/conveyor/objConveyorLeftFast.tscn" id="6_n0xst"]
+[ext_resource type="PackedScene" uid="uid://0nlghbaf23te" path="res://objects/objGenericSpike.tscn" id="6_nqmdd"]
+[ext_resource type="PackedScene" uid="uid://3l4k0qtv8w0l" path="res://objects/conveyor/objConveyorRight.tscn" id="7_vt1b2"]
+[ext_resource type="PackedScene" uid="uid://dcom4xmjuurjc" path="res://objects/conveyor/objConveyorRightFast.tscn" id="8_6qggi"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_hn71j"]
+resource_name = "Conveyors"
+scenes/1/scene = ExtResource("1_gtd35")
+scenes/2/scene = ExtResource("2_x24mr")
+scenes/3/scene = ExtResource("3_oyvnr")
+scenes/4/scene = ExtResource("4_vxe0c")
+scenes/5/scene = ExtResource("5_nqmdd")
+scenes/6/scene = ExtResource("6_n0xst")
+scenes/7/scene = ExtResource("7_vt1b2")
+scenes/8/scene = ExtResource("8_6qggi")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_j5qaw"]
+resource_name = "Pressure Plates"
+scenes/1/scene = ExtResource("1_6k601")
+scenes/2/scene = ExtResource("2_gtd35")
+scenes/3/scene = ExtResource("3_x24mr")
+scenes/4/scene = ExtResource("4_oyvnr")
+scenes/5/scene = ExtResource("5_vxe0c")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_aerbi"]
+resource_name = "Spikes"
+scenes/1/scene = ExtResource("6_nqmdd")
+
+[resource]
+tile_size = Vector2i(24, 24)
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/10 = SubResource("TileSetScenesCollectionSource_j5qaw")
+sources/11 = SubResource("TileSetScenesCollectionSource_aerbi")
+sources/0 = SubResource("TileSetScenesCollectionSource_hn71j")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bele43bt7fyui"]
+
+[ext_resource type="PackedScene" uid="uid://bsi4d2keoj851" path="res://objects/pressure_plate/objPressurePlateActivate.tscn" id="1_ewobo"]
+
+[node name="ObjPressurePlateActivate" instance=ExtResource("1_ewobo")]
+behavior = 1
+
+[node name="sprite" parent="." index="0"]
+animation = &"lasers_on"

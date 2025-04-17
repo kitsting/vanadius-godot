@@ -72,10 +72,6 @@ region = Rect2(60, 0, 20, 30)
 atlas = ExtResource("4_kww78")
 region = Rect2(80, 0, 20, 30)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s2o4m"]
-atlas = ExtResource("9_pv7tk")
-region = Rect2(0, 0, 20, 29)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ckb24"]
 atlas = ExtResource("9_pv7tk")
 region = Rect2(20, 0, 20, 29)
@@ -104,9 +100,9 @@ region = Rect2(120, 0, 20, 29)
 atlas = ExtResource("9_pv7tk")
 region = Rect2(140, 0, 20, 29)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_unc3d"]
-atlas = ExtResource("10_hek7e")
-region = Rect2(0, 0, 20, 28)
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2o4m"]
+atlas = ExtResource("9_pv7tk")
+region = Rect2(0, 0, 20, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pycqf"]
 atlas = ExtResource("10_hek7e")
@@ -136,9 +132,9 @@ region = Rect2(120, 0, 20, 28)
 atlas = ExtResource("10_hek7e")
 region = Rect2(140, 0, 20, 28)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_82glt"]
-atlas = ExtResource("11_e4hvb")
-region = Rect2(0, 0, 20, 29)
+[sub_resource type="AtlasTexture" id="AtlasTexture_unc3d"]
+atlas = ExtResource("10_hek7e")
+region = Rect2(0, 0, 20, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkood"]
 atlas = ExtResource("11_e4hvb")
@@ -167,6 +163,10 @@ region = Rect2(120, 0, 20, 29)
 [sub_resource type="AtlasTexture" id="AtlasTexture_16ase"]
 atlas = ExtResource("11_e4hvb")
 region = Rect2(140, 0, 20, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82glt"]
+atlas = ExtResource("11_e4hvb")
+region = Rect2(0, 0, 20, 29)
 
 [resource]
 animations = [{
@@ -277,9 +277,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s2o4m")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ckb24")
 }, {
 "duration": 1.0,
@@ -299,15 +296,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xmfat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2o4m")
 }],
 "loop": true,
 "name": &"walk_down",
 "speed": 12.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_unc3d")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pycqf")
 }, {
@@ -328,15 +325,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4cag7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unc3d")
 }],
 "loop": true,
 "name": &"walk_right",
 "speed": 12.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_82glt")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hkood")
 }, {
@@ -357,6 +354,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_16ase")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82glt")
 }],
 "loop": true,
 "name": &"walk_up",

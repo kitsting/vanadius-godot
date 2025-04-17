@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxx80iyow7x3i"]
-
-[ext_resource type="PackedScene" uid="uid://bsi4d2keoj851" path="res://objects/objPressurePlateActivate.tscn" id="1_u1hmc"]
-
-[node name="ObjPressurePlateActivate" instance=ExtResource("1_u1hmc")]
-behavior = 4
-
-[node name="sprite" parent="." index="0"]
-animation = &"safe"

@@ -1,31 +1,13 @@
-[gd_resource type="TileSet" load_steps=25 format=3 uid="uid://dj4rnvi15wx87"]
+[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://dj4rnvi15wx87"]
 
 [ext_resource type="Texture2D" uid="uid://dav7qqber5vh3" path="res://sprites/sprTileCave.png" id="1_6orl4"]
-[ext_resource type="PackedScene" uid="uid://bsi4d2keoj851" path="res://objects/objPressurePlateActivate.tscn" id="1_bpf2h"]
-[ext_resource type="PackedScene" uid="uid://bele43bt7fyui" path="res://objects/objPressurePlateDeactivate.tscn" id="2_4qukl"]
 [ext_resource type="Texture2D" uid="uid://7x25see0jho4" path="res://sprites/sprTileFactory.png" id="2_bpf2h"]
 [ext_resource type="Texture2D" uid="uid://11hsc3q2xfd4" path="res://sprites/sprTileGeneric.png" id="3_j5qaw"]
-[ext_resource type="PackedScene" uid="uid://bfwx7oohpkajn" path="res://objects/objPressurePlateLasers.tscn" id="3_usx2y"]
-[ext_resource type="PackedScene" uid="uid://cxx80iyow7x3i" path="res://objects/objPressurePlateSafe.tscn" id="4_hwy2e"]
 [ext_resource type="Texture2D" uid="uid://cxptn3gln4kpx" path="res://sprites/sprTileLab.png" id="4_pvrr4"]
-[ext_resource type="PackedScene" uid="uid://bc8mc1rc1g8xh" path="res://objects/objPressurePlateWeighted.tscn" id="5_7lmse"]
 [ext_resource type="Texture2D" uid="uid://bk2h00jasvmei" path="res://sprites/sprTileOutside.png" id="5_8s6r8"]
 [ext_resource type="Texture2D" uid="uid://l32tm4m8jifu" path="res://sprites/sprTilePower.png" id="6_4qukl"]
-[ext_resource type="PackedScene" uid="uid://0nlghbaf23te" path="res://objects/objGenericSpike.tscn" id="6_usx2y"]
 [ext_resource type="Texture2D" uid="uid://ctfg35uyv1atc" path="res://sprites/sprTileRuins.png" id="7_usx2y"]
 [ext_resource type="Texture2D" uid="uid://d2jc6d845idqh" path="res://sprites/sprTileTower.png" id="8_hwy2e"]
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_j5qaw"]
-resource_name = "Pressure Plates"
-scenes/1/scene = ExtResource("1_bpf2h")
-scenes/2/scene = ExtResource("2_4qukl")
-scenes/3/scene = ExtResource("3_usx2y")
-scenes/4/scene = ExtResource("4_hwy2e")
-scenes/5/scene = ExtResource("5_7lmse")
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_aerbi"]
-resource_name = "Spikes"
-scenes/1/scene = ExtResource("6_usx2y")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lmse"]
 resource_name = "Cave"
@@ -795,13 +777,11 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/2 = SubResource("TileSetAtlasSource_7lmse")
-sources/3 = SubResource("TileSetAtlasSource_aerbi")
-sources/4 = SubResource("TileSetAtlasSource_vyk6a")
-sources/5 = SubResource("TileSetAtlasSource_a23yo")
 sources/6 = SubResource("TileSetAtlasSource_j4jfm")
 sources/7 = SubResource("TileSetAtlasSource_0mn7m")
 sources/8 = SubResource("TileSetAtlasSource_wt4oy")
 sources/9 = SubResource("TileSetAtlasSource_bvcex")
-sources/10 = SubResource("TileSetScenesCollectionSource_j5qaw")
-sources/11 = SubResource("TileSetScenesCollectionSource_aerbi")
+sources/5 = SubResource("TileSetAtlasSource_a23yo")
+sources/4 = SubResource("TileSetAtlasSource_vyk6a")
+sources/3 = SubResource("TileSetAtlasSource_aerbi")
+sources/2 = SubResource("TileSetAtlasSource_7lmse")
