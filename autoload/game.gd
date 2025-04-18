@@ -130,3 +130,10 @@ func boolToOnOff(variable : bool):
 		return "On"
 	else:
 		return "Off"
+		
+		
+func checkArea() -> String:
+	if get_tree().root.is_in_group("room"):
+		return get_tree().root.checkArea()
+	
+	return m_area_null

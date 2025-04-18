@@ -37,6 +37,16 @@ func _ready() -> void:
 		
 	if override_mini_sentry_radius != 0:
 		get_tree().call_group("objSentryMini","set_radius",override_mini_sentry_radius)
+		
+	
+	#Get the size ofthe current room and lock the camera
+	var room_size = $Floor.get_used_rect()
+	
+	if has_node("Camera"):
+		$Camera.limit_bottom = (room_size.end.y*24) - 1
+		$Camera.limit_right = (room_size.end.x*24)
+		$Camera.limit_top = (room_size.position.y*24) + 1
+		$Camera.limit_left = room_size.position.x*24
 
 func checkArea():
 	return area

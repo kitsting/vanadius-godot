@@ -175,14 +175,13 @@ script = ExtResource("1_sqw18")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = ExtResource("2_lajuu")
-animation = &"walk_up"
+animation = &"walk_right"
 
 [node name="death_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_btj8e")
 
 [node name="death_screen" type="CanvasLayer" parent="."]
 visible = false
-follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="death_screen"]
 modulate = Color(1, 1, 1, 0)
@@ -256,7 +255,6 @@ debug_color = Color(0.90275, 0.302055, 0.158734, 0.42)
 
 [node name="sentry_indicator" type="CanvasLayer" parent="."]
 visible = false
-follow_viewport_enabled = true
 
 [node name="warning_anim" type="AnimationPlayer" parent="sentry_indicator"]
 libraries = {

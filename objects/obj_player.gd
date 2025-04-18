@@ -33,7 +33,7 @@ var pstate : PLAYERSTATE = PLAYERSTATE.ALIVE
 var dir : PLAYERDIR = PLAYERDIR.DOWN
 
 @onready var indicator_off = preload("res://sprites/sprSentryIndicatorOff.png")
-@onready var indicator_on = preload("res://sprites/sprSentryIndicatorOff.png")
+@onready var indicator_on = preload("res://sprites/sprSentryIndicatorOn.png")
 @onready var indicator_null = preload("res://sprites/sprSentryIndicatorNull.png")
 @onready var indicator_unsure = preload("res://sprites/sprSentryIndicatorUnsure.png")
 
@@ -43,18 +43,32 @@ func _ready() -> void:
 
 	#save
 	
-	pass
-	
 	
 	
 func _process(delta: float) -> void:
 	$sentry_indicator/texture.modulate.a = indicatoralpha
 	
-	if Game.alert and get_tree().get_node_count_in_group("objSentry") != 0:
+	var sentry_count = get_tree().get_node_count_in_group("objSentry")
+	var minisentry_count = get_tree().get_node_count_in_group("objSentryMini")
+	
+	if Game.alert and sentry_count != 0:
 		$sentry_indicator/warning_anim.play("warning")
 	else:
 		$sentry_indicator/warning_anim.stop()
 		$sentry_indicator/warning.visible = false
+		
+	if Game.checkArea() != Game.m_area_deeplab:
+		if !Game.beingchased:
+			$sentry_indicator/texture.texture = indicator_off
+		else:
+			$sentry_indicator/texture.texture = indicator_on
+			
+		if sentry_count == 0 and minisentry_count == 0:
+			$sentry_indicator/texture.texture = indicator_null
+	else:
+		$sentry_indicator/texture.texture = indicator_unsure
+			
+		
 	
 	if pstate == PLAYERSTATE.ALIVE:
 		indicatoralpha = min(0.8,indicatoralpha+(0.05*delta*60))
