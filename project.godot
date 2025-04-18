@@ -26,6 +26,7 @@ window/size/borderless=false
 
 extstd="*res://autoload/AUTOLOAD_MoreFunctions.gd"
 Game="*res://autoload/game.gd"
+Audio="*res://autoload/AUTOLOAD_SoundSystem.tscn"
 
 [display]
 
