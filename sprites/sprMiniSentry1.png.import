@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwham0v7oectf"
-path="res://.godot/imported/be48f8a5-daf3-4ed6-8b50-4b021030b424.png-acdd7d71373116a254f260d6b46e740a.ctex"
+uid="uid://r8tulfjqa6pc"
+path="res://.godot/imported/sprMiniSentry1.png-033185e259c8825b7f320534b42b2f3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/sprMiniSentry/be48f8a5-daf3-4ed6-8b50-4b021030b424.png"
-dest_files=["res://.godot/imported/be48f8a5-daf3-4ed6-8b50-4b021030b424.png-acdd7d71373116a254f260d6b46e740a.ctex"]
+source_file="res://sprites/sprMiniSentry1.png"
+dest_files=["res://.godot/imported/sprMiniSentry1.png-033185e259c8825b7f320534b42b2f3b.ctex"]
 
 [params]
 

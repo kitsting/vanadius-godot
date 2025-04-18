@@ -22,7 +22,7 @@ func play_sound(sound : String, channel : String, volume : float = 0, allow_over
 
 
 # start a song on a specified track
-func set_music(file : String, track : int = 1, fade_time : float = 1):
+func set_music(file : String, track : int = 1, fade_time : float = 1) -> void:
 	if file != "" and music_enabled:
 		if !has_node("Music/Track"+str(track)):
 			var new_channel = AudioStreamPlayer.new()
@@ -46,7 +46,7 @@ func set_music(file : String, track : int = 1, fade_time : float = 1):
 
 
 # pause the song on a specified track
-func pause_music(track : int = 1, fade_time : float = 0.4):
+func pause_music(track : int = 1, fade_time : float = 0.4) -> void:
 	var channel = get_node("Music/Track"+str(track))
 	
 	if !channel.stream_paused:
@@ -57,7 +57,7 @@ func pause_music(track : int = 1, fade_time : float = 0.4):
 
 
 # resume a paused track
-func resume_music(track : int = 1, fade_time : float = 0.4):
+func resume_music(track : int = 1, fade_time : float = 0.4) -> void:
 	var channel = get_node("Music/Track"+str(track))
 	
 	if channel.stream_paused:
@@ -67,7 +67,7 @@ func resume_music(track : int = 1, fade_time : float = 0.4):
 
 
 # stop a track
-func stop_music(track : int = 1, fade_time : float = 1, purge = false):
+func stop_music(track : int = 1, fade_time : float = 1, purge = false) -> void:
 	var channel = get_node("Music/Track"+str(track))
 	
 	if channel.playing:

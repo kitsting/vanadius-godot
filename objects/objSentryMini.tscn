@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2kxjvt42rta7"]
+
+[ext_resource type="Texture2D" uid="uid://dwham0v7oectf" path="res://sprites/sprMiniSentry2.png" id="1_0tajy"]
+[ext_resource type="Script" uid="uid://c6pybwj3ru1mi" path="res://objects/obj_sentry_mini.gd" id="1_bqhmj"]
+[ext_resource type="Texture2D" uid="uid://r8tulfjqa6pc" path="res://sprites/sprMiniSentry1.png" id="2_bqhmj"]
+[ext_resource type="AudioStream" uid="uid://ddycxs2eyhv7x" path="res://sounds/sndMiniSentryAlert.mp3" id="3_bmpb1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7qql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0tajy")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bqhmj")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bqhmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0tajy")
+}],
+"loop": true,
+"name": &"patrol",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehrll"]
+size = Vector2(12, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hdwpt"]
+radius = 45.0
+
+[node name="objSentryMini" type="PathFollow2D" groups=["objSentryMini"]]
+script = ExtResource("1_bqhmj")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_g7qql")
+animation = &"inactive"
+
+[node name="collision" type="Area2D" parent="." groups=["damage", "objSentryMini"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision"]
+shape = SubResource("RectangleShape2D_ehrll")
+
+[node name="radius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="radius"]
+shape = SubResource("CircleShape2D_hdwpt")
+
+[node name="alert" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bmpb1")
+
+[node name="death_timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="radius" to="." method="_on_radius_body_entered"]
+[connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

@@ -41,7 +41,7 @@ size = Vector2(16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_2tmn3"]
 radius = 45.0
 
-[node name="ObjSentry" type="PathFollow2D"]
+[node name="ObjSentry" type="PathFollow2D" groups=["objSentry"]]
 rotates = false
 script = ExtResource("1_8mbie")
 
@@ -63,4 +63,9 @@ shape = SubResource("CircleShape2D_2tmn3")
 [node name="alert" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_2tmn3")
 
+[node name="death_timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="body_entered" from="radius" to="." method="_on_radius_body_entered"]
+[connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

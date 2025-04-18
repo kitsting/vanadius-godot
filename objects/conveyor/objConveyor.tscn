@@ -236,7 +236,7 @@ script = ExtResource("1_8jah1")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2or34")
-animation = &"up_fast"
+animation = &"editor_up"
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8svso")

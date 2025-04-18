@@ -1,12 +1,13 @@
 extends PathFollow2D
 
-enum SENTRYSTATE
+enum MINISENTRYSTATE
 {
 	HOSTILE,
-	PATROLLING
+	PATROLLING,
+	RUNNING
 }
 
-var sstate = SENTRYSTATE.PATROLLING
+var sstate = MINISENTRYSTATE.PATROLLING
 
 var color = Game.m_sentrycolor_neutral:
 	set(value):
@@ -19,10 +20,11 @@ var color = Game.m_sentrycolor_neutral:
 var canchase = true
 var speedup = Game.m_sentryspeed_time
 
+var playerstate = 0
 var target : Node = null
 
-@export var spd = 0.97
-@export var pathspd = 0.75
+@export var spd = 1.02
+@export var pathspd = 0.8
 @export var radius = 45:
 	set(value):
 		radius = value
@@ -33,33 +35,27 @@ var target : Node = null
 func _ready() -> void:
 	$sprite.play("patrol")
 	
-	if spd > 1:
-		spd = 1
-	
-	if position.x < 0 or position.x > Game.room_width:
-		spd = 1.5
-		
 	$radius/CollisionShape2D.shape.radius = radius
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#trigger all sentries if the alert is on
-	if Game.alert:
-		Game.beingchased = true
-		sstate = SENTRYSTATE.HOSTILE
-		color = Game.m_sentrycolor_active
-	else:
+	if sstate == MINISENTRYSTATE.PATROLLING or sstate == MINISENTRYSTATE.RUNNING:
 		color = Game.m_sentrycolor_neutral
+	elif sstate == MINISENTRYSTATE.HOSTILE:
+		color = Game.m_sentrycolor_active
+		
+	if (Game.safepressureplatepressed or !Game.beingchased) and sstate == MINISENTRYSTATE.HOSTILE:
+		sstate = MINISENTRYSTATE.RUNNING
 
 
 func _physics_process(delta: float) -> void:
-	if sstate == SENTRYSTATE.PATROLLING:
+	if sstate == MINISENTRYSTATE.PATROLLING:
 		#follow the path if one exists, otherwise stay stationary
 		if get_parent().is_class("Path2D"):
 			progress += pathspd * delta * 60
 			
-	if sstate == SENTRYSTATE.HOSTILE:
+	if sstate == MINISENTRYSTATE.HOSTILE:
 		canchase = false
 		$sprite.play("active")
 		
@@ -68,29 +64,14 @@ func _physics_process(delta: float) -> void:
 			var direction = position.direction_to(target.position) * (spd * delta * 60)
 			position += direction
 			
-			#run away from the player if they die
-			if !Game.alert or target.pstate == target.PLAYERSTATE.DEAD:
-				direction = position.direction_to(target.position) * (-2 * spd * delta * 60)
-				position += direction
-				
-				if $death_timer.is_stopped():
-					$death_timer.start()
-	
-		#speed up over time
-		speedup -= 1;
-		if speedup <= 0:
-			spd += 0.1
-			speedup = Game.m_sentryspeed_time
+	if target != null:
+		if sstate == MINISENTRYSTATE.RUNNING or target.pstate == target.PLAYERSTATE.DEAD:
+			var direction = position.direction_to(target.position) * (-2 * spd * delta * 60)
+			position += direction
+			
+			if $death_timer.is_stopped():
+				$death_timer.start()
 
-
-#start chasing if the player is nearby
-func _on_radius_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and canchase:
-		if body.pstate == body.PLAYERSTATE.ALIVE and target == null:
-			target = body
-			Game.alert = true
-			Game.beingchased = true
-			$alert.play()
 
 #function from https://forum.godotengine.org/t/smooth-circle-with-draw-circle/26033/3
 func draw_circle_custom(draw_radius, draw_color : Color, max_error = 0.25):
@@ -116,9 +97,18 @@ func _draw():
 	draw_circle_custom(radius, Color(color.r, color.b, color.g, 0.25))
 
 
+func _on_radius_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player") and canchase and Game.safepressureplatepressed == false:
+		if body.pstate == body.PLAYERSTATE.ALIVE and target == null:
+			target = body
+			sstate = MINISENTRYSTATE.HOSTILE
+			Game.beingchased = true
+			$alert.play()
+
+
 func _on_death_timer_timeout() -> void:
 	queue_free()
-	
+
 	
 func set_radius(value):
 	radius = value
