@@ -20,7 +20,7 @@ extends Node2D
 			rotation_degrees = 90
 		else:
 			rotation_degrees = 0
-			
+
 var on = true
 
 
@@ -29,21 +29,15 @@ func _ready() -> void:
 	if !inverted:
 		if Game.lasers:
 			$laser/sprite.animation = "red_constant"
-			$laser/collision.disabled = false
-			on = true
 		else:
 			$laser/sprite.animation = "off"
-			$laser/collision.disabled = true
-			on = false
 	else:
 		if Game.lasers:
 			$laser/sprite.animation = "off"
-			$laser/collision.disabled = true
-			on = false
 		else:
 			$laser/sprite.animation = "green_constant"
-			$laser/collision.disabled = false
-			on = true
+			
+	update_collision(Game.lasers)
 			
 	Game.connect("lasers_changed",laser_change.call_deferred)
 	
@@ -59,6 +53,7 @@ func _ready() -> void:
 			$stopperD.queue_free()
 	
 
+#Update size on the first frame of physics, then disable
 func _physics_process(delta: float) -> void:
 	if $laser.scale.x == 1:
 		update_size()
@@ -71,34 +66,23 @@ func _physics_process(delta: float) -> void:
 			
 func laser_change(value):
 	if !inverted:
-		if value:
-			if !on:
-				$laser/sprite.play("red_on")
-			$laser/collision.disabled = false
-			on = true
-		else:
-			if on:
-				$laser/sprite.play("red_off")
-			$laser/collision.disabled = true
-			on = false
+		if value and !on:
+			$laser/sprite.play("red_on")
+		elif !value and on:
+			$laser/sprite.play("red_off")
 	else:
-		if value:
-			if on:
-				$laser/sprite.play("green_off")
-			$laser/collision.disabled = true
-			on = false
-		else:
-			if !on:
-				$laser/sprite.play("green_on")
-			$laser/collision.disabled = false
-			on = true
+		if value and on:
+			$laser/sprite.play("green_off")
+		elif !value and !on:
+			$laser/sprite.play("green_on")
 			
+	update_collision(value)
+
 
 func update_size():
 	$left_ray.force_raycast_update()
 	$right_ray.force_raycast_update()
-	if $left_ray.is_colliding():
-		print("hit")
+
 	if $left_ray.is_colliding() and $right_ray.is_colliding():
 		if !vertical:
 			var size = $right_ray.get_collision_point().x - $left_ray.get_collision_point().x
@@ -111,4 +95,12 @@ func update_size():
 			$laser.scale.x = (size / 10.0) + 1
 			$laser.position.x = to_local($left_ray.get_collision_point()).x + (size/2) - 3
 			$stopperD.position.x = to_local($left_ray.get_collision_point()).x - 8
-			print(size)
+
+
+func update_collision(laser_value):
+	if !inverted:
+		$laser/collision.disabled = !laser_value
+		on = laser_value
+	else:
+		$laser/collision.disabled = laser_value
+		on = !laser_value
