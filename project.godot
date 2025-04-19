@@ -49,6 +49,7 @@ objSentry=""
 room=""
 conveyable=""
 conveyor=""
+camera=""
 
 [input]
 

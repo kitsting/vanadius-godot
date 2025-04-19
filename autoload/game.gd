@@ -56,13 +56,20 @@ enum PLAYERSTATE {
 	NOCLIP
 }
 
+signal lasers_changed(value)
+
 var roomtargetx : int = 0
 var roomtargety : int = 0
 var roomtargetfacing : int = 1
 var roomtargetstate : PLAYERSTATE = PLAYERSTATE.ALIVE
 
 var safepressureplatepressed : bool = false
-var lasers : bool = false
+
+var lasers : bool = true:
+	set(value):
+		lasers = value
+		emit_signal("lasers_changed", value)
+
 var beingchased : bool = false
 var alert = false
 

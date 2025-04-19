@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://3tm1ko0uce8u"]
+
+[ext_resource type="Script" uid="uid://crewam0tdy8kv" path="res://objects/laser/obj_laser_stopper.gd" id="1_5y2d5"]
+[ext_resource type="Texture2D" uid="uid://d03b3akog8a6x" path="res://sprites/sprLaserStopperRight.png" id="1_tytla"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5y2d5"]
+size = Vector2(6, 11)
+
+[node name="ObjLaserStopper" type="StaticBody2D"]
+script = ExtResource("1_5y2d5")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_tytla")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_5y2d5")

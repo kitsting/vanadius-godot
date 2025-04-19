@@ -118,7 +118,3 @@ func _draw():
 
 func _on_death_timer_timeout() -> void:
 	queue_free()
-	
-	
-func set_radius(value):
-	radius = value

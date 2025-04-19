@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var silent : bool = false
-
 @export_enum(
 	Game.m_area_ruin,
 	Game.m_area_ruin_sub1,
@@ -23,6 +21,10 @@ extends Node2D
 	Game.m_area_outside) var area : String = Game.m_area_cave
 @export var room_name : String = ""
 
+@export var silent : bool = false
+@export var darkness_intensity : float = 0
+@export var darkness_light : float = 0
+
 #Override the radius of all sentries in the room
 @export var override_sentry_radius : int = 0
 @export var override_mini_sentry_radius : int = 0
@@ -33,10 +35,10 @@ func _init() -> void:
 
 func _ready() -> void:
 	if override_sentry_radius != 0:
-		get_tree().call_group("objSentry","set_radius",override_sentry_radius)
+		get_tree().call_group("objSentry","@radius_setter",override_sentry_radius)
 		
 	if override_mini_sentry_radius != 0:
-		get_tree().call_group("objSentryMini","set_radius",override_mini_sentry_radius)
+		get_tree().call_group("objSentryMini","@radius_setter",override_mini_sentry_radius)
 		
 	
 	#Get the size ofthe current room and lock the camera

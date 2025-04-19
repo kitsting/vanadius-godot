@@ -108,7 +108,3 @@ func _on_radius_body_entered(body: Node2D) -> void:
 
 func _on_death_timer_timeout() -> void:
 	queue_free()
-
-	
-func set_radius(value):
-	radius = value
