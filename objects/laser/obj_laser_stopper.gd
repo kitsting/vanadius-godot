@@ -14,9 +14,9 @@ func update_sprite() -> void:
 	match direction:
 		0:
 			$sprite.flip_h = true
-			$sprite.texture = load("res://sprites/sprLaserStopperRight.png")
+			$sprite.texture = load("res://sprites/laser/sprLaserStopperRight.png")
 		1:
 			$sprite.flip_h = false
-			$sprite.texture = load("res://sprites/sprLaserStopperRight.png")
+			$sprite.texture = load("res://sprites/laser/sprLaserStopperRight.png")
 		2:
-			$sprite.texture = load("res://sprites/sprLaserStopperDown.png")
+			$sprite.texture = load("res://sprites/laser/sprLaserStopperDown.png")

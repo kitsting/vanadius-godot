@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://0nlghbaf23te"]
 
-[ext_resource type="Texture2D" uid="uid://djq7g4su2wkcs" path="res://sprites/sprGenericSpikes.png" id="1_elnsg"]
+[ext_resource type="Texture2D" uid="uid://djq7g4su2wkcs" path="res://sprites/spikes/sprGenericSpikes.png" id="1_elnsg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vyux"]
 size = Vector2(22, 22)
