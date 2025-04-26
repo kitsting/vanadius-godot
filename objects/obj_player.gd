@@ -32,6 +32,10 @@ var deathmsg : String = ""
 var pstate : PLAYERSTATE = PLAYERSTATE.ALIVE
 var dir : PLAYERDIR = PLAYERDIR.DOWN
 
+var direction : Vector2 = Vector2.ZERO
+
+var transitioning = false
+
 @onready var indicator_off = preload("res://sprites/sprSentryIndicatorOff.png")
 @onready var indicator_on = preload("res://sprites/sprSentryIndicatorOn.png")
 @onready var indicator_null = preload("res://sprites/sprSentryIndicatorNull.png")
@@ -41,7 +45,7 @@ var dir : PLAYERDIR = PLAYERDIR.DOWN
 func _ready() -> void:
 	$sentry_indicator.visible = true
 
-	#save
+	Game.save_game()
 	
 	
 	
@@ -91,9 +95,6 @@ func _process(delta: float) -> void:
 		
 		deathtimer += 1
 
-		if deathtimer >= 5:
-			#keypress
-			pass
 			
 		if deathtimer >= 120:
 			deathtimer = 120
@@ -102,11 +103,13 @@ func _process(delta: float) -> void:
 	
 	
 func _physics_process(delta: float) -> void:
-	var direction : Vector2 = Vector2.ZERO
 	idle = true
 	
+	if pstate != PLAYERSTATE.CUTSCENE and pstate != PLAYERSTATE.FALLING:
+		direction = Vector2.ZERO
 	
 	if pstate == PLAYERSTATE.ALIVE:
+		
 		#Get key presses and set direction
 		if Input.is_action_pressed("ui_up"):
 			$sprite.speed_scale = walkspd
@@ -167,7 +170,14 @@ func _physics_process(delta: float) -> void:
 	
 
 func _input(event: InputEvent) -> void:
-	pass
+	if Input.is_action_just_pressed("ui_accept"):
+		if deathtimer >= 5 and !transitioning:
+			transitioning = true
+			var new_transition = load("res://objects/ToBlack.tscn").instantiate()
+			new_transition.set_speed(2.5)
+			get_tree().get_root().add_child(new_transition)
+			await new_transition.midpoint
+			get_tree().reload_current_scene()
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
@@ -233,3 +243,8 @@ func die():
 		deathmsg = Game.genericDeathMessage();
 	$death_screen/ColorRect/deathmsg.text = deathmsg
 	Game.deaths += 1
+
+
+func swap_anim(anim_name : String, flip_x : bool = false) -> void:
+	$sprite.flip_h = flip_x
+	$sprite.play(anim_name)

@@ -1,0 +1,120 @@
+@tool
+extends Area2D
+
+@export_file("*.tscn") var target_room : String
+
+@export var target_x : int = 0
+@export var target_y : int = 0
+
+@export_enum("Up", "Down", "Left", "Right") var direction : int = 0:
+	set(value):
+		direction = value
+		match direction:
+			0:
+				rotation_degrees = 0
+			1:
+				rotation_degrees = 180
+			2:
+				rotation_degrees = 270
+			3:
+				rotation_degrees = 90
+				
+@export var wallsize : int = 2
+
+var target_body : Node = null
+
+
+func _process(delta: float) -> void:
+	#if target_body != null:
+		#match target_body.pstate:
+			#target_body.PLAYERDIR.RIGHT:
+				#target_body.direction.x += target_body.spd
+			#target_body.PLAYERDIR.LEFT:
+				#target_body.position.x += target_body.spd
+			#target_body.PLAYERDIR.UP:
+				#target_body.position.y -= target_body.spd
+			#target_body.PLAYERDIR.DOWN:
+				#target_body.position.y += target_body.spd
+		pass
+
+
+#Update size on the first frame of physics, then disable
+func _physics_process(delta: float) -> void:
+	if !Engine.is_editor_hint():
+		if scale.x == 1:
+			update_size()
+		else:
+			$left_ray.enabled = false
+			$right_ray.enabled = false
+			set_process(false)
+
+
+func update_size():
+	$left_ray.force_raycast_update()
+	$right_ray.force_raycast_update()
+	
+	if $left_ray.is_colliding() and $right_ray.is_colliding():
+		if direction == 0: #Up
+			var size = $right_ray.get_collision_point().x - $left_ray.get_collision_point().x
+			position.x = $left_ray.get_collision_point().x + (size/2)
+			scale.x = size / 32.0
+		elif direction == 1: #Down
+			var size = $left_ray.get_collision_point().x - $right_ray.get_collision_point().x
+			position.x = $right_ray.get_collision_point().x + (size/2)
+			scale.x = size / 32.0
+		elif direction == 2: #Left
+			var size = $left_ray.get_collision_point().y - $right_ray.get_collision_point().y
+			position.y = $right_ray.get_collision_point().y + (size/2) - ((wallsize-1) * 24)
+			scale.x = ((size + (wallsize*24)) / 32.0)
+		else: #Right
+			var size = $right_ray.get_collision_point().y - $left_ray.get_collision_point().y
+			position.y = $left_ray.get_collision_point().y + (size/2) - ((wallsize-1) * 24)
+			scale.x = ((size + (wallsize*24)) / 32.0)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		target_body = body
+		
+		Game.roomtargetx = target_x
+		Game.roomtargety = target_y + 14
+		Game.alert = false
+		Game.beingchased = false
+		
+		match direction:
+			0: #Up
+				Game.roomtargetfacing = Game.PLAYERDIR.DOWN
+				body.dir = Game.PLAYERDIR.DOWN
+			1: #Down
+				Game.roomtargetfacing = Game.PLAYERDIR.UP
+				body.dir = Game.PLAYERDIR.UP
+			2: #Left
+				Game.roomtargetfacing = Game.PLAYERDIR.RIGHT
+				body.dir = Game.PLAYERDIR.RIGHT
+			3: #Right
+				Game.roomtargetfacing = Game.PLAYERDIR.LEFT
+				body.dir = Game.PLAYERDIR.LEFT
+				
+		body.pstate = body.PLAYERSTATE.CUTSCENE
+		
+		match body.dir:
+			body.PLAYERDIR.RIGHT:
+				body.direction.x = body.spd
+				body.swap_anim("walk_right")
+			body.PLAYERDIR.LEFT:
+				body.direction.x = -body.spd
+				body.swap_anim("walk_right", true)
+			body.PLAYERDIR.UP:
+				body.direction.y -= body.spd
+				body.swap_anim("walk_up")
+			body.PLAYERDIR.DOWN:
+				body.direction.y += body.spd
+				body.swap_anim("walk_down")
+				
+		var new_transition = load("res://objects/ToBlack.tscn").instantiate()
+		new_transition.set_speed(2.5)
+		get_tree().get_root().add_child(new_transition)
+		await new_transition.midpoint
+		get_tree().change_scene_to_file(target_room)
+		
+		pass

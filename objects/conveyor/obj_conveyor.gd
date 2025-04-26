@@ -69,6 +69,8 @@ func reverse_direction() -> void:
 			direction = "Right"
 		"Right":
 			direction = "Left"
+			
+	$sprite.play(get_anim())
 
 
 func get_anim() -> String:

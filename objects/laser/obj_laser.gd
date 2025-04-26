@@ -55,13 +55,13 @@ func _ready() -> void:
 
 #Update size on the first frame of physics, then disable
 func _physics_process(delta: float) -> void:
-	if $laser.scale.x == 1:
-		update_size()
-		pass
-	else:
-		$left_ray.enabled = false
-		$right_ray.enabled = false
-		set_process(false)
+	if !Engine.is_editor_hint():
+		if $laser.scale.x == 1:
+			update_size()
+		else:
+			$left_ray.enabled = false
+			$right_ray.enabled = false
+			set_process(false)
 			
 			
 func laser_change(value):
@@ -93,8 +93,8 @@ func update_size():
 		else:
 			var size = $right_ray.get_collision_point().y - $left_ray.get_collision_point().y
 			$laser.scale.x = (size / 10.0) + 1
-			$laser.position.x = to_local($left_ray.get_collision_point()).x + (size/2) - 3
-			$stopperD.position.x = to_local($left_ray.get_collision_point()).x - 8
+			$laser.position.x = to_local($left_ray.get_collision_point()).x + (size/2) - 5
+			$stopperD.position.x = to_local($left_ray.get_collision_point()).x - 10
 
 
 func update_collision(laser_value):

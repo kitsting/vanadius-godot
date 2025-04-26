@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnhuy21gqq2jb"
-path="res://.godot/imported/sprBlackFade.png-3821444124885b8dded0e385199935b3.ctex"
+uid="uid://ea1kpws7itn1"
+path="res://.godot/imported/SparkleA1.png-c2534b461aff2a64a81a70a786a92acb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/sprBlackFade.png"
-dest_files=["res://.godot/imported/sprBlackFade.png-3821444124885b8dded0e385199935b3.ctex"]
+source_file="res://sprites/sparkle/SparkleA1.png"
+dest_files=["res://.godot/imported/SparkleA1.png-c2534b461aff2a64a81a70a786a92acb.ctex"]
 
 [params]
 

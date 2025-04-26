@@ -96,7 +96,7 @@ script = ExtResource("1_mmfnp")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -2)
+position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_ulqrw")
 
 [node name="Area2D" type="Area2D" parent="." groups=["damage", "objGenericSpike"]]

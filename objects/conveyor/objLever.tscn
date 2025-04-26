@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=3 uid="uid://gduho5j00wxl"]
+
+[ext_resource type="Script" uid="uid://bordrwvxxktbq" path="res://objects/conveyor/obj_lever.gd" id="1_21pvh"]
+[ext_resource type="Texture2D" uid="uid://dqgwtd5nmagvb" path="res://sprites/conveyor/sprLever1.png" id="1_f54ha"]
+[ext_resource type="Texture2D" uid="uid://b4mva7lsb5th6" path="res://sprites/conveyor/sprLever2.png" id="2_21pvh"]
+[ext_resource type="Texture2D" uid="uid://b8ijcum7ywotb" path="res://sprites/conveyor/sprLever3.png" id="3_2m326"]
+[ext_resource type="Texture2D" uid="uid://b3tx6lwuheayx" path="res://sprites/conveyor/sprLever4.png" id="4_72aok"]
+[ext_resource type="Texture2D" uid="uid://bymsh10jy5hrh" path="res://sprites/conveyor/sprLever5.png" id="5_sq14d"]
+[ext_resource type="Texture2D" uid="uid://htq5hknmfobq" path="res://sprites/conveyor/sprLever6.png" id="6_hattn"]
+[ext_resource type="Texture2D" uid="uid://dyx8up1kb26k4" path="res://sprites/conveyor/sprLever7.png" id="7_fpibc"]
+[ext_resource type="AudioStream" uid="uid://cfqk8p2v1cg5o" path="res://sounds/sndLever.ogg" id="9_2m326"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tu81d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f54ha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_21pvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2m326")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_72aok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sq14d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hattn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fpibc")
+}],
+"loop": false,
+"name": &"flip",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f54ha"]
+size = Vector2(12, 5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_21pvh"]
+radius = 20.0
+
+[node name="objLever" type="StaticBody2D" groups=["objLever"]]
+script = ExtResource("1_21pvh")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -10)
+sprite_frames = SubResource("SpriteFrames_tu81d")
+animation = &"flip"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_f54ha")
+
+[node name="interact" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact"]
+shape = SubResource("CircleShape2D_21pvh")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_2m326")
+
+[connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
+[connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]

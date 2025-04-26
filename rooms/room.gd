@@ -49,6 +49,14 @@ func _ready() -> void:
 		$Camera.limit_right = (room_size.end.x*24)
 		$Camera.limit_top = (room_size.position.y*24) + 1
 		$Camera.limit_left = room_size.position.x*24
+		
+	if !silent:
+		Audio.set_music("res://music/"+Game.getMusic(area)+".ogg")
+	else:
+		Audio.stop_music()
+		
+	Game.alert = false
+	Game.beingchased = false
 
 func checkArea():
 	return area

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnhuy21gqq2jb"
-path="res://.godot/imported/sprBlackFade.png-3821444124885b8dded0e385199935b3.ctex"
+uid="uid://dqgwtd5nmagvb"
+path="res://.godot/imported/sprLever1.png-0c7090bd002c7928b74789cf7ad22159.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/sprBlackFade.png"
-dest_files=["res://.godot/imported/sprBlackFade.png-3821444124885b8dded0e385199935b3.ctex"]
+source_file="res://sprites/conveyor/sprLever1.png"
+dest_files=["res://.godot/imported/sprLever1.png-0c7090bd002c7928b74789cf7ad22159.ctex"]
 
 [params]
 

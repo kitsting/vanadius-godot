@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp1smyxq0rjkj"]
+
+[ext_resource type="Texture2D" uid="uid://bnhuy21gqq2jb" path="res://sprites/sprBlackFade.png" id="1_0en1c"]
+[ext_resource type="Script" uid="uid://cofc4gnr7yaft" path="res://objects/obj_room_transition.gd" id="1_84u5h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84u5h"]
+size = Vector2(28, 26)
+
+[node name="objRoomTransition" type="Area2D"]
+script = ExtResource("1_84u5h")
+target_room = null
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_0en1c")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_84u5h")
+
+[node name="right_ray" type="RayCast2D" parent="."]
+target_position = Vector2(150, 0)
+collision_mask = 7
+
+[node name="left_ray" type="RayCast2D" parent="."]
+target_position = Vector2(-150, 0)
+collision_mask = 7
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -176,7 +176,7 @@ script = ExtResource("1_sqw18")
 texture_filter = 1
 position = Vector2(0, -9)
 sprite_frames = ExtResource("2_lajuu")
-animation = &"walk_up"
+animation = &"walk_down"
 
 [node name="death_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_btj8e")
@@ -191,7 +191,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.901961)
+color = Color(0, 0, 0, 0.588235)
 
 [node name="Label" type="Label" parent="death_screen/ColorRect"]
 layout_mode = 1

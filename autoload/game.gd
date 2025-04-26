@@ -144,3 +144,62 @@ func checkArea() -> String:
 		return get_tree().root.checkArea()
 	
 	return m_area_null
+
+
+func transition_room(room) -> void:
+	if room != null:
+		
+		get_tree().change_scene_to_file(room)
+		
+		
+func getMusic(area) -> String:
+	match area:
+		m_area_null:
+			return "musNone"
+		m_area_outside:
+			return "musOutside"
+		m_area_final_sub2:
+			return "musOutside"
+		m_area_factory:
+			return "musFactory"
+		m_area_factory_sub1:
+			return "musFactory"
+		m_area_ruin:
+			return "musRuin"
+		m_area_ruin_sub1:
+			return "musRuin"
+		m_area_ruin_sub2:
+			return "musRuin"
+		m_area_ruin_sub3:
+			return "musRuin"
+		m_area_ruin_sub4:
+			return "musRuin"
+		m_area_clock:
+			return "musClock"
+		m_area_clock_sub1:
+			return "musClock"
+		m_area_clock_sub2:
+			return "musClock"
+		m_area_lab:
+			return "musLab"
+		m_area_final:
+			return "musPowerPlantOff"
+		m_area_final_sub1:
+			return "musRuin"
+		m_area_final_sub3:
+			return "musPowerPlantOn"
+		m_area_cave:
+			return "musCave"
+		m_area_deeplab:
+			return "musPowerPlantOff"
+			
+	return "musNone"
+
+
+
+func save_game():
+	pass
+	
+	
+func load_game():
+	pass

@@ -1,0 +1,159 @@
+[gd_scene load_steps=19 format=3 uid="uid://b3bfejchk2n8n"]
+
+[ext_resource type="Script" uid="uid://bxng0xglok6kq" path="res://objects/obj_collectible.gd" id="1_ua0qx"]
+[ext_resource type="Texture2D" uid="uid://dg6jyv7m34uk1" path="res://sprites/sprCollectible.png" id="1_y33fl"]
+[ext_resource type="FontFile" uid="uid://bha4ogv0jof7x" path="res://fonts/fntBig.ttf" id="3_0wlf8"]
+[ext_resource type="FontFile" uid="uid://we5onkvfxecy" path="res://fonts/van_small_font.ttf" id="4_yuvs3"]
+[ext_resource type="AudioStream" uid="uid://bpk1ukbprqiwr" path="res://sounds/sndCollectible.ogg" id="5_yuvs3"]
+[ext_resource type="Texture2D" uid="uid://ea1kpws7itn1" path="res://sprites/sparkle/SparkleA1.png" id="6_4xr8a"]
+[ext_resource type="Texture2D" uid="uid://luy6f5l0mvy1" path="res://sprites/sparkle/SparkleA2.png" id="7_ujlek"]
+[ext_resource type="Texture2D" uid="uid://bvbaswqhgp7hn" path="res://sprites/sparkle/SparkleA3.png" id="8_sv4v1"]
+[ext_resource type="Texture2D" uid="uid://cf1vq6gqsdpbc" path="res://sprites/sparkle/SparkleA4.png" id="9_mjueb"]
+[ext_resource type="Texture2D" uid="uid://dmmgbm4g1dko1" path="res://sprites/sparkle/SparkleEnd.png" id="10_1y2vs"]
+[ext_resource type="Texture2D" uid="uid://cja2logxmr8nb" path="res://sprites/sparkle/Sparkle1.png" id="11_tfp2c"]
+[ext_resource type="Texture2D" uid="uid://bwst3o4x3gkgw" path="res://sprites/sparkle/Sparkle2.png" id="12_j3w6c"]
+[ext_resource type="Texture2D" uid="uid://cgulbr3nikpqj" path="res://sprites/sparkle/Sparkle3.png" id="13_xvg3u"]
+[ext_resource type="Texture2D" uid="uid://k336xwhy6dyp" path="res://sprites/sparkle/Sparkle4.png" id="14_k1587"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua0qx"]
+size = Vector2(11, 11)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wi3ru"]
+font = ExtResource("3_0wlf8")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2c51f"]
+font = ExtResource("4_yuvs3")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xg2iw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_4xr8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ujlek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sv4v1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mjueb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1y2vs")
+}],
+"loop": false,
+"name": &"alternate",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_tfp2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_j3w6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xvg3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_k1587")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1y2vs")
+}],
+"loop": false,
+"name": &"normal",
+"speed": 10.0
+}]
+
+[node name="objCollectible" type="Area2D"]
+script = ExtResource("1_ua0qx")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -1)
+texture = ExtResource("1_y33fl")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_ua0qx")
+
+[node name="collected_screen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="collected_screen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="Label" type="Label" parent="collected_screen/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.5
+offset_top = 22.0
+offset_right = 43.5
+offset_bottom = 45.0
+grow_horizontal = 2
+text = "You got a thing"
+label_settings = SubResource("LabelSettings_wi3ru")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="collected_screen/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.0
+offset_top = 40.0
+offset_right = 37.0
+offset_bottom = 63.0
+grow_horizontal = 2
+text = "death message"
+label_settings = SubResource("LabelSettings_2c51f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="collected_screen/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.0
+offset_top = 120.0
+offset_right = 37.0
+offset_bottom = 143.0
+grow_horizontal = 2
+text = "Press Space to continue"
+label_settings = SubResource("LabelSettings_2c51f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yuvs3")
+
+[node name="sparkle_timer" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+autostart = true
+
+[node name="sparkle_sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_xg2iw")
+animation = &"normal"
+frame = 4
+frame_progress = 1.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="sparkle_timer" to="." method="_on_sparkle_timer_timeout"]
