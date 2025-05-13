@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjs1gsqdvt0sh"]
+
+[ext_resource type="Script" uid="uid://c81hse2634gl" path="res://objects/obj_spike_mini.gd" id="1_0y6yq"]
+[ext_resource type="Texture2D" uid="uid://uenqfv0d5bqf" path="res://sprites/spikes/sprMiniSpikes.png" id="1_g8tpi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0y6yq"]
+size = Vector2(10, 10)
+
+[node name="objSpikeMini" type="Area2D" groups=["damage", "objSpike"]]
+script = ExtResource("1_0y6yq")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_g8tpi")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0y6yq")

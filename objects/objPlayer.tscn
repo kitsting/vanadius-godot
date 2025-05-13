@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://of0pinpxw1p8"]
+[gd_scene load_steps=18 format=3 uid="uid://of0pinpxw1p8"]
 
 [ext_resource type="Script" uid="uid://dprumdiryoe2j" path="res://objects/obj_player.gd" id="1_sqw18"]
 [ext_resource type="SpriteFrames" uid="uid://2c6vloxowiw1" path="res://resources/objPlayerSprites.tres" id="2_lajuu"]
 [ext_resource type="Texture2D" uid="uid://dl33slmfrgc1t" path="res://sprites/sprSentryIndicatorOff.png" id="6_o8n1n"]
+[ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="6_y75pg"]
 [ext_resource type="AudioStream" uid="uid://mtbpxox4snyl" path="res://sounds/sndDeath.ogg" id="13_btj8e"]
 [ext_resource type="FontFile" uid="uid://bha4ogv0jof7x" path="res://fonts/fntBig.ttf" id="14_svt7u"]
 [ext_resource type="FontFile" uid="uid://we5onkvfxecy" path="res://fonts/van_small_font.ttf" id="15_oybt8"]
@@ -234,7 +235,7 @@ offset_right = 37.0
 offset_bottom = 143.0
 grow_horizontal = 2
 text = "Press space to respawn, escape to quit"
-label_settings = SubResource("LabelSettings_fwrv3")
+label_settings = ExtResource("6_y75pg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -281,5 +282,22 @@ grow_vertical = 0
 size_flags_horizontal = 2
 texture = ExtResource("6_o8n1n")
 stretch_mode = 2
+
+[node name="debug" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="debug"]
+offset_left = 3.0
+offset_right = 46.0
+offset_bottom = 16.0
+
+[node name="label" type="Label" parent="debug/HBoxContainer"]
+layout_mode = 2
+text = "Pos: "
+label_settings = ExtResource("6_y75pg")
+
+[node name="value" type="Label" parent="debug/HBoxContainer"]
+layout_mode = 2
+text = "0, 0"
+label_settings = ExtResource("6_y75pg")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -111,10 +111,4 @@ func _on_body_entered(body: Node2D) -> void:
 				body.direction.y += body.spd
 				body.swap_anim("walk_down")
 				
-		var new_transition = load("res://objects/ToBlack.tscn").instantiate()
-		new_transition.set_speed(2.5)
-		get_tree().get_root().add_child(new_transition)
-		await new_transition.midpoint
-		get_tree().change_scene_to_file(target_room)
-		
-		pass
+		Game.transition_room(target_room)

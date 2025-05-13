@@ -50,6 +50,9 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
+	$debug/HBoxContainer/value.text = str(position)
+	
+	
 	$sentry_indicator/texture.modulate.a = indicatoralpha
 	
 	var sentry_count = get_tree().get_node_count_in_group("objSentry")
@@ -152,6 +155,7 @@ func _physics_process(delta: float) -> void:
 			idle = true
 			
 		if idle:
+			get_tree().call_group("camera", "round_position") #Prevent weird offsets
 			$sprite.speed_scale = 1
 			if dir == PLAYERDIR.DOWN:
 				$sprite.play("idle_down")
@@ -173,11 +177,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		if deathtimer >= 5 and !transitioning:
 			transitioning = true
-			var new_transition = load("res://objects/ToBlack.tscn").instantiate()
-			new_transition.set_speed(2.5)
-			get_tree().get_root().add_child(new_transition)
-			await new_transition.midpoint
-			get_tree().reload_current_scene()
+			Game.transition_room("")
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
@@ -227,6 +227,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			die()
 
 func die():
+	Game.kill_text()
 	Game.beingchased = false
 	$sprite.speed_scale = 1
 	
@@ -248,3 +249,12 @@ func die():
 func swap_anim(anim_name : String, flip_x : bool = false) -> void:
 	$sprite.flip_h = flip_x
 	$sprite.play(anim_name)
+
+
+func set_pos_facing(pos_x : int, pos_y : int, pos_facing : int):
+	if pos_x != 0 and pos_y != 0:
+		position = Vector2(pos_x, pos_y)
+	dir = pos_facing
+	
+	if pos_facing == PLAYERDIR.LEFT:
+		$sprite.flip_h = true

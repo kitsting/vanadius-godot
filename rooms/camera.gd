@@ -14,6 +14,9 @@ var previous_positions = []
 
 func _ready():
 	set_process(true)
+	
+func round_position():
+	position = round(position)
 
 # Shake with decreasing intensity while there's time remaining.
 func _process(delta):

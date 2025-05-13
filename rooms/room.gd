@@ -55,8 +55,7 @@ func _ready() -> void:
 	else:
 		Audio.stop_music()
 		
-	Game.alert = false
-	Game.beingchased = false
+	get_tree().call_group("player","set_pos_facing",Game.roomtargetx,Game.roomtargety,Game.roomtargetfacing)
 
 func checkArea():
 	return area

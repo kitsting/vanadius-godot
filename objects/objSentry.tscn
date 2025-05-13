@@ -42,6 +42,7 @@ size = Vector2(16, 16)
 radius = 45.0
 
 [node name="ObjSentry" type="PathFollow2D" groups=["objSentry"]]
+z_index = 1
 rotates = false
 script = ExtResource("1_8mbie")
 

@@ -146,10 +146,19 @@ func checkArea() -> String:
 	return m_area_null
 
 
-func transition_room(room) -> void:
+func transition_room(room : String) -> void:
 	if room != null:
+		alert = false
+		beingchased = false
 		
-		get_tree().change_scene_to_file(room)
+		var new_transition = load("res://objects/ToBlack.tscn").instantiate()
+		new_transition.set_speed(2.5)
+		get_tree().get_root().add_child(new_transition)
+		await new_transition.midpoint
+		if room != "":
+			get_tree().change_scene_to_file(room)
+		else:
+			get_tree().reload_current_scene()
 		
 		
 func getMusic(area) -> String:
@@ -203,3 +212,16 @@ func save_game():
 	
 func load_game():
 	pass
+
+
+func show_textbox(file : String = "test", node : String = "text"):
+	if get_tree().get_node_count_in_group("text") < 1:
+		var box : Node = load("res://ui/textbox.tscn").instantiate()
+		box.set_text(file, node)
+		get_tree().root.add_child(box)
+		await box.text_finished
+		#emit_signal("cutscene_finished")
+
+
+func kill_text():
+	get_tree().call_group("text", "queue_free")
