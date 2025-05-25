@@ -20,8 +20,10 @@ extends Node2D
 	Game.m_area_final_sub3,
 	Game.m_area_outside) var area : String = Game.m_area_cave
 @export var room_name : String = ""
+@export var internal_name : String = ""
 
 @export var silent : bool = false
+@export var allow_pausing : bool = true
 @export var darkness_intensity : float = 0
 @export var darkness_light : float = 0
 
@@ -29,11 +31,16 @@ extends Node2D
 @export var override_sentry_radius : int = 0
 @export var override_mini_sentry_radius : int = 0
 
+var pause_cooldown : bool = false
+
 
 func _init() -> void:
 	add_to_group("room")
 
 func _ready() -> void:
+	Game.lasers = true
+	Game.area = area
+	
 	if override_sentry_radius != 0:
 		get_tree().call_group("objSentry","@radius_setter",override_sentry_radius)
 		
@@ -41,7 +48,7 @@ func _ready() -> void:
 		get_tree().call_group("objSentryMini","@radius_setter",override_mini_sentry_radius)
 		
 	
-	#Get the size ofthe current room and lock the camera
+	#Get the size of the current room and lock the camera
 	var room_size = $Floor.get_used_rect()
 	
 	if has_node("Camera"):
@@ -56,6 +63,20 @@ func _ready() -> void:
 		Audio.stop_music()
 		
 	get_tree().call_group("player","set_pos_facing",Game.roomtargetx,Game.roomtargety,Game.roomtargetfacing)
+	
+	Game.current_room = internal_name
 
 func checkArea():
 	return area
+
+
+func _input(event: InputEvent) -> void:
+	if allow_pausing and Input.is_action_just_pressed("pause") and !pause_cooldown:
+		var new_pause = load("res://objects/objPause.tscn").instantiate()
+		get_tree().paused = true
+		add_child(new_pause)
+		pause_cooldown = true
+		await new_pause.done
+		get_tree().paused = false
+		await get_tree().create_timer(0.2).timeout
+		pause_cooldown = false

@@ -16,6 +16,7 @@ func set_text(file : String = "test", node : String = "test_text"):
 	
 
 func _ready():
+	Audio.play_sound("res://sounds/sndBeep.ogg", "beep")
 	$next.visible = false
 	$last.visible = false
 	
@@ -28,6 +29,7 @@ func _input(event):
 		if can_dismiss:
 			#Go to next line
 			if dialogue_line != null:
+				Audio.play_sound("res://sounds/sndBeep.ogg", "beep")
 				can_dismiss = false
 				$DismissCooldown.start(0.15)
 				can_skip = false
@@ -38,6 +40,7 @@ func _input(event):
 				await $BG/Label.finished_typing
 				can_dismiss = true
 			else:
+				Audio.play_sound("res://sounds/sndBeep.ogg", "beep", 0, false, 0.9)
 				emit_signal("text_finished")
 				queue_free()
 		if can_skip:
@@ -57,3 +60,8 @@ func _on_label_finished_typing() -> void:
 		$last.visible = true
 	else:
 		$next.visible = true
+
+
+func _on_label_spoke(letter: String, letter_index: int, speed: float) -> void:
+	$text_sound.pitch_scale = randf_range(0.9,1.1)
+	$text_sound.play()

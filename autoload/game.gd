@@ -63,6 +63,8 @@ var roomtargety : int = 0
 var roomtargetfacing : int = 1
 var roomtargetstate : PLAYERSTATE = PLAYERSTATE.ALIVE
 
+var current_room = ""
+
 var safepressureplatepressed : bool = false
 
 var lasers : bool = true:
@@ -126,10 +128,18 @@ func getTimeString(seconds : int, usehours : bool = true):
 	var minutes : int = seconds/60
 	var hours : int = minutes/60
 	
+	var minutes_string = str(minutes%60)
+	if (minutes%60) < 10:
+		minutes_string = "0" + minutes_string
+		
+	var seconds_string = str(seconds%60)
+	if (seconds%60) < 10:
+		seconds_string = "0" + seconds_string
+	
 	if usehours:
-		return str(hours) + ":" + str(minutes%60) + ":" + str(seconds%60)
+		return str(hours) + ":" + minutes_string + ":" + seconds_string
 	else:
-		return str(minutes) + ":" + str(seconds%60)
+		return str(minutes) + ":" + besttimeseconds
 
 
 func boolToOnOff(variable : bool):

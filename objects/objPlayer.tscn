@@ -1,18 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://of0pinpxw1p8"]
+[gd_scene load_steps=17 format=3 uid="uid://of0pinpxw1p8"]
 
 [ext_resource type="Script" uid="uid://dprumdiryoe2j" path="res://objects/obj_player.gd" id="1_sqw18"]
 [ext_resource type="SpriteFrames" uid="uid://2c6vloxowiw1" path="res://resources/objPlayerSprites.tres" id="2_lajuu"]
+[ext_resource type="LabelSettings" uid="uid://d08xk8kwh1ry4" path="res://resources/big_label.tres" id="4_y75pg"]
 [ext_resource type="Texture2D" uid="uid://dl33slmfrgc1t" path="res://sprites/sprSentryIndicatorOff.png" id="6_o8n1n"]
 [ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="6_y75pg"]
 [ext_resource type="AudioStream" uid="uid://mtbpxox4snyl" path="res://sounds/sndDeath.ogg" id="13_btj8e"]
-[ext_resource type="FontFile" uid="uid://bha4ogv0jof7x" path="res://fonts/fntBig.ttf" id="14_svt7u"]
 [ext_resource type="FontFile" uid="uid://we5onkvfxecy" path="res://fonts/van_small_font.ttf" id="15_oybt8"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_oybt8"]
-font = ExtResource("14_svt7u")
-font_size = 8
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fwrv3"]
 font = ExtResource("15_oybt8")
@@ -79,8 +73,9 @@ _data = {
 &"show_death_screen": SubResource("Animation_oybt8")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oybt8"]
-size = Vector2(14, 12)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y75pg"]
+radius = 6.0
+height = 14.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lajuu"]
 size = Vector2(10, 10)
@@ -205,7 +200,7 @@ offset_right = 43.5
 offset_bottom = 45.0
 grow_horizontal = 2
 text = "You Died!"
-label_settings = SubResource("LabelSettings_oybt8")
+label_settings = ExtResource("4_y75pg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -245,7 +240,8 @@ libraries = {
 }
 
 [node name="Collision" type="CollisionShape2D" parent="." groups=["player"]]
-shape = SubResource("RectangleShape2D_oybt8")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_y75pg")
 
 [node name="Hitbox" type="Area2D" parent="." groups=["player"]]
 
@@ -292,12 +288,28 @@ offset_bottom = 16.0
 
 [node name="label" type="Label" parent="debug/HBoxContainer"]
 layout_mode = 2
-text = "Pos: "
+text = "Pos:"
 label_settings = ExtResource("6_y75pg")
 
 [node name="value" type="Label" parent="debug/HBoxContainer"]
 layout_mode = 2
 text = "0, 0"
+label_settings = ExtResource("6_y75pg")
+
+[node name="rm" type="HBoxContainer" parent="debug"]
+offset_left = 3.0
+offset_top = 14.0
+offset_right = 46.0
+offset_bottom = 30.0
+
+[node name="label" type="Label" parent="debug/rm"]
+layout_mode = 2
+text = "Rm:"
+label_settings = ExtResource("6_y75pg")
+
+[node name="value" type="Label" parent="debug/rm"]
+layout_mode = 2
+text = "none"
 label_settings = ExtResource("6_y75pg")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

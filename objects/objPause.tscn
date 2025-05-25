@@ -1,0 +1,375 @@
+[gd_scene load_steps=13 format=3 uid="uid://b87xy4bf2le0l"]
+
+[ext_resource type="Script" uid="uid://bj0y8ky2fwafu" path="res://objects/obj_pause.gd" id="1_p3d0u"]
+[ext_resource type="Texture2D" uid="uid://dw245kb85tfg6" path="res://sprites/spr9Slice1.png" id="1_rsf8a"]
+[ext_resource type="PackedScene" uid="uid://71kxce1shkm6" path="res://objects/objMap.tscn" id="2_jpj2q"]
+[ext_resource type="LabelSettings" uid="uid://d08xk8kwh1ry4" path="res://resources/big_label.tres" id="2_leb70"]
+[ext_resource type="Texture2D" uid="uid://djj5t3bu2pgww" path="res://sprites/sprDeathIcon.png" id="3_s5yx1"]
+[ext_resource type="Texture2D" uid="uid://cjo7fl7f7wsbj" path="res://sprites/input/ButtonXXbox.png" id="4_nqn8x"]
+[ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="4_nui6y"]
+[ext_resource type="Texture2D" uid="uid://blyyws256elgn" path="res://sprites/sprCollectibleIcon.png" id="5_s5yx1"]
+[ext_resource type="FontFile" uid="uid://bha4ogv0jof7x" path="res://fonts/fntBig.ttf" id="6_nui6y"]
+
+[sub_resource type="Animation" id="Animation_nqn8x"]
+resource_name = "show_map"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG/NinePatchRect/ColorRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(167, 144), Vector2(284, 144)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BG/NinePatchRect/ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(125, 8), Vector2(8, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BG/NinePatchRect/ColorRect/map_mode/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.03),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Map Mode", "Exit Map Mode"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BG/NinePatchRect/stats:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.03),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BG/NinePatchRect/options:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.03),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BG/NinePatchRect/Label:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.03),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_cxrwq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG/NinePatchRect/ColorRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(167, 144)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BG/NinePatchRect/ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(125, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BG/NinePatchRect/ColorRect/map_mode/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Map Mode"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BG/NinePatchRect/stats:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BG/NinePatchRect/options:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BG/NinePatchRect/Label:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cxrwq"]
+_data = {
+&"RESET": SubResource("Animation_cxrwq"),
+&"show_map": SubResource("Animation_nqn8x")
+}
+
+[node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_p3d0u")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.941176)
+
+[node name="BG" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rsf8a")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="BG/NinePatchRect"]
+clip_contents = true
+layout_mode = 0
+offset_left = 125.0
+offset_top = 8.0
+offset_right = 292.0
+offset_bottom = 152.0
+color = Color(0, 0, 0, 1)
+
+[node name="objMap" parent="BG/NinePatchRect/ColorRect" instance=ExtResource("2_jpj2q")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="map_mode" type="HBoxContainer" parent="BG/NinePatchRect/ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -18.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="BG/NinePatchRect/ColorRect/map_mode"]
+layout_mode = 2
+texture = ExtResource("4_nqn8x")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="BG/NinePatchRect/ColorRect/map_mode"]
+layout_mode = 2
+text = "Map Mode"
+label_settings = ExtResource("4_nui6y")
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="BG/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.0
+offset_top = 10.0
+offset_right = -60.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Paused"
+label_settings = ExtResource("2_leb70")
+
+[node name="stats" type="HBoxContainer" parent="BG/NinePatchRect"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 126.0
+offset_right = 125.0
+offset_bottom = 154.0
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="deaths" type="VBoxContainer" parent="BG/NinePatchRect/stats"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="BG/NinePatchRect/stats/deaths"]
+layout_mode = 2
+texture = ExtResource("3_s5yx1")
+stretch_mode = 3
+
+[node name="death_label" type="Label" parent="BG/NinePatchRect/stats/deaths"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("4_nui6y")
+horizontal_alignment = 1
+
+[node name="collectibles" type="VBoxContainer" parent="BG/NinePatchRect/stats"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="BG/NinePatchRect/stats/collectibles"]
+layout_mode = 2
+texture = ExtResource("5_s5yx1")
+stretch_mode = 3
+
+[node name="collect_label" type="Label" parent="BG/NinePatchRect/stats/collectibles"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0/15"
+label_settings = ExtResource("4_nui6y")
+horizontal_alignment = 1
+
+[node name="time" type="HBoxContainer" parent="BG/NinePatchRect/stats"]
+layout_mode = 2
+
+[node name="time_label" type="Label" parent="BG/NinePatchRect/stats/time"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0:00:00"
+label_settings = ExtResource("4_nui6y")
+
+[node name="options" type="VBoxContainer" parent="BG/NinePatchRect"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 32.0
+offset_right = 116.0
+offset_bottom = 132.0
+theme_override_constants/separation = 6
+
+[node name="Resume" type="Button" parent="BG/NinePatchRect/options"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.520356, 0.520356, 0.520356, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_nui6y")
+theme_override_font_sizes/font_size = 8
+text = "Resume"
+flat = true
+
+[node name="Options" type="Button" parent="BG/NinePatchRect/options"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("6_nui6y")
+theme_override_font_sizes/font_size = 8
+text = "Options"
+flat = true
+
+[node name="Warp" type="Button" parent="BG/NinePatchRect/options"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("6_nui6y")
+theme_override_font_sizes/font_size = 8
+text = "Warp to Ruins"
+flat = true
+
+[node name="Quit" type="Button" parent="BG/NinePatchRect/options"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("6_nui6y")
+theme_override_font_sizes/font_size = 8
+text = "Save and Quit"
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cxrwq")
+}
+
+[connection signal="pressed" from="BG/NinePatchRect/options/Resume" to="." method="_on_resume_pressed"]

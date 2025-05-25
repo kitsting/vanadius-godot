@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://byku1v575g4rs"]
+
+[ext_resource type="Texture2D" uid="uid://b0drosaucj3yi" path="res://sprites/gate/sprGateConnector.png" id="1_h8k0b"]
+[ext_resource type="Texture2D" uid="uid://dhe84upyujgtf" path="res://sprites/gate/sprGateLeft.png" id="1_n28qe"]
+[ext_resource type="Script" uid="uid://ckef1e4jtar12" path="res://objects/obj_gate.gd" id="1_p0a23"]
+[ext_resource type="Texture2D" uid="uid://dre7u561q6ncx" path="res://sprites/gate/sprGateMiddle.png" id="3_p0a23"]
+[ext_resource type="Texture2D" uid="uid://qupxp7y6xsv2" path="res://sprites/gate/sprGateRight.png" id="4_saxjt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7pjr"]
+size = Vector2(96, 8)
+
+[node name="objGate" type="StaticBody2D"]
+texture_filter = 1
+script = ExtResource("1_p0a23")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_r7pjr")
+
+[node name="Connector" type="Sprite2D" parent="."]
+position = Vector2(1.66893e-06, -16)
+scale = Vector2(14.3333, 1)
+texture = ExtResource("1_h8k0b")
+
+[node name="Left" type="Sprite2D" parent="."]
+position = Vector2(-42, -16)
+texture = ExtResource("1_n28qe")
+
+[node name="CenterL" type="Sprite2D" parent="."]
+position = Vector2(-14, -16)
+texture = ExtResource("3_p0a23")
+
+[node name="CenterR" type="Sprite2D" parent="."]
+position = Vector2(14, -16)
+texture = ExtResource("3_p0a23")
+
+[node name="Right" type="Sprite2D" parent="."]
+position = Vector2(42, -16)
+texture = ExtResource("4_saxjt")

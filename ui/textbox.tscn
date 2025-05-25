@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://djns2nsttuyq"]
+[gd_scene load_steps=9 format=3 uid="uid://djns2nsttuyq"]
 
 [ext_resource type="Script" uid="uid://df26ugaogk3yp" path="res://ui/textbox.gd" id="1_6l0wm"]
 [ext_resource type="Texture2D" uid="uid://dw245kb85tfg6" path="res://sprites/spr9Slice1.png" id="2_lqunq"]
@@ -6,15 +6,18 @@
 [ext_resource type="FontFile" uid="uid://we5onkvfxecy" path="res://fonts/van_small_font.ttf" id="4_ft82a"]
 [ext_resource type="Texture2D" uid="uid://bpeqmlyyam1pa" path="res://sprites/sprNewPage.png" id="5_mc23v"]
 [ext_resource type="Texture2D" uid="uid://dhquomkqcna43" path="res://sprites/sprLastPage.png" id="6_s2yxm"]
+[ext_resource type="AudioStream" uid="uid://cgv3iebd2418" path="res://sounds/sndText.ogg" id="7_s2yxm"]
+[ext_resource type="AudioStream" uid="uid://oskqhdafetpn" path="res://sounds/sndBeep.ogg" id="8_2k4xw"]
 
 [node name="Textbox" type="CanvasLayer" groups=["text"]]
+layer = 2
 script = ExtResource("1_6l0wm")
 
 [node name="BG" type="NinePatchRect" parent="."]
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 312.0
-offset_bottom = 48.0
+offset_bottom = 51.0
 texture = ExtResource("2_lqunq")
 patch_margin_left = 10
 patch_margin_top = 10
@@ -22,15 +25,18 @@ patch_margin_right = 10
 patch_margin_bottom = 10
 
 [node name="Label" parent="BG" instance=ExtResource("3_syavb")]
+clip_contents = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -35.0
-offset_right = -10.0
-offset_bottom = -3.0
+offset_left = 11.0
+offset_top = -37.0
+offset_right = -9.0
+offset_bottom = -5.0
 grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_constants/line_separation = -3
 theme_override_fonts/normal_font = ExtResource("4_ft82a")
 text = "test test test
@@ -45,20 +51,27 @@ autostart = true
 [node name="next" type="TextureRect" parent="."]
 visible = false
 offset_left = 155.0
-offset_top = 44.0
+offset_top = 46.0
 offset_right = 164.0
-offset_bottom = 53.0
+offset_bottom = 55.0
 texture = ExtResource("5_mc23v")
 stretch_mode = 2
 
 [node name="last" type="TextureRect" parent="."]
 visible = false
 offset_left = 155.0
-offset_top = 43.0
+offset_top = 45.0
 offset_right = 164.0
-offset_bottom = 52.0
+offset_bottom = 54.0
 texture = ExtResource("6_s2yxm")
 stretch_mode = 2
 
+[node name="text_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_s2yxm")
+
+[node name="next_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_2k4xw")
+
 [connection signal="finished_typing" from="BG/Label" to="." method="_on_label_finished_typing"]
+[connection signal="spoke" from="BG/Label" to="." method="_on_label_spoke"]
 [connection signal="timeout" from="DismissCooldown" to="." method="_on_dismiss_cooldown_timeout"]

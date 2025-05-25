@@ -77,7 +77,7 @@ func _on_body_entered(body: Node2D) -> void:
 		target_body = body
 		
 		Game.roomtargetx = target_x
-		Game.roomtargety = target_y + 14
+		Game.roomtargety = target_y
 		Game.alert = false
 		Game.beingchased = false
 		

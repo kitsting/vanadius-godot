@@ -50,6 +50,8 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
+	
+	$debug/rm/value.text = Game.current_room
 	$debug/HBoxContainer/value.text = str(position)
 	
 	
@@ -155,6 +157,7 @@ func _physics_process(delta: float) -> void:
 			idle = true
 			
 		if idle:
+			position = round(position)
 			get_tree().call_group("camera", "round_position") #Prevent weird offsets
 			$sprite.speed_scale = 1
 			if dir == PLAYERDIR.DOWN:

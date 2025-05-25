@@ -3,7 +3,7 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var area : String = Game.checkArea()
+	var area : String = Game.area
 	
 	if area == Game.m_area_cave:
 		$sprite.texture = load("res://sprites/spikes/sprSpikeCave.png")

@@ -26,20 +26,21 @@ var on = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if !inverted:
-		if Game.lasers:
-			$laser/sprite.animation = "red_constant"
+	if !Engine.is_editor_hint():
+		if !inverted:
+			if Game.lasers:
+				$laser/sprite.animation = "red_constant"
+			else:
+				$laser/sprite.animation = "off"
 		else:
-			$laser/sprite.animation = "off"
-	else:
-		if Game.lasers:
-			$laser/sprite.animation = "off"
-		else:
-			$laser/sprite.animation = "green_constant"
-			
-	update_collision(Game.lasers)
-			
-	Game.connect("lasers_changed",laser_change.call_deferred)
+			if Game.lasers:
+				$laser/sprite.animation = "off"
+			else:
+				$laser/sprite.animation = "green_constant"
+				
+		update_collision(Game.lasers)
+				
+		Game.connect("lasers_changed",laser_change.call_deferred)
 	
 	if !Engine.is_editor_hint():
 		$stopperL.visible = true

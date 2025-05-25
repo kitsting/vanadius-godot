@@ -10,7 +10,7 @@ var music_target_db = -6
 # channel: the name of a channel to play
 # volume: db for the sound. 0 is baseline
 # allow_overwrite: allow resetting the sound if the same channel is requested. locks the channel if false
-func play_sound(sound : String, channel : String, volume : float = 0, allow_overwrite : bool = false) -> void:
+func play_sound(sound : String, channel : String, volume : float = 0.0, allow_overwrite : bool = false, pitch: float = 1.0) -> void:
 	if !has_node(channel):
 		var new_channel = AudioStreamPlayer.new()
 		new_channel.name = channel
@@ -18,6 +18,7 @@ func play_sound(sound : String, channel : String, volume : float = 0, allow_over
 		
 	if !get_node(channel).playing or allow_overwrite:
 		get_node(channel).stream = load(sound)
+		get_node(channel).pitch_scale = pitch
 		get_node(channel).volume_db = volume
 		get_node(channel).play()
 

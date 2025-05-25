@@ -1,11 +1,37 @@
-~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+~ rmNameHere
+
+uh ohhhhhhhhhhhhhhhhhhhhhhhhhhh
+loowks like sowmebodyyy forgowt to put in texttttttt
+=> END
+
+~ rmRuinStart
+This facility has been brought to you by Veraille Solutions.
+If you encounter any issues, don't hesistate to call us!
+=> END
+
+~ rmRuinChallenge1
+The Lab is up ahead, on your left. Remember to take proper Lab precautions.
+To all staff\: Please take caution navigating through the Mini Sentries.
+Their placement is temporary, and we apologize for the inconvenience.
+If you find yourself needing to head back, you can open your [color=red]pause menu[/color] to get back here.
+=> END
+
+~ rmRuinSecret1
+Entry #147 (6/16/24)
+Today we've deployed Subject 23 for testing. This model comes with numerous improvements.
+If testing doesn't go to plan, our options are looking slim. Bankruptcy is absolutely unacceptable.
+=> END
+
+~ rmRuinBreak
+This is where the sentries that need repair go.
+Most are still functional, but they are not running at ideal efficiency.
+It takes us a while to get to them, but once they're fixed, we put them [color=yellow]outside of rooms[/color].
+We also crank up their speed, which is great for increased security.
+=> END
+
+~ rmRuinFEntrance
+Navigation Directions:
+^ Main Hub
+< Control Center
+> Factory
 => END

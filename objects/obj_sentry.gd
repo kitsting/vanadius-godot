@@ -28,6 +28,7 @@ var target : Node = null
 		radius = value
 		$radius/CollisionShape2D.shape.radius = value
 
+@export var path_backwards = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,6 +41,9 @@ func _ready() -> void:
 		spd = 1.5
 		
 	$radius/CollisionShape2D.shape.radius = radius
+	
+	if path_backwards:
+		pathspd = -pathspd
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -70,7 +74,7 @@ func _physics_process(delta: float) -> void:
 			
 			#run away from the player if they die
 			if !Game.alert or target.pstate == target.PLAYERSTATE.DEAD:
-				direction = position.direction_to(target.position) * (-2 * spd * delta * 60)
+				direction = position.direction_to(target.position) * (-3 * spd * delta * 60)
 				position += direction
 				
 				if $death_timer.is_stopped():
@@ -88,6 +92,7 @@ func _on_radius_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and canchase:
 		if body.pstate == body.PLAYERSTATE.ALIVE and target == null:
 			target = body
+			get_tree().call_group("objSentry", "set_body", target)
 			Game.alert = true
 			Game.beingchased = true
 			$alert.play()
@@ -118,3 +123,6 @@ func _draw():
 
 func _on_death_timer_timeout() -> void:
 	queue_free()
+
+func set_body(body : Node):
+	target = body
