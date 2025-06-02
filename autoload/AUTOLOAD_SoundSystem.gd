@@ -1,6 +1,6 @@
 extends Node
 
-var music_enabled = false
+var music_enabled = true
 var music_target_db = -6
 
 

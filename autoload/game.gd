@@ -67,6 +67,7 @@ var roomtargetfacing : int = 1
 var roomtargetstate : PLAYERSTATE = PLAYERSTATE.ALIVE
 
 var current_room = ""
+var playing = false
 
 var safepressureplatepressed : bool = false
 
@@ -114,10 +115,6 @@ var powerswitchred = false
 var gamecompleted = false
 var besttimeseconds = 100000000
 
-var usescreenshake = true
-var soundvol = 0.5
-var musvol = 0.5
-
 var tutorialmode = "Autodetect"
 
 var room_width = 320
@@ -135,6 +132,10 @@ var options = {
 	"pause_on_lost_focus" : false,
 	"buttons" : 0,
 }
+
+
+func _ready() -> void:
+	load_options()
 
 func update_options():
 	#Fullscreen
@@ -173,7 +174,7 @@ func save_options():
 
 func load_options():
 	if FileAccess.file_exists("user://config.json"):
-		var file = FileAccess.open("user:/config.json", FileAccess.READ)
+		var file = FileAccess.open("user://config.json", FileAccess.READ)
 		var text = JSON.parse_string(file.get_as_text())
 		for option in text:
 			if options.has(option):
@@ -315,3 +316,18 @@ func show_textbox(file : String = "test", node : String = "text"):
 
 func kill_text():
 	get_tree().call_group("text", "queue_free")
+	
+	
+func set_playing():
+	if !playing:
+		playing = true
+		var new_timer = Timer.new()
+		new_timer.one_shot = false
+		new_timer.process_mode = Node.PROCESS_MODE_ALWAYS
+		new_timer.connect("timeout", increment_playtime)
+		add_child(new_timer)
+		new_timer.start()
+		
+		
+func increment_playtime():
+	timeplayedseconds += 1

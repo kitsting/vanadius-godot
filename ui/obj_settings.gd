@@ -8,6 +8,14 @@ var submenu = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%VideoBtn.grab_focus()
+	
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("pause"):
+		if !submenu:
+			exit()
+		else:
+			exit_submenu()
+			%Done.grab_focus()
 
 
 func exit():

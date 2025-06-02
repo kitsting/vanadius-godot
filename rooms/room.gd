@@ -41,6 +41,8 @@ func _ready() -> void:
 	Game.lasers = true
 	Game.area = area
 	
+	Game.set_playing()
+	
 	if override_sentry_radius != 0:
 		get_tree().call_group("objSentry","@radius_setter",override_sentry_radius)
 		
