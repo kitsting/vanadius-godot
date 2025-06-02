@@ -1,0 +1,7 @@
+~ robot
+It's not moving.
+=> END
+
+~ control_panel
+It's a panel filled with buttons and lights you don't understand.
+=> END

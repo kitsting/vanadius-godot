@@ -2,17 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://of0pinpxw1p8" path="res://objects/objPlayer.tscn" id="1_gxvrf"]
 [ext_resource type="Script" uid="uid://8fetit7wa0x3" path="res://rooms/room.gd" id="1_heske"]
-[ext_resource type="TileSet" uid="uid://b7tdr1iqo8324" path="res://tilesets/objects.tres" id="3_480xm"]
+[ext_resource type="TileSet" uid="uid://b7tdr1iqo8324" path="res://resources/tilesets/objects.tres" id="3_480xm"]
 [ext_resource type="PackedScene" uid="uid://b0g1mrf2nwoy2" path="res://objects/laser/objLaser.tscn" id="4_bquxs"]
 [ext_resource type="PackedScene" uid="uid://bfap3c0mnqlb6" path="res://objects/objSentry.tscn" id="4_heske"]
-[ext_resource type="TileSet" uid="uid://dj4rnvi15wx87" path="res://tilesets/tiles.tres" id="5_480xm"]
+[ext_resource type="TileSet" uid="uid://dj4rnvi15wx87" path="res://resources/tilesets/tiles.tres" id="5_480xm"]
 [ext_resource type="PackedScene" uid="uid://gduho5j00wxl" path="res://objects/conveyor/objLever.tscn" id="6_6ruwc"]
 [ext_resource type="PackedScene" uid="uid://c2kxjvt42rta7" path="res://objects/objSentryMini.tscn" id="6_tvvn8"]
 [ext_resource type="PackedScene" uid="uid://b3bfejchk2n8n" path="res://objects/objCollectible.tscn" id="7_tyqam"]
 [ext_resource type="Script" uid="uid://bp4jfotnw5tx4" path="res://rooms/camera.gd" id="7_uyjf2"]
 [ext_resource type="PackedScene" uid="uid://qg62xhb8whr7" path="res://objects/objSign.tscn" id="8_17soh"]
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="9_kae30"]
-[ext_resource type="TileSet" uid="uid://f0ypl1ei8ao" path="res://tilesets/ceilings.tres" id="10_jx6qk"]
+[ext_resource type="TileSet" uid="uid://f0ypl1ei8ao" path="res://resources/tilesets/ceilings.tres" id="10_jx6qk"]
 
 [sub_resource type="Curve2D" id="Curve2D_heske"]
 _data = {

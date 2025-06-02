@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://sj8deey0yefv"]
+
+[ext_resource type="Texture2D" uid="uid://b73rnmq687yhu" path="res://sprites/sprFactoryBox.png" id="1_ydxym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc7li"]
+size = Vector2(14, 11)
+
+[node name="objPackage" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_ydxym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_qc7li")

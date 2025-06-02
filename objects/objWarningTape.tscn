@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0q3dabiq5b4y"]
+
+[ext_resource type="Texture2D" uid="uid://b76pwvjggwbc5" path="res://sprites/sprWarning.png" id="1_247t4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xckyq"]
+size = Vector2(10, 10)
+
+[node name="objWarningTape" type="StaticBody2D"]
+z_index = -4
+collision_layer = 9
+collision_mask = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_247t4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xckyq")

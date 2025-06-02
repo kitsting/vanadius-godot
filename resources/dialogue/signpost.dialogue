@@ -2,6 +2,11 @@
 
 uh ohhhhhhhhhhhhhhhhhhhhhhhhhhh
 loowks like sowmebodyyy forgowt to put in texttttttt
+how do you feew about this??
+- Good
+	good
+- Bad
+	extra good
 => END
 
 ~ rmRuinStart
@@ -23,7 +28,7 @@ If testing doesn't go to plan, our options are looking slim. Bankruptcy is absol
 => END
 
 ~ rmRuinBreak
-This is where the sentries that need repair go.
+This is where the Sentries that need repair go.
 Most are still functional, but they are not running at ideal efficiency.
 It takes us a while to get to them, but once they're fixed, we put them [color=yellow]outside of rooms[/color].
 We also crank up their speed, which is great for increased security.
@@ -34,4 +39,18 @@ Navigation Directions:
 ^ Main Hub
 < Control Center
 > Factory
+=> END
+
+~ rmFactoryChallenge3
+Entry #20 (3/16/23)
+In order for this scheme to work, we require mass production.
+We built the Factory to keep everything in-house. Now, we can produce anything quickly and efficiently.
+Subjects, Sentries, you name it. Our contractors are sure to be pleased.
+=> END
+
+~ rmFactoryBlue2
+Entry #100 (9/30/23)
+The testing environments just aren't working.
+We've decided to redesign most of our facility to be a testing ground for Subjects.
+As long as one is successful, we might be able to stand a chance.
 => END

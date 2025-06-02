@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://nl1s1jm37og5"]
+
+[ext_resource type="Script" uid="uid://dcba2kw7wktaq" path="res://objects/laser/obj_laser_blue.gd" id="1_p13ox"]
+[ext_resource type="PackedScene" uid="uid://3tm1ko0uce8u" path="res://objects/laser/objLaserStopper.tscn" id="2_xp6y7"]
+[ext_resource type="Texture2D" uid="uid://drnyyi6madvrv" path="res://sprites/laser/sprLaserBlue1.png" id="3_vw08w"]
+[ext_resource type="Texture2D" uid="uid://07gbdhit25s" path="res://sprites/laser/sprLaserBlue2.png" id="4_7vtw7"]
+[ext_resource type="Texture2D" uid="uid://b485w36oakm8q" path="res://sprites/laser/sprLaserBlue3.png" id="5_c1fcj"]
+[ext_resource type="Texture2D" uid="uid://dyt7uw1ymnmwe" path="res://sprites/laser/sprLaser4.png" id="6_ljgs8"]
+[ext_resource type="Texture2D" uid="uid://bj6ymrkr1wbjk" path="res://sprites/laser/sprLaserWarning.png" id="7_7vtw7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p13ox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vw08w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7vtw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c1fcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ljgs8")
+}],
+"loop": false,
+"name": &"change_off",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_c1fcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7vtw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vw08w")
+}],
+"loop": false,
+"name": &"change_on",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vw08w")
+}],
+"loop": true,
+"name": &"constant",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ljgs8")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_7vtw7")
+}],
+"loop": true,
+"name": &"warning",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1evjx"]
+size = Vector2(10, 9)
+
+[node name="ObjLaserBlue" type="Node2D"]
+script = ExtResource("1_p13ox")
+
+[node name="stopperD" parent="." instance=ExtResource("2_xp6y7")]
+visible = false
+z_index = -1
+position = Vector2(-7, -1)
+rotation = -1.5708
+direction = 2
+
+[node name="laser" type="Area2D" parent="." groups=["damage", "objLaserBlue"]]
+collision_layer = 9
+collision_mask = 9
+
+[node name="sprite" type="AnimatedSprite2D" parent="laser"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_p13ox")
+animation = &"change_off"
+frame_progress = 0.8578
+
+[node name="collision" type="CollisionShape2D" parent="laser"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1evjx")
+disabled = true
+
+[node name="left_ray" type="RayCast2D" parent="."]
+target_position = Vector2(-500, 0)
+collision_mask = 2
+
+[node name="right_ray" type="RayCast2D" parent="."]
+target_position = Vector2(500, 0)
+collision_mask = 2
+
+[node name="stopperL" parent="." instance=ExtResource("2_xp6y7")]
+visible = false
+position = Vector2(10, 0)
+direction = 0
+
+[node name="stopperR" parent="." instance=ExtResource("2_xp6y7")]
+visible = false
+position = Vector2(-9, 0)
+
+[node name="go_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="offset_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="onscreen" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(50, 1)
+
+[connection signal="timeout" from="go_timer" to="." method="_on_go_timer_timeout"]

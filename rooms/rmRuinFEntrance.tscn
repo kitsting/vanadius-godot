@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=4 uid="uid://bdmjj2lpoks4w"]
 
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_qw2i6"]
-[ext_resource type="TileSet" uid="uid://f0ypl1ei8ao" path="res://tilesets/ceilings.tres" id="2_d5lmw"]
+[ext_resource type="TileSet" uid="uid://f0ypl1ei8ao" path="res://resources/tilesets/ceilings.tres" id="2_d5lmw"]
 [ext_resource type="Texture2D" uid="uid://dyyg3kcll5dmn" path="res://sprites/sprCompanySign1.png" id="2_qnjpl"]
 [ext_resource type="PackedScene" uid="uid://qg62xhb8whr7" path="res://objects/objSign.tscn" id="3_614y8"]
 [ext_resource type="PackedScene" uid="uid://c2kxjvt42rta7" path="res://objects/objSentryMini.tscn" id="4_03t3t"]
@@ -76,7 +76,13 @@ target_x = 385
 target_y = 370
 direction = 1
 
-[node name="objRoomTransition2" parent="TopObjects" index="4" instance=ExtResource("7_5vhwr")]
+[node name="objRoomTransition4" parent="TopObjects" index="4" instance=ExtResource("7_5vhwr")]
+position = Vector2(464, 264)
+rotation = 4.71239
+target_room = "uid://bikltjseboo5o"
+direction = 2
+
+[node name="objRoomTransition2" parent="TopObjects" index="5" instance=ExtResource("7_5vhwr")]
 position = Vector2(16, 120)
 rotation = 1.5708
 target_room = "uid://chv5w8c82wcle"
@@ -84,12 +90,10 @@ target_x = 310
 target_y = 125
 direction = 3
 
-[node name="objRoomTransition3" parent="TopObjects" index="5" instance=ExtResource("7_5vhwr")]
+[node name="objRoomTransition3" parent="TopObjects" index="6" instance=ExtResource("7_5vhwr")]
 position = Vector2(16, 440)
 rotation = 1.5708
 target_room = "uid://chv5w8c82wcle"
-target_x = 310
-target_y = 125
 direction = 3
 
 [node name="Ceiling" parent="." index="6"]
@@ -101,24 +105,3 @@ tile_set = ExtResource("2_d5lmw")
 
 [node name="Camera" parent="." index="8"]
 position = Vector2(361, 48)
-
-[connection signal="body_entered" from="TileObjects/objConveyor" to="TileObjects/objConveyor" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/objConveyor" to="TileObjects/objConveyor" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@140369" to="TileObjects/@Area2D@140369" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@140369" to="TileObjects/@Area2D@140369" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@140370" to="TileObjects/@Area2D@140370" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@140370" to="TileObjects/@Area2D@140370" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@140371" to="TileObjects/@Area2D@140371" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@140371" to="TileObjects/@Area2D@140371" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@140372" to="TileObjects/@Area2D@140372" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@140372" to="TileObjects/@Area2D@140372" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@140373" to="TileObjects/@Area2D@140373" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@140373" to="TileObjects/@Area2D@140373" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@140374" to="TileObjects/@Area2D@140374" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@140374" to="TileObjects/@Area2D@140374" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@140375" to="TileObjects/@Area2D@140375" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@140375" to="TileObjects/@Area2D@140375" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@140376" to="TileObjects/@Area2D@140376" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@140376" to="TileObjects/@Area2D@140376" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@140377" to="TileObjects/@Area2D@140377" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@140377" to="TileObjects/@Area2D@140377" method="_on_body_exited"]

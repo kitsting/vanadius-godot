@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=4 uid="uid://cd2i0gn3so2yv"]
 
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_rdgc5"]
-[ext_resource type="TileSet" uid="uid://hmcf6vm4y7tx" path="res://tilesets/small_tiles.tres" id="2_nu1o8"]
-[ext_resource type="TileSet" uid="uid://f0ypl1ei8ao" path="res://tilesets/ceilings.tres" id="3_5b6o0"]
+[ext_resource type="TileSet" uid="uid://hmcf6vm4y7tx" path="res://resources/tilesets/small_tiles.tres" id="2_nu1o8"]
+[ext_resource type="TileSet" uid="uid://f0ypl1ei8ao" path="res://resources/tilesets/ceilings.tres" id="3_5b6o0"]
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="3_07kh7"]
 
 [node name="Testroom" instance=ExtResource("1_rdgc5")]

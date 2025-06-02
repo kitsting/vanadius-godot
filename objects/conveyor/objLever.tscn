@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://gduho5j00wxl"]
+[gd_scene load_steps=18 format=3 uid="uid://gduho5j00wxl"]
 
 [ext_resource type="Script" uid="uid://bordrwvxxktbq" path="res://objects/conveyor/obj_lever.gd" id="1_21pvh"]
 [ext_resource type="Texture2D" uid="uid://dqgwtd5nmagvb" path="res://sprites/conveyor/sprLever1.png" id="1_f54ha"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://htq5hknmfobq" path="res://sprites/conveyor/sprLever6.png" id="6_hattn"]
 [ext_resource type="Texture2D" uid="uid://dyx8up1kb26k4" path="res://sprites/conveyor/sprLever7.png" id="7_fpibc"]
 [ext_resource type="AudioStream" uid="uid://cfqk8p2v1cg5o" path="res://sounds/sndLever.ogg" id="9_2m326"]
+[ext_resource type="Texture2D" uid="uid://bpjia1klisyaq" path="res://sprites/interact/use.png" id="10_72aok"]
+[ext_resource type="Texture2D" uid="uid://fh8ifu1g1pxm" path="res://sprites/interact/use1.png" id="11_fpibc"]
+[ext_resource type="Texture2D" uid="uid://5kr5bypexbui" path="res://sprites/interact/view.png" id="12_tu81d"]
+[ext_resource type="Texture2D" uid="uid://d085dfqty6tll" path="res://sprites/interact/view1.png" id="13_2bidl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tu81d"]
 animations = [{
@@ -45,6 +49,31 @@ size = Vector2(12, 5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_21pvh"]
 radius = 20.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ba2y"]
+animations = [{
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("10_72aok")
+}, {
+"duration": 6.0,
+"texture": ExtResource("11_fpibc")
+}],
+"loop": true,
+"name": &"use",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("12_tu81d")
+}, {
+"duration": 6.0,
+"texture": ExtResource("13_2bidl")
+}],
+"loop": true,
+"name": &"view",
+"speed": 5.0
+}]
+
 [node name="objLever" type="StaticBody2D" groups=["objLever"]]
 script = ExtResource("1_21pvh")
 
@@ -66,6 +95,13 @@ debug_color = Color(1, 1, 1, 0.42)
 
 [node name="sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_2m326")
+
+[node name="interact_sprite" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 999
+position = Vector2(0, -25)
+sprite_frames = SubResource("SpriteFrames_4ba2y")
+animation = &"use"
 
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]

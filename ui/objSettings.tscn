@@ -1,0 +1,259 @@
+[gd_scene load_steps=12 format=3 uid="uid://criqyqj5qwewh"]
+
+[ext_resource type="Script" uid="uid://dw0grywg4m0cw" path="res://ui/obj_settings.gd" id="1_k254d"]
+[ext_resource type="Texture2D" uid="uid://dw245kb85tfg6" path="res://sprites/spr9Slice1.png" id="2_xvq6l"]
+[ext_resource type="Texture2D" uid="uid://ck7l5n38ycnia" path="res://sprites/ui/menu_underline_small.png" id="4_el7p0"]
+[ext_resource type="PackedScene" uid="uid://mep6s1hxljh5" path="res://ui/CycleOption.tscn" id="4_k254d"]
+[ext_resource type="FontFile" uid="uid://we5onkvfxecy" path="res://fonts/van_small_font.ttf" id="6_el7p0"]
+[ext_resource type="FontFile" uid="uid://bha4ogv0jof7x" path="res://fonts/fntBig.ttf" id="9_hklsx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_el7p0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6f7h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jt35w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xvq6l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_psuq5"]
+
+[node name="options_menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_k254d")
+
+[node name="BG" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xvq6l")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Label" type="RichTextLabel" parent="BG/NinePatchRect"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -133.0
+offset_top = 12.0
+offset_right = 135.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("9_hklsx")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Options"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BG/NinePatchRect/Label"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -2.0
+offset_top = 22.0
+offset_right = 67.0
+offset_bottom = 25.0
+texture = ExtResource("4_el7p0")
+stretch_mode = 2
+
+[node name="left_panel" type="VBoxContainer" parent="BG"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 53.0
+offset_right = 179.0
+offset_bottom = 153.0
+theme_override_constants/separation = 6
+
+[node name="VideoBtn" type="Button" parent="BG/left_panel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.520356, 0.520356, 0.520356, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("9_hklsx")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_el7p0")
+text = "Video Settings"
+flat = true
+alignment = 0
+
+[node name="AudioBtn" type="Button" parent="BG/left_panel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("9_hklsx")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f6f7h")
+text = "Audio Settings"
+flat = true
+alignment = 0
+
+[node name="AccessBtn" type="Button" parent="BG/left_panel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("9_hklsx")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jt35w")
+text = "Accessibility Settings"
+flat = true
+alignment = 0
+
+[node name="Done" type="Button" parent="BG/left_panel"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("9_hklsx")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xvq6l")
+text = "Done"
+flat = true
+alignment = 0
+
+[node name="right_panel" type="MarginContainer" parent="BG"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 53.0
+offset_right = 302.0
+offset_bottom = 166.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+
+[node name="video" type="VBoxContainer" parent="BG/right_panel"]
+visible = false
+layout_mode = 2
+
+[node name="VideoMode" parent="BG/right_panel/video" instance=ExtResource("4_k254d")]
+layout_mode = 2
+label = "Video Mode"
+property = "fullscreen"
+keys = Array[String](["Windowed", "Fullscreen"])
+values = [false, true]
+
+[node name="FocusLoss" parent="BG/right_panel/video" instance=ExtResource("4_k254d")]
+layout_mode = 2
+label = "Pause on Lost Focus:"
+property = "pause_on_lost_focus"
+keys = Array[String](["No", "Yes"])
+values = [false, true]
+
+[node name="ButtonPrompts" parent="BG/right_panel/video" instance=ExtResource("4_k254d")]
+layout_mode = 2
+label = "Button Prompts:"
+property = "buttons"
+keys = Array[String](["Auto", "Keyboard", "Controller"])
+values = [0, 1, 2]
+
+[node name="VideoBack" type="Button" parent="BG/right_panel/video"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("6_el7p0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_psuq5")
+text = "Back"
+flat = true
+alignment = 0
+
+[node name="audio" type="VBoxContainer" parent="BG/right_panel"]
+visible = false
+layout_mode = 2
+
+[node name="Master" parent="BG/right_panel/audio" instance=ExtResource("4_k254d")]
+layout_mode = 2
+label = "Master Volume"
+property = "master_volume"
+keys = Array[String](["Off", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"])
+values = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+
+[node name="Music" parent="BG/right_panel/audio" instance=ExtResource("4_k254d")]
+layout_mode = 2
+label = "Music Volume"
+property = "music_volume"
+keys = Array[String](["Off", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"])
+values = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+
+[node name="SFX" parent="BG/right_panel/audio" instance=ExtResource("4_k254d")]
+layout_mode = 2
+label = "SFX Volume"
+property = "sound_volume"
+keys = Array[String](["Off", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"])
+values = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+
+[node name="AudioBack" type="Button" parent="BG/right_panel/audio"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("6_el7p0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_psuq5")
+text = "Back"
+flat = true
+alignment = 0
+
+[node name="accessibility" type="VBoxContainer" parent="BG/right_panel"]
+visible = false
+layout_mode = 2
+
+[node name="Screenshake" parent="BG/right_panel/accessibility" instance=ExtResource("4_k254d")]
+layout_mode = 2
+label = "Screenshake Effects:"
+property = "screenshake"
+keys = Array[String](["No", "Yes"])
+values = [false, true]
+
+[node name="AccessBack" type="Button" parent="BG/right_panel/accessibility"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("6_el7p0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_psuq5")
+text = "Back"
+flat = true
+alignment = 0
+
+[connection signal="pressed" from="BG/left_panel/VideoBtn" to="." method="_on_video_btn_pressed"]
+[connection signal="pressed" from="BG/left_panel/AudioBtn" to="." method="_on_audio_btn_pressed"]
+[connection signal="pressed" from="BG/left_panel/AccessBtn" to="." method="_on_access_btn_pressed"]
+[connection signal="pressed" from="BG/left_panel/Done" to="." method="_on_done_pressed"]
+[connection signal="pressed" from="BG/right_panel/video/VideoBack" to="." method="_on_video_back_pressed"]
+[connection signal="pressed" from="BG/right_panel/audio/AudioBack" to="." method="_on_audio_back_pressed"]
+[connection signal="pressed" from="BG/right_panel/accessibility/AccessBack" to="." method="_on_access_back_pressed"]

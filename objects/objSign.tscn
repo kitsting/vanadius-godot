@@ -1,13 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://qg62xhb8whr7"]
+[gd_scene load_steps=10 format=3 uid="uid://qg62xhb8whr7"]
 
 [ext_resource type="Texture2D" uid="uid://revbgv6atuf2" path="res://sprites/sign/sprSignGround.png" id="1_824cd"]
 [ext_resource type="Script" uid="uid://0qi3pd7l3doc" path="res://objects/obj_sign.gd" id="1_elxdh"]
+[ext_resource type="Texture2D" uid="uid://bpjia1klisyaq" path="res://sprites/interact/use.png" id="3_4j853"]
+[ext_resource type="Texture2D" uid="uid://fh8ifu1g1pxm" path="res://sprites/interact/use1.png" id="4_lv40b"]
+[ext_resource type="Texture2D" uid="uid://5kr5bypexbui" path="res://sprites/interact/view.png" id="5_nml7o"]
+[ext_resource type="Texture2D" uid="uid://d085dfqty6tll" path="res://sprites/interact/view1.png" id="6_loa2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elxdh"]
 size = Vector2(18, 6)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j853"]
 radius = 32.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h6fxo"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("3_4j853")
+}, {
+"duration": 10.0,
+"texture": ExtResource("4_lv40b")
+}],
+"loop": true,
+"name": &"use",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("5_nml7o")
+}, {
+"duration": 10.0,
+"texture": ExtResource("6_loa2k")
+}],
+"loop": true,
+"name": &"view",
+"speed": 5.0
+}]
 
 [node name="objSign" type="StaticBody2D"]
 script = ExtResource("1_elxdh")
@@ -26,6 +55,14 @@ shape = SubResource("RectangleShape2D_elxdh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact"]
 shape = SubResource("CircleShape2D_4j853")
 debug_color = Color(1, 1, 1, 0.42)
+
+[node name="interact_sprite" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 999
+position = Vector2(0, -25)
+sprite_frames = SubResource("SpriteFrames_h6fxo")
+animation = &"view"
+frame_progress = 0.214144
 
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]

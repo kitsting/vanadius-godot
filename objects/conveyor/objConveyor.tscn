@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://hktosbx6boif"]
+[gd_scene load_steps=33 format=3 uid="uid://hktosbx6boif"]
 
 [ext_resource type="Script" uid="uid://bc3lebbj8fog6" path="res://objects/conveyor/obj_conveyor.gd" id="1_8jah1"]
+[ext_resource type="Texture2D" uid="uid://ckvpk0l28mjfb" path="res://sprites/conveyor/sprConveyorBorder.png" id="2_4plcb"]
 [ext_resource type="Texture2D" uid="uid://ds8bwi5giw3rh" path="res://sprites/conveyor/sprConveyorUD1.png" id="2_c0hlh"]
 [ext_resource type="Texture2D" uid="uid://dxbjlev88dpfe" path="res://sprites/conveyor/sprConveyorUD2.png" id="3_yfanr"]
 [ext_resource type="Texture2D" uid="uid://ceav08aqc25k" path="res://sprites/conveyor/sprConveyorUD3.png" id="4_ineex"]
@@ -25,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bbu1plni8spl6" path="res://sprites/conveyor/sprConveyorLRFast3.png" id="23_v4sgk"]
 [ext_resource type="Texture2D" uid="uid://dm8tcffojqe57" path="res://sprites/conveyor/sprConveyorLRFast2.png" id="24_k3kf1"]
 [ext_resource type="Texture2D" uid="uid://bfxkmcx0dh6k3" path="res://sprites/conveyor/sprConveyorLRFast1.png" id="25_u0yt7"]
+[ext_resource type="Texture2D" uid="uid://rq3aw20cu33e" path="res://sprites/conveyor/warning.png" id="27_v71sx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2or34"]
 animations = [{
@@ -50,17 +52,11 @@ animations = [{
 "texture": ExtResource("6_dx2pr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_ql1f3")
-}, {
-"duration": 1.0,
 "texture": ExtResource("8_33hyy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_87uvu")
 }],
 "loop": true,
 "name": &"down_fast",
-"speed": 60.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -148,17 +144,11 @@ animations = [{
 "texture": ExtResource("22_qcrlh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_v4sgk")
-}, {
-"duration": 1.0,
 "texture": ExtResource("24_k3kf1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_u0yt7")
 }],
 "loop": true,
 "name": &"left_fast",
-"speed": 60.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -182,17 +172,11 @@ animations = [{
 "texture": ExtResource("25_u0yt7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("24_k3kf1")
-}, {
-"duration": 1.0,
 "texture": ExtResource("23_v4sgk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_qcrlh")
 }],
 "loop": true,
 "name": &"right_fast",
-"speed": 60.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -216,30 +200,82 @@ animations = [{
 "texture": ExtResource("9_87uvu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_33hyy")
-}, {
-"duration": 1.0,
 "texture": ExtResource("7_ql1f3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_dx2pr")
 }],
 "loop": true,
 "name": &"up_fast",
-"speed": 60.0
+"speed": 20.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8svso"]
+size = Vector2(22, 22)
+
+[sub_resource type="Animation" id="Animation_ccipv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.705882)]
+}
+
+[sub_resource type="Animation" id="Animation_v71sx"]
+resource_name = "modulate_overlay"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.25, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.509804), Color(1, 1, 1, 0.352941), Color(1, 1, 1, 0.509804)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gm537"]
+_data = {
+&"RESET": SubResource("Animation_ccipv"),
+&"modulate_overlay": SubResource("Animation_v71sx")
+}
 
 [node name="objConveyor" type="Area2D" groups=["conveyor"]]
+z_index = -2
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_8jah1")
 
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("2_4plcb")
+
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_2or34")
 animation = &"editor_up"
 
+[node name="overlay" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.705882)
+texture_filter = 1
+rotation = -1.5708
+texture = ExtResource("27_v71sx")
+
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8svso")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gm537")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://djns2nsttuyq"]
+[gd_scene load_steps=10 format=3 uid="uid://djns2nsttuyq"]
 
 [ext_resource type="Script" uid="uid://df26ugaogk3yp" path="res://ui/textbox.gd" id="1_6l0wm"]
 [ext_resource type="Texture2D" uid="uid://dw245kb85tfg6" path="res://sprites/spr9Slice1.png" id="2_lqunq"]
@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dhquomkqcna43" path="res://sprites/sprLastPage.png" id="6_s2yxm"]
 [ext_resource type="AudioStream" uid="uid://cgv3iebd2418" path="res://sounds/sndText.ogg" id="7_s2yxm"]
 [ext_resource type="AudioStream" uid="uid://oskqhdafetpn" path="res://sounds/sndBeep.ogg" id="8_2k4xw"]
+[ext_resource type="PackedScene" uid="uid://dk3qssol3mag3" path="res://ui/option.tscn" id="9_pv1x2"]
 
 [node name="Textbox" type="CanvasLayer" groups=["text"]]
+process_mode = 3
 layer = 2
 script = ExtResource("1_6l0wm")
 
@@ -68,10 +70,45 @@ stretch_mode = 2
 
 [node name="text_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_s2yxm")
+bus = &"sfx"
 
 [node name="next_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_2k4xw")
+bus = &"sfx"
+
+[node name="option_BG" type="NinePatchRect" parent="."]
+offset_left = 164.0
+offset_top = 36.0
+offset_right = 304.0
+offset_bottom = 65.0
+texture = ExtResource("2_lqunq")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="hbox" type="HBoxContainer" parent="option_BG"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 2.0
+offset_right = 128.0
+offset_bottom = 26.0
+alignment = 1
+
+[node name="option1" parent="option_BG/hbox" instance=ExtResource("9_pv1x2")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="dummy" type="Control" parent="option_BG/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="option2" parent="option_BG/hbox" instance=ExtResource("9_pv1x2")]
+layout_mode = 2
+size_flags_horizontal = 1
 
 [connection signal="finished_typing" from="BG/Label" to="." method="_on_label_finished_typing"]
 [connection signal="spoke" from="BG/Label" to="." method="_on_label_spoke"]
 [connection signal="timeout" from="DismissCooldown" to="." method="_on_dismiss_cooldown_timeout"]
+[connection signal="pressed" from="option_BG/hbox/option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="option_BG/hbox/option2" to="." method="_on_option_2_pressed"]

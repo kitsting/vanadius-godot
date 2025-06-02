@@ -26,6 +26,7 @@ func _ready() -> void:
 		spd = BASE_SPD
 		
 	update_anim()
+	$AnimationPlayer.play("modulate_overlay")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -57,6 +58,19 @@ func update_anim() -> void:
 		$sprite.animation = "editor_" + get_anim()
 	else:
 		$sprite.play(get_anim())
+		
+		match direction:
+			"Up":
+				$overlay.rotation = deg_to_rad(-90)
+			"Down":
+				$overlay.rotation = deg_to_rad(90)
+			"Left":
+				$overlay.rotation = deg_to_rad(180)
+			"Right":
+				$overlay.rotation = deg_to_rad(0)
+				
+		if fast:
+			$overlay.texture = load("res://sprites/conveyor/warning_fast.png")
 
 
 func reverse_direction() -> void:
@@ -70,7 +84,7 @@ func reverse_direction() -> void:
 		"Right":
 			direction = "Left"
 			
-	$sprite.play(get_anim())
+	update_anim()
 
 
 func get_anim() -> String:

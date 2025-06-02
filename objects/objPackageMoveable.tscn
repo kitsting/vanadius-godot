@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://boq75sl8xkxdx"]
+
+[ext_resource type="Script" uid="uid://g2fe4knqahtn" path="res://objects/obj_package_moveable.gd" id="1_utx2l"]
+[ext_resource type="Texture2D" uid="uid://b73rnmq687yhu" path="res://sprites/sprFactoryBox.png" id="1_vs6oh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utx2l"]
+size = Vector2(14, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qmtr"]
+size = Vector2(12, 9)
+
+[node name="objPackageMoveable" type="CharacterBody2D" groups=["conveyable", "objPackage"]]
+z_as_relative = false
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_utx2l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_vs6oh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_utx2l")
+
+[node name="PressurePlateArea" type="Area2D" parent="." groups=["objPackage"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PressurePlateArea"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_0qmtr")
+debug_color = Color(0.950602, 0.223797, 0, 0.42)
+
+[connection signal="area_entered" from="PressurePlateArea" to="." method="_on_pressure_plate_area_area_entered"]

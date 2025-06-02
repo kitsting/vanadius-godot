@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=3 uid="uid://b7augaq4ouynk"]
+
+[ext_resource type="Script" uid="uid://dh84qu2dffqbk" path="res://objects/obj_explosion.gd" id="1_d18xx"]
+[ext_resource type="Texture2D" uid="uid://du4fhklhn5un6" path="res://sprites/explosion/sprExplosion1.png" id="1_rof5d"]
+[ext_resource type="Shader" uid="uid://j4bn0akuteg" path="res://objects/objExplosion.gdshader" id="1_ykk6g"]
+[ext_resource type="Texture2D" uid="uid://uj6yg2gm1w7t" path="res://sprites/explosion/sprExplosion2.png" id="2_d18xx"]
+[ext_resource type="Texture2D" uid="uid://k6yemakb6gvd" path="res://sprites/explosion/sprExplosion3.png" id="3_ykk6g"]
+[ext_resource type="Texture2D" uid="uid://dd0ay6bbq21w1" path="res://sprites/explosion/sprExplosion4.png" id="4_ksem6"]
+[ext_resource type="Texture2D" uid="uid://bvg12hgphjnyo" path="res://sprites/explosion/sprExplosion5.png" id="5_75sh6"]
+[ext_resource type="Texture2D" uid="uid://d3n10kt3mx0pm" path="res://sprites/explosion/sprExplosion6.png" id="6_2bshg"]
+[ext_resource type="Texture2D" uid="uid://dv3bg02o0gm21" path="res://sprites/explosion/sprExplosion7.png" id="7_1ibax"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksem6"]
+shader = ExtResource("1_ykk6g")
+shader_parameter/original_0 = Color(0.784314, 0.784314, 0.784314, 1)
+shader_parameter/original_1 = Color(0.564706, 0.564706, 0.564706, 1)
+shader_parameter/original_2 = Color(0, 0, 0, 1)
+shader_parameter/original_3 = Color(0, 0, 0, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0, 0, 0, 1)
+shader_parameter/replace_1 = Color(0, 0, 0, 1)
+shader_parameter/replace_2 = Color(0, 0, 0, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1o1t4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rof5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d18xx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ykk6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ksem6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_75sh6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2bshg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1ibax")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfi24"]
+size = Vector2(22, 22)
+
+[node name="objExplosion" type="Area2D" groups=["objExplosion"]]
+z_index = 1
+material = SubResource("ShaderMaterial_ksem6")
+script = ExtResource("1_d18xx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+use_parent_material = true
+sprite_frames = SubResource("SpriteFrames_1o1t4")
+frame = 6
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jfi24")
+debug_color = Color(0.766268, 0.440602, 0.221969, 0.42)
+
+[node name="onscreen" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.3, 0.3)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -181,6 +181,11 @@ func _input(event: InputEvent) -> void:
 		if deathtimer >= 5 and !transitioning:
 			transitioning = true
 			Game.transition_room("")
+			
+	if Game.usedevtools:
+		if Input.is_action_just_pressed("debug_unlock_camera"):
+			set_collision_layer_value(1, false)
+			set_collision_mask_value(1, false)
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
@@ -195,7 +200,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 				deathmsg = extstd.choose(["Lasers are no joke","Red means stop",Game.genericDeathMessage()])
 				
 			elif area.is_in_group("objLaserGreen"):
-				deathmsg = extstd.choose(["Being green doesn't make them less deadly","In this world, anything can be deadly",Game.genericDeathMessage()])
+				deathmsg = extstd.choose(["Lasers are no joke", "Being green doesn't make them less deadly","Green means stop",Game.genericDeathMessage()])
 				
 			elif area.is_in_group("objSentry"):
 				deathmsg = extstd.choose(["Giant spheres can hurt too","Get out of the way!",Game.genericDeathMessage()])

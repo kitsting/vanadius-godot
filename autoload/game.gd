@@ -1,5 +1,8 @@
 extends Node
 
+const unfocus_color = Color(0.494, 0.494, 0.494)
+const focus_color = Color.WHITE
+
 const m_surface_takeover = false
 const m_devtools = false
 
@@ -83,7 +86,7 @@ var showtimer = false
 var noclipmode = false
 var timeplayedseconds = 0
 
-var usedevtools = false
+var usedevtools = true
 #check for file
 
 var deaths = 0
@@ -118,6 +121,72 @@ var musvol = 0.5
 var tutorialmode = "Autodetect"
 
 var room_width = 320
+
+# Default settings
+var options = {
+	#Audio
+	"master_volume" : 1.0,
+	"music_volume" : 1.0,
+	"sound_volume" : 1.0,
+	#Accessibility
+	"screenshake" : true,
+	#Graphics
+	"fullscreen" : false,
+	"pause_on_lost_focus" : false,
+	"buttons" : 0,
+}
+
+func update_options():
+	#Fullscreen
+	if options["fullscreen"]:
+		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	else:
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+			
+	#Volume
+	if options["sound_volume"] == 0:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("sfx"), true)
+	else:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("sfx"), false)
+	if options["music_volume"] == 0:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("music"), true)
+	else:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("music"), false)
+	if options["master_volume"] == 0:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+	else:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+		
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("sfx"), ((options["sound_volume"]-1)*18))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), ((options["music_volume"]-1)*18))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), ((options["master_volume"]-1)*18))
+		
+
+func save_options():
+	var options_file = FileAccess.open("user://config.json", FileAccess.WRITE)
+	options_file.store_line(JSON.stringify(options))
+	print("Options Saved")
+	update_options()
+	
+
+func load_options():
+	if FileAccess.file_exists("user://config.json"):
+		var file = FileAccess.open("user:/config.json", FileAccess.READ)
+		var text = JSON.parse_string(file.get_as_text())
+		for option in text:
+			if options.has(option):
+				print("has "+option+" | "+str(text[option]))
+				options[option] = text[option]
+		print("Options Loaded")
+	else:
+		print("Options file doesn't exist")
+	update_options()
+
+func option_set(opt_name, value):
+	options[opt_name] = value
+	save_options()
 
 #Returns a generic death message
 func genericDeathMessage():
@@ -156,16 +225,25 @@ func checkArea() -> String:
 	return m_area_null
 
 
-func transition_room(room : String) -> void:
+func transition_room(room : String, pit : bool = false) -> void:
 	if room != null:
 		alert = false
 		beingchased = false
 		
 		var new_transition = load("res://objects/ToBlack.tscn").instantiate()
-		new_transition.set_speed(2.5)
+		if !pit:
+			new_transition.set_speed(2.5)
+		else:
+			new_transition.set_speed(1.25)
+			new_transition.set_wait(2)
 		get_tree().get_root().add_child(new_transition)
 		await new_transition.midpoint
 		if room != "":
+			if pit:
+				get_tree().unload_current_scene()
+				Audio.play_sound("res://sounds/fall.ogg", "fall")
+				await get_tree().create_timer(2).timeout
+				
 			get_tree().change_scene_to_file(room)
 		else:
 			get_tree().reload_current_scene()
@@ -226,11 +304,13 @@ func load_game():
 
 func show_textbox(file : String = "test", node : String = "text"):
 	if get_tree().get_node_count_in_group("text") < 1:
+		get_tree().paused = true
 		var box : Node = load("res://ui/textbox.tscn").instantiate()
 		box.set_text(file, node)
 		get_tree().root.add_child(box)
 		await box.text_finished
 		#emit_signal("cutscene_finished")
+		get_tree().paused = false
 
 
 func kill_text():

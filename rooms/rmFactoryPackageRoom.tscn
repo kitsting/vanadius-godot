@@ -1,0 +1,145 @@
+[gd_scene load_steps=5 format=4 uid="uid://bljpx0mr7qwau"]
+
+[ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_1sq6n"]
+[ext_resource type="PackedScene" uid="uid://sj8deey0yefv" path="res://objects/objPackage.tscn" id="2_xdlsh"]
+[ext_resource type="PackedScene" uid="uid://byku1v575g4rs" path="res://objects/objGate.tscn" id="3_f0aow"]
+[ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="4_xqvso"]
+
+[node name="Testroom" instance=ExtResource("1_1sq6n")]
+area = "The Package Room"
+room_name = "The Packing Room"
+internal_name = "rmFactoryPackageRoom"
+
+[node name="Floor" parent="." index="0"]
+tile_map_data = PackedByteArray("AAAAAAAAAwAEAAIAAAAAAAEAAwAEAAIAAAAAAAIAAwAEAAIAAAAAAAMAAwAEAAIAAAAAAAQAAwAEAAIAAAAAAAUAAwAEAAIAAAAAAAYAAwAEAAIAAAAAAAcAAwAEAAIAAAAAAAgAAwAEAAIAAAAAAAkAAwAEAAIAAAAAAAoAAwAEAAIAAAABAAAAAwAEAAIAAAABAAEAAwAEAAIAAAABAAIAAwAEAAIAAAABAAMAAwAEAAIAAAABAAQAAwAEAAIAAAABAAUAAwAEAAIAAAABAAYAAwAEAAIAAAABAAcAAwAEAAIAAAABAAgAAwAEAAIAAAABAAkAAwAEAAIAAAABAAoAAwAEAAIAAAACAAAAAwAEAAIAAAACAAEAAwAEAAIAAAACAAIAAwAEAAIAAAACAAMAAwAEAAIAAAACAAQAAwAEAAIAAAACAAUAAwAEAAIAAAACAAYAAwAEAAIAAAACAAcAAwAEAAIAAAACAAgAAwAEAAIAAAACAAkAAwAEAAIAAAACAAoAAwAEAAIAAAADAAAAAwAEAAIAAAADAAEAAwAEAAIAAAADAAIAAwAEAAIAAAADAAMAAwAEAAIAAAADAAQAAwAEAAIAAAADAAUAAwAEAAIAAAADAAYAAwAEAAIAAAADAAcAAwAEAAIAAAADAAgAAwAEAAIAAAADAAkAAwAEAAIAAAADAAoAAwAEAAIAAAAEAAAAAwAEAAIAAAAEAAEAAwAEAAIAAAAEAAIAAwAEAAIAAAAEAAMAAwAEAAIAAAAEAAQAAwAEAAIAAAAEAAUAAwAEAAIAAAAEAAYAAwAEAAIAAAAEAAcAAwAEAAIAAAAEAAgAAwAEAAIAAAAEAAkAAwAEAAIAAAAEAAoAAwAEAAIAAAAFAAAAAwAEAAIAAAAFAAEAAwAEAAIAAAAFAAIAAwAEAAIAAAAFAAMAAwAEAAIAAAAFAAQAAwAEAAIAAAAFAAUAAwAEAAIAAAAFAAYAAwAEAAIAAAAFAAcAAwAEAAIAAAAFAAgAAwAEAAIAAAAFAAkAAwAEAAIAAAAFAAoAAwAEAAIAAAAGAAAAAwAEAAIAAAAGAAEAAwAEAAIAAAAGAAIAAwAEAAIAAAAGAAMAAwAEAAIAAAAGAAQAAwAEAAIAAAAGAAUAAwAEAAIAAAAGAAYAAwAEAAIAAAAGAAcAAwAEAAIAAAAGAAgAAwAEAAIAAAAGAAkAAwAEAAIAAAAGAAoAAwAEAAIAAAAHAAAAAwAEAAIAAAAHAAEAAwAEAAIAAAAHAAIAAwAEAAIAAAAHAAMAAwAEAAIAAAAHAAQAAwAEAAIAAAAHAAUAAwAEAAIAAAAHAAYAAwAEAAIAAAAHAAcAAwAEAAIAAAAHAAgAAwAEAAIAAAAHAAkAAwAEAAIAAAAHAAoAAwAEAAIAAAAIAAAAAwAEAAIAAAAIAAEAAwAEAAIAAAAIAAIAAwAEAAIAAAAIAAMAAwAEAAIAAAAIAAQAAwAEAAIAAAAIAAUAAwAEAAIAAAAIAAYAAwAEAAIAAAAIAAcAAwAEAAIAAAAIAAgAAwAEAAIAAAAIAAkAAwAEAAIAAAAIAAoAAwAEAAIAAAAJAAAAAwAEAAIAAAAJAAEAAwAEAAIAAAAJAAIAAwAEAAIAAAAJAAMAAwAEAAIAAAAJAAQAAwAEAAIAAAAJAAUAAwAEAAIAAAAJAAYAAwAEAAIAAAAJAAcAAwAEAAIAAAAJAAgAAwAEAAIAAAAJAAkAAwAEAAIAAAAJAAoAAwAEAAIAAAAKAAAAAwAEAAIAAAAKAAEAAwAEAAIAAAAKAAIAAwAEAAIAAAAKAAMAAwAEAAIAAAAKAAQAAwAEAAIAAAAKAAUAAwAEAAIAAAAKAAYAAwAEAAIAAAAKAAcAAwAEAAIAAAAKAAgAAwAEAAIAAAAKAAkAAwAEAAIAAAAKAAoAAwAEAAIAAAALAAAAAwAEAAIAAAALAAEAAwAEAAIAAAALAAIAAwAEAAIAAAALAAMAAwAEAAIAAAALAAQAAwAEAAIAAAALAAUAAwAEAAIAAAALAAYAAwAEAAIAAAALAAcAAwAEAAIAAAALAAgAAwAEAAIAAAALAAkAAwAEAAIAAAALAAoAAwAEAAIAAAAMAAAAAwAEAAIAAAAMAAEAAwAEAAIAAAAMAAIAAwAEAAIAAAAMAAMAAwAEAAIAAAAMAAQAAwAEAAIAAAAMAAUAAwAEAAIAAAAMAAYAAwAEAAIAAAAMAAcAAwAEAAIAAAAMAAgAAwAEAAIAAAAMAAkAAwAEAAIAAAAMAAoAAwAEAAIAAAANAAAAAwAEAAIAAAANAAEAAwAEAAIAAAANAAIAAwAEAAIAAAANAAMAAwAEAAIAAAANAAQAAwAEAAIAAAANAAUAAwAEAAIAAAANAAYAAwAEAAIAAAANAAcAAwAEAAIAAAANAAgAAwAEAAIAAAANAAkAAwAEAAIAAAANAAoAAwAEAAIAAAAOAAAAAwAEAAIAAAAOAAEAAwAEAAIAAAAOAAIAAwAEAAIAAAAOAAMAAwAEAAIAAAAOAAQAAwAEAAIAAAAOAAUAAwAEAAIAAAAOAAYAAwAEAAIAAAAOAAcAAwAEAAIAAAAOAAgAAwAEAAIAAAAOAAkAAwAEAAIAAAAOAAoAAwAEAAIAAAA=")
+
+[node name="Walls" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAAAAMAAwAHAAEAAAAAAAQAAwAHAAMAAAABAAQAAwAIAAMAAAABAAMAAwAIAAEAAAADAAIAAwAHAAEAAAACAAIAAwAGAAEAAAACAAMAAwAHAAMAAAADAAMAAwAHAAMAAAAEAAMAAwAHAAMAAAAFAAMAAwAIAAMAAAAFAAIAAwAIAAEAAAAEAAIAAwAHAAEAAAAMAAIAAwAIAAEAAAALAAIAAwAHAAEAAAALAAMAAwAHAAMAAAAKAAMAAwAGAAMAAAAKAAIAAwAGAAEAAAAMAAMAAwAIAAMAAAANAAUAAwAGAAEAAAANAAYAAwAGAAMAAAAOAAYAAwAHAAMAAAAOAAUAAwAHAAEAAAD//wQAAwAGAAMAAAD//wMAAwAGAAEAAAAPAAYAAwAIAAMAAAAPAAUAAwAIAAEAAAA=")
+
+[node name="TileObjects" parent="." index="2"]
+tile_map_data = PackedByteArray("AAADAAoAAAAAAAAAAQAEAAoAAAAAAAAAAQA=")
+
+[node name="ObjPlayer" parent="Objects" index="0"]
+position = Vector2(44, 152)
+
+[node name="AnimatableBody2D" parent="Objects" index="1" instance=ExtResource("2_xdlsh")]
+position = Vector2(80, 96)
+
+[node name="AnimatableBody2D2" parent="Objects" index="2" instance=ExtResource("2_xdlsh")]
+position = Vector2(93, 96)
+
+[node name="AnimatableBody2D4" parent="Objects" index="3" instance=ExtResource("2_xdlsh")]
+position = Vector2(106, 98)
+
+[node name="AnimatableBody2D5" parent="Objects" index="4" instance=ExtResource("2_xdlsh")]
+position = Vector2(264, 98)
+
+[node name="AnimatableBody2D6" parent="Objects" index="5" instance=ExtResource("2_xdlsh")]
+position = Vector2(277, 97)
+
+[node name="AnimatableBody2D7" parent="Objects" index="6" instance=ExtResource("2_xdlsh")]
+position = Vector2(291, 97)
+
+[node name="AnimatableBody2D8" parent="Objects" index="7" instance=ExtResource("2_xdlsh")]
+position = Vector2(290, 108)
+
+[node name="AnimatableBody2D10" parent="Objects" index="8" instance=ExtResource("2_xdlsh")]
+position = Vector2(304, 145)
+
+[node name="AnimatableBody2D11" parent="Objects" index="9" instance=ExtResource("2_xdlsh")]
+position = Vector2(303, 135)
+
+[node name="AnimatableBody2D12" parent="Objects" index="10" instance=ExtResource("2_xdlsh")]
+position = Vector2(290, 139)
+
+[node name="AnimatableBody2D18" parent="Objects" index="11" instance=ExtResource("2_xdlsh")]
+position = Vector2(239, 189)
+
+[node name="AnimatableBody2D19" parent="Objects" index="12" instance=ExtResource("2_xdlsh")]
+position = Vector2(226, 187)
+
+[node name="AnimatableBody2D21" parent="Objects" index="13" instance=ExtResource("2_xdlsh")]
+position = Vector2(215, 144)
+
+[node name="AnimatableBody2D22" parent="Objects" index="14" instance=ExtResource("2_xdlsh")]
+position = Vector2(201, 143)
+
+[node name="AnimatableBody2D23" parent="Objects" index="15" instance=ExtResource("2_xdlsh")]
+position = Vector2(201, 154)
+
+[node name="AnimatableBody2D24" parent="Objects" index="16" instance=ExtResource("2_xdlsh")]
+position = Vector2(187, 155)
+
+[node name="AnimatableBody2D25" parent="Objects" index="17" instance=ExtResource("2_xdlsh")]
+position = Vector2(187, 144)
+
+[node name="AnimatableBody2D26" parent="Objects" index="18" instance=ExtResource("2_xdlsh")]
+position = Vector2(173, 144)
+
+[node name="AnimatableBody2D27" parent="Objects" index="19" instance=ExtResource("2_xdlsh")]
+position = Vector2(174, 134)
+
+[node name="AnimatableBody2D28" parent="Objects" index="20" instance=ExtResource("2_xdlsh")]
+position = Vector2(174, 155)
+
+[node name="AnimatableBody2D30" parent="Objects" index="21" instance=ExtResource("2_xdlsh")]
+position = Vector2(160, 156)
+
+[node name="AnimatableBody2D31" parent="Objects" index="22" instance=ExtResource("2_xdlsh")]
+position = Vector2(160, 145)
+
+[node name="AnimatableBody2D29" parent="Objects" index="23" instance=ExtResource("2_xdlsh")]
+position = Vector2(173, 167)
+
+[node name="AnimatableBody2D20" parent="Objects" index="24" instance=ExtResource("2_xdlsh")]
+position = Vector2(230, 201)
+
+[node name="AnimatableBody2D9" parent="Objects" index="25" instance=ExtResource("2_xdlsh")]
+position = Vector2(277, 107)
+
+[node name="AnimatableBody2D3" parent="Objects" index="26" instance=ExtResource("2_xdlsh")]
+position = Vector2(93, 106)
+
+[node name="AnimatableBody2D13" parent="Objects" index="27" instance=ExtResource("2_xdlsh")]
+position = Vector2(106, 155)
+
+[node name="AnimatableBody2D15" parent="Objects" index="28" instance=ExtResource("2_xdlsh")]
+position = Vector2(120, 158)
+
+[node name="AnimatableBody2D14" parent="Objects" index="29" instance=ExtResource("2_xdlsh")]
+position = Vector2(105, 167)
+
+[node name="AnimatableBody2D16" parent="Objects" index="30" instance=ExtResource("2_xdlsh")]
+position = Vector2(104, 219)
+
+[node name="AnimatableBody2D17" parent="Objects" index="31" instance=ExtResource("2_xdlsh")]
+position = Vector2(86, 215)
+
+[node name="objGate" parent="Objects" index="32" instance=ExtResource("3_f0aow")]
+position = Vector2(192, 88)
+
+[node name="objRoomTransition" parent="TopObjects" index="0" instance=ExtResource("4_xqvso")]
+position = Vector2(16, 149)
+rotation = 1.5708
+target_room = "uid://b7fs57w8x1t51"
+target_x = 310
+target_y = 130
+direction = 3
+
+[node name="objRoomTransition3" parent="TopObjects" index="1" instance=ExtResource("4_xqvso")]
+position = Vector2(344, 194)
+rotation = 4.71239
+target_room = "uid://cjks7oep87qo5"
+direction = 2
+
+[node name="objRoomTransition2" parent="TopObjects" index="2" instance=ExtResource("4_xqvso")]
+position = Vector2(192, 16)
+rotation = 3.14159
+target_room = "uid://dy0jb7h1r3u70"
+direction = 1
+
+[node name="Ceiling" parent="." index="6"]
+tile_map_data = PackedByteArray("AAAAAAAAAwABAAIAAAABAAAAAwABAAIAAAABAAEAAwAAAAQAAAAAAAEAAwABAAIAAAAAAAIAAwABAAMAAAABAAIAAwACAAMAAAACAAEAAwABAAMAAAADAAEAAwABAAMAAAAEAAEAAwABAAMAAAAEAAAAAwABAAIAAAADAAAAAwABAAIAAAACAAAAAwABAAIAAAAFAAEAAwACAAMAAAAFAAAAAwACAAIAAAAKAAEAAwAAAAMAAAAKAAAAAwAAAAIAAAALAAAAAwABAAIAAAAMAAAAAwABAAIAAAALAAEAAwABAAMAAAAMAAEAAwABAAMAAAANAAEAAwABAAQAAAAOAAEAAwABAAIAAAAOAAAAAwABAAIAAAANAAAAAwABAAIAAAANAAIAAwAAAAIAAAANAAMAAwAAAAIAAAANAAQAAwAAAAMAAAAOAAQAAwABAAMAAAAOAAMAAwABAAIAAAAOAAIAAwABAAIAAAANAAkAAwABAAEAAAAOAAkAAwABAAEAAAANAAoAAwABAAIAAAAOAAoAAwABAAIAAAAMAAoAAwABAAIAAAALAAoAAwABAAIAAAAKAAoAAwABAAIAAAAJAAoAAwABAAIAAAAIAAoAAwABAAIAAAAHAAoAAwABAAIAAAAGAAoAAwABAAIAAAAFAAoAAwAAAAIAAAAFAAkAAwAAAAEAAAAGAAkAAwABAAEAAAAHAAkAAwABAAEAAAAIAAkAAwABAAEAAAAJAAkAAwABAAEAAAAKAAkAAwABAAEAAAALAAkAAwABAAEAAAAMAAkAAwABAAEAAAAAAAcAAwABAAEAAAAAAAgAAwABAAIAAAAAAAkAAwABAAIAAAABAAkAAwAAAAUAAAABAAgAAwACAAIAAAABAAcAAwACAAEAAAACAAkAAwACAAEAAAABAAoAAwABAAIAAAAAAAoAAwABAAIAAAACAAoAAwACAAIAAAD//wIAAwAAAAMAAAD//wEAAwAAAAIAAAD//wAAAwAAAAIAAAD/////AwAAAAEAAAAAAP//AwABAAEAAAABAP//AwABAAEAAAACAP//AwABAAEAAAADAP//AwABAAEAAAAEAP//AwABAAEAAAAFAP//AwACAAEAAAAKAP//AwAAAAEAAAAMAP//AwABAAEAAAALAP//AwABAAEAAAANAP//AwABAAEAAAAOAP//AwABAAEAAAAPAP//AwACAAEAAAAPAAAAAwACAAIAAAAPAAEAAwACAAIAAAAPAAIAAwACAAIAAAAPAAMAAwACAAIAAAAPAAQAAwACAAMAAAAPAAkAAwACAAEAAAAPAAoAAwACAAIAAAAPAAsAAwACAAMAAAAOAAsAAwABAAMAAAANAAsAAwABAAMAAAAMAAsAAwABAAMAAAALAAsAAwABAAMAAAAKAAsAAwABAAMAAAAJAAsAAwABAAMAAAAIAAsAAwABAAMAAAAHAAsAAwABAAMAAAAGAAsAAwABAAMAAAAFAAsAAwAAAAMAAAACAAsAAwACAAMAAAABAAsAAwABAAMAAAAAAAsAAwABAAMAAAD//wsAAwAAAAMAAAD//woAAwAAAAIAAAD//wkAAwAAAAIAAAD//wgAAwAAAAIAAAD//wcAAwAAAAEAAAA=")
+
+[node name="Camera" parent="." index="7"]
+position = Vector2(44, 152)

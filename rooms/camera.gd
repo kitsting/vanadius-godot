@@ -79,3 +79,12 @@ func reset_pos(time):
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "offset", previous_positions[0], time)
 		previous_positions = []
+
+
+func _input(event: InputEvent) -> void:
+	if Game.usedevtools:
+		if Input.is_action_just_pressed("debug_unlock_camera"):
+			limit_bottom = 100000
+			limit_top = -100000
+			limit_left = -100000
+			limit_right = 100000

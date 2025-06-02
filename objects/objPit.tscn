@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://cplr8ixrvkae6"]
+
+[ext_resource type="Script" uid="uid://chtjue0tedkms" path="res://objects/obj_pit.gd" id="1_pshwy"]
+[ext_resource type="Texture2D" uid="uid://bpjia1klisyaq" path="res://sprites/interact/use.png" id="2_tmfgk"]
+[ext_resource type="Texture2D" uid="uid://fh8ifu1g1pxm" path="res://sprites/interact/use1.png" id="3_wisj6"]
+[ext_resource type="Texture2D" uid="uid://5kr5bypexbui" path="res://sprites/interact/view.png" id="4_tjvo6"]
+[ext_resource type="Texture2D" uid="uid://d085dfqty6tll" path="res://sprites/interact/view1.png" id="5_wkfka"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qf3m6"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("2_tmfgk")
+}, {
+"duration": 10.0,
+"texture": ExtResource("3_wisj6")
+}],
+"loop": true,
+"name": &"use",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("4_tjvo6")
+}, {
+"duration": 10.0,
+"texture": ExtResource("5_wkfka")
+}],
+"loop": true,
+"name": &"view",
+"speed": 5.0
+}]
+
+[node name="objPit" type="Area2D"]
+script = ExtResource("1_pshwy")
+
+[node name="interact_sprite" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 999
+position = Vector2(0, -25)
+sprite_frames = SubResource("SpriteFrames_qf3m6")
+animation = &"view"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

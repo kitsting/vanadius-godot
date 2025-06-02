@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=4 uid="uid://dy0jb7h1r3u70"]
+
+[ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_s4v4w"]
+[ext_resource type="PackedScene" uid="uid://cgr2dqnia7jxg" path="res://objects/outsideBG.tscn" id="2_5c7im"]
+[ext_resource type="Texture2D" uid="uid://bu6oxogk1ydmd" path="res://sprites/sprOutsideRailing.png" id="2_hkvgc"]
+[ext_resource type="PackedScene" uid="uid://b3bfejchk2n8n" path="res://objects/objCollectible.tscn" id="4_ffwlj"]
+[ext_resource type="PackedScene" uid="uid://sj8deey0yefv" path="res://objects/objPackage.tscn" id="5_726e8"]
+[ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="6_a0cob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkvgc"]
+size = Vector2(288, 14)
+
+[node name="Testroom" instance=ExtResource("1_s4v4w")]
+area = "The Outside"
+internal_name = "rmOutside1"
+
+[node name="outsideBG" parent="." index="0" instance=ExtResource("2_5c7im")]
+
+[node name="Floor" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAAAAIABgAEAAIAAAAAAAMABgAEAAIAAAAAAAQABgAEAAIAAAAAAAUABgAEAAIAAAAAAAYABgAEAAIAAAAAAAcABgAEAAIAAAAAAAgABgAEAAIAAAAAAAkABgAEAAIAAAABAAIABgAEAAIAAAABAAMABgAEAAIAAAABAAQABgAEAAIAAAABAAUABgAEAAIAAAABAAYABgAEAAIAAAABAAcABgAEAAIAAAABAAgABgAEAAIAAAABAAkABgAEAAIAAAACAAIABgAEAAEAAAACAAMABgAEAAIAAAACAAQABgAEAAIAAAACAAUABgAEAAIAAAACAAYABgAEAAIAAAACAAcABgAEAAIAAAACAAgABgAEAAIAAAACAAkABgAEAAIAAAADAAIABgAEAAEAAAADAAMABgAEAAIAAAADAAQABgAEAAIAAAADAAUABgAEAAIAAAADAAYABgAEAAIAAAADAAcABgAEAAIAAAADAAgABgAEAAIAAAADAAkABgAEAAIAAAAEAAIABgAEAAEAAAAEAAMABgAEAAIAAAAEAAQABgAEAAIAAAAEAAUABgAEAAIAAAAEAAYABgAEAAIAAAAEAAcABgAEAAIAAAAEAAgABgAEAAIAAAAEAAkABgAEAAIAAAAFAAIABgAEAAEAAAAFAAMABgAEAAIAAAAFAAQABgAEAAIAAAAFAAUABgAEAAIAAAAFAAYABgAEAAIAAAAFAAcABgAEAAIAAAAFAAgABgAEAAIAAAAFAAkABgAEAAIAAAAGAAIABgAEAAEAAAAGAAMABgAEAAIAAAAGAAQABgAEAAIAAAAGAAUABgAEAAIAAAAGAAYABgAEAAIAAAAGAAcABgAEAAIAAAAGAAgABgAEAAIAAAAGAAkABgAEAAIAAAAHAAIABgAEAAEAAAAHAAMABgAEAAIAAAAHAAQABgAEAAIAAAAHAAUABgAEAAIAAAAHAAYABgAEAAIAAAAHAAcABgAEAAIAAAAHAAgABgAEAAIAAAAHAAkABgAEAAIAAAAIAAIABgAEAAEAAAAIAAMABgAEAAIAAAAIAAQABgAEAAIAAAAIAAUABgAEAAIAAAAIAAYABgAEAAIAAAAIAAcABgAEAAIAAAAIAAgABgAEAAIAAAAIAAkABgAEAAIAAAAJAAIABgAEAAEAAAAJAAMABgAEAAIAAAAJAAQABgAEAAIAAAAJAAUABgAEAAIAAAAJAAYABgAEAAIAAAAJAAcABgAEAAIAAAAJAAgABgAEAAIAAAAJAAkABgAEAAIAAAAKAAIABgAEAAEAAAAKAAMABgAEAAIAAAAKAAQABgAEAAIAAAAKAAUABgAEAAIAAAAKAAYABgAEAAIAAAAKAAcABgAEAAIAAAAKAAgABgAEAAIAAAAKAAkABgAEAAIAAAALAAIABgAEAAEAAAALAAMABgAEAAIAAAALAAQABgAEAAIAAAALAAUABgAEAAIAAAALAAYABgAEAAIAAAALAAcABgAEAAIAAAALAAgABgAEAAIAAAALAAkABgAEAAIAAAAMAAIABgAEAAEAAAAMAAMABgAEAAIAAAAMAAQABgAEAAIAAAAMAAUABgAEAAIAAAAMAAYABgAEAAIAAAAMAAcABgAEAAIAAAAMAAgABgAEAAIAAAAMAAkABgAEAAIAAAANAAIABgAEAAEAAAANAAMABgAEAAIAAAANAAQABgAEAAIAAAANAAUABgAEAAIAAAANAAYABgAEAAIAAAANAAcABgAEAAIAAAANAAgABgAEAAIAAAANAAkABgAEAAIAAAAOAAIABgAEAAIAAAAOAAMABgAEAAIAAAAOAAQABgAEAAIAAAAOAAUABgAEAAIAAAAOAAYABgAEAAIAAAAOAAcABgAEAAIAAAAOAAgABgAEAAIAAAAOAAkABgAEAAIAAAAPAAIABgAEAAIAAAAPAAMABgAEAAIAAAAPAAQABgAEAAIAAAAPAAUABgAEAAIAAAAPAAYABgAEAAIAAAAPAAcABgAEAAIAAAAPAAgABgAEAAIAAAAPAAkABgAEAAIAAAAAAAAABgABAAAAAAA=")
+
+[node name="Walls" parent="." index="2"]
+tile_map_data = PackedByteArray("AAAOAAUABgAGAAEAAAAOAAYABgAGAAMAAAAPAAYABgAHAAMAAAAPAAUABgAHAAEAAAAQAAYABgAIAAMAAAAQAAUABgAIAAEAAAA=")
+
+[node name="TileObjects" parent="." index="3"]
+tile_map_data = PackedByteArray("AAAOAAcAAAAAAAAABwAPAAcAAAAAAAAABwAPAAgAAAAAAAAABwAOAAgAAAAAAAAABwA=")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FloorObjects" index="0"]
+position = Vector2(61, 53)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorObjects/StaticBody2D" index="0"]
+position = Vector2(131, -3)
+shape = SubResource("RectangleShape2D_hkvgc")
+
+[node name="Sprite2D" type="Polygon2D" parent="FloorObjects/StaticBody2D" index="1"]
+texture_repeat = 2
+position = Vector2(131, 0)
+texture = ExtResource("2_hkvgc")
+polygon = PackedVector2Array(-144, -4, -144, 4, 144, 4, 144, -4)
+uv = PackedVector2Array(0, 0, 0, 8, 288, 8, 288, 0)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="ObjPlayer" parent="Objects" index="0"]
+position = Vector2(144, 200)
+
+[node name="objCollectible" parent="Objects" index="1" instance=ExtResource("4_ffwlj")]
+position = Vector2(191, 93)
+collectible_name = "A Nice View"
+collectible_id = "5"
+
+[node name="objPackage" parent="Objects" index="2" instance=ExtResource("5_726e8")]
+position = Vector2(80, 184)
+
+[node name="objPackage2" parent="Objects" index="3" instance=ExtResource("5_726e8")]
+position = Vector2(100, 174)
+
+[node name="objPackage3" parent="Objects" index="4" instance=ExtResource("5_726e8")]
+position = Vector2(88, 160)
+
+[node name="objPackage4" parent="Objects" index="5" instance=ExtResource("5_726e8")]
+position = Vector2(70, 170)
+
+[node name="objPackage5" parent="Objects" index="6" instance=ExtResource("5_726e8")]
+position = Vector2(192, 168)
+
+[node name="objPackage6" parent="Objects" index="7" instance=ExtResource("5_726e8")]
+position = Vector2(205, 167)
+
+[node name="objPackage7" parent="Objects" index="8" instance=ExtResource("5_726e8")]
+position = Vector2(221, 157)
+
+[node name="objPackage8" parent="Objects" index="9" instance=ExtResource("5_726e8")]
+position = Vector2(224, 170)
+
+[node name="objPackage9" parent="Objects" index="10" instance=ExtResource("5_726e8")]
+position = Vector2(232, 180)
+
+[node name="objPackage10" parent="Objects" index="11" instance=ExtResource("5_726e8")]
+position = Vector2(325, 165)
+
+[node name="objPackage13" parent="Objects" index="12" instance=ExtResource("5_726e8")]
+position = Vector2(329, 86)
+
+[node name="objPackage14" parent="Objects" index="13" instance=ExtResource("5_726e8")]
+position = Vector2(329, 97)
+
+[node name="objPackage15" parent="Objects" index="14" instance=ExtResource("5_726e8")]
+position = Vector2(328, 109)
+
+[node name="objPackage16" parent="Objects" index="15" instance=ExtResource("5_726e8")]
+position = Vector2(314, 102)
+
+[node name="objPackage18" parent="Objects" index="16" instance=ExtResource("5_726e8")]
+position = Vector2(301, 98)
+
+[node name="objPackage17" parent="Objects" index="17" instance=ExtResource("5_726e8")]
+position = Vector2(315, 91)
+
+[node name="objPackage11" parent="Objects" index="18" instance=ExtResource("5_726e8")]
+position = Vector2(319, 189)
+
+[node name="objPackage12" parent="Objects" index="19" instance=ExtResource("5_726e8")]
+position = Vector2(309, 174)
+
+[node name="objRoomTransition" parent="TopObjects" index="0" instance=ExtResource("6_a0cob")]
+position = Vector2(144, 224)
+target_room = "uid://bljpx0mr7qwau"
+target_x = 190
+target_y = 55
+wallsize = 2.0
+
+[node name="Ceiling" parent="." index="7"]
+tile_map_data = PackedByteArray("AAAAAAEABgABAAEAAAABAAEABgACAAEAAAABAAIABgACAAIAAAAAAAIABgABAAIAAAAAAAMABgABAAIAAAAAAAQABgABAAIAAAABAAQABgACAAIAAAABAAMABgACAAIAAAABAAUABgACAAIAAAABAAYABgACAAIAAAABAAcABgACAAIAAAAAAAcABgABAAIAAAAAAAYABgABAAIAAAAAAAUABgABAAIAAAAAAAgABgABAAIAAAABAAgABgAAAAUAAAACAAgABgABAAEAAAACAAkABgABAAIAAAABAAkABgABAAIAAAAAAAkABgABAAIAAAADAAkABgACAAIAAAADAAgABgACAAEAAAAIAAkABgAAAAIAAAAIAAgABgAAAAEAAAAJAAgABgABAAEAAAAKAAgABgABAAEAAAAKAAkABgABAAIAAAAJAAkABgABAAIAAAALAAgABgABAAEAAAAMAAgABgABAAEAAAANAAgABgABAAEAAAAOAAgABgABAAEAAAAPAAgABgABAAEAAAAPAAkABgABAAIAAAAOAAkABgABAAIAAAANAAkABgABAAIAAAAMAAkABgABAAIAAAALAAkABgABAAIAAAAOAAQABgAAAAMAAAAOAAMABgAAAAIAAAAOAAIABgAAAAIAAAAOAAEABgAAAAEAAAAPAAEABgABAAEAAAAPAAIABgABAAIAAAAPAAMABgABAAIAAAAPAAQABgABAAMAAAD//wEABgAAAAEAAAD//wIABgAAAAIAAAD//wMABgAAAAIAAAD//wQABgAAAAIAAAD//wUABgAAAAIAAAD//wYABgAAAAIAAAD//wcABgAAAAIAAAD//wgABgAAAAIAAAD//wkABgAAAAIAAAAAAAoABgABAAMAAAABAAoABgABAAMAAAACAAoABgABAAMAAAADAAoABgACAAMAAAD//woABgAAAAMAAAAIAAoABgAAAAMAAAAJAAoABgABAAMAAAAKAAoABgABAAMAAAALAAoABgABAAMAAAAMAAoABgABAAMAAAANAAoABgABAAMAAAAOAAoABgABAAMAAAAPAAoABgABAAMAAAAQAAoABgACAAMAAAAQAAkABgACAAIAAAAQAAgABgACAAEAAAAQAAQABgACAAMAAAAQAAMABgACAAIAAAAQAAIABgACAAIAAAAQAAEABgACAAEAAAA=")
+
+[node name="Camera" parent="." index="8"]
+position = Vector2(144, 200)

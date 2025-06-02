@@ -1,6 +1,6 @@
 extends Node
 
-var music_enabled = true
+var music_enabled = false
 var music_target_db = -6
 
 
@@ -14,6 +14,7 @@ func play_sound(sound : String, channel : String, volume : float = 0.0, allow_ov
 	if !has_node(channel):
 		var new_channel = AudioStreamPlayer.new()
 		new_channel.name = channel
+		new_channel.bus = "sfx"
 		add_child(new_channel)
 		
 	if !get_node(channel).playing or allow_overwrite:
@@ -24,12 +25,13 @@ func play_sound(sound : String, channel : String, volume : float = 0.0, allow_ov
 
 
 # start a song on a specified track
-func set_music(file : String, track : int = 1, fade_time : float = 1) -> void:
+func set_music(file : String, track : int = 1, fade_time : float = 0.25) -> void:
 	print("Set music to "+file)
 	if file != "" and music_enabled:
 		if !has_node("Music/Track"+str(track)):
 			var new_channel = AudioStreamPlayer.new()
 			new_channel.name = "Music/Track"+str(track)
+			new_channel.bus = "music"
 			add_child(new_channel)
 			
 		var channel = get_node("Music/Track"+str(track))
@@ -43,6 +45,7 @@ func set_music(file : String, track : int = 1, fade_time : float = 1) -> void:
 			channel.stop()
 			channel.stream = loaded_stream
 			channel.play()
+			print("Actually playing " + file)
 			
 			var in_tween = create_tween()
 			in_tween.tween_property(channel, "volume_db", music_target_db, fade_time)

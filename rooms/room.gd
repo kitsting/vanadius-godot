@@ -72,7 +72,7 @@ func checkArea():
 
 func _input(event: InputEvent) -> void:
 	if allow_pausing and Input.is_action_just_pressed("pause") and !pause_cooldown:
-		var new_pause = load("res://objects/objPause.tscn").instantiate()
+		var new_pause = load("res://ui/objPause.tscn").instantiate()
 		get_tree().paused = true
 		add_child(new_pause)
 		pause_cooldown = true

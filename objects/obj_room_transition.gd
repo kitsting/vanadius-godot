@@ -19,23 +19,9 @@ extends Area2D
 			3:
 				rotation_degrees = 90
 				
-@export var wallsize : int = 2
+@export var wallsize : float = 2
 
 var target_body : Node = null
-
-
-func _process(delta: float) -> void:
-	#if target_body != null:
-		#match target_body.pstate:
-			#target_body.PLAYERDIR.RIGHT:
-				#target_body.direction.x += target_body.spd
-			#target_body.PLAYERDIR.LEFT:
-				#target_body.position.x += target_body.spd
-			#target_body.PLAYERDIR.UP:
-				#target_body.position.y -= target_body.spd
-			#target_body.PLAYERDIR.DOWN:
-				#target_body.position.y += target_body.spd
-		pass
 
 
 #Update size on the first frame of physics, then disable
@@ -46,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			$left_ray.enabled = false
 			$right_ray.enabled = false
-			set_process(false)
+			set_physics_process(false)
 
 
 func update_size():
