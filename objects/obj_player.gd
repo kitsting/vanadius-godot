@@ -266,3 +266,9 @@ func set_pos_facing(pos_x : int, pos_y : int, pos_facing : int):
 	
 	if pos_facing == PLAYERDIR.LEFT:
 		$sprite.flip_h = true
+		
+		
+func set_flashlight(darkness : float, light : float):
+	if darkness > 0:
+		$flashlight.enabled = true
+		$flashlight.energy = light

@@ -24,8 +24,8 @@ extends Node2D
 
 @export var silent : bool = false
 @export var allow_pausing : bool = true
-@export var darkness_intensity : float = 0
-@export var darkness_light : float = 0
+@export_range(0.0, 1.0, 0.05) var darkness_intensity : float = 0
+@export_range(0.0, 1.0, 0.05) var darkness_light : float = 0.5
 
 #Override the radius of all sentries in the room
 @export var override_sentry_radius : int = 0
@@ -37,7 +37,11 @@ var pause_cooldown : bool = false
 func _init() -> void:
 	add_to_group("room")
 
+
 func _ready() -> void:
+	if has_node("darkness"):
+		$darkness.color = Color(1-darkness_intensity, 1-darkness_intensity, 1-darkness_intensity)
+	
 	Game.lasers = true
 	Game.area = area
 	
@@ -48,6 +52,8 @@ func _ready() -> void:
 		
 	if override_mini_sentry_radius != 0:
 		get_tree().call_group("objSentryMini","@radius_setter",override_mini_sentry_radius)
+		
+	get_tree().call_group("player", "set_flashlight", darkness_intensity, darkness_light)
 		
 	
 	#Get the size of the current room and lock the camera
