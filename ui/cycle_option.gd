@@ -15,16 +15,18 @@ extends HBoxContainer
 @export var values : Array
 
 var cycle_position = 0
+var lockout = false
 
 func _ready() -> void:
 	$Label.label_settings.font_color = Game.unfocus_color
 	
-	print(str(Game.options[property])+" in "+str(values)+" : "+str(values.find(Game.options[property])))
-	if values.find(Game.options[property]) != -1:
-		cycle_position = values.find(Game.options[property])
-		$Selection.text = str(keys[cycle_position])
-	else:
-		$Selection.text = str(keys[0])
+	if !Engine.is_editor_hint():
+		print(str(Game.options[property])+" in "+str(values)+" : "+str(values.find(Game.options[property])))
+		if values.find(Game.options[property]) != -1:
+			cycle_position = values.find(Game.options[property])
+			$Selection.text = str(keys[cycle_position])
+		else:
+			$Selection.text = str(keys[0])
 		
 	update_arrows()
 	
@@ -50,18 +52,25 @@ func update_arrows():
 		
 		
 func _input(event):
-	if has_focus():
+	if has_focus() and !lockout:
 		if Input.is_action_just_pressed("ui_left"):
+			try_lockout()
 			if $Selection.text != keys[0]:
-				#SoundSystem.play_sound("res://Sounds/UI/UI_Select.wav","ui_battle",-6)
 				cycle_position -= 1
 				$Selection.text = keys[cycle_position]
 				update_arrows()
 				Game.option_set(property, values[cycle_position])
 		if Input.is_action_just_pressed("ui_right"):
+			try_lockout()
 			if $Selection.text != keys.back():
-				#SoundSystem.play_sound("res://Sounds/UI/UI_Select.wav","ui_battle",-6)
 				cycle_position += 1
 				$Selection.text = keys[cycle_position]
 				Game.option_set(property, values[cycle_position])
 				update_arrows()
+
+
+# Very brief input lockout to prevent double inputs
+func try_lockout():
+	lockout = true
+	await get_tree().create_timer(0.05).timeout
+	lockout = false

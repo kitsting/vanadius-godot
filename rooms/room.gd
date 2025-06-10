@@ -25,7 +25,7 @@ extends Node2D
 @export var silent : bool = false
 @export var allow_pausing : bool = true
 @export_range(0.0, 1.0, 0.05) var darkness_intensity : float = 0
-@export_range(0.0, 1.0, 0.05) var darkness_light : float = 0.5
+@export_range(0.0, 1.0, 0.05) var darkness_light : float = 1
 
 #Override the radius of all sentries in the room
 @export var override_sentry_radius : int = 0

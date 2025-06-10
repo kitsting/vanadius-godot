@@ -10,7 +10,7 @@ func _ready() -> void:
 	%VideoBtn.grab_focus()
 	
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") or Input.is_action_just_pressed("ui_cancel"):
 		if !submenu:
 			exit()
 		else:

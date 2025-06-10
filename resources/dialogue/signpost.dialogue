@@ -54,3 +54,22 @@ The testing environments just aren't working.
 We've decided to redesign most of our facility to be a testing ground for Subjects.
 As long as one is successful, we might be able to stand a chance.
 => END
+
+~ rmCaveHallway1
+You found a sign!
+We've put down signs like this to remind workers of basic safety and information...
+Due to SOME workers "forgetting" their training.
+Keep your eyes peeled for more of these signs.\n																				- The Safety Department
+=> END
+
+~ rmCaveTutorial1
+The sphere that's patrolling this room is called a Sentry...
+It doesn't shoot at you, but it's still dangerous.
+Stay out of the light around it, and you should be fine.
+Insurance claims due to Sentry injuries will be denied.
+=> END
+
+~ rmCaveTutorial3
+Watch out for lasers as well! Walking into one results in instant death.
+Since this is likely undesirable, they can de disabled with pressure plates.
+=> END

@@ -16,7 +16,7 @@ func _ready() -> void:
 	
 	
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("pause") and !settings:
+	if Input.is_action_just_pressed("pause") or Input.is_action_just_pressed("ui_cancel") and !settings:
 		exit()
 		
 	if Input.is_action_just_pressed("map") and can_input:

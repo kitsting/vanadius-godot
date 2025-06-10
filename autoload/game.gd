@@ -133,9 +133,13 @@ var options = {
 	"buttons" : 0,
 }
 
+var current_device = InputHelper.DEVICE_KEYBOARD
+signal device_changed
+
 
 func _ready() -> void:
 	load_options()
+	InputHelper.connect("device_changed", _on_device_changed)
 
 func update_options():
 	#Fullscreen
@@ -331,3 +335,8 @@ func set_playing():
 		
 func increment_playtime():
 	timeplayedseconds += 1
+
+func _on_device_changed(device: String, _device_index: int) -> void:
+	print(device)
+	current_device = device
+	emit_signal("device_changed", device)
