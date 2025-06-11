@@ -7,7 +7,7 @@ Status: In development
 
 ### Addons
 
-Addons are not included in this repository. Download and place them in the addons/ directory
+Addons are not included in this repository. Download and place them in the `addons/` directory
 
 This repository requires the following Godot addons to work:
 
