@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3h1falt2e88l"]
+
+[ext_resource type="Script" uid="uid://8hprymhafdcd" path="res://objects/intro_cutscene.gd" id="1_u4ejv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbs4d"]
+
+[node name="IntroCutscene" type="Area2D"]
+script = ExtResource("1_u4ejv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tbs4d")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

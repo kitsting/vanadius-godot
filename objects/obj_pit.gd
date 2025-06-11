@@ -27,6 +27,7 @@ func _input(event: InputEvent) -> void:
 			Game.alert = false
 			Game.beingchased = false
 			
+			Audio.stop_music()
 			Game.transition_room(target_room, true)
 
 

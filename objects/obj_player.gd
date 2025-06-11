@@ -254,9 +254,12 @@ func die():
 	Game.deaths += 1
 
 
-func swap_anim(anim_name : String, flip_x : bool = false) -> void:
+func swap_anim(anim_name : String, flip_x := false, play_backwards := false) -> void:
 	$sprite.flip_h = flip_x
-	$sprite.play(anim_name)
+	if !play_backwards:
+		$sprite.play(anim_name)
+	else:
+		$sprite.play_backwards(anim_name)
 
 
 func set_pos_facing(pos_x : int, pos_y : int, pos_facing : int):
@@ -266,6 +269,10 @@ func set_pos_facing(pos_x : int, pos_y : int, pos_facing : int):
 	
 	if pos_facing == PLAYERDIR.LEFT:
 		$sprite.flip_h = true
+		
+		
+func set_state(state : PLAYERSTATE):
+	pstate = state
 		
 		
 func set_flashlight(darkness : float, light : float):

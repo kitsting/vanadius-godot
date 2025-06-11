@@ -10,14 +10,14 @@ func _ready() -> void:
 func update_device(device):
 	if Game.options["buttons"] == int(0):
 		if device == InputHelper.DEVICE_GENERIC or device == InputHelper.DEVICE_XBOX_CONTROLLER or device == InputHelper.DEVICE_PLAYSTATION_CONTROLLER or device == InputHelper.DEVICE_SWITCH_CONTROLLER or device == InputHelper.DEVICE_STEAMDECK_CONTROLLER:
-			$PC.visible = false
-			$Gamepad.visible = true
+			$Control/PC.visible = false
+			$Control/Gamepad.visible = true
 		else:
-			$Gamepad.visible = false
-			$PC.visible = true
+			$Control/Gamepad.visible = false
+			$Control/PC.visible = true
 	elif Game.options["buttons"] == int(1):
-		$Gamepad.visible = false
-		$PC.visible = true
+		$Control/Gamepad.visible = false
+		$Control/PC.visible = true
 	elif Game.options["buttons"] == int(2):
-		$PC.visible = false
-		$Gamepad.visible = true
+		$Control/PC.visible = false
+		$Control/Gamepad.visible = true

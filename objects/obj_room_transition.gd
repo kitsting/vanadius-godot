@@ -20,6 +20,13 @@ extends Area2D
 				rotation_degrees = 90
 				
 @export var wallsize : float = 2
+@export var play_animation := true
+
+@export var use_target_facing := false
+@export var target_facing := Game.PLAYERDIR.DOWN
+
+@export var target_state := Game.PLAYERSTATE.ALIVE
+@export var preserve_state := false
 
 var target_body : Node = null
 
@@ -67,34 +74,43 @@ func _on_body_entered(body: Node2D) -> void:
 		Game.alert = false
 		Game.beingchased = false
 		
+		if !preserve_state:
+			Game.roomtargetstate = target_state
+		else:
+			Game.roomtargetstate = body.pstate
+		
 		match direction:
 			0: #Up
 				Game.roomtargetfacing = Game.PLAYERDIR.DOWN
-				body.dir = Game.PLAYERDIR.DOWN
+				if play_animation: body.dir = Game.PLAYERDIR.DOWN
 			1: #Down
 				Game.roomtargetfacing = Game.PLAYERDIR.UP
-				body.dir = Game.PLAYERDIR.UP
+				if play_animation: body.dir = Game.PLAYERDIR.UP
 			2: #Left
 				Game.roomtargetfacing = Game.PLAYERDIR.RIGHT
-				body.dir = Game.PLAYERDIR.RIGHT
+				if play_animation: body.dir = Game.PLAYERDIR.RIGHT
 			3: #Right
 				Game.roomtargetfacing = Game.PLAYERDIR.LEFT
-				body.dir = Game.PLAYERDIR.LEFT
+				if play_animation: body.dir = Game.PLAYERDIR.LEFT
 				
-		body.pstate = body.PLAYERSTATE.CUTSCENE
+		if play_animation: body.pstate = body.PLAYERSTATE.CUTSCENE
 		
-		match body.dir:
-			body.PLAYERDIR.RIGHT:
-				body.direction.x = body.spd
-				body.swap_anim("walk_right")
-			body.PLAYERDIR.LEFT:
-				body.direction.x = -body.spd
-				body.swap_anim("walk_right", true)
-			body.PLAYERDIR.UP:
-				body.direction.y -= body.spd
-				body.swap_anim("walk_up")
-			body.PLAYERDIR.DOWN:
-				body.direction.y += body.spd
-				body.swap_anim("walk_down")
+		if use_target_facing:
+			Game.roomtargetfacing = target_facing
+		
+		if play_animation:
+			match body.dir:
+				body.PLAYERDIR.RIGHT:
+					body.direction.x = body.spd
+					body.swap_anim("walk_right")
+				body.PLAYERDIR.LEFT:
+					body.direction.x = -body.spd
+					body.swap_anim("walk_right", true)
+				body.PLAYERDIR.UP:
+					body.direction.y -= body.spd
+					body.swap_anim("walk_up")
+				body.PLAYERDIR.DOWN:
+					body.direction.y += body.spd
+					body.swap_anim("walk_down")
 				
 		Game.transition_room(target_room)

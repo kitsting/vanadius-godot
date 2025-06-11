@@ -40,12 +40,14 @@ target_room = "uid://4sflawjfp4q3"
 target_x = 336
 target_y = 125
 direction = 3
+play_animation = null
 
 [node name="objRoomTransition2" parent="TopObjects" index="1" instance=ExtResource("4_52l34")]
 position = Vector2(344, 133)
 rotation = 4.71239
 target_room = "uid://bljpx0mr7qwau"
 direction = 2
+play_animation = null
 
 [node name="objSentryMini" parent="TopObjects" index="2" instance=ExtResource("5_3hllc")]
 position = Vector2(96, 256)

@@ -64,7 +64,7 @@ signal lasers_changed(value)
 var roomtargetx : int = 0
 var roomtargety : int = 0
 var roomtargetfacing : int = 1
-var roomtargetstate : PLAYERSTATE = PLAYERSTATE.ALIVE
+var roomtargetstate : PLAYERSTATE = PLAYERSTATE.CUTSCENE
 
 var current_room = ""
 var playing = false

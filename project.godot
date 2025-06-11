@@ -146,6 +146,7 @@ locale/translations_pot_files=PackedStringArray("res://resources/dialogue/test.d
 2d_physics/layer_2="Tiles"
 2d_physics/layer_3="Tiles (Ceiling)"
 2d_physics/layer_4="Box"
+2d_physics/layer_5="Platform"
 
 [rendering]
 

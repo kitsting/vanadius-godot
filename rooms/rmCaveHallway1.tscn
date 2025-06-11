@@ -51,49 +51,61 @@ position = Vector2(44, 128)
 [node name="InteractTutorial" type="CanvasLayer" parent="." index="9"]
 script = ExtResource("4_txgr6")
 
-[node name="PC" type="HBoxContainer" parent="InteractTutorial" index="0"]
-visible = false
+[node name="Control" type="Control" parent="InteractTutorial" index="0"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PC" type="HBoxContainer" parent="InteractTutorial/Control" index="0"]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -18.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="Label" type="Label" parent="InteractTutorial/PC" index="0"]
+[node name="Label" type="Label" parent="InteractTutorial/Control/PC" index="0"]
 layout_mode = 2
 text = "Press Space or"
 label_settings = ExtResource("5_pdati")
 
-[node name="TextureRect" type="TextureRect" parent="InteractTutorial/PC" index="1"]
+[node name="TextureRect" type="TextureRect" parent="InteractTutorial/Control/PC" index="1"]
 layout_mode = 2
 texture = ExtResource("6_th8nf")
 
-[node name="Label2" type="Label" parent="InteractTutorial/PC" index="2"]
+[node name="Label2" type="Label" parent="InteractTutorial/Control/PC" index="2"]
 layout_mode = 2
 text = "to interact with objects"
 label_settings = ExtResource("5_pdati")
 
-[node name="Gamepad" type="HBoxContainer" parent="InteractTutorial" index="1"]
+[node name="Gamepad" type="HBoxContainer" parent="InteractTutorial/Control" index="1"]
+visible = false
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -18.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="Label" type="Label" parent="InteractTutorial/Gamepad" index="0"]
+[node name="Label" type="Label" parent="InteractTutorial/Control/Gamepad" index="0"]
 layout_mode = 2
 text = "Press"
 label_settings = ExtResource("5_pdati")
 
-[node name="TextureRect" type="TextureRect" parent="InteractTutorial/Gamepad" index="1"]
+[node name="TextureRect" type="TextureRect" parent="InteractTutorial/Control/Gamepad" index="1"]
 layout_mode = 2
 texture = ExtResource("7_pkr0n")
 
-[node name="Label2" type="Label" parent="InteractTutorial/Gamepad" index="2"]
+[node name="Label2" type="Label" parent="InteractTutorial/Control/Gamepad" index="2"]
 layout_mode = 2
 text = "to interact with objects"
 label_settings = ExtResource("5_pdati")

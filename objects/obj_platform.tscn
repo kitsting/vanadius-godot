@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo4x4vsbwga7x"]
+
+[ext_resource type="Texture2D" uid="uid://8q4s0qmk6s5" path="res://sprites/sprIntroPlatform.png" id="1_0jq30"]
+[ext_resource type="Script" uid="uid://b7kl15vqdf421" path="res://objects/obj_platform.gd" id="1_ni08f"]
+[ext_resource type="AudioStream" uid="uid://bw8m0udqgtq4b" path="res://sounds/sndIntro.ogg" id="3_c1heq"]
+[ext_resource type="AudioStream" uid="uid://c5ewm1xlqcs7b" path="res://sounds/sndExplosion.ogg" id="4_21fh7"]
+
+[node name="objPlatform" type="StaticBody2D"]
+collision_layer = 17
+collision_mask = 17
+script = ExtResource("1_ni08f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_0jq30")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-34, -24, -34, -28, 37, -28, 37, 22, -37, 22, -37, -22, -34, -22, -34, 20, 34, 20, 34, -24)
+
+[node name="going" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_c1heq")
+bus = &"sfx"
+
+[node name="stop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_21fh7")
+bus = &"sfx"

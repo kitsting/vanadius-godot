@@ -70,6 +70,7 @@ func _ready() -> void:
 	else:
 		Audio.stop_music()
 		
+	get_tree().call_group("player", "set_state", Game.roomtargetstate)
 	get_tree().call_group("player","set_pos_facing",Game.roomtargetx,Game.roomtargety,Game.roomtargetfacing)
 	
 	Game.current_room = internal_name

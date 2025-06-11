@@ -269,6 +269,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_rnre3")
+}],
+"loop": false,
+"name": &"inactive",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("8_wr40m")
 }],
 "loop": true,
