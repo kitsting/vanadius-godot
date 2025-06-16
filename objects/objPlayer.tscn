@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://of0pinpxw1p8"]
+[gd_scene load_steps=19 format=3 uid="uid://of0pinpxw1p8"]
 
 [ext_resource type="Script" uid="uid://dprumdiryoe2j" path="res://objects/obj_player.gd" id="1_sqw18"]
 [ext_resource type="SpriteFrames" uid="uid://2c6vloxowiw1" path="res://resources/objPlayerSprites.tres" id="2_lajuu"]
@@ -6,6 +6,7 @@
 [ext_resource type="LabelSettings" uid="uid://d08xk8kwh1ry4" path="res://resources/big_label.tres" id="4_y75pg"]
 [ext_resource type="Texture2D" uid="uid://dl33slmfrgc1t" path="res://sprites/sprSentryIndicatorOff.png" id="6_o8n1n"]
 [ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="6_y75pg"]
+[ext_resource type="Texture2D" uid="uid://bh15vkvx38n6" path="res://sprites/input/ButtonAGeneric.png" id="8_j4r7i"]
 [ext_resource type="AudioStream" uid="uid://mtbpxox4snyl" path="res://sounds/sndDeath.ogg" id="13_btj8e"]
 [ext_resource type="FontFile" uid="uid://we5onkvfxecy" path="res://fonts/van_small_font.ttf" id="15_oybt8"]
 
@@ -228,7 +229,8 @@ label_settings = SubResource("LabelSettings_fwrv3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="death_screen/ColorRect"]
+[node name="LabelKeyboard" type="Label" parent="death_screen/ColorRect"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -238,7 +240,39 @@ offset_top = 120.0
 offset_right = 37.0
 offset_bottom = 143.0
 grow_horizontal = 2
-text = "Press space to respawn, escape to quit"
+text = "Press space to try again"
+label_settings = ExtResource("6_y75pg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelGamepad" type="HBoxContainer" parent="death_screen/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 120.0
+offset_right = 100.0
+offset_bottom = 138.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="LabelA" type="Label" parent="death_screen/ColorRect/LabelGamepad"]
+layout_mode = 2
+text = "Press"
+label_settings = ExtResource("6_y75pg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="death_screen/ColorRect/LabelGamepad"]
+layout_mode = 2
+texture = ExtResource("8_j4r7i")
+stretch_mode = 2
+
+[node name="LabelB" type="Label" parent="death_screen/ColorRect/LabelGamepad"]
+layout_mode = 2
+text = "to try again"
 label_settings = ExtResource("6_y75pg")
 horizontal_alignment = 1
 vertical_alignment = 1

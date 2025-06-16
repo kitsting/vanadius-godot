@@ -89,3 +89,7 @@ func _input(event: InputEvent) -> void:
 		get_tree().paused = false
 		await get_tree().create_timer(0.2).timeout
 		pause_cooldown = false
+
+
+func set_pausable(pausable := true):
+	allow_pausing = pausable

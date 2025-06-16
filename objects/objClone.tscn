@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvawkn01n2fgu"]
+[gd_scene load_steps=3 format=3 uid="uid://bvawkn01n2fgu"]
 
+[ext_resource type="Script" uid="uid://bu68wsdhllcbg" path="res://objects/obj_clone.gd" id="1_565sd"]
 [ext_resource type="SpriteFrames" uid="uid://2c6vloxowiw1" path="res://resources/objPlayerSprites.tres" id="1_klcij"]
 
 [node name="ObjClone" type="CharacterBody2D"]
+script = ExtResource("1_565sd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 0.5, 0.975, 0.701961)
 texture_filter = 1
+position = Vector2(0, -9)
 sprite_frames = ExtResource("1_klcij")
 animation = &"idle_down"

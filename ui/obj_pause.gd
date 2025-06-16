@@ -9,8 +9,8 @@ var settings := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	%collect_label.text = str(Game.collectibles.size()) + "/" + str(Game.m_total_collectibles)
-	%death_label.text = str(Game.deaths)
+	%collect_label.text = str(Game.progress["collectibles"].size()) + "/" + str(Game.m_total_collectibles)
+	%death_label.text = str(int(Game.progress["deaths"]))
 	
 	%Resume.grab_focus()
 	
@@ -39,7 +39,7 @@ func _input(event: InputEvent) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	%time_label.text = Game.getTimeString(Game.timeplayedseconds)
+	%time_label.text = Game.getTimeString(Game.progress["time_sec"])
 
 
 func exit():
@@ -62,3 +62,7 @@ func _on_options_pressed() -> void:
 	settings = false
 	can_input = true
 	%Options.grab_focus()
+
+
+func _on_quit_pressed() -> void:
+	Game.transition_room("res://ui/obj_title.tscn")

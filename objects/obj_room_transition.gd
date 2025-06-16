@@ -78,6 +78,8 @@ func _on_body_entered(body: Node2D) -> void:
 			Game.roomtargetstate = target_state
 		else:
 			Game.roomtargetstate = body.pstate
+			
+		Game.progress_set("last_room", target_room)
 		
 		match direction:
 			0: #Up

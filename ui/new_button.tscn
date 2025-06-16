@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://drfgevjxgjwv5"]
+
+[ext_resource type="FontFile" uid="uid://bha4ogv0jof7x" path="res://fonts/fntBig.ttf" id="1_gq64y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_el7p0"]
+
+[node name="NewButton" type="Button"]
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.520356, 0.520356, 0.520356, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_gq64y")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_el7p0")
+text = "Text"
+flat = true
+alignment = 0

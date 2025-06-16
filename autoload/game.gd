@@ -3,11 +3,6 @@ extends Node
 const unfocus_color = Color(0.494, 0.494, 0.494)
 const focus_color = Color.WHITE
 
-const m_surface_takeover = false
-const m_devtools = false
-
-const m_debug_overlay = false
-
 const m_area_ruin = "Forgotten Ruins"
 const m_area_ruin_sub1 = "The Great Door"
 const m_area_cave = "Mysterious Cave"
@@ -31,18 +26,15 @@ const m_area_null = ""
 
 const m_towertimermax = 360*60
 const m_total_collectibles = 15
-const m_roompicker_limit = 35
-const m_transitionspeed = 0.03
 
 const m_sentrycolor_neutral = Color.WHITE
 const m_sentrycolor_active = Color.RED
 const m_sentryspeed_time = 240
 
-const m_savename = "save.vnd"
-const m_configname = "settings.vnd"
+const m_savename = "save.sav"
+const m_statsname = "stats.sav"
+const m_configname = "config.json"
 const m_devtoolname = "devtools.vnd"
-const m_default_musvol = 0.5
-const m_default_soundvol = 0.5
 
 enum PLAYERDIR {
 	UP,
@@ -79,48 +71,23 @@ var lasers : bool = true:
 var beingchased : bool = false
 var alert = false
 
-var conveyorspeed = 1
-var explosiontime = 0
-
+#Developer tools
+const m_devtools = false
+const m_debug_overlay = false
 var showtimer = false
-
 var noclipmode = false
-var timeplayedseconds = 0
-
 var usedevtools = true
-#check for file
 
-var deaths = 0
+var version = "1.3.0"
 
-var tutorialinteract = true
-
-var collectibles = []
-
-var version = "Version 1.3.0"
 var roomtargetarea = "Nonexistent"
 var area = roomtargetarea
 
-var labcompleted = false
-var deeplabcompleted = false
-var clockcompleted = false
-var factorycompleted = false
-var gatesdeactivated = false
-var powerplantcompleted = false
-
-var powerswitchblue = false
-var powerswitchgreen = false
-var powerswitchyellow = false
-var powerswitchred = false
-
-var gamecompleted = false
-var besttimeseconds = 100000000
-
-var tutorialmode = "Autodetect"
-
 var room_width = 320
 
+
 # Default settings
-var options = {
+var options := {
 	#Audio
 	"master_volume" : 1.0,
 	"music_volume" : 1.0,
@@ -128,9 +95,46 @@ var options = {
 	#Accessibility
 	"screenshake" : true,
 	#Graphics
-	"fullscreen" : false,
+	"fullscreen" : true,
 	"pause_on_lost_focus" : false,
 	"buttons" : 0,
+}
+var default_options = options.duplicate(true)
+
+var file_loaded := false
+var progress := {
+	#General progression
+	"lab_complete" : false,
+	"deeplab_complete" : false,
+	"clock_complete" : false,
+	"factory_complete" : false,
+	"gates_down" : false,
+	"power_complete" : false,
+	
+	#Power plant progression
+	"pswitch_blue" : false,
+	"pswitch_green" : false,
+	"pswitch_yellow" : false,
+	"pswitch_red" : false,
+	
+	#Global stats
+	"deaths" : 0,
+	"time_sec" : 0,
+	"collectibles" : [],
+	
+	#Set at save/load time
+	"last_area" : "",
+	"last_room" : "",
+	"last_room_x" : 0,
+	"last_room_y" : 0,
+	"last_room_dir" : PLAYERDIR.DOWN,
+	"last_room_state" : PLAYERSTATE.ALIVE,
+}
+var default_progress = progress.duplicate(true)
+
+var stats := {
+	"game_completed" : false,
+	"best_time_sec" : 100000,
 }
 
 var current_device = InputHelper.DEVICE_KEYBOARD
@@ -139,7 +143,10 @@ signal device_changed
 
 func _ready() -> void:
 	load_options()
+	load_game()
+	current_device = InputHelper.guess_device_name()
 	InputHelper.connect("device_changed", _on_device_changed)
+
 
 func update_options():
 	#Fullscreen
@@ -169,16 +176,28 @@ func update_options():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), ((options["master_volume"]-1)*18))
 		
 
+#Save files
 func save_options():
-	var options_file = FileAccess.open("user://config.json", FileAccess.WRITE)
+	var options_file = FileAccess.open("user://"+m_configname, FileAccess.WRITE)
 	options_file.store_line(JSON.stringify(options))
 	print("Options Saved")
 	update_options()
 	
-
+func save_progress():
+	var file = FileAccess.open("user://"+m_savename, FileAccess.WRITE)
+	file.store_line(JSON.stringify(progress))
+	print("Game Saved")
+	file_loaded = true
+	
+func save_stats():
+	var file = FileAccess.open("user://"+m_statsname, FileAccess.WRITE)
+	file.store_line(JSON.stringify(stats))
+	print("Stats Saved")
+	
+#Load files
 func load_options():
-	if FileAccess.file_exists("user://config.json"):
-		var file = FileAccess.open("user://config.json", FileAccess.READ)
+	if FileAccess.file_exists("user://"+m_configname):
+		var file = FileAccess.open("user://"+m_configname, FileAccess.READ)
 		var text = JSON.parse_string(file.get_as_text())
 		for option in text:
 			if options.has(option):
@@ -188,10 +207,50 @@ func load_options():
 	else:
 		print("Options file doesn't exist")
 	update_options()
+	
 
+func load_progress():
+	if FileAccess.file_exists("user://"+m_savename):
+		var file = FileAccess.open("user://"+m_savename, FileAccess.READ)
+		var text = JSON.parse_string(file.get_as_text())
+		for option in text:
+			if progress.has(option):
+				print("has "+option+" | "+str(text[option]))
+				progress[option] = text[option]
+		print("Progress Loaded")
+		file_loaded = true
+	else:
+		print("Progress file doesn't exist")
+		file_loaded = false
+		
+func load_stats():
+	if FileAccess.file_exists("user://"+m_statsname):
+		var file = FileAccess.open("user://"+m_statsname, FileAccess.READ)
+		var text = JSON.parse_string(file.get_as_text())
+		for option in text:
+			if stats.has(option):
+				print("has "+option+" | "+str(text[option]))
+				stats[option] = text[option]
+		print("Stats Loaded")
+	else:
+		print("Stats file doesn't exist")
+
+
+#Set values
 func option_set(opt_name, value):
 	options[opt_name] = value
 	save_options()
+	
+func progress_set(opt_name, value):
+	progress[opt_name] = value
+	
+func stats_set(opt_name, value):
+	stats[opt_name] = value
+	
+func progress_append(opt_name, value):
+	if progress[opt_name] is Array:
+		if !value in progress[opt_name]:
+			progress[opt_name].append(value)
 
 #Returns a generic death message
 func genericDeathMessage():
@@ -213,7 +272,7 @@ func getTimeString(seconds : int, usehours : bool = true):
 	if usehours:
 		return str(hours) + ":" + minutes_string + ":" + seconds_string
 	else:
-		return str(minutes) + ":" + besttimeseconds
+		return str(minutes) + ":" + seconds_string
 
 
 func boolToOnOff(variable : bool):
@@ -232,6 +291,7 @@ func checkArea() -> String:
 
 func transition_room(room : String, pit : bool = false) -> void:
 	if room != null:
+		get_tree().paused = false
 		alert = false
 		beingchased = false
 		
@@ -256,55 +316,49 @@ func transition_room(room : String, pit : bool = false) -> void:
 		
 func getMusic(area) -> String:
 	match area:
-		m_area_null:
-			return "musNone"
-		m_area_outside:
-			return "musOutside"
-		m_area_final_sub2:
-			return "musOutside"
-		m_area_factory:
-			return "musFactory"
-		m_area_factory_sub1:
-			return "musFactory"
-		m_area_ruin:
-			return "musRuin"
-		m_area_ruin_sub1:
-			return "musRuin"
-		m_area_ruin_sub2:
-			return "musRuin"
-		m_area_ruin_sub3:
-			return "musRuin"
-		m_area_ruin_sub4:
-			return "musRuin"
-		m_area_clock:
-			return "musClock"
-		m_area_clock_sub1:
-			return "musClock"
-		m_area_clock_sub2:
-			return "musClock"
-		m_area_lab:
-			return "musLab"
-		m_area_final:
-			return "musPowerPlantOff"
-		m_area_final_sub1:
-			return "musRuin"
-		m_area_final_sub3:
-			return "musPowerPlantOn"
-		m_area_cave:
-			return "musCave"
-		m_area_deeplab:
-			return "musPowerPlantOff"
+		m_area_null: return "musNone"
+		m_area_outside: return "musOutside"
+		m_area_final_sub2: return "musOutside"
+		m_area_factory: return "musFactory"
+		m_area_factory_sub1: return "musFactory"
+		m_area_ruin: return "musRuin"
+		m_area_ruin_sub1: return "musRuin"
+		m_area_ruin_sub2: return "musRuin"
+		m_area_ruin_sub3: return "musRuin"
+		m_area_ruin_sub4: return "musRuin"
+		m_area_clock: return "musClock"
+		m_area_clock_sub1: return "musClock"
+		m_area_clock_sub2: return "musClock"
+		m_area_lab: return "musLab"
+		m_area_final: return "musPowerPlantOff"
+		m_area_final_sub1: return "musRuin"
+		m_area_final_sub3: return "musPowerPlantOn"
+		m_area_cave: return "musCave"
+		m_area_deeplab: return "musPowerPlantOff"
 			
 	return "musNone"
 
 
 
 func save_game():
-	pass
+	progress_set("last_area", area)
+	progress_set("last_room_x", roomtargetx)
+	progress_set("last_room_y", roomtargety)
+	progress_set("last_room_dir", roomtargetfacing)
+	progress_set("last_room_state", roomtargetstate)
 	
+	save_progress()
+	save_stats()
 	
 func load_game():
-	pass
+	load_progress()
+	load_stats()
+	
+	area = progress["last_area"]
+	roomtargetx = progress["last_room_x"]
+	roomtargety = progress["last_room_y"]
+	roomtargetfacing = progress["last_room_dir"]
+	roomtargetstate = progress["last_room_state"]
 
 
 func show_textbox(file : String = "test", node : String = "text"):
@@ -334,9 +388,17 @@ func set_playing():
 		
 		
 func increment_playtime():
-	timeplayedseconds += 1
+	progress["time_sec"] += 1
 
 func _on_device_changed(device: String, _device_index: int) -> void:
 	print(device)
 	current_device = device
 	emit_signal("device_changed", device)
+
+
+func reset() -> void:
+	progress = default_progress.duplicate(true)
+	Game.roomtargetstate = Game.PLAYERSTATE.CUTSCENE
+	Game.roomtargetfacing = Game.PLAYERDIR.DOWN
+	Game.roomtargetx = 0
+	Game.roomtargety = 0

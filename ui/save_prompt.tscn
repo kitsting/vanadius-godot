@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1whn4vab2eg6"]
+
+[ext_resource type="Texture2D" uid="uid://dw245kb85tfg6" path="res://sprites/spr9Slice1.png" id="1_grwac"]
+[ext_resource type="Script" uid="uid://cdc11a0wcayac" path="res://ui/save_prompt.gd" id="1_j5lwi"]
+[ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="2_j5lwi"]
+[ext_resource type="PackedScene" uid="uid://dk3qssol3mag3" path="res://ui/option.tscn" id="3_q7j8l"]
+
+[node name="savePrompt" type="CanvasLayer"]
+script = ExtResource("1_j5lwi")
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 50
+
+[node name="TextureRect" type="NinePatchRect" parent="Margin"]
+layout_mode = 2
+texture = ExtResource("1_grwac")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Margin" type="MarginContainer" parent="Margin/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Vbox" type="VBoxContainer" parent="Margin/TextureRect/Margin"]
+layout_mode = 2
+alignment = 1
+
+[node name="Stats" type="HBoxContainer" parent="Margin/TextureRect/Margin/Vbox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Area" type="Label" parent="Margin/TextureRect/Margin/Vbox/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Area Name"
+label_settings = ExtResource("2_j5lwi")
+
+[node name="Playtime" type="Label" parent="Margin/TextureRect/Margin/Vbox/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0:00:00"
+label_settings = ExtResource("2_j5lwi")
+
+[node name="Deaths" type="HBoxContainer" parent="Margin/TextureRect/Margin/Vbox/Stats"]
+layout_mode = 2
+
+[node name="DeathsNo" type="Label" parent="Margin/TextureRect/Margin/Vbox/Stats/Deaths"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_j5lwi")
+
+[node name="Deaths" type="Label" parent="Margin/TextureRect/Margin/Vbox/Stats/Deaths"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Deaths"
+label_settings = ExtResource("2_j5lwi")
+
+[node name="Label" type="Label" parent="Margin/TextureRect/Margin/Vbox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Really overwrite this save?"
+label_settings = ExtResource("2_j5lwi")
+horizontal_alignment = 1
+
+[node name="Options" type="HBoxContainer" parent="Margin/TextureRect/Margin/Vbox"]
+layout_mode = 2
+
+[node name="Confirm" parent="Margin/TextureRect/Margin/Vbox/Options" instance=ExtResource("3_q7j8l")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Overwrite"
+alignment = 1
+
+[node name="Cancel" parent="Margin/TextureRect/Margin/Vbox/Options" instance=ExtResource("3_q7j8l")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Do not overwrite"
+alignment = 1
+
+[connection signal="pressed" from="Margin/TextureRect/Margin/Vbox/Options/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Margin/TextureRect/Margin/Vbox/Options/Cancel" to="." method="_on_cancel_pressed"]

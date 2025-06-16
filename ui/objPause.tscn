@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b87xy4bf2le0l"]
+[gd_scene load_steps=14 format=3 uid="uid://b87xy4bf2le0l"]
 
 [ext_resource type="Script" uid="uid://bj0y8ky2fwafu" path="res://ui/obj_pause.gd" id="1_p3d0u"]
 [ext_resource type="Texture2D" uid="uid://dw245kb85tfg6" path="res://sprites/spr9Slice1.png" id="1_rsf8a"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://blyyws256elgn" path="res://sprites/sprCollectibleIcon.png" id="5_s5yx1"]
 [ext_resource type="FontFile" uid="uid://bha4ogv0jof7x" path="res://fonts/fntBig.ttf" id="6_nui6y"]
 [ext_resource type="Texture2D" uid="uid://b0ps1pm3sqxot" path="res://sprites/ui/menu_underline.png" id="7_g23y7"]
+[ext_resource type="PackedScene" uid="uid://drfgevjxgjwv5" path="res://ui/new_button.tscn" id="10_jaax1"]
 
 [sub_resource type="Animation" id="Animation_cxrwq"]
 length = 0.001
@@ -229,10 +230,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -142.0
-offset_top = 12.0
-offset_right = -70.0
-offset_bottom = 32.0
+offset_left = -145.0
+offset_top = 8.0
+offset_right = -73.0
+offset_bottom = 37.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("6_nui6y")
@@ -246,9 +247,9 @@ vertical_alignment = 1
 show_behind_parent = true
 layout_mode = 0
 offset_left = 10.0
-offset_top = 17.0
+offset_top = 26.0
 offset_right = 70.0
-offset_bottom = 20.0
+offset_bottom = 29.0
 texture = ExtResource("7_g23y7")
 stretch_mode = 2
 
@@ -306,64 +307,30 @@ label_settings = ExtResource("4_nui6y")
 
 [node name="options" type="VBoxContainer" parent="BG/NinePatchRect"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 32.0
-offset_right = 116.0
-offset_bottom = 132.0
+offset_left = 16.0
+offset_top = 42.0
+offset_right = 117.0
+offset_bottom = 142.0
 theme_override_constants/separation = 6
 
-[node name="Resume" type="Button" parent="BG/NinePatchRect/options"]
+[node name="Resume" parent="BG/NinePatchRect/options" instance=ExtResource("10_jaax1")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.520356, 0.520356, 0.520356, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("6_nui6y")
-theme_override_font_sizes/font_size = 8
 text = "Resume"
-flat = true
-alignment = 0
 
-[node name="Options" type="Button" parent="BG/NinePatchRect/options"]
+[node name="Options" parent="BG/NinePatchRect/options" instance=ExtResource("10_jaax1")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 4
-theme_override_constants/line_spacing = 6
-theme_override_fonts/font = ExtResource("6_nui6y")
-theme_override_font_sizes/font_size = 8
 text = "Options"
-flat = true
-alignment = 0
 
-[node name="Warp" type="Button" parent="BG/NinePatchRect/options"]
+[node name="Warp" parent="BG/NinePatchRect/options" instance=ExtResource("10_jaax1")]
 layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 4
-theme_override_constants/line_spacing = 6
-theme_override_fonts/font = ExtResource("6_nui6y")
-theme_override_font_sizes/font_size = 8
 text = "Warp to Ruins"
-flat = true
-alignment = 0
 
-[node name="Quit" type="Button" parent="BG/NinePatchRect/options"]
+[node name="Quit" parent="BG/NinePatchRect/options" instance=ExtResource("10_jaax1")]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 4
-theme_override_constants/line_spacing = 6
-theme_override_fonts/font = ExtResource("6_nui6y")
-theme_override_font_sizes/font_size = 8
 text = "Save and Quit"
-flat = true
-alignment = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -372,3 +339,4 @@ libraries = {
 
 [connection signal="pressed" from="BG/NinePatchRect/options/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="BG/NinePatchRect/options/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="BG/NinePatchRect/options/Quit" to="." method="_on_quit_pressed"]

@@ -3,6 +3,7 @@ extends CanvasLayer
 signal done
 
 var submenu = false
+var last_button : Node = null
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,7 +16,7 @@ func _input(event: InputEvent) -> void:
 			exit()
 		else:
 			exit_submenu()
-			%Done.grab_focus()
+			last_button.grab_focus()
 
 
 func exit():
@@ -26,6 +27,7 @@ func _on_video_btn_pressed() -> void:
 	$BG/left_panel.visible = false
 	$BG/right_panel/video.visible = true
 	submenu = true
+	last_button = %VideoBtn
 	$BG/right_panel/video.get_child(0).grab_focus()
 	$BG/NinePatchRect/Label.text = "Video Options"
 
@@ -34,6 +36,7 @@ func _on_audio_btn_pressed() -> void:
 	$BG/left_panel.visible = false
 	$BG/right_panel/audio.visible = true
 	submenu = true
+	last_button = %AudioBtn
 	$BG/right_panel/audio.get_child(0).grab_focus()
 	$BG/NinePatchRect/Label.text = "Audio Options"
 
@@ -42,6 +45,7 @@ func _on_access_btn_pressed() -> void:
 	$BG/left_panel.visible = false
 	$BG/right_panel/accessibility.visible = true
 	submenu = true
+	last_button = %AccessBtn
 	$BG/right_panel/accessibility.get_child(0).grab_focus()
 	$BG/NinePatchRect/Label.text = "Accessibility Options"
 	

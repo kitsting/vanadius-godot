@@ -1,19 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://criqyqj5qwewh"]
+[gd_scene load_steps=9 format=3 uid="uid://criqyqj5qwewh"]
 
 [ext_resource type="Script" uid="uid://dw0grywg4m0cw" path="res://ui/obj_settings.gd" id="1_k254d"]
 [ext_resource type="Texture2D" uid="uid://dw245kb85tfg6" path="res://sprites/spr9Slice1.png" id="2_xvq6l"]
 [ext_resource type="Texture2D" uid="uid://ck7l5n38ycnia" path="res://sprites/ui/menu_underline_small.png" id="4_el7p0"]
 [ext_resource type="PackedScene" uid="uid://mep6s1hxljh5" path="res://ui/CycleOption.tscn" id="4_k254d"]
+[ext_resource type="PackedScene" uid="uid://drfgevjxgjwv5" path="res://ui/new_button.tscn" id="5_psuq5"]
 [ext_resource type="FontFile" uid="uid://we5onkvfxecy" path="res://fonts/van_small_font.ttf" id="6_el7p0"]
 [ext_resource type="FontFile" uid="uid://bha4ogv0jof7x" path="res://fonts/fntBig.ttf" id="9_hklsx"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_el7p0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6f7h"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jt35w"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xvq6l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_psuq5"]
 
@@ -83,64 +76,25 @@ offset_right = 179.0
 offset_bottom = 153.0
 theme_override_constants/separation = 6
 
-[node name="VideoBtn" type="Button" parent="BG/left_panel"]
+[node name="VideoBtn" parent="BG/left_panel" instance=ExtResource("5_psuq5")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.520356, 0.520356, 0.520356, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("9_hklsx")
-theme_override_font_sizes/font_size = 8
-theme_override_styles/focus = SubResource("StyleBoxEmpty_el7p0")
 text = "Video Settings"
-flat = true
-alignment = 0
 
-[node name="AudioBtn" type="Button" parent="BG/left_panel"]
+[node name="AudioBtn" parent="BG/left_panel" instance=ExtResource("5_psuq5")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 4
-theme_override_constants/line_spacing = 6
-theme_override_fonts/font = ExtResource("9_hklsx")
-theme_override_font_sizes/font_size = 8
-theme_override_styles/focus = SubResource("StyleBoxEmpty_f6f7h")
 text = "Audio Settings"
-flat = true
-alignment = 0
 
-[node name="AccessBtn" type="Button" parent="BG/left_panel"]
+[node name="AccessBtn" parent="BG/left_panel" instance=ExtResource("5_psuq5")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 4
-theme_override_constants/line_spacing = 6
-theme_override_fonts/font = ExtResource("9_hklsx")
-theme_override_font_sizes/font_size = 8
-theme_override_styles/focus = SubResource("StyleBoxEmpty_jt35w")
 text = "Accessibility Settings"
-flat = true
-alignment = 0
 
-[node name="Done" type="Button" parent="BG/left_panel"]
+[node name="Done" parent="BG/left_panel" instance=ExtResource("5_psuq5")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.521569, 0.521569, 0.521569, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 4
-theme_override_constants/line_spacing = 6
-theme_override_fonts/font = ExtResource("9_hklsx")
-theme_override_font_sizes/font_size = 8
-theme_override_styles/focus = SubResource("StyleBoxEmpty_xvq6l")
 text = "Done"
-flat = true
-alignment = 0
 
 [node name="right_panel" type="MarginContainer" parent="BG"]
 layout_mode = 0

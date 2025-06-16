@@ -1,0 +1,117 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwi5l3flprvsj"]
+
+[ext_resource type="Script" uid="uid://b2ydgrt08vxai" path="res://ui/obj_title.gd" id="1_inmak"]
+[ext_resource type="PackedScene" uid="uid://drfgevjxgjwv5" path="res://ui/new_button.tscn" id="1_n6lsq"]
+[ext_resource type="Texture2D" uid="uid://b23et7cr3g1io" path="res://sprites/sprTitleBackgroundRuin.png" id="2_5jg8x"]
+[ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="2_inmak"]
+[ext_resource type="Shader" uid="uid://bum5hu46wmht1" path="res://ui/obj_title_scroll.gdshader" id="2_qb0k3"]
+[ext_resource type="Texture2D" uid="uid://cvednlq02di0h" path="res://sprites/sprTitle.png" id="4_nwftu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qb0k3"]
+shader = ExtResource("2_qb0k3")
+shader_parameter/motion = Vector2(18, 0)
+shader_parameter/scale = 1.0
+shader_parameter/offset = Vector2(0, 0)
+
+[node name="objTitle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = -11.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_inmak")
+
+[node name="Background" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_qb0k3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -73.0
+offset_top = -14.0
+offset_right = 101.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5jg8x")
+stretch_mode = 1
+
+[node name="Options" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Resume" parent="Options" instance=ExtResource("1_n6lsq")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume"
+alignment = 2
+
+[node name="NewGame" parent="Options" instance=ExtResource("1_n6lsq")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Game"
+alignment = 2
+
+[node name="Options" parent="Options" instance=ExtResource("1_n6lsq")]
+layout_mode = 2
+text = "Options"
+alignment = 2
+
+[node name="Quit" parent="Options" instance=ExtResource("1_n6lsq")]
+layout_mode = 2
+text = "Quit"
+alignment = 2
+
+[node name="Info" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+alignment = 2
+
+[node name="Version" type="HBoxContainer" parent="Info"]
+layout_mode = 2
+
+[node name="Version" type="Label" parent="Info/Version"]
+layout_mode = 2
+text = "Version"
+label_settings = ExtResource("2_inmak")
+
+[node name="VersionNo" type="Label" parent="Info/Version"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1.3.0"
+label_settings = ExtResource("2_inmak")
+
+[node name="CreatedBy" type="Label" parent="Info"]
+layout_mode = 2
+text = "Created by Kitsting"
+label_settings = ExtResource("2_inmak")
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 24.0
+texture = ExtResource("4_nwftu")
+stretch_mode = 2
+
+[connection signal="pressed" from="Options/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Options/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Options/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Options/Quit" to="." method="_on_quit_pressed"]

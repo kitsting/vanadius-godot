@@ -47,6 +47,9 @@ func _ready() -> void:
 
 	Game.save_game()
 	
+	Game.connect("device_changed", update_device)
+	update_device(Game.current_device)
+	
 	
 	
 func _process(delta: float) -> void:
@@ -172,6 +175,7 @@ func _physics_process(delta: float) -> void:
 	direction = direction.normalized()
 	velocity += direction * (spd * delta * 60)
 	move_and_slide()
+	call_clone(velocity)
 	velocity = Vector2.ZERO
 	
 	
@@ -239,6 +243,8 @@ func die():
 	Game.beingchased = false
 	$sprite.speed_scale = 1
 	
+	get_tree().call_group("room", "set_pausable", false)
+	
 	if dir == PLAYERDIR.DOWN:
 		$sprite.play("dead")
 	elif dir == PLAYERDIR.UP:
@@ -251,7 +257,7 @@ func die():
 	if deathmsg == "":
 		deathmsg = Game.genericDeathMessage();
 	$death_screen/ColorRect/deathmsg.text = deathmsg
-	Game.deaths += 1
+	Game.progress["deaths"] += 1
 
 
 func swap_anim(anim_name : String, flip_x := false, play_backwards := false) -> void:
@@ -279,3 +285,23 @@ func set_flashlight(darkness : float, light : float):
 	if darkness > 0:
 		$flashlight.enabled = true
 		$flashlight.energy = darkness*light
+		
+
+func update_device(device):
+	if Game.options["buttons"] == int(0):
+		if device == InputHelper.DEVICE_GENERIC or device == InputHelper.DEVICE_XBOX_CONTROLLER or device == InputHelper.DEVICE_PLAYSTATION_CONTROLLER or device == InputHelper.DEVICE_SWITCH_CONTROLLER or device == InputHelper.DEVICE_STEAMDECK_CONTROLLER:
+			%LabelKeyboard.visible = false
+			%LabelGamepad.visible = true
+		else:
+			%LabelGamepad.visible = false
+			%LabelKeyboard.visible = true
+	elif Game.options["buttons"] == int(1):
+		%LabelGamepad.visible = false
+		%LabelKeyboard.visible = true
+	elif Game.options["buttons"] == int(2):
+		%LabelKeyboard.visible = false
+		%LabelGamepad.visible = true
+
+
+func call_clone(clone_velocity : Vector2) -> void:
+	get_tree().call_group("objClone", "move_and_slide", velocity)
