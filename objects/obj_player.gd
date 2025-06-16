@@ -32,7 +32,7 @@ var deathmsg : String = ""
 var pstate : PLAYERSTATE = PLAYERSTATE.ALIVE
 var dir : PLAYERDIR = PLAYERDIR.DOWN
 
-var direction : Vector2 = Vector2.ZERO
+var direction := Vector2.ZERO
 
 var transitioning = false
 
@@ -174,8 +174,8 @@ func _physics_process(delta: float) -> void:
 	#Move
 	direction = direction.normalized()
 	velocity += direction * (spd * delta * 60)
-	move_and_slide()
 	call_clone(velocity)
+	move_and_slide()
 	velocity = Vector2.ZERO
 	
 	
@@ -304,4 +304,14 @@ func update_device(device):
 
 
 func call_clone(clone_velocity : Vector2) -> void:
-	get_tree().call_group("objClone", "move_and_slide", velocity)
+	get_tree().call_group("objClone", "move", clone_velocity)
+
+
+func _on_sprite_animation_changed() -> void:
+	get_tree().call_group("objClone", "play_anim", $sprite.animation, $sprite.flip_h)
+
+func get_anim() -> String:
+	return $sprite.animation
+	
+func is_anim_flipped() -> bool:
+	return $sprite.flip_h

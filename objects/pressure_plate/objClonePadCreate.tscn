@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccmh7qw56y5o2"]
+
+[ext_resource type="Script" uid="uid://dwvlyqqpu1c3n" path="res://objects/pressure_plate/obj_clone_pad_create.gd" id="1_gvff5"]
+[ext_resource type="Texture2D" uid="uid://blvnjp08wbj1" path="res://sprites/pressure_plate/sprClonePadRecieve1.png" id="1_wo50f"]
+
+[node name="objClonePadCreate" type="Node2D"]
+z_index = -3
+script = ExtResource("1_gvff5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wo50f")

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://b7tdr1iqo8324"]
+[gd_resource type="TileSet" load_steps=20 format=3 uid="uid://b7tdr1iqo8324"]
 
 [ext_resource type="PackedScene" uid="uid://bsi4d2keoj851" path="res://objects/pressure_plate/objPressurePlateActivate.tscn" id="1_6k601"]
 [ext_resource type="PackedScene" uid="uid://hktosbx6boif" path="res://objects/conveyor/objConveyor.tscn" id="1_gtd35"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://0nlghbaf23te" path="res://objects/objGenericSpike.tscn" id="6_nqmdd"]
 [ext_resource type="PackedScene" uid="uid://3l4k0qtv8w0l" path="res://objects/conveyor/objConveyorRight.tscn" id="7_vt1b2"]
 [ext_resource type="PackedScene" uid="uid://dcom4xmjuurjc" path="res://objects/conveyor/objConveyorRightFast.tscn" id="8_6qggi"]
+[ext_resource type="PackedScene" uid="uid://ccmh7qw56y5o2" path="res://objects/pressure_plate/objClonePadCreate.tscn" id="14_17g4i"]
 [ext_resource type="PackedScene" uid="uid://dc1j0x5lfw1e8" path="res://objects/objRetractSpike.tscn" id="15_gtd35"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_hn71j"]
@@ -34,6 +35,7 @@ scenes/2/scene = ExtResource("2_gtd35")
 scenes/3/scene = ExtResource("3_x24mr")
 scenes/4/scene = ExtResource("4_oyvnr")
 scenes/5/scene = ExtResource("5_vxe0c")
+scenes/6/scene = ExtResource("14_17g4i")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_aerbi"]
 resource_name = "Spikes"

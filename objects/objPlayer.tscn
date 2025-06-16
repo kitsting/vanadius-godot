@@ -355,4 +355,5 @@ layout_mode = 2
 text = "none"
 label_settings = ExtResource("6_y75pg")
 
+[connection signal="animation_changed" from="sprite" to="." method="_on_sprite_animation_changed"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

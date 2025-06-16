@@ -13,7 +13,7 @@ script = ExtResource("1_hy8ai")
 area = "Forgotten Ruins"
 
 [node name="Floor" type="TileMapLayer" parent="."]
-z_index = -5
+z_index = -7
 tile_set = ExtResource("2_kpdfk")
 metadata/_edit_lock_ = true
 

@@ -40,3 +40,11 @@ func get_tagged_text(tag : String, parse_text : String) -> String:
 #Return a lowercase version of a given string. Mainly used as a helper class for dialogue
 func lower(string):
 	return string.to_lower()
+
+
+#Check if a node is in any of the given groups
+func match_group(node : Node, groups : Array[StringName]) -> bool:
+	for group in groups:
+		if node.is_in_group(group):
+			return true
+	return false
