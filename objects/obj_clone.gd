@@ -18,9 +18,10 @@ func _process(delta : float) -> void:
 
 
 func move(mv_velocity : Vector2) -> void:
-	velocity = mv_velocity
-	move_and_slide()
-	velocity = Vector2.ZERO
+	if !Input.is_action_pressed("ui_accept"):
+		velocity = mv_velocity
+		move_and_slide()
+		velocity = Vector2.ZERO
 
 func play_anim(anim : String, flip_h := false) -> void:
 	$AnimatedSprite2D.flip_h = flip_h

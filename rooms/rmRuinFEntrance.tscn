@@ -87,7 +87,7 @@ direction = 2
 position = Vector2(16, 120)
 rotation = 1.5708
 target_room = "uid://chv5w8c82wcle"
-target_x = 310
+target_x = 280
 target_y = 125
 direction = 3
 

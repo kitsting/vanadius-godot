@@ -9,7 +9,7 @@ var target_body : Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if collectible_id in Game.collectibles:
+	if collectible_id in Game.progress["collectibles"]:
 		queue_free()
 		
 	$collected_screen/ColorRect/name.text = collectible_name
@@ -27,7 +27,7 @@ func _input(event: InputEvent) -> void:
 	if collected and Input.is_action_just_pressed("ui_accept"):
 		if target_body != null:
 			target_body.pstate = target_body.PLAYERSTATE.ALIVE
-			Game.collectibles.append(collectible_id)
+			Game.progress_append("collectibles", collectible_id)
 			
 			if savepos:
 				Game.roomtargetx = target_body.position.x

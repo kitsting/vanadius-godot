@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://diy0ps6ikrp1w"]
+
+[ext_resource type="Script" uid="uid://c8jgv0artysn5" path="res://objects/obj_interact.gd" id="1_aqcpe"]
+[ext_resource type="Texture2D" uid="uid://bpjia1klisyaq" path="res://sprites/interact/use.png" id="3_tmlbm"]
+[ext_resource type="Texture2D" uid="uid://fh8ifu1g1pxm" path="res://sprites/interact/use1.png" id="4_c00o2"]
+[ext_resource type="Texture2D" uid="uid://5kr5bypexbui" path="res://sprites/interact/view.png" id="5_c2s3y"]
+[ext_resource type="Texture2D" uid="uid://d085dfqty6tll" path="res://sprites/interact/view1.png" id="6_urax7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h6fxo"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("3_tmlbm")
+}, {
+"duration": 10.0,
+"texture": ExtResource("4_c00o2")
+}],
+"loop": true,
+"name": &"use",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("5_c2s3y")
+}, {
+"duration": 10.0,
+"texture": ExtResource("6_urax7")
+}],
+"loop": true,
+"name": &"view",
+"speed": 5.0
+}]
+
+[node name="objInteract" type="Area2D"]
+z_index = 999
+script = ExtResource("1_aqcpe")
+
+[node name="interact_sprite" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 999
+sprite_frames = SubResource("SpriteFrames_h6fxo")
+animation = &"view"
+frame_progress = 0.274744
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

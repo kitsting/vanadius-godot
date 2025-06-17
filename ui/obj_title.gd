@@ -11,6 +11,13 @@ func _ready() -> void:
 	await get_tree().create_timer(0.3).timeout
 	$Options.get_child(0).grab_focus()
 	Audio.set_music("res://music/"+Game.getMusic(Game.area)+".ogg")
+	
+	#Do some loading here to not mess with debugging
+	Game.area = Game.progress["last_area"]
+	Game.roomtargetx = Game.progress["last_room_x"]
+	Game.roomtargety = Game.progress["last_room_y"]
+	Game.roomtargetfacing = Game.progress["last_room_dir"]
+	Game.roomtargetstate = Game.progress["last_room_state"]
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
@@ -32,6 +39,7 @@ func _on_new_game_pressed() -> void:
 	
 	if confirm_prompt.is_confirm():
 		Game.reset()
+		Game.roomtargetstate = Game.PLAYERSTATE.CUTSCENE
 		Game.progress_set("last_room", "res://rooms/rmIntro.tscn")
 		Game.transition_room("res://rooms/rmIntro.tscn")
 	else:

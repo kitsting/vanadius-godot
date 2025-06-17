@@ -73,3 +73,22 @@ Insurance claims due to Sentry injuries will be denied.
 Watch out for lasers as well! Walking into one results in instant death.
 Since this is likely undesirable, they can de disabled with pressure plates.
 => END
+
+
+~ rmRuinControl2
+if !Game.progress["power_complete"]
+	Status\: Power Plant is not active.\nAll systems running on backup power.
+else
+	Status\: Power Plant active.
+if !Game.progress["gates_down"]
+	Subjects remaining\: 8\nSubject being tested\: #0023
+	Security Gates\: Locked
+	Would you like to open the gates?
+	- Yes
+		do Game.lower_gates()
+		=> END
+	- No
+		=> END
+else
+	Security gates are unlocked.
+=> END

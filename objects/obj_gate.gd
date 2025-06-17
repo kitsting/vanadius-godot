@@ -4,13 +4,13 @@ extends StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Game.gatesdeactivated:
+	if Game.progress["gates_down"]:
 		$CollisionShape2D.disabled = true
 		$Connector.visible = false
-		$Left.sprite = down_sprite
-		$CenterL.sprite = down_sprite
-		$CenterR.sprite = down_sprite
-		$Right.sprite = down_sprite
+		$Left.texture = down_sprite
+		$CenterL.texture = down_sprite
+		$CenterR.texture = down_sprite
+		$Right.texture = down_sprite
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -54,7 +54,6 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if can_read and Input.is_action_just_pressed("ui_accept"):
 		if target_body.pstate == target_body.PLAYERSTATE.ALIVE:
-			Game.tutorialinteract = false
 			Game.show_textbox(file, node)
 
 

@@ -56,7 +56,7 @@ signal lasers_changed(value)
 var roomtargetx : int = 0
 var roomtargety : int = 0
 var roomtargetfacing : int = 1
-var roomtargetstate : PLAYERSTATE = PLAYERSTATE.CUTSCENE
+var roomtargetstate : PLAYERSTATE = PLAYERSTATE.ALIVE
 
 var current_room = ""
 var playing = false
@@ -139,6 +139,8 @@ var stats := {
 
 var current_device = InputHelper.DEVICE_KEYBOARD
 signal device_changed
+
+signal gates_lowered
 
 
 func _ready() -> void:
@@ -353,12 +355,6 @@ func save_game():
 func load_game():
 	load_progress()
 	load_stats()
-	
-	area = progress["last_area"]
-	roomtargetx = progress["last_room_x"]
-	roomtargety = progress["last_room_y"]
-	roomtargetfacing = progress["last_room_dir"]
-	roomtargetstate = progress["last_room_state"]
 
 
 func show_textbox(file : String = "test", node : String = "text"):
@@ -402,3 +398,9 @@ func reset() -> void:
 	Game.roomtargetfacing = Game.PLAYERDIR.DOWN
 	Game.roomtargetx = 0
 	Game.roomtargety = 0
+
+
+func lower_gates() -> void:
+	progress["gates_down"] = true
+	emit_signal("gates_lowered")
+	Audio.play_sound("res://sounds/sndGate.ogg", "gate_down")

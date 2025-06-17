@@ -85,12 +85,22 @@ func populate_choices():
 func _on_option_1_pressed() -> void:
 	$option_BG.visible = false
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(next_id_1)
-	advance_text()
+	if dialogue_line != null:
+		advance_text()
+	else:
+		Audio.play_sound("res://sounds/sndBeep.ogg", "beep", 0, false, 0.9)
+		emit_signal("text_finished")
+		queue_free()
 
 func _on_option_2_pressed() -> void:
 	$option_BG.visible = false
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(next_id_2)
-	advance_text()
+	if dialogue_line != null:
+		advance_text()
+	else:
+		Audio.play_sound("res://sounds/sndBeep.ogg", "beep", 0, false, 0.9)
+		emit_signal("text_finished")
+		queue_free()
 
 
 func advance_text():
