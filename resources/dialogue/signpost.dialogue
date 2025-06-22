@@ -92,3 +92,39 @@ if !Game.progress["gates_down"]
 else
 	Security gates are unlocked.
 => END
+
+
+~ rmLabTutorial1
+Please take caution with Clones. They are very volatile, and will dissipate with even the slightest disturbance.
+To keep them out of harm's way, you can hold the action button to stop them from following you.
+=> END
+
+~ rmLabChallenge1
+We created Clones to help us move around lab materials.
+Our plan was to have them be super resilient, but we started running out of money.
+After cuts to the Lab Department, there simply aren't enough funds to keep doing research.
+=> END
+
+
+~ rmLabChallenge2
+Entry #3 (2/26/23)
+We've been approached by an unknown organization. We don't know what their end goals are, but...
+They offered us a hefty sum of money to help them. This could save us from bankruptcy!
+All they want is for us to mass produce super strong robots. The kind that can tackle any challenge.
+We'll start creating prototypes tomorrow.
+=> END
+
+
+~ rmLabCollectible1
+Entry #5 (2/28/23)
+We've discovered a new alloy, one that will make this plan a success.
+It's a mixture of Vanadium and Steel, and it has some interesting properties.
+It's fairly brittle, but it can survive extreme falls. It's also extremely lightweight.
+This shouldn't be scientifically possible. Yet, with our process, it works.
+Our boss is upset that we spent so much on this discovery, but it will definitely come in handy.
+=> END
+
+
+~ rmDeepStart
+[color=red]WARNING\: AUTHORIZED PERSONNEL ONLY[/color]\nSECURED FOR THE SAFETY OF ALL STAFF
+If access is needed, please visit the [color=yellow]control room[/color].

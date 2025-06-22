@@ -1,0 +1,278 @@
+[gd_scene load_steps=13 format=4 uid="uid://bsyt1hpeq350t"]
+
+[ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_exopf"]
+[ext_resource type="TileSet" uid="uid://hmcf6vm4y7tx" path="res://resources/tilesets/small_tiles.tres" id="2_ekamo"]
+[ext_resource type="Texture2D" uid="uid://bnhuy21gqq2jb" path="res://sprites/sprBlackFade.png" id="2_rulp5"]
+[ext_resource type="Script" uid="uid://ckx5gb7tji0eb" path="res://rooms/survival.gd" id="3_srgqc"]
+[ext_resource type="PackedScene" uid="uid://cplr8ixrvkae6" path="res://objects/objPit.tscn" id="3_xfjp6"]
+[ext_resource type="PackedScene" uid="uid://civl47jb2mtia" path="res://objects/objFlask.tscn" id="5_asgxt"]
+[ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="7_158c4"]
+[ext_resource type="Script" uid="uid://dx4p4kdyxs6j" path="res://rooms/survive_timer.gd" id="7_vnrkt"]
+[ext_resource type="LabelSettings" uid="uid://d08xk8kwh1ry4" path="res://resources/big_label.tres" id="8_vnrkt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asgxt"]
+size = Vector2(96, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfjp6"]
+size = Vector2(96, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekamo"]
+size = Vector2(96, 20)
+
+[node name="Testroom" instance=ExtResource("1_exopf")]
+area = "The Lab"
+internal_name = "rmLabChallenge3"
+
+[node name="Floor" parent="." index="0"]
+tile_map_data = PackedByteArray("AAAFAAAABQAEAAIAAAAFAAEABQAEAAIAAAAFAAIABQAEAAIAAAAFAAMABQAEAAIAAAAFAAQABQAEAAIAAAAFAAUABQAEAAIAAAAFAAYABQAEAAIAAAAFAAcABQAEAAIAAAAFAAgABQAEAAIAAAAFAAkABQAEAAIAAAAFAAoABQAEAAIAAAAFAAsABQAEAAIAAAAFAAwABQAEAAIAAAAFAA0ABQAEAAIAAAAGAAAABQAEAAIAAAAGAAEABQAEAAIAAAAGAAIABQAEAAIAAAAGAAMABQAEAAIAAAAGAAQABQAEAAIAAAAGAAUABQAEAAIAAAAGAAYABQAEAAIAAAAGAAcABQAEAAIAAAAGAAgABQAEAAIAAAAGAAkABQAEAAIAAAAGAAoABQAEAAIAAAAGAAsABQAEAAIAAAAGAAwABQAEAAIAAAAGAA0ABQAEAAIAAAAHAAAABQAEAAIAAAAHAAEABQAEAAIAAAAHAAIABQAEAAIAAAAHAAMABQAEAAIAAAAHAAQABQAEAAIAAAAHAAUABQAEAAIAAAAHAAYABQAEAAIAAAAHAAcABQAEAAIAAAAHAAgABQAEAAIAAAAHAAkABQAEAAIAAAAHAAoABQAEAAIAAAAHAAsABQAEAAIAAAAHAAwABQAEAAIAAAAHAA0ABQAEAAIAAAAIAAAABQAEAAIAAAAIAAEABQAEAAIAAAAIAAIABQAEAAIAAAAIAAMABQAEAAIAAAAIAAQABQAEAAIAAAAIAAUABQAEAAIAAAAIAAYABQAEAAIAAAAIAAcABQAEAAIAAAAIAAgABQAEAAIAAAAIAAkABQAEAAIAAAAIAAoABQAEAAIAAAAIAAsABQAEAAIAAAAIAAwABQAEAAIAAAAIAA0ABQAEAAIAAAAAAAAABQAEAAIAAAAAAAEABQAEAAIAAAAAAAIABQAEAAIAAAAAAAMABQAEAAIAAAAAAAQABQAEAAIAAAAAAAUABQAEAAIAAAAAAAYABQAEAAIAAAAAAAcABQAEAAIAAAAAAAgABQAEAAIAAAAAAAkABQAEAAIAAAAAAAoABQAEAAIAAAAAAAsABQAEAAIAAAAAAAwABQAEAAIAAAAAAA0ABQAEAAIAAAABAAAABQAEAAIAAAABAAEABQAEAAIAAAABAAIABQAEAAIAAAABAAMABQAEAAIAAAABAAQABQAEAAIAAAABAAUABQAEAAIAAAABAAYABQAEAAIAAAABAAcABQAEAAIAAAABAAgABQAEAAIAAAABAAkABQAEAAIAAAABAAoABQAEAAIAAAABAAsABQAEAAIAAAABAAwABQAEAAIAAAABAA0ABQAEAAIAAAACAAAABQAEAAIAAAACAAEABQAEAAIAAAACAAIABQAEAAIAAAACAAMABQAEAAIAAAACAAQABQAEAAIAAAACAAUABQAEAAIAAAACAAYABQAEAAIAAAACAAcABQAEAAIAAAACAAgABQAEAAIAAAACAAkABQAEAAIAAAACAAoABQAEAAIAAAACAAsABQAEAAIAAAACAAwABQAEAAIAAAACAA0ABQAEAAIAAAADAAAABQAEAAIAAAADAAEABQAEAAIAAAADAAIABQAEAAIAAAADAAMABQAEAAIAAAADAAQABQAEAAIAAAADAAUABQAEAAIAAAADAAYABQAEAAIAAAADAAcABQAEAAIAAAADAAgABQAEAAIAAAADAAkABQAEAAIAAAADAAoABQAEAAIAAAADAAsABQAEAAIAAAADAAwABQAEAAIAAAADAA0ABQAEAAIAAAAEAAAABQAEAAIAAAAEAAEABQAEAAIAAAAEAAIABQAEAAIAAAAEAAMABQAEAAIAAAAEAAQABQAEAAIAAAAEAAUABQAEAAIAAAAEAAYABQAEAAIAAAAEAAcABQAEAAIAAAAEAAgABQAEAAIAAAAEAAkABQAEAAIAAAAEAAoABQAEAAIAAAAEAAsABQAEAAIAAAAEAAwABQAEAAIAAAAEAA0ABQAEAAIAAAAJAAAABQAEAAIAAAAJAAEABQAEAAIAAAAJAAIABQAEAAIAAAAJAAMABQAEAAIAAAAJAAQABQAEAAIAAAAJAAUABQAEAAIAAAAJAAYABQAEAAIAAAAJAAcABQAEAAIAAAAJAAgABQAEAAIAAAAJAAkABQAEAAIAAAAJAAoABQAEAAIAAAAJAAsABQAEAAIAAAAJAAwABQAEAAIAAAAJAA0ABQAEAAIAAAAKAAAABQAEAAIAAAAKAAEABQAEAAIAAAAKAAIABQAEAAIAAAAKAAMABQAEAAIAAAAKAAQABQAEAAIAAAAKAAUABQAEAAIAAAAKAAYABQAEAAIAAAAKAAcABQAEAAIAAAAKAAgABQAEAAIAAAAKAAkABQAEAAIAAAAKAAoABQAEAAIAAAAKAAsABQAEAAIAAAAKAAwABQAEAAIAAAAKAA0ABQAEAAIAAAALAAAABQAEAAIAAAALAAEABQAEAAIAAAALAAIABQAEAAIAAAALAAMABQAEAAIAAAALAAQABQAEAAIAAAALAAUABQAEAAIAAAALAAYABQAEAAIAAAALAAcABQAEAAIAAAALAAgABQAEAAIAAAALAAkABQAEAAIAAAALAAoABQAEAAIAAAALAAsABQAEAAIAAAALAAwABQAEAAIAAAALAA0ABQAEAAIAAAAMAAAABQAEAAIAAAAMAAEABQAEAAIAAAAMAAIABQAEAAIAAAAMAAMABQAEAAIAAAAMAAQABQAEAAIAAAAMAAUABQAEAAIAAAAMAAYABQAEAAIAAAAMAAcABQAEAAIAAAAMAAgABQAEAAIAAAAMAAkABQAEAAIAAAAMAAoABQAEAAIAAAAMAAsABQAEAAIAAAAMAAwABQAEAAIAAAAMAA0ABQAEAAIAAAANAAAABQAEAAIAAAANAAEABQAEAAIAAAANAAIABQAEAAIAAAANAAMABQAEAAIAAAANAAQABQAEAAIAAAANAAUABQAEAAIAAAANAAYABQAEAAIAAAANAAcABQAEAAIAAAANAAgABQAEAAIAAAANAAkABQAEAAIAAAANAAoABQAEAAIAAAANAAsABQAEAAIAAAANAAwABQAEAAIAAAANAA0ABQAEAAIAAAA=")
+
+[node name="Walls" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAIAAEABQAIAAMAAAAIAAAABQAIAAIAAAAIAP//BQAIAAEAAAAHAAEABQAHAAMAAAAHAAAABQAHAAIAAAAHAP//BQAHAAEAAAAGAAEABQAHAAMAAAAGAAAABQAHAAIAAAAGAP//BQAHAAEAAAAFAAEABQAGAAMAAAAFAAAABQAGAAIAAAAFAP//BQAGAAEAAAAIAAQABQAIAAIAAAAIAAMABQAIAAEAAAAHAAQABQAHAAIAAAAHAAMABQAHAAEAAAAGAAQABQAHAAIAAAAGAAMABQAHAAEAAAAFAAQABQAGAAIAAAAFAAMABQAGAAEAAAAIAAUABQAIAAMAAAAHAAUABQAHAAMAAAAGAAUABQAHAAMAAAAFAAUABQAGAAMAAAA=")
+collision_enabled = false
+
+[node name="TileObjects" parent="." index="2"]
+collision_enabled = false
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." index="3"]
+tile_map_data = PackedByteArray("AAAKAA4AAAAAAAAAAwALAA4AAAAAAAAAAwAMAA4AAAAAAAAAAwANAA4AAAAAAAAAAwAOAA4AAAAAAAAAAwAPAA4AAAAAAAAAAwAQAA4AAAAAAAAAAwARAA4AAAAAAAAAAwAKABQAAAAAAAAAAwALABQAAAAAAAAAAwAMABQAAAAAAAAAAwANABQAAAAAAAAAAwAOABQAAAAAAAAAAwAPABQAAAAAAAAAAwAQABQAAAAAAAAAAwARABQAAAAAAAAAAwA=")
+tile_set = ExtResource("2_ekamo")
+
+[node name="SprBlackFade" type="Sprite2D" parent="." index="4"]
+position = Vector2(168, 120)
+scale = Vector2(3, 1.5)
+texture = ExtResource("2_rulp5")
+
+[node name="survival" type="Area2D" parent="FloorObjects" index="0" node_paths=PackedStringArray("flask_node")]
+position = Vector2(130, 216)
+script = ExtResource("3_srgqc")
+flask_node = NodePath("../../Objects/Flasks")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorObjects/survival" index="0"]
+position = Vector2(38, 0)
+shape = SubResource("RectangleShape2D_asgxt")
+
+[node name="ObjPlayer" parent="Objects" index="0"]
+position = Vector2(168, 304)
+
+[node name="Flasks" type="Node2D" parent="Objects" index="1" groups=["flaskDodge"]]
+process_mode = 4
+
+[node name="objFlask" parent="Objects/Flasks" index="0" instance=ExtResource("5_asgxt")]
+position = Vector2(132, -12)
+
+[node name="objFlask2" parent="Objects/Flasks" index="1" instance=ExtResource("5_asgxt")]
+position = Vector2(152, -12)
+
+[node name="objFlask3" parent="Objects/Flasks" index="2" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -96)
+
+[node name="objFlask4" parent="Objects/Flasks" index="3" instance=ExtResource("5_asgxt")]
+position = Vector2(184, -96)
+
+[node name="objFlask5" parent="Objects/Flasks" index="4" instance=ExtResource("5_asgxt")]
+position = Vector2(180, -168)
+
+[node name="objFlask6" parent="Objects/Flasks" index="5" instance=ExtResource("5_asgxt")]
+position = Vector2(160, -168)
+
+[node name="objFlask7" parent="Objects/Flasks" index="6" instance=ExtResource("5_asgxt")]
+position = Vector2(130, -289)
+
+[node name="objFlask9" parent="Objects/Flasks" index="7" instance=ExtResource("5_asgxt")]
+position = Vector2(168, -372)
+
+[node name="objFlask10" parent="Objects/Flasks" index="8" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -450)
+
+[node name="objFlask14" parent="Objects/Flasks" index="9" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -544)
+
+[node name="objFlask18" parent="Objects/Flasks" index="10" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -632)
+
+[node name="objFlask19" parent="Objects/Flasks" index="11" instance=ExtResource("5_asgxt")]
+position = Vector2(190, -632)
+
+[node name="objFlask20" parent="Objects/Flasks" index="12" instance=ExtResource("5_asgxt")]
+position = Vector2(176, -632)
+
+[node name="objFlask21" parent="Objects/Flasks" index="13" instance=ExtResource("5_asgxt")]
+position = Vector2(128, -632)
+
+[node name="objFlask22" parent="Objects/Flasks" index="14" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -704)
+
+[node name="objFlask23" parent="Objects/Flasks" index="15" instance=ExtResource("5_asgxt")]
+position = Vector2(190, -704)
+
+[node name="objFlask24" parent="Objects/Flasks" index="16" instance=ExtResource("5_asgxt")]
+position = Vector2(174, -704)
+
+[node name="objFlask25" parent="Objects/Flasks" index="17" instance=ExtResource("5_asgxt")]
+position = Vector2(158, -704)
+
+[node name="objFlask26" parent="Objects/Flasks" index="18" instance=ExtResource("5_asgxt")]
+position = Vector2(128, -831)
+
+[node name="objFlask27" parent="Objects/Flasks" index="19" instance=ExtResource("5_asgxt")]
+position = Vector2(144, -831)
+
+[node name="objFlask28" parent="Objects/Flasks" index="20" instance=ExtResource("5_asgxt")]
+position = Vector2(160, -831)
+
+[node name="objFlask29" parent="Objects/Flasks" index="21" instance=ExtResource("5_asgxt")]
+position = Vector2(176, -831)
+
+[node name="objFlask30" parent="Objects/Flasks" index="22" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -920)
+
+[node name="objFlask31" parent="Objects/Flasks" index="23" instance=ExtResource("5_asgxt")]
+position = Vector2(128, -920)
+
+[node name="objFlask32" parent="Objects/Flasks" index="24" instance=ExtResource("5_asgxt")]
+position = Vector2(128, -944)
+
+[node name="objFlask34" parent="Objects/Flasks" index="25" instance=ExtResource("5_asgxt")]
+position = Vector2(128, -968)
+
+[node name="objFlask50" parent="Objects/Flasks" index="26" instance=ExtResource("5_asgxt")]
+position = Vector2(144, -968)
+
+[node name="objFlask54" parent="Objects/Flasks" index="27" instance=ExtResource("5_asgxt")]
+position = Vector2(160, -968)
+
+[node name="objFlask33" parent="Objects/Flasks" index="28" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -944)
+
+[node name="objFlask35" parent="Objects/Flasks" index="29" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -968)
+
+[node name="objFlask36" parent="Objects/Flasks" index="30" instance=ExtResource("5_asgxt")]
+position = Vector2(128, -992)
+
+[node name="objFlask37" parent="Objects/Flasks" index="31" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -992)
+
+[node name="objFlask38" parent="Objects/Flasks" index="32" instance=ExtResource("5_asgxt")]
+position = Vector2(128, -1016)
+
+[node name="objFlask39" parent="Objects/Flasks" index="33" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -1016)
+
+[node name="objFlask40" parent="Objects/Flasks" index="34" instance=ExtResource("5_asgxt")]
+position = Vector2(128, -1040)
+
+[node name="objFlask41" parent="Objects/Flasks" index="35" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -1040)
+
+[node name="objFlask51" parent="Objects/Flasks" index="36" instance=ExtResource("5_asgxt")]
+position = Vector2(186, -1064)
+
+[node name="objFlask55" parent="Objects/Flasks" index="37" instance=ExtResource("5_asgxt")]
+position = Vector2(170, -1064)
+
+[node name="objFlask42" parent="Objects/Flasks" index="38" instance=ExtResource("5_asgxt")]
+position = Vector2(128, -1064)
+
+[node name="objFlask43" parent="Objects/Flasks" index="39" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -1064)
+
+[node name="objFlask44" parent="Objects/Flasks" index="40" instance=ExtResource("5_asgxt")]
+position = Vector2(128, -1088)
+
+[node name="objFlask45" parent="Objects/Flasks" index="41" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -1088)
+
+[node name="objFlask46" parent="Objects/Flasks" index="42" instance=ExtResource("5_asgxt")]
+position = Vector2(128, -1112)
+
+[node name="objFlask47" parent="Objects/Flasks" index="43" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -1112)
+
+[node name="objFlask48" parent="Objects/Flasks" index="44" instance=ExtResource("5_asgxt")]
+position = Vector2(128, -1136)
+
+[node name="objFlask49" parent="Objects/Flasks" index="45" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -1136)
+
+[node name="objFlask56" parent="Objects/Flasks" index="46" instance=ExtResource("5_asgxt")]
+position = Vector2(128, -1160)
+
+[node name="objFlask57" parent="Objects/Flasks" index="47" instance=ExtResource("5_asgxt")]
+position = Vector2(144, -1160)
+
+[node name="objFlask58" parent="Objects/Flasks" index="48" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -1160)
+
+[node name="objFlask59" parent="Objects/Flasks" index="49" instance=ExtResource("5_asgxt")]
+position = Vector2(186, -1160)
+
+[node name="objFlask15" parent="Objects/Flasks" index="50" instance=ExtResource("5_asgxt")]
+position = Vector2(128, -544)
+
+[node name="objFlask16" parent="Objects/Flasks" index="51" instance=ExtResource("5_asgxt")]
+position = Vector2(144, -544)
+
+[node name="objFlask17" parent="Objects/Flasks" index="52" instance=ExtResource("5_asgxt")]
+position = Vector2(160, -544)
+
+[node name="objFlask11" parent="Objects/Flasks" index="53" instance=ExtResource("5_asgxt")]
+position = Vector2(130, -450)
+
+[node name="objFlask12" parent="Objects/Flasks" index="54" instance=ExtResource("5_asgxt")]
+position = Vector2(146, -450)
+
+[node name="objFlask13" parent="Objects/Flasks" index="55" instance=ExtResource("5_asgxt")]
+position = Vector2(190, -450)
+
+[node name="objFlask8" parent="Objects/Flasks" index="56" instance=ExtResource("5_asgxt")]
+position = Vector2(204, -289)
+
+[node name="PitWall" type="StaticBody2D" parent="TopObjects" index="0"]
+position = Vector2(130, 134)
+collision_layer = 8
+collision_mask = 8
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopObjects/PitWall" index="0"]
+position = Vector2(38, 0)
+shape = SubResource("RectangleShape2D_xfjp6")
+
+[node name="objPit" parent="." index="8" instance=ExtResource("3_xfjp6")]
+position = Vector2(168, 104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objPit" index="1"]
+position = Vector2(0, 39)
+shape = SubResource("RectangleShape2D_ekamo")
+
+[node name="Ceiling" parent="." index="9"]
+tile_map_data = PackedByteArray("AAAAAAAABQAAAAEAAAABAAAABQABAAEAAAACAAAABQABAAEAAAADAAAABQABAAEAAAAEAAAABQACAAEAAAAEAAEABQACAAIAAAAEAAIABQACAAIAAAAEAAMABQACAAIAAAAEAAQABQACAAIAAAAEAAUABQACAAIAAAAEAAYABQACAAIAAAAEAAcABQACAAIAAAAEAA0ABQACAAMAAAAEAAwABQACAAIAAAAEAAsABQACAAIAAAAEAAoABQACAAIAAAAEAAkABQACAAIAAAAEAAgABQACAAIAAAADAA0ABQABAAMAAAADAAwABQABAAIAAAADAAsABQABAAIAAAADAAoABQABAAIAAAADAAkABQABAAIAAAADAAgABQABAAIAAAADAAcABQABAAIAAAADAAYABQABAAIAAAADAAUABQABAAIAAAADAAQABQABAAIAAAADAAMABQABAAIAAAADAAIABQABAAIAAAADAAEABQABAAIAAAACAA0ABQABAAMAAAACAAwABQABAAIAAAACAAsABQABAAIAAAACAAoABQABAAIAAAACAAkABQABAAIAAAACAAgABQABAAIAAAACAAcABQABAAIAAAACAAYABQABAAIAAAACAAUABQABAAIAAAACAAQABQABAAIAAAACAAMABQABAAIAAAACAAIABQABAAIAAAACAAEABQABAAIAAAABAA0ABQABAAMAAAABAAwABQABAAIAAAABAAsABQABAAIAAAABAAoABQABAAIAAAABAAkABQABAAIAAAABAAgABQABAAIAAAABAAcABQABAAIAAAABAAYABQABAAIAAAABAAUABQABAAIAAAABAAQABQABAAIAAAABAAMABQABAAIAAAABAAIABQABAAIAAAABAAEABQABAAIAAAAAAA0ABQAAAAMAAAAAAAwABQAAAAIAAAAAAAsABQAAAAIAAAAAAAoABQAAAAIAAAAAAAkABQAAAAIAAAAAAAgABQAAAAIAAAAAAAcABQAAAAIAAAAAAAYABQAAAAIAAAAAAAUABQAAAAIAAAAAAAQABQAAAAIAAAAAAAMABQAAAAIAAAAAAAIABQAAAAIAAAAAAAEABQAAAAIAAAANAA0ABQACAAMAAAANAAwABQACAAIAAAANAAsABQACAAIAAAANAAoABQACAAIAAAANAAkABQACAAIAAAANAAgABQACAAIAAAANAAcABQACAAIAAAANAAYABQACAAIAAAANAAUABQACAAIAAAANAAQABQACAAIAAAANAAMABQACAAIAAAANAAIABQACAAIAAAANAAEABQACAAIAAAANAAAABQACAAEAAAAMAA0ABQABAAMAAAAMAAwABQABAAIAAAAMAAsABQABAAIAAAAMAAoABQABAAIAAAAMAAkABQABAAIAAAAMAAgABQABAAIAAAAMAAcABQABAAIAAAAMAAYABQABAAIAAAAMAAUABQABAAIAAAAMAAQABQABAAIAAAAMAAMABQABAAIAAAAMAAIABQABAAIAAAAMAAEABQABAAIAAAAMAAAABQABAAEAAAALAA0ABQABAAMAAAALAAwABQABAAIAAAALAAsABQABAAIAAAALAAoABQABAAIAAAALAAkABQABAAIAAAALAAgABQABAAIAAAALAAcABQABAAIAAAALAAYABQABAAIAAAALAAUABQABAAIAAAALAAQABQABAAIAAAALAAMABQABAAIAAAALAAIABQABAAIAAAALAAEABQABAAIAAAALAAAABQABAAEAAAAKAA0ABQABAAMAAAAKAAwABQABAAIAAAAKAAsABQABAAIAAAAKAAoABQABAAIAAAAKAAkABQABAAIAAAAKAAgABQABAAIAAAAKAAcABQABAAIAAAAKAAYABQABAAIAAAAKAAUABQABAAIAAAAKAAQABQABAAIAAAAKAAMABQABAAIAAAAKAAIABQABAAIAAAAKAAEABQABAAIAAAAKAAAABQABAAEAAAAJAA0ABQAAAAMAAAAJAAwABQAAAAIAAAAJAAsABQAAAAIAAAAJAAoABQAAAAIAAAAJAAkABQAAAAIAAAAJAAgABQAAAAIAAAAJAAcABQAAAAIAAAAJAAYABQAAAAIAAAAJAAUABQAAAAIAAAAJAAQABQAAAAIAAAAJAAMABQAAAAIAAAAJAAIABQAAAAIAAAAJAAEABQAAAAIAAAAJAAAABQAAAAEAAAA=")
+
+[node name="Camera" parent="." index="10"]
+position = Vector2(168, 304)
+
+[node name="SurviveTimer" type="CanvasLayer" parent="." index="12" groups=["surviveTimer"]]
+visible = false
+script = ExtResource("7_vnrkt")
+
+[node name="Label" type="Label" parent="SurviveTimer" index="0"]
+offset_left = 52.0
+offset_top = 134.0
+offset_right = 96.0
+offset_bottom = 157.0
+text = "Survive!"
+label_settings = ExtResource("7_158c4")
+
+[node name="Label2" type="Label" parent="SurviveTimer" index="1"]
+offset_left = 46.0
+offset_top = 152.0
+offset_right = 102.0
+offset_bottom = 175.0
+text = "15.00"
+label_settings = ExtResource("8_vnrkt")
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="SurviveTimer" index="2"]
+
+[connection signal="body_entered" from="FloorObjects/survival" to="FloorObjects/survival" method="_on_body_entered"]

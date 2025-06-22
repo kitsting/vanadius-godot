@@ -59,11 +59,12 @@ func _ready() -> void:
 	#Get the size of the current room and lock the camera
 	var room_size = $Floor.get_used_rect()
 	
+	#Set camera limit to size of room - 1 (to prevent seeing tile borders
 	if has_node("Camera"):
 		$Camera.limit_bottom = (room_size.end.y*24) - 1
-		$Camera.limit_right = (room_size.end.x*24)
+		$Camera.limit_right = (room_size.end.x*24) - 1
 		$Camera.limit_top = (room_size.position.y*24) + 1
-		$Camera.limit_left = room_size.position.x*24
+		$Camera.limit_left = room_size.position.x*24 + 1
 		
 	if !silent:
 		Audio.set_music("res://music/"+Game.getMusic(area)+".ogg")

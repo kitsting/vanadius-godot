@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7augaq4ouynk"]
+[gd_scene load_steps=14 format=3 uid="uid://b7augaq4ouynk"]
 
 [ext_resource type="Script" uid="uid://dh84qu2dffqbk" path="res://objects/obj_explosion.gd" id="1_d18xx"]
 [ext_resource type="Texture2D" uid="uid://du4fhklhn5un6" path="res://sprites/explosion/sprExplosion1.png" id="1_rof5d"]
@@ -55,7 +55,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfi24"]
 size = Vector2(22, 22)
 
-[node name="objExplosion" type="Area2D" groups=["objExplosion"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykk6g"]
+size = Vector2(34, 34)
+
+[node name="objExplosion" type="Area2D" groups=["damage", "objExplosion"]]
 z_index = 1
 material = SubResource("ShaderMaterial_ksem6")
 script = ExtResource("1_d18xx")
@@ -69,6 +72,11 @@ frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jfi24")
+debug_color = Color(0.766268, 0.440602, 0.221969, 0.42)
+
+[node name="shape_big" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ykk6g")
+disabled = true
 debug_color = Color(0.766268, 0.440602, 0.221969, 0.42)
 
 [node name="onscreen" type="VisibleOnScreenNotifier2D" parent="."]

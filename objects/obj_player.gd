@@ -216,10 +216,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 				deathmsg = extstd.choose(["Patience is important",Game.genericDeathMessage()])
 				
 			elif area.is_in_group("objExplosion"):
-				deathmsg = extstd.choose(["Boom","...But the explosion was too powerful",Game.genericDeathMessage()])
-				
-			elif area.is_in_group("objExplosionGreen"):
-				deathmsg = extstd.choose(["Like normal explosions, green explosions also hurt","It's a good thing robots can't feel pain, huh?",Game.genericDeathMessage()])
+				deathmsg = extstd.choose(["Boom","The explosion was too powerful...",Game.genericDeathMessage()])
 				
 			elif area.is_in_group("objGenericSpike"):
 				deathmsg = extstd.choose(["Pointy!","It is advised not to touch sharp objects",Game.genericDeathMessage()])
@@ -227,7 +224,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			elif area.is_in_group("objLaserBlue"):
 				deathmsg = "Timing is key"
 				
-			elif area.is_in_group("objLaserPink"):
+			elif area.is_in_group("surviveSpike"):
 				deathmsg = extstd.choose(["Just wait it out...","It will be gone eventually...",Game.genericDeathMessage()])
 				
 			elif area.is_in_group("objThing") or area.is_in_group("objLabSentry"):
@@ -315,3 +312,7 @@ func get_anim() -> String:
 	
 func is_anim_flipped() -> bool:
 	return $sprite.flip_h
+
+
+func set_camera_link(link : bool):
+	$RemoteTransform2D.update_position = link

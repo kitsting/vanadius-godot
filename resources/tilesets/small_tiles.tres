@@ -1,12 +1,14 @@
-[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://hmcf6vm4y7tx"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://hmcf6vm4y7tx"]
 
 [ext_resource type="PackedScene" uid="uid://cjs1gsqdvt0sh" path="res://objects/objSpikeMini.tscn" id="1_d7iq1"]
 [ext_resource type="PackedScene" uid="uid://d0q3dabiq5b4y" path="res://objects/objWarningTape.tscn" id="2_roys4"]
+[ext_resource type="PackedScene" uid="uid://bgqgucya5feh0" path="res://objects/survive_spike.tscn" id="3_l8urr"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_51roy"]
 resource_name = "Quarter Objects"
 scenes/1/scene = ExtResource("1_d7iq1")
 scenes/2/scene = ExtResource("2_roys4")
+scenes/3/scene = ExtResource("3_l8urr")
 
 [resource]
 tile_size = Vector2i(12, 12)

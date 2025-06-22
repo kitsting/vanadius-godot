@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://doujotg1xutqp"]
+
+[ext_resource type="Script" uid="uid://bk0anefa5yku5" path="res://objects/obj_crate.gd" id="1_0cbmg"]
+[ext_resource type="Texture2D" uid="uid://beyxtcx6puite" path="res://sprites/sprCrate.png" id="1_h05ak"]
+[ext_resource type="Texture2D" uid="uid://73xk72nplo2e" path="res://sprites/sprCrateMini.png" id="2_0cbmg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktxx3"]
+size = Vector2(24, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rn1u"]
+size = Vector2(12, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cbmg"]
+size = Vector2(24, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6oyc"]
+size = Vector2(16, 18)
+
+[node name="objCrate" type="StaticBody2D"]
+script = ExtResource("1_0cbmg")
+
+[node name="sprite_big" type="Sprite2D" parent="."]
+position = Vector2(0, -18)
+texture = ExtResource("1_h05ak")
+
+[node name="sprite_mini" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -9)
+texture = ExtResource("2_0cbmg")
+
+[node name="shape_big" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_ktxx3")
+
+[node name="shape_mini" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_5rn1u")
+disabled = true
+
+[node name="area" type="Area2D" parent="."]
+
+[node name="shape_big2" type="CollisionShape2D" parent="area"]
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_0cbmg")
+
+[node name="shape_mini2" type="CollisionShape2D" parent="area"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_q6oyc")
+disabled = true
+
+[connection signal="area_entered" from="area" to="." method="_on_area_area_entered"]

@@ -256,7 +256,7 @@ func progress_append(opt_name, value):
 
 #Returns a generic death message
 func genericDeathMessage():
-	return extstd.choose(["Game Over","And it all ended here...","...Then there was darkness","...But it was not over","I love death, don't you?"]);
+	return extstd.choose(["Game Over","And it all ended here...","...Then there was darkness","...But it was not over","I love death, don't you?", "It's a good thing robots can't feel pain, huh?"]);
 
 #Convert seconds into a user-readable string
 func getTimeString(seconds : int, usehours : bool = true):

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgqgucya5feh0"]
+
+[ext_resource type="Script" uid="uid://dwltbwubcx2xa" path="res://objects/survive_spike.gd" id="1_om6fa"]
+[ext_resource type="Texture2D" uid="uid://dp52p7ye8lqp3" path="res://sprites/spikes/surviveSpikeDown.png" id="1_sfmhu"]
+[ext_resource type="Texture2D" uid="uid://b0ngy0re8ynl4" path="res://sprites/spikes/surviveSpikeUp.png" id="2_om6fa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4io2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sfmhu")
+}],
+"loop": false,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_om6fa")
+}],
+"loop": false,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfmhu"]
+size = Vector2(10, 10)
+
+[node name="surviveSpike" type="Node2D" groups=["damage", "objGenericSpike", "surviveSpike"]]
+script = ExtResource("1_om6fa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_u4io2")
+animation = &"down"
+
+[node name="Area" type="Area2D" parent="." groups=["damage", "objGenericSpike", "surviveSpike"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_sfmhu")
+disabled = true

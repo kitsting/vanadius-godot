@@ -19,6 +19,7 @@ extends Area2D
 			3:
 				rotation_degrees = 90
 				
+@export var auto_size := true
 @export var wallsize : float = 2
 @export var play_animation := true
 
@@ -46,7 +47,7 @@ func update_size():
 	$left_ray.force_raycast_update()
 	$right_ray.force_raycast_update()
 	
-	if $left_ray.is_colliding() and $right_ray.is_colliding():
+	if $left_ray.is_colliding() and $right_ray.is_colliding() and auto_size:
 		if direction == 0: #Up
 			var size = $right_ray.get_collision_point().x - $left_ray.get_collision_point().x
 			position.x = $left_ray.get_collision_point().x + (size/2)

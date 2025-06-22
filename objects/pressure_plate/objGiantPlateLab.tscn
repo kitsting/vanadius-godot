@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbjsumocohe2x"]
+
+[ext_resource type="Script" uid="uid://counlm3dfgko" path="res://objects/pressure_plate/obj_giant_plate_lab.gd" id="1_qxvgf"]
+[ext_resource type="Texture2D" uid="uid://c013ouboo4sju" path="res://sprites/pressure_plate/sprPlateLab1.png" id="2_qxvgf"]
+[ext_resource type="Texture2D" uid="uid://106w3cdialx8" path="res://sprites/pressure_plate/sprPlateLab2.png" id="3_fs3bj"]
+[ext_resource type="Texture2D" uid="uid://bvfs8ge6naxg1" path="res://sprites/pressure_plate/sprPlateLab3.png" id="4_xkeo5"]
+[ext_resource type="AudioStream" uid="uid://c55iq1q5wws3v" path="res://sounds/sndBigPressurePlate.ogg" id="5_u1fcd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6d4jc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qxvgf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fs3bj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xkeo5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_augdn"]
+size = Vector2(40, 39)
+
+[node name="objGiantPlateLab" type="Area2D"]
+script = ExtResource("1_qxvgf")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_6d4jc")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_augdn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_u1fcd")
+pitch_scale = 0.8
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

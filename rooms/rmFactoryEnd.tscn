@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://hmcf6vm4y7tx" path="res://resources/tilesets/small_tiles.tres" id="2_rue3g"]
 [ext_resource type="PackedScene" uid="uid://b0g1mrf2nwoy2" path="res://objects/laser/objLaser.tscn" id="3_lhj02"]
 [ext_resource type="PackedScene" uid="uid://boq75sl8xkxdx" path="res://objects/objPackageMoveable.tscn" id="4_ji2wl"]
-[ext_resource type="PackedScene" uid="uid://btu70ut1naqi5" path="res://objects/objGiantPlateFactory.tscn" id="5_313ss"]
+[ext_resource type="PackedScene" uid="uid://btu70ut1naqi5" path="res://objects/pressure_plate/objGiantPlateFactory.tscn" id="5_313ss"]
 [ext_resource type="PackedScene" uid="uid://cplr8ixrvkae6" path="res://objects/objPit.tscn" id="5_lhj02"]
 [ext_resource type="Texture2D" uid="uid://bnhuy21gqq2jb" path="res://sprites/sprBlackFade.png" id="6_ji2wl"]
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="8_w1nxf"]

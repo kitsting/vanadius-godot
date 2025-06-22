@@ -7,7 +7,7 @@ var can_skip := false
 
 var choice_selection := false
 
-var dialogue_resource := preload("res://resources/dialogue/test.dialogue")
+var dialogue_resource := preload("res://resources/dialogue/signpost.dialogue")
 var dialogue_line : DialogueLine
 
 var next_id_1 = null
