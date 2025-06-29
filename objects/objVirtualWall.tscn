@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cngstvhuufysr"]
+
+[ext_resource type="Texture2D" uid="uid://vsqon3yw0t3m" path="res://sprites/sprClockVWall.png" id="1_n0hh0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cn17l"]
+size = Vector2(12, 12)
+
+[node name="objVirtualWall" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.682353)
+texture_filter = 1
+texture = ExtResource("1_n0hh0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cn17l")

@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://b0yjnu275d4ra"]
+
+[ext_resource type="Texture2D" uid="uid://woio6faedbi0" path="res://sprites/BounceGear.png" id="1_2do22"]
+[ext_resource type="Script" uid="uid://d2fqt4oq08b1w" path="res://objects/obj_bounce_sentry.gd" id="1_s8hs7"]
+
+[sub_resource type="Animation" id="Animation_s7aq2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_s8hs7"]
+resource_name = "rotate"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.392699, 1.1781, 1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_we5h0"]
+_data = {
+&"RESET": SubResource("Animation_s7aq2"),
+&"rotate": SubResource("Animation_s8hs7")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2do22"]
+size = Vector2(18, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8hs7"]
+size = Vector2(16, 16)
+
+[node name="objBounceSentry" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("1_s8hs7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2do22")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_we5h0")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_2do22")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["damage", "objSentryBounce"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_s8hs7")
+debug_color = Color(0.997081, 0, 0.173671, 0.42)

@@ -44,11 +44,13 @@ var transitioning = false
 
 func _ready() -> void:
 	$sentry_indicator.visible = true
-
-	Game.save_game()
 	
 	Game.connect("device_changed", update_device)
 	update_device(Game.current_device)
+	
+	await get_tree().create_timer(0.1).timeout
+	
+	Game.save_game()
 	
 	
 	
@@ -173,7 +175,7 @@ func _physics_process(delta: float) -> void:
 
 	#Move
 	direction = direction.normalized()
-	velocity += direction * (spd * delta * 60)
+	velocity += direction * (spd)
 	call_clone(velocity)
 	move_and_slide()
 	velocity = Vector2.ZERO
@@ -188,8 +190,9 @@ func _input(event: InputEvent) -> void:
 			
 	if Game.usedevtools:
 		if Input.is_action_just_pressed("debug_unlock_camera"):
-			set_collision_layer_value(1, false)
-			set_collision_mask_value(1, false)
+			$Collision.disabled = true
+			$Hitbox/CollisionShape2D.disabled = true
+			$sprite.visible = false
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
@@ -201,37 +204,37 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			pstate = PLAYERSTATE.DEAD
 			
 			if area.is_in_group("objLaser"):
-				deathmsg = extstd.choose(["Lasers are no joke","Red means stop",Game.genericDeathMessage()])
+				deathmsg = extstd.choose(["Lasers are no joke","Red means stop", genericDeathMessage()])
 				
 			elif area.is_in_group("objLaserGreen"):
-				deathmsg = extstd.choose(["Lasers are no joke", "Being green doesn't make them less deadly","Green means stop",Game.genericDeathMessage()])
+				deathmsg = extstd.choose(["Lasers are no joke", "Being green doesn't make them less deadly","Green means stop", genericDeathMessage()])
 				
 			elif area.is_in_group("objSentry"):
-				deathmsg = extstd.choose(["Giant spheres can hurt too","Get out of the way!",Game.genericDeathMessage()])
+				deathmsg = extstd.choose(["Giant spheres can hurt too","Get out of the way!", genericDeathMessage()])
 				
 			elif area.is_in_group("objSentryMini"):
-				deathmsg = extstd.choose(["Small but fast",Game.genericDeathMessage()])
+				deathmsg = extstd.choose(["Small but fast", genericDeathMessage()])
 				
 			elif area.is_in_group("objSentryBounce"):
-				deathmsg = extstd.choose(["Patience is important",Game.genericDeathMessage()])
+				deathmsg = extstd.choose(["Patience is important", genericDeathMessage()])
 				
 			elif area.is_in_group("objExplosion"):
-				deathmsg = extstd.choose(["Boom","The explosion was too powerful...",Game.genericDeathMessage()])
+				deathmsg = extstd.choose(["Boom","The explosion was too powerful...", genericDeathMessage()])
 				
 			elif area.is_in_group("objGenericSpike"):
-				deathmsg = extstd.choose(["Pointy!","It is advised not to touch sharp objects",Game.genericDeathMessage()])
+				deathmsg = extstd.choose(["Pointy!","It is advised not to touch sharp objects", genericDeathMessage()])
 				
 			elif area.is_in_group("objLaserBlue"):
 				deathmsg = "Timing is key"
 				
 			elif area.is_in_group("surviveSpike"):
-				deathmsg = extstd.choose(["Just wait it out...","It will be gone eventually...",Game.genericDeathMessage()])
+				deathmsg = extstd.choose(["Just wait it out...","It will be gone eventually...", genericDeathMessage()])
 				
 			elif area.is_in_group("objThing") or area.is_in_group("objLabSentry"):
 				deathmsg = extstd.choose(["Death by sphere","It knows","Darkness may severely limit visibility","Take caution when entering dark areas","Target acquired"])
 				
 			else:
-				deathmsg = Game.genericDeathMessage()
+				deathmsg = genericDeathMessage()
 				
 			die()
 
@@ -316,3 +319,8 @@ func is_anim_flipped() -> bool:
 
 func set_camera_link(link : bool):
 	$RemoteTransform2D.update_position = link
+	
+
+#Returns a generic death message
+func genericDeathMessage():
+	return extstd.choose(["Game Over","And it all ended here...","...Then there was darkness","...But it was not over","I love death, don't you?", "It's a good thing robots can't feel pain, huh?"]);

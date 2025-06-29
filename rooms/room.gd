@@ -43,9 +43,18 @@ func _ready() -> void:
 		$darkness.color = Color(1-darkness_intensity, 1-darkness_intensity, 1-darkness_intensity)
 	
 	Game.lasers = true
+	
+	if Game.area != area:
+		var area_display = load("res://ui/area_display.tscn").instantiate()
+		area_display.set_area_name(area)
+		add_child(area_display)
+	
 	Game.area = area
 	
 	Game.set_playing()
+	
+	if Game.progress.towertime_left > -1:
+		Game.start_clock_timer()
 	
 	if override_sentry_radius != 0:
 		get_tree().call_group("objSentry","@radius_setter",override_sentry_radius)
@@ -59,7 +68,7 @@ func _ready() -> void:
 	#Get the size of the current room and lock the camera
 	var room_size = $Floor.get_used_rect()
 	
-	#Set camera limit to size of room - 1 (to prevent seeing tile borders
+	#Set camera limit to size of room - 1 (to prevent seeing tile borders)
 	if has_node("Camera"):
 		$Camera.limit_bottom = (room_size.end.y*24) - 1
 		$Camera.limit_right = (room_size.end.x*24) - 1

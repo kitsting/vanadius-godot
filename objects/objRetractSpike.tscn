@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dc1j0x5lfw1e8"]
+[gd_scene load_steps=12 format=3 uid="uid://dc1j0x5lfw1e8"]
 
 [ext_resource type="Script" uid="uid://f72b51o210oc" path="res://objects/obj_retract_spike.gd" id="1_mmfnp"]
 [ext_resource type="Texture2D" uid="uid://d3eyktrynbh5" path="res://sprites/spikes/sprRetractSpike1.png" id="2_fii8h"]
 [ext_resource type="Texture2D" uid="uid://couys61ghi4nk" path="res://sprites/spikes/sprRetractSpike2.png" id="3_xpias"]
 [ext_resource type="Texture2D" uid="uid://ct3fyrt3inrnq" path="res://sprites/spikes/sprRetractSpike4.png" id="4_c6eov"]
+[ext_resource type="Texture2D" uid="uid://dfgw37xee2ers" path="res://sprites/spikes/sprRetractSpike5.png" id="4_fii8h"]
 [ext_resource type="Texture2D" uid="uid://c0rgg8kxfnkqi" path="res://sprites/spikes/sprRetractSpike3.png" id="5_cp55y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ulqrw"]
@@ -14,6 +15,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_xpias")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fii8h")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_c6eov")
@@ -67,10 +71,10 @@ tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.3, 3.7, 4.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2.3, 3.63333, 3.7, 4.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0, 1, 2, 3, 4]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -79,7 +83,7 @@ tracks/1/path = NodePath(".:spikeout")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.7, 4.7),
+"times": PackedFloat32Array(0, 3.7, 4.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]

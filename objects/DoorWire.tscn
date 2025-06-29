@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://crbf2p55kyiu"]
+
+[ext_resource type="TileSet" uid="uid://bu75k0bk62nho" path="res://resources/tilesets/door_wire.tres" id="1_vsegq"]
+[ext_resource type="Script" uid="uid://dt5yec8yf7ase" path="res://objects/door_wire.gd" id="2_7eeda"]
+
+[sub_resource type="Animation" id="Animation_7eeda"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.485302, 0.485302, 0.485302, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vsegq"]
+resource_name = "active"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.26, 2.5),
+"transitions": PackedFloat32Array(1, 1.68179, 0.170756),
+"update": 0,
+"values": [Color(0.485302, 0.485302, 0.485302, 1), Color(1, 1, 1, 1), Color(0.485302, 0.485302, 0.485302, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d5ybl"]
+_data = {
+&"RESET": SubResource("Animation_7eeda"),
+&"active": SubResource("Animation_vsegq")
+}
+
+[node name="DoorWire" type="TileMapLayer"]
+modulate = Color(0.485302, 0.485302, 0.485302, 1)
+self_modulate = Color(0.0666667, 0.105882, 0.87451, 1)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 2, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 0, 0, 0, 255, 255, 0, 0, 4, 0, 0, 0, 0, 0)
+tile_set = ExtResource("1_vsegq")
+script = ExtResource("2_7eeda")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_d5ybl")
+}

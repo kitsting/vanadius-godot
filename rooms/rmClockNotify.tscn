@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnrb6xtlyk8vg"]
+
+[ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_on8sk"]
+[ext_resource type="Script" uid="uid://cr6cx5xu5rhob" path="res://rooms/clock_notify.gd" id="2_ipu1q"]
+
+[node name="Testroom" instance=ExtResource("1_on8sk")]
+area = "Maintainence Room"
+internal_name = "rmClockNotify"
+silent = true
+allow_pausing = false
+darkness_intensity = 1.0
+darkness_light = 0.0
+
+[node name="ObjPlayer" parent="Objects" index="0"]
+visible = false
+
+[node name="Node" type="Node" parent="." index="9"]
+process_mode = 3
+script = ExtResource("2_ipu1q")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="10"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

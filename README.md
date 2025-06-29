@@ -1,6 +1,6 @@
 ## Vanadius Port
 
-This is a port of my first game, Vanadius, to the Godot engine. While originally made in GameMaker, I decided that I wanted source code that actually worked. This version also features numerous improvements over the original version.
+This is a port of my first game, Vanadius, to Godot engine v4.4. While originally made in GameMaker, I decided that I wanted source code that actually worked. This version also features numerous improvements over the original version.
 
 Status: In development
 

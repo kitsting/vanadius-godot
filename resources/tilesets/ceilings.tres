@@ -1186,8 +1186,8 @@ texture_region_size = Vector2i(24, 24)
 
 [resource]
 tile_size = Vector2i(24, 24)
-physics_layer_0/collision_layer = 7
-physics_layer_0/collision_mask = 7
+physics_layer_0/collision_layer = 39
+physics_layer_0/collision_mask = 39
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "TowerCeiling"
 terrain_set_0/terrain_0/color = Color(0.738993, 0.0453122, 0.148491, 1)

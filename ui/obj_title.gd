@@ -5,6 +5,9 @@ extends Control
 func _ready() -> void:
 	%VersionNo.text = Game.version
 	
+	Game.stop_playing()
+	Game.stop_clock_timer()
+	
 	if !Game.file_loaded:
 		$Options/Resume.queue_free()
 	

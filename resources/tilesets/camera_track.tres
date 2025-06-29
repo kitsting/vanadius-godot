@@ -1,0 +1,27 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://27sfh2tscf3t"]
+
+[ext_resource type="Texture2D" uid="uid://b85h1g4u25ro8" path="res://sprites/sentry_camera/cameraTrack.png" id="1_5oht5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nchrb"]
+texture = ExtResource("1_5oht5")
+texture_region_size = Vector2i(7, 7)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/left_side = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/terrains_peering_bit/left_side = 0
+
+[resource]
+tile_size = Vector2i(7, 7)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "track"
+terrain_set_0/terrain_0/color = Color(0.332514, 0.343969, 0.652791, 1)
+sources/0 = SubResource("TileSetAtlasSource_nchrb")

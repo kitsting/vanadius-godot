@@ -128,3 +128,34 @@ Our boss is upset that we spent so much on this discovery, but it will definitel
 ~ rmDeepStart
 [color=red]WARNING\: AUTHORIZED PERSONNEL ONLY[/color]\nSECURED FOR THE SAFETY OF ALL STAFF
 If access is needed, please visit the [color=yellow]control room[/color].
+=> END
+
+
+~ rmRuinEnd
+The door will only open with the consent of all three departments\:
+The Lab Department,
+The Factory Department,
+and the Timekeeping Department.
+=> END
+
+
+~ rmClockFloor6b
+Entry #21 (5/12/23)
+We've released Subject #1 into the testing environments.
+We expanded the Clock Tower so we can better keep track of testing time.
+We went a little overboard given our financial situation... But it looks pretty cool.
+=> END
+
+
+~ rmClockFloor7
+Entry #23 (5/17/23)
+Subject #1 was an absolute failure.
+We're going to modify the testing environments and start prototyping Subject #2.
+=> END
+
+
+~ rmClockFloor9b
+Entry #116 (4/14/24)
+The Subjects are getting through the tests far too slowly.
+If we want to finish by the deadline, we should start deploying two at a time.
+=> END

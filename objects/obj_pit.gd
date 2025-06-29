@@ -12,6 +12,7 @@ var target_body : Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$interact_sprite.visible = false
 	$interact_sprite.play("use")
 
 
@@ -26,6 +27,8 @@ func _input(event: InputEvent) -> void:
 			Game.roomtargetfacing = direction
 			Game.alert = false
 			Game.beingchased = false
+			
+			Game.progress_set("last_room", target_room)
 			
 			Audio.stop_music()
 			Game.transition_room(target_room, true)
@@ -43,3 +46,11 @@ func _on_body_exited(body: Node2D) -> void:
 		can_use = false
 		$interact_sprite.visible = false
 		target_body = null
+
+func set_disabled(disable := false) -> void:
+	if has_node("CollisionShape2D"):
+		$CollisionShape2D.disabled = disable
+	
+	
+	
+	

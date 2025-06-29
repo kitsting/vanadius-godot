@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbhame85s3lea"]
+
+[ext_resource type="Script" uid="uid://b85hnk1kjpgev" path="res://objects/obj_sentry_camera.gd" id="1_63ocn"]
+[ext_resource type="Texture2D" uid="uid://c52grrdavqf81" path="res://sprites/sentry_camera/sprSentryCamDown2.png" id="2_3i8bf"]
+[ext_resource type="Texture2D" uid="uid://d1nwqce71mpga" path="res://sprites/sentry_camera/sprSentryCamDown1.png" id="3_6f81n"]
+[ext_resource type="Texture2D" uid="uid://dj0whfptj8chs" path="res://sprites/sentry_camera/sprSentryCamLeft2.png" id="4_k4303"]
+[ext_resource type="Texture2D" uid="uid://14007a0l6y00" path="res://sprites/sentry_camera/sprSentryCamLeft1.png" id="5_x4ayw"]
+[ext_resource type="Texture2D" uid="uid://bs7mvynlvifm3" path="res://sprites/sentry_camera/sprSentryCamUp2.png" id="6_uw03a"]
+[ext_resource type="Texture2D" uid="uid://rcluxhl2ol66" path="res://sprites/sentry_camera/sprSentryCamUp1.png" id="7_q8n6b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b2obj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3i8bf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6f81n")
+}],
+"loop": true,
+"name": &"down",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_k4303")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x4ayw")
+}],
+"loop": true,
+"name": &"left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_uw03a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q8n6b")
+}],
+"loop": true,
+"name": &"up",
+"speed": 2.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3i8bf"]
+resource_local_to_scene = true
+a = Vector2(0, -15)
+b = Vector2(0, 100)
+
+[node name="objSentryCamera" type="PathFollow2D"]
+rotates = false
+script = ExtResource("1_63ocn")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_b2obj")
+animation = &"down"
+frame_progress = 0.666815
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_3i8bf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -24,7 +24,7 @@ const m_area_outside = "The Outside"
 
 const m_area_null = ""
 
-const m_towertimermax = 360*60
+const m_towertimermax = 360
 const m_total_collectibles = 15
 
 const m_sentrycolor_neutral = Color.WHITE
@@ -59,7 +59,13 @@ var roomtargetfacing : int = 1
 var roomtargetstate : PLAYERSTATE = PLAYERSTATE.ALIVE
 
 var current_room = ""
+
 var playing = false
+var clock_counting = false
+
+var playing_timer : Node = null
+var clock_timer : Node = null
+var clock_ui : Node = null
 
 var safepressureplatepressed : bool = false
 
@@ -129,6 +135,9 @@ var progress := {
 	"last_room_y" : 0,
 	"last_room_dir" : PLAYERDIR.DOWN,
 	"last_room_state" : PLAYERSTATE.ALIVE,
+	
+	#Time left to complete the Clock Tower
+	"towertime_left" : -4,
 }
 var default_progress = progress.duplicate(true)
 
@@ -254,9 +263,6 @@ func progress_append(opt_name, value):
 		if !value in progress[opt_name]:
 			progress[opt_name].append(value)
 
-#Returns a generic death message
-func genericDeathMessage():
-	return extstd.choose(["Game Over","And it all ended here...","...Then there was darkness","...But it was not over","I love death, don't you?", "It's a good thing robots can't feel pain, huh?"]);
 
 #Convert seconds into a user-readable string
 func getTimeString(seconds : int, usehours : bool = true):
@@ -375,13 +381,19 @@ func kill_text():
 func set_playing():
 	if !playing:
 		playing = true
-		var new_timer = Timer.new()
-		new_timer.one_shot = false
-		new_timer.process_mode = Node.PROCESS_MODE_ALWAYS
-		new_timer.connect("timeout", increment_playtime)
-		add_child(new_timer)
-		new_timer.start()
+		playing_timer = Timer.new()
+		playing_timer.one_shot = false
+		playing_timer.process_mode = Node.PROCESS_MODE_ALWAYS
+		playing_timer.connect("timeout", increment_playtime)
+		add_child(playing_timer)
+		playing_timer.start()
 		
+		
+func stop_playing():
+	if playing:
+		playing = false
+		if playing_timer != null:
+			playing_timer.queue_free()
 		
 func increment_playtime():
 	progress["time_sec"] += 1
@@ -404,3 +416,37 @@ func lower_gates() -> void:
 	progress["gates_down"] = true
 	emit_signal("gates_lowered")
 	Audio.play_sound("res://sounds/sndGate.ogg", "gate_down")
+
+
+func start_clock_timer():
+	if !clock_counting and !progress.clock_complete:
+		clock_counting = true
+		clock_timer = Timer.new()
+		clock_timer.one_shot = false
+		clock_timer.process_mode = Node.PROCESS_MODE_PAUSABLE
+		clock_timer.connect("timeout", decrement_clocktime)
+		add_child(clock_timer)
+		clock_timer.start()
+		add_clock_ui(false)
+		
+func stop_clock_timer():
+	if clock_counting:
+		clock_counting = false
+		if clock_timer != null:
+			clock_timer.queue_free()
+		if clock_ui != null:
+			clock_ui.queue_free()
+
+func decrement_clocktime():
+	Game.progress.towertime_left -= 1
+	if Game.progress.towertime_left < 0:
+		stop_clock_timer()
+		transition_room("res://rooms/rmClockTimeup.tscn")
+	
+	
+func add_clock_ui(intro_anim := false):
+	if clock_ui == null:
+		clock_ui = load("res://ui/clock_ui.tscn").instantiate()
+		clock_ui.play_intro = intro_anim
+		add_child(clock_ui)
+		print("added")
