@@ -8,7 +8,7 @@ func _ready() -> void:
 	if area == Game.m_area_cave:
 		$sprite.texture = load("res://sprites/spikes/sprSpikeCave.png")
 		
-	elif area == Game.m_area_ruin or area == Game.m_area_ruin_sub1 or area == Game.m_area_ruin_sub2 or area == Game.m_area_ruin_sub3 or area == Game.m_area_ruin_sub4:
+	elif area == Game.m_area_ruin or area == Game.m_area_ruin_sub2:
 		$sprite.texture = load("res://sprites/spikes/sprSpikeRuins.png")
 		
 	elif area == Game.m_area_lab or area == Game.m_area_deeplab:

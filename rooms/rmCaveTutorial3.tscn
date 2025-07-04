@@ -24,6 +24,7 @@ position = Vector2(48, 136)
 
 [node name="objSign" parent="Objects" index="1" instance=ExtResource("2_ih6ip")]
 position = Vector2(112, 83)
+node = "rmCaveTutorial3"
 orientation = 0
 
 [node name="ObjLaser" parent="Objects" index="2" instance=ExtResource("3_v725x")]

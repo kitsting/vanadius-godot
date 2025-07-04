@@ -69,13 +69,13 @@ func _physics_process(delta: float) -> void:
 		
 		#chase the player
 		if target != null:
-			var direction = position.direction_to(target.position) * (spd * delta * 60)
-			position += direction
+			var direction = global_position.direction_to(target.global_position) * (spd * delta * 60)
+			global_position += direction
 			
 			#run away from the player if they die
 			if !Game.alert or target.pstate == target.PLAYERSTATE.DEAD:
-				direction = position.direction_to(target.position) * (-3 * spd * delta * 60)
-				position += direction
+				direction = global_position.direction_to(target.global_position) * (-3 * spd * delta * 60)
+				global_position += direction
 				
 				if $death_timer.is_stopped():
 					$death_timer.start()

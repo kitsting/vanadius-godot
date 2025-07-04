@@ -56,7 +56,7 @@ script = ExtResource("1_63ocn")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b2obj")
 animation = &"down"
-frame_progress = 0.666815
+frame_progress = 0.583954
 
 [node name="Area2D" type="Area2D" parent="."]
 

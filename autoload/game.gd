@@ -4,11 +4,8 @@ const unfocus_color = Color(0.494, 0.494, 0.494)
 const focus_color = Color.WHITE
 
 const m_area_ruin = "Forgotten Ruins"
-const m_area_ruin_sub1 = "The Great Door"
 const m_area_cave = "Mysterious Cave"
 const m_area_ruin_sub2 = "Ruin Transport Tubes"
-const m_area_ruin_sub3 = "Control Room"
-const m_area_ruin_sub4 = "Sentry Repair Room"
 const m_area_lab = "The Lab"
 const m_area_deeplab = "Deep Lab"
 const m_area_clock = "The Clock Tower"
@@ -84,7 +81,7 @@ var showtimer = false
 var noclipmode = false
 var usedevtools = true
 
-var version = "1.3.0"
+var version = "1.3.0-beta0701"
 
 var roomtargetarea = "Nonexistent"
 var area = roomtargetarea
@@ -330,15 +327,16 @@ func getMusic(area) -> String:
 		m_area_factory: return "musFactory"
 		m_area_factory_sub1: return "musFactory"
 		m_area_ruin: return "musRuin"
-		m_area_ruin_sub1: return "musRuin"
 		m_area_ruin_sub2: return "musRuin"
-		m_area_ruin_sub3: return "musRuin"
-		m_area_ruin_sub4: return "musRuin"
 		m_area_clock: return "musClock"
 		m_area_clock_sub1: return "musClock"
 		m_area_clock_sub2: return "musClock"
 		m_area_lab: return "musLab"
-		m_area_final: return "musPowerPlantOff"
+		m_area_final: 
+			if progress.power_complete:
+				return "musPowerPlantOn"
+			else:
+				return "musPowerPlantOff"
 		m_area_final_sub1: return "musRuin"
 		m_area_final_sub3: return "musPowerPlantOn"
 		m_area_cave: return "musCave"

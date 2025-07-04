@@ -34,5 +34,5 @@ func kill() -> void:
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	if extstd.match_group(area, ["player", "objLaser", "objSentry", "objSentryMini", "objExplosion", "objGenericSpike"]):
+	if extstd.match_group(area, ["player", "objLaser", "objSentry", "objSentryMini", "objExplosion", "objGenericSpike", "damage"]):
 		kill()

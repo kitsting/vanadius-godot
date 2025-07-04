@@ -46,10 +46,6 @@ func _ready() -> void:
 	$interact_sprite.play("view")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
 	
 func _input(event: InputEvent) -> void:
 	if can_read and Input.is_action_just_pressed("ui_accept"):

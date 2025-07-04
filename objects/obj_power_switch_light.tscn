@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxn6dd6duuloe"]
+
+[ext_resource type="Texture2D" uid="uid://clvfp4chsh5bt" path="res://sprites/power/sprPowerSwitchLightOff.png" id="1_q62lv"]
+[ext_resource type="Texture2D" uid="uid://cp5mnh4m1p4l5" path="res://sprites/power/sprPowerSwitchLightOn.png" id="2_fbw7p"]
+[ext_resource type="Script" uid="uid://wfi7c1bcpp2v" path="res://objects/obj_power_switch_light.gd" id="3_7762t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25a7c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q62lv")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fbw7p")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_fbw7p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q62lv"]
+resource_name = "pulsate"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.472252, 0.472252, 0.472252, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fbw7p"]
+_data = {
+&"RESET": SubResource("Animation_fbw7p"),
+&"pulsate": SubResource("Animation_q62lv")
+}
+
+[node name="objPowerSwitchLight" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_25a7c")
+animation = &"on"
+script = ExtResource("3_7762t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fbw7p")
+}

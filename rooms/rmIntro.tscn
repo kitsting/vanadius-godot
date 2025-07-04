@@ -10,6 +10,7 @@
 [node name="Testroom" instance=ExtResource("1_tgn1p")]
 internal_name = "rmIntro"
 silent = true
+suppress_area_display = true
 
 [node name="Floor" parent="." index="0"]
 visible = false

@@ -134,6 +134,7 @@ animations = [{
 }]
 
 [node name="Testroom" instance=ExtResource("1_epcpg")]
+room_name = "Control Room"
 internal_name = "rmRuinControl2"
 
 [node name="Floor" parent="." index="0"]

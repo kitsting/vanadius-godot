@@ -2,11 +2,8 @@ extends Node2D
 
 @export_enum(
 	Game.m_area_ruin,
-	Game.m_area_ruin_sub1,
 	Game.m_area_cave,
 	Game.m_area_ruin_sub2,
-	Game.m_area_ruin_sub3,
-	Game.m_area_ruin_sub4,
 	Game.m_area_lab,
 	Game.m_area_deeplab,
 	Game.m_area_clock,
@@ -24,6 +21,7 @@ extends Node2D
 
 @export var silent : bool = false
 @export var allow_pausing : bool = true
+@export var suppress_area_display := false
 @export_range(0.0, 1.0, 0.05) var darkness_intensity : float = 0
 @export_range(0.0, 1.0, 0.05) var darkness_light : float = 1
 
@@ -34,20 +32,28 @@ extends Node2D
 var pause_cooldown : bool = false
 
 
+
 func _init() -> void:
 	add_to_group("room")
 
 
 func _ready() -> void:
-	if has_node("darkness"):
-		$darkness.color = Color(1-darkness_intensity, 1-darkness_intensity, 1-darkness_intensity)
+	if area == Game.m_area_final and Game.progress.power_complete == false:
+		darkness_intensity = 0.4
+		darkness_light = 0.5
 	
 	Game.lasers = true
 	
-	if Game.area != area:
-		var area_display = load("res://ui/area_display.tscn").instantiate()
-		area_display.set_area_name(area)
-		add_child(area_display)
+	if !suppress_area_display:
+		if Game.area != area and room_name == "":
+			var area_display = load("res://ui/area_display.tscn").instantiate()
+			area_display.set_area_name(area)
+			add_child(area_display)
+			
+		if room_name != "":
+			var area_display = load("res://ui/area_display.tscn").instantiate()
+			area_display.set_area_name(room_name)
+			add_child(area_display)
 	
 	Game.area = area
 	
@@ -62,7 +68,7 @@ func _ready() -> void:
 	if override_mini_sentry_radius != 0:
 		get_tree().call_group("objSentryMini","@radius_setter",override_mini_sentry_radius)
 		
-	get_tree().call_group("player", "set_flashlight", darkness_intensity, darkness_light)
+	update_darkness()
 		
 	
 	#Get the size of the current room and lock the camera
@@ -88,6 +94,8 @@ func _ready() -> void:
 func checkArea():
 	return area
 
+func _process(delta: float) -> void:
+	update_darkness()
 
 func _input(event: InputEvent) -> void:
 	if allow_pausing and Input.is_action_just_pressed("pause") and !pause_cooldown:
@@ -103,3 +111,15 @@ func _input(event: InputEvent) -> void:
 
 func set_pausable(pausable := true):
 	allow_pausing = pausable
+
+
+func turn_on_lights():
+	print("turning on lights")
+	var tween = create_tween()
+	tween.tween_property(self, "darkness_intensity", 0, 1)
+	tween.tween_property(self, "darkness_light", 0, 1)
+
+
+func update_darkness():
+	$darkness.color = Color(1-darkness_intensity, 1-darkness_intensity, 1-darkness_intensity)
+	get_tree().call_group("player", "set_flashlight", darkness_intensity, darkness_light)

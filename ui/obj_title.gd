@@ -13,6 +13,11 @@ func _ready() -> void:
 	
 	await get_tree().create_timer(0.3).timeout
 	$Options.get_child(0).grab_focus()
+	
+	#Option wrap around
+	%Quit.focus_neighbor_bottom = %Quit.get_path_to($Options.get_child(0))
+	$Options.get_child(0).focus_neighbor_top = $Options.get_child(0).get_path_to(%Quit)
+	
 	Audio.set_music("res://music/"+Game.getMusic(Game.area)+".ogg")
 	
 	#Do some loading here to not mess with debugging

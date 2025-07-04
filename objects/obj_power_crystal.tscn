@@ -1,0 +1,147 @@
+[gd_scene load_steps=16 format=3 uid="uid://c74tr06uedlvi"]
+
+[ext_resource type="Texture2D" uid="uid://b1uafnencxbc5" path="res://sprites/power/crystalBase.png" id="1_reqav"]
+[ext_resource type="Script" uid="uid://dhsbdje3ilpcr" path="res://objects/obj_power_crystal.gd" id="1_twsb8"]
+[ext_resource type="Texture2D" uid="uid://bx0b3u2mdirfx" path="res://sprites/power/crystal.png" id="2_twsb8"]
+[ext_resource type="Texture2D" uid="uid://bpjia1klisyaq" path="res://sprites/interact/use.png" id="4_4hvej"]
+[ext_resource type="Texture2D" uid="uid://fh8ifu1g1pxm" path="res://sprites/interact/use1.png" id="5_0yfij"]
+[ext_resource type="Texture2D" uid="uid://5kr5bypexbui" path="res://sprites/interact/view.png" id="6_dcank"]
+[ext_resource type="Texture2D" uid="uid://d085dfqty6tll" path="res://sprites/interact/view1.png" id="7_6ffb4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqryc"]
+size = Vector2(11, 7)
+
+[sub_resource type="Animation" id="Animation_twsb8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crystal:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xy8rp"]
+resource_name = "off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crystal:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.2, 0.2, 0.2, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rqryc"]
+resource_name = "pulsate"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crystal:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.65, 0.65, 0.65, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_reqav"]
+resource_name = "turn_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crystal:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.202282, 0.202282, 0.202282, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xy8rp"]
+_data = {
+&"RESET": SubResource("Animation_twsb8"),
+&"off": SubResource("Animation_xy8rp"),
+&"pulsate": SubResource("Animation_rqryc"),
+&"turn_on": SubResource("Animation_reqav")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_twsb8"]
+radius = 18.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qjomt"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("4_4hvej")
+}, {
+"duration": 10.0,
+"texture": ExtResource("5_0yfij")
+}],
+"loop": true,
+"name": &"use",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("6_dcank")
+}, {
+"duration": 10.0,
+"texture": ExtResource("7_6ffb4")
+}],
+"loop": true,
+"name": &"view",
+"speed": 5.0
+}]
+
+[node name="objPowerCrystal" type="StaticBody2D"]
+texture_filter = 1
+script = ExtResource("1_twsb8")
+
+[node name="base" type="Sprite2D" parent="."]
+texture = ExtResource("1_reqav")
+
+[node name="crystal" type="Sprite2D" parent="."]
+position = Vector2(1, -13)
+texture = ExtResource("2_twsb8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_rqryc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xy8rp")
+}
+
+[node name="interact" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact"]
+shape = SubResource("CircleShape2D_twsb8")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="interact_sprite" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 999
+position = Vector2(0, -26)
+sprite_frames = SubResource("SpriteFrames_qjomt")
+animation = &"view"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
+[connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]

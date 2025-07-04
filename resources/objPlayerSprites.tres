@@ -1,12 +1,14 @@
-[gd_resource type="SpriteFrames" load_steps=51 format=3 uid="uid://2c6vloxowiw1"]
+[gd_resource type="SpriteFrames" load_steps=53 format=3 uid="uid://2c6vloxowiw1"]
 
 [ext_resource type="Texture2D" uid="uid://468d748im7cd" path="res://sprites/player/sprPlayerCollectible.png" id="1_tq8an"]
 [ext_resource type="Texture2D" uid="uid://b0nnptm8la7ik" path="res://sprites/player/sprPlayerDead.png" id="2_p70vf"]
 [ext_resource type="Texture2D" uid="uid://mhqh842s3bp6" path="res://sprites/player/sprPlayerDeadRight.png" id="3_frpnb"]
 [ext_resource type="Texture2D" uid="uid://di3j0byijuac5" path="res://sprites/player/sprPlayerDeadUp.png" id="4_kww78"]
 [ext_resource type="Texture2D" uid="uid://dmgtm8i7lbmqs" path="res://sprites/player/sprPlayerIdleDown.png" id="5_72t6l"]
+[ext_resource type="Texture2D" uid="uid://csj6ctfnfrojv" path="res://sprites/player/sprPlayerIdleDownBlink.png" id="6_p70vf"]
 [ext_resource type="Texture2D" uid="uid://c0wph8h8sbs50" path="res://sprites/player/sprPlayerIdleRight.png" id="6_sowpr"]
 [ext_resource type="Texture2D" uid="uid://bufpg37cgqg3l" path="res://sprites/player/sprPlayerIdleUp.png" id="7_cgm4h"]
+[ext_resource type="Texture2D" uid="uid://b1awlmmn7gsj1" path="res://sprites/player/sprPlayerIdleRightBlink.png" id="8_frpnb"]
 [ext_resource type="Texture2D" uid="uid://hxpwnoce8e4g" path="res://sprites/player/sprPlayerNoclip.png" id="8_wr40m"]
 [ext_resource type="Texture2D" uid="uid://tifiwju66krc" path="res://sprites/player/sprPlayerWalkDown.png" id="9_pv7tk"]
 [ext_resource type="Texture2D" uid="uid://c54ryiodi6unj" path="res://sprites/player/sprPlayerWalkRight.png" id="10_hek7e"]
@@ -244,16 +246,22 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 25.0,
 "texture": ExtResource("5_72t6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_p70vf")
 }],
 "loop": true,
 "name": &"idle_down",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 25.0,
 "texture": ExtResource("6_sowpr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_frpnb")
 }],
 "loop": true,
 "name": &"idle_right",

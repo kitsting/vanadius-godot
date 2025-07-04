@@ -159,3 +159,58 @@ Entry #116 (4/14/24)
 The Subjects are getting through the tests far too slowly.
 If we want to finish by the deadline, we should start deploying two at a time.
 => END
+
+
+~ rmPowerStart
+Note to maintenance staff\:
+The door to the left will ONLY open if the Power Plant is active.
+Please visit the breaker room to activate it.
+=> END
+
+
+~ rmPowerSentry2
+Note to maintenance staff\:
+In the Power Plant, Sentries are always watching...
+...waiting...
+=> END
+
+
+~ rmPowerSecret2
+Entry #25 (05/20/23)
+Subject 02 has escaped.
+It somehow found a [color=yellow]manhole[/color], and now we don't know where it is.
+We reinforced our security. There should no longer be any means of escape, besides the intended route.
+Prototyping of Subject 03 begins tomorrow.
+=> END
+
+
+~ rmPowerSwitch
+if Game.progress["power_complete"]:
+	Power Plant Status\: Active
+	=> END
+else:
+	Power Plant Status\: Deactivated\nAll systems running on backup power.
+	Do you want to reactivate the power plant?
+	- Yes
+		do Game.progress_set("power_complete", true)
+		do get_tree().call_group("room", "turn_on_lights")
+		Power Plant is now active.
+		=> END
+	- No
+=> END
+
+~ rmPowerOmni4
+Entry #152 (Today)
+Subject 23 is very close to completing testing.
+Prepare for immediate capture.
+=> END
+
+~ rmPowerExit
+[color=yellow]4 switches[/color] must be toggled to open up the Power Plant's exit.
+To find them, head to the north and the south.
+=> END
+
+
+~ rmOutsideBuildup2
+Designated Subject Point ahead!
+=> END

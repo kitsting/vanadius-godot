@@ -21,7 +21,6 @@ enum PLAYERSTATE {
 
 var respawnoptions : bool = false
 var indicatoralpha : float = 0.8
-var idle : bool = false
 
 var spd : float = 1.4 * 60
 var walkspd : float = 1
@@ -97,7 +96,6 @@ func _process(delta: float) -> void:
 		indicatoralpha = max(0,indicatoralpha-(0.05*delta*60))
 		position.y += 2
 		$sprite.frame = 1
-		$sprite.speed_scale = 0
 		
 	if pstate == PLAYERSTATE.DEAD:
 		
@@ -113,7 +111,6 @@ func _process(delta: float) -> void:
 	
 	
 func _physics_process(delta: float) -> void:
-	idle = true
 	
 	if pstate != PLAYERSTATE.CUTSCENE and pstate != PLAYERSTATE.FALLING:
 		direction = Vector2.ZERO
@@ -122,55 +119,52 @@ func _physics_process(delta: float) -> void:
 		
 		#Get key presses and set direction
 		if Input.is_action_pressed("ui_up"):
-			$sprite.speed_scale = walkspd
 			direction.y = -spd
 			dir = PLAYERDIR.UP
-			idle = false
 			
 		if Input.is_action_pressed("ui_down"):
-			$sprite.speed_scale = walkspd
 			direction.y = spd
 			dir = PLAYERDIR.DOWN
-			idle = false
 			
 		if Input.is_action_pressed("ui_left"):
-			$sprite.speed_scale = walkspd
 			direction.x = -spd
 			dir = PLAYERDIR.LEFT
 			$sprite.flip_h = true
-			idle = false
 			
 		if Input.is_action_pressed("ui_right"):
-			$sprite.speed_scale = walkspd
 			direction.x = spd
 			dir = PLAYERDIR.LEFT
 			$sprite.flip_h = false
-			idle = false
 			
-		if direction.x != 0:
-			$sprite.play("walk_right")
-		else:
-			if direction.y < 0:
-				$sprite.play("walk_up")
+		# Moving:
+		if direction.x != 0 or direction.y != 0:
+			if direction.x != 0:
+				$sprite.play("walk_right")
 			else:
-				$sprite.play("walk_down")
+				if direction.y < 0:
+					$sprite.play("walk_up")
+				else:
+					$sprite.play("walk_down")
 			
 		#Check for opposite key presses
 		if (Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_left")) or (Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_down")):
 			direction.x = 0
 			direction.y = 0
-			idle = true
 			
-		if idle:
+		#Not moving anymore
+		if direction.x == 0 and direction.y == 0:
 			position = round(position)
 			get_tree().call_group("camera", "round_position") #Prevent weird offsets
-			$sprite.speed_scale = 1
 			if dir == PLAYERDIR.DOWN:
-				$sprite.play("idle_down")
+				if $sprite.animation != "idle_down":
+					$sprite.play("idle_down")
+					
 			elif dir == PLAYERDIR.UP:
-				$sprite.play("idle_up")
+				if $sprite.animation != "idle_up":
+					$sprite.play("idle_up")
 			else:
-				$sprite.play("idle_right")
+				if $sprite.animation != "idle_right":
+					$sprite.play("idle_right")
 				
 
 	#Move
@@ -241,7 +235,6 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 func die():
 	Game.kill_text()
 	Game.beingchased = false
-	$sprite.speed_scale = 1
 	
 	get_tree().call_group("room", "set_pausable", false)
 	
@@ -308,6 +301,8 @@ func call_clone(clone_velocity : Vector2) -> void:
 
 
 func _on_sprite_animation_changed() -> void:
+	print($sprite.animation)
+	
 	get_tree().call_group("objClone", "play_anim", $sprite.animation, $sprite.flip_h)
 
 func get_anim() -> String:

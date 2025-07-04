@@ -53,6 +53,7 @@ func _ready() -> void:
 			disabled = true
 			$sprite.stop()
 			$sprite.frame = 0
+			$Area2D/CollisionShape2D.disabled = true
 		else:
 			if oscillate:
 				start_oscillate()

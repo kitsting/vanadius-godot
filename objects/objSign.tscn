@@ -62,7 +62,7 @@ z_index = 999
 position = Vector2(0, -25)
 sprite_frames = SubResource("SpriteFrames_h6fxo")
 animation = &"view"
-frame_progress = 0.214144
+frame_progress = 0.0405911
 
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]

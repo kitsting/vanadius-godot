@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=3 uid="uid://x6ed72ambbwa"]
+
+[ext_resource type="Script" uid="uid://ci3kvu4j4de8x" path="res://objects/obj_power_door.gd" id="1_gnxam"]
+[ext_resource type="Texture2D" uid="uid://tycmqlgy2tc" path="res://sprites/sprPowerDoor.png" id="2_717fc"]
+[ext_resource type="Texture2D" uid="uid://i32h35o04u18" path="res://sprites/ThickDoor.png" id="3_ic124"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqase"]
+atlas = ExtResource("3_ic124")
+region = Rect2(0, 0, 8, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0n8r"]
+atlas = ExtResource("3_ic124")
+region = Rect2(8, 0, 8, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1506"]
+atlas = ExtResource("3_ic124")
+region = Rect2(16, 0, 8, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxedv"]
+atlas = ExtResource("3_ic124")
+region = Rect2(24, 0, 8, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pfy3"]
+atlas = ExtResource("3_ic124")
+region = Rect2(32, 0, 8, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gap61"]
+atlas = ExtResource("3_ic124")
+region = Rect2(40, 0, 8, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o7lc"]
+atlas = ExtResource("3_ic124")
+region = Rect2(48, 0, 8, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nvpu"]
+atlas = ExtResource("3_ic124")
+region = Rect2(56, 0, 8, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_agn3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_717fc")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqase")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0n8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1506")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxedv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pfy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gap61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o7lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nvpu")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2g12g"]
+size = Vector2(8, 60)
+
+[node name="objPowerDoor" type="StaticBody2D"]
+script = ExtResource("1_gnxam")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_agn3j")
+animation = &"off"
+frame_progress = 0.396771
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_2g12g")
