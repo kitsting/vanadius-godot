@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://2c6vloxowiw1" path="res://resources/objPlayerSprites.tres" id="2_lajuu"]
 [ext_resource type="Texture2D" uid="uid://c1s6b0pr3a74p" path="res://sprites/player/light/Flashlight.png" id="3_kj0g6"]
 [ext_resource type="LabelSettings" uid="uid://d08xk8kwh1ry4" path="res://resources/big_label.tres" id="4_y75pg"]
-[ext_resource type="Texture2D" uid="uid://dl33slmfrgc1t" path="res://sprites/sprSentryIndicatorOff.png" id="6_o8n1n"]
+[ext_resource type="Texture2D" uid="uid://dl33slmfrgc1t" path="res://sprites/ui/sprSentryIndicatorOff.png" id="6_o8n1n"]
 [ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="6_y75pg"]
 [ext_resource type="Texture2D" uid="uid://bh15vkvx38n6" path="res://sprites/input/ButtonAGeneric.png" id="8_j4r7i"]
 [ext_resource type="AudioStream" uid="uid://mtbpxox4snyl" path="res://sounds/sndDeath.ogg" id="13_btj8e"]

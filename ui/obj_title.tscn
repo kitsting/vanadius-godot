@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://b23et7cr3g1io" path="res://sprites/sprTitleBackgroundRuin.png" id="2_5jg8x"]
 [ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="2_inmak"]
 [ext_resource type="Shader" uid="uid://bum5hu46wmht1" path="res://ui/obj_title_scroll.gdshader" id="2_qb0k3"]
-[ext_resource type="Texture2D" uid="uid://cvednlq02di0h" path="res://sprites/sprTitle.png" id="4_nwftu"]
+[ext_resource type="Texture2D" uid="uid://cvednlq02di0h" path="res://sprites/ui/sprTitle.png" id="4_nwftu"]
 [ext_resource type="FontFile" uid="uid://we5onkvfxecy" path="res://fonts/van_small_font.ttf" id="5_8tern"]
-[ext_resource type="Texture2D" uid="uid://b2y8pvu02r2p4" path="res://sprites/subheading.png" id="8_tw88j"]
+[ext_resource type="Texture2D" uid="uid://b2y8pvu02r2p4" path="res://sprites/ui/subheading.png" id="8_tw88j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qb0k3"]
 shader = ExtResource("2_qb0k3")

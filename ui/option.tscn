@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dk3qssol3mag3"]
 
 [ext_resource type="FontFile" uid="uid://we5onkvfxecy" path="res://fonts/van_small_font.ttf" id="1_3d0ex"]
-[ext_resource type="Texture2D" uid="uid://bpeqmlyyam1pa" path="res://sprites/sprNewPage.png" id="2_2h7d6"]
+[ext_resource type="Texture2D" uid="uid://bpeqmlyyam1pa" path="res://sprites/ui/sprNewPage.png" id="2_2h7d6"]
 [ext_resource type="Script" uid="uid://ddtsuaoxmisar" path="res://ui/option.gd" id="2_ykyuu"]
 [ext_resource type="AudioStream" uid="uid://cqeo6dpxkn35u" path="res://sounds/sndPressurePlate.ogg" id="3_ag7ku"]
 

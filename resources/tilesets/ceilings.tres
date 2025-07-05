@@ -1,13 +1,13 @@
 [gd_resource type="TileSet" load_steps=17 format=3 uid="uid://f0ypl1ei8ao"]
 
-[ext_resource type="Texture2D" uid="uid://dav7qqber5vh3" path="res://sprites/sprTileCave.png" id="1_31h34"]
-[ext_resource type="Texture2D" uid="uid://7x25see0jho4" path="res://sprites/sprTileFactory.png" id="2_l16nm"]
-[ext_resource type="Texture2D" uid="uid://11hsc3q2xfd4" path="res://sprites/sprTileGeneric.png" id="3_hrl0q"]
-[ext_resource type="Texture2D" uid="uid://cxptn3gln4kpx" path="res://sprites/sprTileLab.png" id="4_agsp2"]
-[ext_resource type="Texture2D" uid="uid://bk2h00jasvmei" path="res://sprites/sprTileOutside.png" id="5_fj4f2"]
-[ext_resource type="Texture2D" uid="uid://l32tm4m8jifu" path="res://sprites/sprTilePower.png" id="6_fw2hc"]
-[ext_resource type="Texture2D" uid="uid://ctfg35uyv1atc" path="res://sprites/sprTileRuins.png" id="7_naavk"]
-[ext_resource type="Texture2D" uid="uid://d2jc6d845idqh" path="res://sprites/sprTileTower.png" id="8_72ted"]
+[ext_resource type="Texture2D" uid="uid://dav7qqber5vh3" path="res://sprites/tile/sprTileCave.png" id="1_31h34"]
+[ext_resource type="Texture2D" uid="uid://7x25see0jho4" path="res://sprites/tile/sprTileFactory.png" id="2_l16nm"]
+[ext_resource type="Texture2D" uid="uid://11hsc3q2xfd4" path="res://sprites/tile/sprTileGeneric.png" id="3_hrl0q"]
+[ext_resource type="Texture2D" uid="uid://cxptn3gln4kpx" path="res://sprites/tile/sprTileLab.png" id="4_agsp2"]
+[ext_resource type="Texture2D" uid="uid://bk2h00jasvmei" path="res://sprites/tile/sprTileOutside.png" id="5_fj4f2"]
+[ext_resource type="Texture2D" uid="uid://l32tm4m8jifu" path="res://sprites/tile/sprTilePower.png" id="6_fw2hc"]
+[ext_resource type="Texture2D" uid="uid://ctfg35uyv1atc" path="res://sprites/tile/sprTileRuins.png" id="7_naavk"]
+[ext_resource type="Texture2D" uid="uid://d2jc6d845idqh" path="res://sprites/tile/sprTileTower.png" id="8_72ted"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lmse"]
 resource_name = "Cave"

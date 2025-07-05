@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c1whn4vab2eg6"]
 
-[ext_resource type="Texture2D" uid="uid://dw245kb85tfg6" path="res://sprites/spr9Slice1.png" id="1_grwac"]
+[ext_resource type="Texture2D" uid="uid://dw245kb85tfg6" path="res://sprites/ui/spr9Slice1.png" id="1_grwac"]
 [ext_resource type="Script" uid="uid://cdc11a0wcayac" path="res://ui/save_prompt.gd" id="1_j5lwi"]
 [ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="2_j5lwi"]
 [ext_resource type="PackedScene" uid="uid://dk3qssol3mag3" path="res://ui/option.tscn" id="3_q7j8l"]

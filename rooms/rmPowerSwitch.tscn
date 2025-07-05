@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://qg62xhb8whr7" path="res://objects/objSign.tscn" id="2_uewi7"]
 [ext_resource type="TileSet" uid="uid://dahpntkxbmjgh" path="res://resources/tilesets/wire.tres" id="2_yvexp"]
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="3_16kyf"]
-[ext_resource type="Texture2D" uid="uid://cljh8ofgft6oi" path="res://sprites/control_room/sprControlPanel.png" id="3_jmgxg"]
+[ext_resource type="Texture2D" uid="uid://cljh8ofgft6oi" path="res://sprites/environment/control_room/sprControlPanel.png" id="3_jmgxg"]
 [ext_resource type="PackedScene" uid="uid://diy0ps6ikrp1w" path="res://objects/objInteract.tscn" id="4_yvexp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3h5ds"]

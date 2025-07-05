@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://71kxce1shkm6"]
 
 [ext_resource type="Script" uid="uid://b61cidvyunf0" path="res://objects/obj_map.gd" id="1_6fv54"]
-[ext_resource type="Texture2D" uid="uid://ciu7r8ami6e6l" path="res://sprites/map_bg.png" id="1_64f5w"]
+[ext_resource type="Texture2D" uid="uid://ciu7r8ami6e6l" path="res://sprites/ui/map_bg.png" id="1_64f5w"]
 [ext_resource type="Texture2D" uid="uid://5pl0vh58wpbq" path="res://sprites/vanadius_map.png" id="1_tod6v"]
 
 [node name="objMap" type="Control"]

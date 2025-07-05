@@ -35,10 +35,10 @@ var direction := Vector2.ZERO
 
 var transitioning = false
 
-@onready var indicator_off = preload("res://sprites/sprSentryIndicatorOff.png")
-@onready var indicator_on = preload("res://sprites/sprSentryIndicatorOn.png")
-@onready var indicator_null = preload("res://sprites/sprSentryIndicatorNull.png")
-@onready var indicator_unsure = preload("res://sprites/sprSentryIndicatorUnsure.png")
+@onready var indicator_off = preload("res://sprites/ui/sprSentryIndicatorOff.png")
+@onready var indicator_on = preload("res://sprites/ui/sprSentryIndicatorOn.png")
+@onready var indicator_null = preload("res://sprites/ui/sprSentryIndicatorNull.png")
+@onready var indicator_unsure = preload("res://sprites/ui/sprSentryIndicatorUnsure.png")
 
 
 func _ready() -> void:

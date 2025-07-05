@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_kj7vs"]
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="2_bcw2n"]
 [ext_resource type="PackedScene" uid="uid://qg62xhb8whr7" path="res://objects/objSign.tscn" id="2_lu5xc"]
-[ext_resource type="Texture2D" uid="uid://dih2nwf2wwwmc" path="res://sprites/sprRuinsGrafitti1.png" id="3_45okv"]
+[ext_resource type="Texture2D" uid="uid://dih2nwf2wwwmc" path="res://sprites/environment/sprRuinsGrafitti1.png" id="3_45okv"]
 [ext_resource type="TileSet" uid="uid://f0ypl1ei8ao" path="res://resources/tilesets/ceilings.tres" id="4_b8wmw"]
 [ext_resource type="PackedScene" uid="uid://c2kxjvt42rta7" path="res://objects/objSentryMini.tscn" id="4_jy0ee"]
 

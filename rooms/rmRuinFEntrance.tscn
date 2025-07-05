@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_qw2i6"]
 [ext_resource type="TileSet" uid="uid://f0ypl1ei8ao" path="res://resources/tilesets/ceilings.tres" id="2_d5lmw"]
-[ext_resource type="Texture2D" uid="uid://dyyg3kcll5dmn" path="res://sprites/sprCompanySign1.png" id="2_qnjpl"]
+[ext_resource type="Texture2D" uid="uid://dyyg3kcll5dmn" path="res://sprites/environment/sprCompanySign1.png" id="2_qnjpl"]
 [ext_resource type="PackedScene" uid="uid://qg62xhb8whr7" path="res://objects/objSign.tscn" id="3_614y8"]
 [ext_resource type="PackedScene" uid="uid://c2kxjvt42rta7" path="res://objects/objSentryMini.tscn" id="4_03t3t"]
 [ext_resource type="PackedScene" uid="uid://bb1sol2ahi6vp" path="res://objects/objCutscene1.tscn" id="4_3ukvs"]

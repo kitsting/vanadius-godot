@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://b87xy4bf2le0l"]
 
 [ext_resource type="Script" uid="uid://bj0y8ky2fwafu" path="res://ui/obj_pause.gd" id="1_p3d0u"]
-[ext_resource type="Texture2D" uid="uid://dw245kb85tfg6" path="res://sprites/spr9Slice1.png" id="1_rsf8a"]
+[ext_resource type="Texture2D" uid="uid://dw245kb85tfg6" path="res://sprites/ui/spr9Slice1.png" id="1_rsf8a"]
 [ext_resource type="PackedScene" uid="uid://71kxce1shkm6" path="res://objects/objMap.tscn" id="2_jpj2q"]
-[ext_resource type="Texture2D" uid="uid://djj5t3bu2pgww" path="res://sprites/sprDeathIcon.png" id="3_s5yx1"]
+[ext_resource type="Texture2D" uid="uid://djj5t3bu2pgww" path="res://sprites/ui/sprDeathIcon.png" id="3_s5yx1"]
 [ext_resource type="Texture2D" uid="uid://i1633h1vqsc7" path="res://sprites/input/KeyShift.png" id="4_nqn8x"]
 [ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="4_nui6y"]
 [ext_resource type="Texture2D" uid="uid://blyyws256elgn" path="res://sprites/sprCollectibleIcon.png" id="5_s5yx1"]
