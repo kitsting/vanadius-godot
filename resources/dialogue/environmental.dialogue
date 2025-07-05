@@ -5,3 +5,17 @@ It's not moving.
 ~ control_panel
 It's a panel filled with buttons and lights you don't understand.
 => END
+
+
+~ tube_empty
+It's some sort of test tube. It's empty.
+=> END
+
+~ tube_you
+It's some sort of test tube. It feels familiar.
+=> END
+
+~ tube_full
+It's some sort of test tube. You can see a figure inside.
+It's not moving.
+=> END

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2yawcwq6fspv"
-path="res://.godot/imported/ba855566-809d-4fd5-9c49-3a1d225ab5d8.png-5e5e077d00cfe4260f595b73e72352db.ctex"
+uid="uid://bgkpj5svkg30n"
+path="res://.godot/imported/sprSubjectAlive.png-67dcfb489c75fcdfd03c010535a34e99.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/sprSubjectAlive/layers/b7e7812b-2234-455a-aa5c-93e20cd3b8c2/ba855566-809d-4fd5-9c49-3a1d225ab5d8.png"
-dest_files=["res://.godot/imported/ba855566-809d-4fd5-9c49-3a1d225ab5d8.png-5e5e077d00cfe4260f595b73e72352db.ctex"]
+source_file="res://sprites/sprSubjectAlive.png"
+dest_files=["res://.godot/imported/sprSubjectAlive.png-67dcfb489c75fcdfd03c010535a34e99.ctex"]
 
 [params]
 

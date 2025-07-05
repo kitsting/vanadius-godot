@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://b78hh7pm3ijyo"]
+
+[ext_resource type="Script" uid="uid://c402tgnedtth0" path="res://objects/obj_thing.gd" id="1_kddy0"]
+[ext_resource type="Texture2D" uid="uid://dcdb24eqnua37" path="res://sprites/sprThing.png" id="1_wlt8c"]
+[ext_resource type="Texture2D" uid="uid://cp8qdaoh5mpie" path="res://sprites/sprThingBase.png" id="2_kddy0"]
+[ext_resource type="AudioStream" uid="uid://j3hp7qqt0iwq" path="res://sounds/thing_lockin.wav" id="4_303yb"]
+[ext_resource type="AudioStream" uid="uid://cgv3iebd2418" path="res://sounds/sndText.ogg" id="5_2atdm"]
+[ext_resource type="AudioStream" uid="uid://brmrej04hw2t6" path="res://sounds/stop.ogg" id="6_pweub"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kddy0"]
+radius = 44.1814
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wlt8c"]
+radius = 10.5119
+
+[node name="objThing" type="StaticBody2D"]
+texture_filter = 1
+script = ExtResource("1_kddy0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wlt8c")
+
+[node name="Base" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(-1, 2)
+texture = ExtResource("2_kddy0")
+
+[node name="SearchArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SearchArea"]
+shape = SubResource("CircleShape2D_kddy0")
+debug_color = Color(0.9, 0, 0.24, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("CircleShape2D_wlt8c")
+
+[node name="LockIn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_303yb")
+bus = &"sfx"
+
+[node name="TheChain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2atdm")
+bus = &"sfx"
+
+[node name="Stop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_pweub")
+bus = &"sfx"
+
+[connection signal="body_entered" from="SearchArea" to="." method="_on_search_area_body_entered"]

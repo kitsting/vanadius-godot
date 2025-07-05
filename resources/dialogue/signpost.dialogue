@@ -22,7 +22,7 @@ If you find yourself needing to head back, you can open your [color=red]pause me
 => END
 
 ~ rmRuinSecret1
-Entry #147 (6/16/24)
+Entry #147 (1 DAY AGO)
 Today we've deployed Subject 23 for testing. This model comes with numerous improvements.
 If testing doesn't go to plan, our options are looking slim. Bankruptcy is absolutely unacceptable.
 => END
@@ -42,14 +42,14 @@ Navigation Directions:
 => END
 
 ~ rmFactoryChallenge3
-Entry #20 (3/16/23)
+Entry #20 (70 DAYS AGO)
 In order for this scheme to work, we require mass production.
 We built the Factory to keep everything in-house. Now, we can produce anything quickly and efficiently.
 Subjects, Sentries, you name it. Our contractors are sure to be pleased.
 => END
 
 ~ rmFactoryBlue2
-Entry #100 (9/30/23)
+Entry #100 (30 DAYS AGO)
 The testing environments just aren't working.
 We've decided to redesign most of our facility to be a testing ground for Subjects.
 As long as one is successful, we might be able to stand a chance.
@@ -107,7 +107,7 @@ After cuts to the Lab Department, there simply aren't enough funds to keep doing
 
 
 ~ rmLabChallenge2
-Entry #3 (2/26/23)
+Entry #3 (94 DAYS AGO)
 We've been approached by an unknown organization. We don't know what their end goals are, but...
 They offered us a hefty sum of money to help them. This could save us from bankruptcy!
 All they want is for us to mass produce super strong robots. The kind that can tackle any challenge.
@@ -116,7 +116,7 @@ We'll start creating prototypes tomorrow.
 
 
 ~ rmLabCollectible1
-Entry #5 (2/28/23)
+Entry #5 (89 DAYS AGO)
 We've discovered a new alloy, one that will make this plan a success.
 It's a mixture of Vanadium and Steel, and it has some interesting properties.
 It's fairly brittle, but it can survive extreme falls. It's also extremely lightweight.
@@ -140,7 +140,7 @@ and the Timekeeping Department.
 
 
 ~ rmClockFloor6b
-Entry #21 (5/12/23)
+Entry #21 (81 DAYS AGO)
 We've released Subject #1 into the testing environments.
 We expanded the Clock Tower so we can better keep track of testing time.
 We went a little overboard given our financial situation... But it looks pretty cool.
@@ -148,14 +148,14 @@ We went a little overboard given our financial situation... But it looks pretty 
 
 
 ~ rmClockFloor7
-Entry #23 (5/17/23)
+Entry #23 (80 DAYS AGO)
 Subject #1 was an absolute failure.
 We're going to modify the testing environments and start prototyping Subject #2.
 => END
 
 
 ~ rmClockFloor9b
-Entry #116 (4/14/24)
+Entry #116 (25 DAYS AGO)
 The Subjects are getting through the tests far too slowly.
 If we want to finish by the deadline, we should start deploying two at a time.
 => END
@@ -176,7 +176,7 @@ In the Power Plant, Sentries are always watching...
 
 
 ~ rmPowerSecret2
-Entry #25 (05/20/23)
+Entry #25 (77 DAYS AGO)
 Subject 02 has escaped.
 It somehow found a [color=yellow]manhole[/color], and now we don't know where it is.
 We reinforced our security. There should no longer be any means of escape, besides the intended route.
@@ -200,7 +200,7 @@ else:
 => END
 
 ~ rmPowerOmni4
-Entry #152 (Today)
+Entry #152 (TODAY)
 Subject 23 is very close to completing testing.
 Prepare for immediate capture.
 => END
@@ -213,4 +213,27 @@ To find them, head to the north and the south.
 
 ~ rmOutsideBuildup2
 Designated Subject Point ahead!
+=> END
+
+
+~ rmDeepFoyer
+This is the Deep Lab.
+We use it for storing Lab materials and whatever projects we aren't actively working on.
+It also happens to be very dangerous, making it a perfect optional testing ground.
+We've put a reward at the end for any daring Subjects.
+=> END
+
+
+~ rmDeepThing2
+These... THINGS... were a failed experiment.
+We made about 10, but every time we come in, it feels like there are more.
+This may warrant further research.
+=> END
+
+
+~ rmDeepThing5
+Entry #7 (88 DAYS AGO)
+We've decided to call our new discovery Vanadius.
+It's not a very clever name, but it'll do.
+We've decided that the main chassis of our prototypes will be made out of it.
 => END

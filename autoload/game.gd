@@ -124,6 +124,7 @@ var progress := {
 	"deaths" : 0,
 	"time_sec" : 0,
 	"collectibles" : [],
+	"visited_rooms" : [],
 	
 	#Set at save/load time
 	"last_area" : "",

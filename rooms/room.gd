@@ -57,6 +57,8 @@ func _ready() -> void:
 	
 	Game.area = area
 	
+	Game.progress_append("visited_rooms", internal_name)
+	
 	Game.set_playing()
 	
 	if Game.progress.towertime_left > -1:

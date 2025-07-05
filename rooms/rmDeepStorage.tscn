@@ -1,0 +1,353 @@
+[gd_scene load_steps=28 format=4 uid="uid://chvn5rnfd4key"]
+
+[ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_dpx7g"]
+[ext_resource type="Texture2D" uid="uid://bvnbchy550rci" path="res://sprites/sprTestTube.png" id="2_ax2ew"]
+[ext_resource type="PackedScene" uid="uid://diy0ps6ikrp1w" path="res://objects/objInteract.tscn" id="3_7mgmc"]
+[ext_resource type="Texture2D" uid="uid://6178m3csmvu7" path="res://sprites/sprSubject24.png" id="4_7bsap"]
+[ext_resource type="Texture2D" uid="uid://b0oq6ddrcciu5" path="res://sprites/sprTestGlass.png" id="5_7e8qo"]
+[ext_resource type="Texture2D" uid="uid://cer4olhk8jhly" path="res://sprites/sprSubject25.png" id="6_ulup4"]
+[ext_resource type="Texture2D" uid="uid://u2rw8xm0yj0t" path="res://sprites/spr21Plate.png" id="7_7e8qo"]
+[ext_resource type="Texture2D" uid="uid://bgkpj5svkg30n" path="res://sprites/sprSubjectAlive.png" id="8_x2wgq"]
+[ext_resource type="Texture2D" uid="uid://rc2l6j5omtuk" path="res://sprites/sprSubjectDead.png" id="9_k3mev"]
+[ext_resource type="Texture2D" uid="uid://og4ep6a0uyf4" path="res://sprites/spr22Plate.png" id="10_lotia"]
+[ext_resource type="Script" uid="uid://xe4ocq3x7mxd" path="res://rooms/deeplab_22light.gd" id="11_34lbt"]
+[ext_resource type="Texture2D" uid="uid://lmqm2qttmwf7" path="res://sprites/spr23Plate.png" id="12_n2f72"]
+[ext_resource type="Texture2D" uid="uid://bh1w87k212no" path="res://sprites/spr24Plate.png" id="13_su7ts"]
+[ext_resource type="Texture2D" uid="uid://bry3tntdnyias" path="res://sprites/spr25Plate.png" id="14_lj02q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mgmc"]
+size = Vector2(24, 20.6873)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvkkf"]
+size = Vector2(27, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frghx"]
+atlas = ExtResource("8_x2wgq")
+region = Rect2(0, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrifd"]
+atlas = ExtResource("8_x2wgq")
+region = Rect2(9, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd1il"]
+atlas = ExtResource("8_x2wgq")
+region = Rect2(18, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejan2"]
+atlas = ExtResource("8_x2wgq")
+region = Rect2(27, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh72d"]
+atlas = ExtResource("9_k3mev")
+region = Rect2(0, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyyw4"]
+atlas = ExtResource("9_k3mev")
+region = Rect2(9, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwxme"]
+atlas = ExtResource("9_k3mev")
+region = Rect2(18, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyaqu"]
+atlas = ExtResource("9_k3mev")
+region = Rect2(27, 0, 9, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x2wgq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frghx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrifd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd1il")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejan2")
+}],
+"loop": true,
+"name": &"alive",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh72d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyyw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwxme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyaqu")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k3mev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frghx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrifd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd1il")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejan2")
+}],
+"loop": true,
+"name": &"alive",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh72d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyyw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwxme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyaqu")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gp8rr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frghx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrifd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd1il")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejan2")
+}],
+"loop": true,
+"name": &"alive",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh72d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyyw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwxme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyaqu")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 2.0
+}]
+
+[node name="Testroom" instance=ExtResource("1_dpx7g")]
+area = "Deep Lab"
+internal_name = "rmDeepStorage"
+darkness_intensity = 0.4
+darkness_light = 0.6
+
+[node name="Floor" parent="." index="0"]
+tile_map_data = PackedByteArray("AAAAAAAABQAEAAIAAAAAAAEABQAEAAIAAAAAAAIABQAEAAIAAAAAAAMABQAEAAIAAAAAAAQABQAEAAIAAAAAAAUABQAEAAIAAAAAAAYABQAEAAIAAAAAAAcABQAEAAIAAAAAAAgABQAEAAIAAAAAAAkABQAEAAIAAAAAAAoABQAEAAIAAAAAAAsABQAEAAIAAAAAAAwABQAEAAIAAAAAAA0ABQAEAAIAAAAAAA4ABQAEAAIAAAAAAA8ABQAEAAIAAAABAAAABQAEAAIAAAABAAEABQAEAAIAAAABAAIABQAEAAIAAAABAAMABQAEAAIAAAABAAQABQAEAAIAAAABAAUABQAEAAIAAAABAAYABQAEAAIAAAABAAcABQAEAAIAAAABAAgABQAEAAIAAAABAAkABQAEAAIAAAABAAoABQAEAAIAAAABAAsABQAEAAIAAAABAAwABQAEAAIAAAABAA0ABQAEAAIAAAABAA4ABQAEAAIAAAABAA8ABQAEAAIAAAACAAAABQAEAAIAAAACAAEABQAEAAIAAAACAAIABQAEAAIAAAACAAMABQAEAAIAAAACAAQABQAEAAIAAAACAAUABQAEAAIAAAACAAYABQAEAAIAAAACAAcABQAEAAIAAAACAAgABQAEAAIAAAACAAkABQAEAAIAAAACAAoABQAEAAIAAAACAAsABQAEAAIAAAACAAwABQAEAAIAAAACAA0ABQAEAAIAAAACAA4ABQAEAAIAAAACAA8ABQAEAAIAAAADAAAABQAEAAIAAAADAAEABQAEAAIAAAADAAIABQAEAAIAAAADAAMABQAEAAIAAAADAAQABQAEAAIAAAADAAUABQAEAAIAAAADAAYABQAEAAIAAAADAAcABQAEAAIAAAADAAgABQAEAAIAAAADAAkABQAEAAIAAAADAAoABQAEAAIAAAADAAsABQAEAAIAAAADAAwABQAEAAIAAAADAA0ABQAEAAIAAAADAA4ABQAEAAIAAAADAA8ABQAEAAIAAAAEAAAABQAEAAIAAAAEAAEABQAEAAIAAAAEAAIABQAEAAIAAAAEAAMABQAEAAIAAAAEAAQABQAEAAIAAAAEAAUABQAEAAIAAAAEAAYABQAEAAIAAAAEAAcABQAEAAIAAAAEAAgABQAEAAIAAAAEAAkABQAEAAIAAAAEAAoABQAEAAIAAAAEAAsABQAEAAIAAAAEAAwABQAEAAIAAAAEAA0ABQAEAAIAAAAEAA4ABQAEAAIAAAAEAA8ABQAEAAIAAAAFAAAABQAEAAIAAAAFAAEABQAEAAIAAAAFAAIABQAEAAIAAAAFAAMABQAEAAIAAAAFAAQABQAEAAIAAAAFAAUABQAEAAIAAAAFAAYABQAEAAIAAAAFAAcABQAEAAIAAAAFAAgABQAEAAIAAAAFAAkABQAEAAIAAAAFAAoABQAEAAIAAAAFAAsABQAEAAIAAAAFAAwABQAEAAIAAAAFAA0ABQAEAAIAAAAFAA4ABQAEAAIAAAAFAA8ABQAEAAIAAAAGAAAABQAEAAIAAAAGAAEABQAEAAIAAAAGAAIABQAEAAIAAAAGAAMABQAEAAIAAAAGAAQABQAEAAIAAAAGAAUABQAEAAIAAAAGAAYABQAEAAIAAAAGAAcABQAEAAIAAAAGAAgABQAEAAIAAAAGAAkABQAEAAIAAAAGAAoABQAEAAIAAAAGAAsABQAEAAIAAAAGAAwABQAEAAIAAAAGAA0ABQAEAAIAAAAGAA4ABQAEAAIAAAAGAA8ABQAEAAIAAAAHAAAABQAEAAIAAAAHAAEABQAEAAIAAAAHAAIABQAEAAIAAAAHAAMABQAEAAIAAAAHAAQABQAEAAIAAAAHAAUABQAEAAIAAAAHAAYABQAEAAIAAAAHAAcABQAEAAIAAAAHAAgABQAEAAIAAAAHAAkABQAEAAIAAAAHAAoABQAEAAIAAAAHAAsABQAEAAIAAAAHAAwABQAEAAIAAAAHAA0ABQAEAAIAAAAHAA4ABQAEAAIAAAAHAA8ABQAEAAIAAAAIAAAABQAEAAIAAAAIAAEABQAEAAIAAAAIAAIABQAEAAIAAAAIAAMABQAEAAIAAAAIAAQABQAEAAIAAAAIAAUABQAEAAIAAAAIAAYABQAEAAIAAAAIAAcABQAEAAIAAAAIAAgABQAEAAIAAAAIAAkABQAEAAIAAAAIAAoABQAEAAIAAAAIAAsABQAEAAIAAAAIAAwABQAEAAIAAAAIAA0ABQAEAAIAAAAIAA4ABQAEAAIAAAAIAA8ABQAEAAIAAAAJAAAABQAEAAIAAAAJAAEABQAEAAIAAAAJAAIABQAEAAIAAAAJAAMABQAEAAIAAAAJAAQABQAEAAIAAAAJAAUABQAEAAIAAAAJAAYABQAEAAIAAAAJAAcABQAEAAIAAAAJAAgABQAEAAIAAAAJAAkABQAEAAIAAAAJAAoABQAEAAIAAAAJAAsABQAEAAIAAAAJAAwABQAEAAIAAAAJAA0ABQAEAAIAAAAJAA4ABQAEAAIAAAAJAA8ABQAEAAIAAAAKAAAABQAEAAIAAAAKAAEABQAEAAIAAAAKAAIABQAEAAIAAAAKAAMABQAEAAIAAAAKAAQABQAEAAIAAAAKAAUABQAEAAIAAAAKAAYABQAEAAIAAAAKAAcABQAEAAIAAAAKAAgABQAEAAIAAAAKAAkABQAEAAIAAAAKAAoABQAEAAIAAAAKAAsABQAEAAIAAAAKAAwABQAEAAIAAAAKAA0ABQAEAAIAAAAKAA4ABQAEAAIAAAAKAA8ABQAEAAIAAAALAAAABQAEAAIAAAALAAEABQAEAAIAAAALAAIABQAEAAIAAAALAAMABQAEAAIAAAALAAQABQAEAAIAAAALAAUABQAEAAIAAAALAAYABQAEAAIAAAALAAcABQAEAAIAAAALAAgABQAEAAIAAAALAAkABQAEAAIAAAALAAoABQAEAAIAAAALAAsABQAEAAIAAAALAAwABQAEAAIAAAALAA0ABQAEAAIAAAALAA4ABQAEAAIAAAALAA8ABQAEAAIAAAAMAAAABQAEAAIAAAAMAAEABQAEAAIAAAAMAAIABQAEAAIAAAAMAAMABQAEAAIAAAAMAAQABQAEAAIAAAAMAAUABQAEAAIAAAAMAAYABQAEAAIAAAAMAAcABQAEAAIAAAAMAAgABQAEAAIAAAAMAAkABQAEAAIAAAAMAAoABQAEAAIAAAAMAAsABQAEAAIAAAAMAAwABQAEAAIAAAAMAA0ABQAEAAIAAAAMAA4ABQAEAAIAAAAMAA8ABQAEAAIAAAANAAAABQAEAAIAAAANAAEABQAEAAIAAAANAAIABQAEAAIAAAANAAMABQAEAAIAAAANAAQABQAEAAIAAAANAAUABQAEAAIAAAANAAYABQAEAAIAAAANAAcABQAEAAIAAAANAAgABQAEAAIAAAANAAkABQAEAAIAAAANAAoABQAEAAIAAAANAAsABQAEAAIAAAANAAwABQAEAAIAAAANAA0ABQAEAAIAAAANAA4ABQAEAAIAAAANAA8ABQAEAAIAAAAOAAAABQAEAAIAAAAOAAEABQAEAAIAAAAOAAIABQAEAAIAAAAOAAMABQAEAAIAAAAOAAQABQAEAAIAAAAOAAUABQAEAAIAAAAOAAYABQAEAAIAAAAOAAcABQAEAAIAAAAOAAgABQAEAAIAAAAOAAkABQAEAAIAAAAOAAoABQAEAAIAAAAOAAsABQAEAAIAAAAOAAwABQAEAAIAAAAOAA0ABQAEAAIAAAAOAA4ABQAEAAIAAAAOAA8ABQAEAAIAAAAPAAAABQAEAAIAAAAPAAEABQAEAAIAAAAPAAIABQAEAAIAAAAPAAMABQAEAAIAAAAPAAQABQAEAAIAAAAPAAUABQAEAAIAAAAPAAYABQAEAAIAAAAPAAcABQAEAAIAAAAPAAgABQAEAAIAAAAPAAkABQAEAAIAAAAPAAoABQAEAAIAAAAPAAsABQAEAAIAAAAPAAwABQAEAAIAAAAPAA0ABQAEAAIAAAAPAA4ABQAEAAIAAAAPAA8ABQAEAAIAAAAQAAAABQAEAAIAAAAQAAEABQAEAAIAAAAQAAIABQAEAAIAAAAQAAMABQAEAAIAAAAQAAQABQAEAAIAAAAQAAUABQAEAAIAAAAQAAYABQAEAAIAAAAQAAcABQAEAAIAAAAQAAgABQAEAAIAAAAQAAkABQAEAAIAAAAQAAoABQAEAAIAAAAQAAsABQAEAAIAAAAQAAwABQAEAAIAAAAQAA0ABQAEAAIAAAAQAA4ABQAEAAIAAAAQAA8ABQAEAAIAAAARAAAABQAEAAIAAAARAAEABQAEAAIAAAARAAIABQAEAAIAAAARAAMABQAEAAIAAAARAAQABQAEAAIAAAARAAUABQAEAAIAAAARAAYABQAEAAIAAAARAAcABQAEAAIAAAARAAgABQAEAAIAAAARAAkABQAEAAIAAAARAAoABQAEAAIAAAARAAsABQAEAAIAAAARAAwABQAEAAIAAAARAA0ABQAEAAIAAAARAA4ABQAEAAIAAAARAA8ABQAEAAIAAAA=")
+
+[node name="Walls" parent="." index="1"]
+tile_map_data = PackedByteArray("AAACAAoABQAGAAcAAAACAAsABQAHAAcAAAAGAAoABQAGAAEAAAAHAAoABQAHAAEAAAAIAAoABQAHAAEAAAAJAAoABQAHAAEAAAAKAAoABQAHAAEAAAALAAoABQAHAAEAAAAMAAoABQAHAAEAAAANAAoABQAHAAEAAAAOAAoABQAHAAEAAAAPAAoABQAIAAEAAAAPAAsABQAIAAMAAAAOAAsABQAHAAMAAAANAAsABQAHAAMAAAAMAAsABQAHAAMAAAALAAsABQAHAAMAAAAKAAsABQAHAAMAAAAJAAsABQAHAAMAAAAIAAsABQAHAAMAAAAHAAsABQAHAAMAAAAGAAsABQAGAAMAAAACAAMABQAGAAEAAAADAAMABQAHAAEAAAAEAAQABQAHAAMAAAAFAAQABQAHAAMAAAAGAAQABQAHAAMAAAAHAAQABQAHAAMAAAAIAAQABQAHAAMAAAAJAAQABQAHAAMAAAAKAAQABQAHAAMAAAALAAQABQAIAAMAAAALAAMABQAIAAEAAAAKAAMABQAHAAEAAAAJAAMABQAHAAEAAAAIAAMABQAHAAEAAAAHAAMABQAHAAEAAAAGAAMABQAHAAEAAAAFAAMABQAHAAEAAAAEAAMABQAHAAEAAAADAAQABQAHAAMAAAACAAQABQAGAAMAAAAPAAQABQAHAAcAAAAPAAMABQAGAAcAAAA=")
+
+[node name="ObjPlayer" parent="Objects" index="0"]
+position = Vector2(352, 352)
+
+[node name="Tube" type="StaticBody2D" parent="Objects" index="1"]
+position = Vector2(70, 111)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects/Tube" index="0"]
+texture = ExtResource("2_ax2ew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tube" index="1"]
+position = Vector2(-0.124474, 13.3437)
+shape = SubResource("RectangleShape2D_7mgmc")
+
+[node name="objInteract" parent="Objects/Tube" index="2" instance=ExtResource("3_7mgmc")]
+position = Vector2(0, -13)
+node = "tube_empty"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tube/objInteract" index="1"]
+position = Vector2(0, 35)
+shape = SubResource("RectangleShape2D_bvkkf")
+debug_color = Color(0.667044, 0.510043, 0.0693155, 0.42)
+
+[node name="Tube2" type="StaticBody2D" parent="Objects" index="2"]
+position = Vector2(119, 111)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects/Tube2" index="0"]
+texture = ExtResource("2_ax2ew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tube2" index="1"]
+position = Vector2(-0.124474, 13.3437)
+shape = SubResource("RectangleShape2D_7mgmc")
+
+[node name="objInteract" parent="Objects/Tube2" index="2" instance=ExtResource("3_7mgmc")]
+position = Vector2(0, -13)
+node = "tube_empty"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tube2/objInteract" index="1"]
+position = Vector2(0, 35)
+shape = SubResource("RectangleShape2D_bvkkf")
+debug_color = Color(0.667044, 0.510043, 0.0693155, 0.42)
+
+[node name="Tube3" type="StaticBody2D" parent="Objects" index="3"]
+position = Vector2(167, 111)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects/Tube3" index="0"]
+texture = ExtResource("2_ax2ew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tube3" index="1"]
+position = Vector2(-0.124474, 13.3437)
+shape = SubResource("RectangleShape2D_7mgmc")
+
+[node name="objInteract" parent="Objects/Tube3" index="2" instance=ExtResource("3_7mgmc")]
+position = Vector2(0, -13)
+node = "tube_you"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tube3/objInteract" index="1"]
+position = Vector2(0, 35)
+shape = SubResource("RectangleShape2D_bvkkf")
+debug_color = Color(0.667044, 0.510043, 0.0693155, 0.42)
+
+[node name="Tube4" type="StaticBody2D" parent="Objects" index="4"]
+position = Vector2(260, 111)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects/Tube4" index="0"]
+texture = ExtResource("2_ax2ew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tube4" index="1"]
+position = Vector2(-0.124474, 13.3437)
+shape = SubResource("RectangleShape2D_7mgmc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Objects/Tube4" index="2"]
+position = Vector2(-1, 3)
+texture = ExtResource("4_7bsap")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Objects/Tube4" index="3"]
+position = Vector2(0, 1)
+texture = ExtResource("5_7e8qo")
+
+[node name="objInteract" parent="Objects/Tube4" index="4" instance=ExtResource("3_7mgmc")]
+position = Vector2(0, -13)
+node = "tube_full"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tube4/objInteract" index="1"]
+position = Vector2(0, 35)
+shape = SubResource("RectangleShape2D_bvkkf")
+debug_color = Color(0.667044, 0.510043, 0.0693155, 0.42)
+
+[node name="Tube5" type="StaticBody2D" parent="Objects" index="5"]
+position = Vector2(214, 111)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects/Tube5" index="0"]
+texture = ExtResource("2_ax2ew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tube5" index="1"]
+position = Vector2(-0.124474, 13.3437)
+shape = SubResource("RectangleShape2D_7mgmc")
+
+[node name="objInteract" parent="Objects/Tube5" index="2" instance=ExtResource("3_7mgmc")]
+position = Vector2(0, -13)
+node = "tube_full"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tube5/objInteract" index="1"]
+position = Vector2(-0.5, 35)
+shape = SubResource("RectangleShape2D_bvkkf")
+debug_color = Color(0.667044, 0.510043, 0.0693155, 0.42)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Objects/Tube5" index="3"]
+position = Vector2(-1, 3)
+texture = ExtResource("6_ulup4")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Objects/Tube5" index="4"]
+position = Vector2(0, 1)
+texture = ExtResource("5_7e8qo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects" index="6"]
+position = Vector2(90, 97)
+texture = ExtResource("7_7e8qo")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Objects/Sprite2D" index="0"]
+position = Vector2(-0.5, 11.5)
+sprite_frames = SubResource("SpriteFrames_x2wgq")
+animation = &"dead"
+autoplay = "dead"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Objects" index="7"]
+position = Vector2(139, 97)
+texture = ExtResource("10_lotia")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Objects/Sprite2D2" index="0"]
+position = Vector2(-0.5, 11.5)
+sprite_frames = SubResource("SpriteFrames_k3mev")
+animation = &"alive"
+autoplay = "alive"
+script = ExtResource("11_34lbt")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Objects" index="8"]
+position = Vector2(187, 97)
+texture = ExtResource("12_n2f72")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Objects/Sprite2D3" index="0"]
+position = Vector2(-0.5, 11.5)
+sprite_frames = SubResource("SpriteFrames_gp8rr")
+animation = &"alive"
+autoplay = "alive"
+
+[node name="Sprite2D4" type="Sprite2D" parent="Objects" index="9"]
+position = Vector2(234, 97)
+texture = ExtResource("13_su7ts")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Objects/Sprite2D4" index="0"]
+position = Vector2(-0.5, 11.5)
+sprite_frames = SubResource("SpriteFrames_gp8rr")
+animation = &"alive"
+autoplay = "alive"
+
+[node name="Sprite2D5" type="Sprite2D" parent="Objects" index="10"]
+position = Vector2(280, 97)
+texture = ExtResource("14_lj02q")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Objects/Sprite2D5" index="0"]
+position = Vector2(-0.5, 11.5)
+sprite_frames = SubResource("SpriteFrames_gp8rr")
+animation = &"alive"
+autoplay = "alive"
+
+[node name="Ceiling" parent="." index="6"]
+tile_map_data = PackedByteArray("AAABAAAABQABAAEAAAAAAAEABQAAAAIAAAAAAAIABQAAAAIAAAABAAIABQAAAAQAAAABAAEABQABAAIAAAAAAAAABQAAAAEAAAACAAEABQABAAIAAAACAAIABQABAAMAAAACAAAABQABAAEAAAABAAMABQACAAIAAAAAAAMABQAAAAIAAAADAAIABQABAAMAAAAEAAIABQABAAMAAAAFAAIABQABAAMAAAAGAAIABQABAAMAAAAHAAIABQABAAMAAAAIAAIABQABAAMAAAAJAAIABQABAAMAAAAKAAIABQABAAMAAAALAAIABQACAAMAAAALAAEABQACAAIAAAALAAAABQACAAEAAAAKAAAABQABAAEAAAAJAAAABQABAAEAAAAIAAAABQABAAEAAAAHAAAABQABAAEAAAAGAAAABQABAAEAAAAFAAAABQABAAEAAAAEAAAABQABAAEAAAAEAAEABQABAAIAAAADAAEABQABAAIAAAAFAAEABQABAAIAAAAGAAEABQABAAIAAAAHAAEABQABAAIAAAAIAAEABQABAAIAAAAJAAEABQABAAIAAAAKAAEABQABAAIAAAADAAAABQABAAEAAAAPAAIABQAAAAMAAAAPAAEABQAAAAIAAAAPAAAABQAAAAEAAAAQAAAABQABAAEAAAAQAAEABQABAAIAAAAQAAIABQABAAQAAAARAAEABQACAAIAAAARAAAABQACAAEAAAARAAIABQACAAIAAAAQAAMABQAAAAIAAAAQAAQABQAAAAIAAAARAAQABQACAAIAAAARAAMABQACAAIAAAAQAAUABQAAAAIAAAAQAAYABQAAAAIAAAAQAAcABQAAAAIAAAARAAcABQACAAIAAAARAAYABQACAAIAAAARAAUABQACAAIAAAARAAgABQACAAIAAAAQAAgABQABAAUAAAAPAAgABQABAAEAAAAOAAgABQABAAEAAAANAAgABQABAAEAAAAMAAgABQABAAEAAAALAAgABQABAAEAAAAKAAgABQABAAEAAAAJAAgABQABAAEAAAAIAAgABQABAAEAAAAHAAgABQABAAEAAAAGAAgABQAAAAEAAAAGAAkABQAAAAMAAAAHAAkABQABAAMAAAAIAAkABQABAAMAAAAKAAkABQABAAMAAAAJAAkABQABAAMAAAAMAAkABQABAAMAAAALAAkABQABAAMAAAANAAkABQABAAMAAAAOAAkABQABAAMAAAAPAAkABQABAAMAAAAQAAkABQABAAQAAAARAAkABQACAAIAAAABAAkABQAAAAQAAAABAAgABQAAAAUAAAABAAcABQACAAIAAAABAAYABQACAAIAAAABAAUABQACAAIAAAABAAQABQAAAAQAAAAAAAQABQAAAAIAAAAAAAUABQAAAAIAAAAAAAYABQAAAAIAAAAAAAcABQAAAAIAAAAAAAgABQAAAAIAAAAAAAkABQAAAAIAAAACAAkABQACAAMAAAACAAgABQACAAEAAAAQAAoABQAAAAIAAAAQAAsABQAAAAIAAAARAAsABQACAAIAAAARAAoABQACAAIAAAAQAAwABQAAAAIAAAAQAA0ABQAAAAIAAAAQAA4ABQAAAAIAAAAQAA8ABQAAAAMAAAARAA4ABQACAAIAAAARAA0ABQACAAIAAAARAAwABQACAAIAAAARAA8ABQACAAMAAAAAAAoABQAAAAIAAAAAAAsABQAAAAIAAAAAAAwABQAAAAIAAAAAAA0ABQAAAAIAAAAAAA4ABQAAAAMAAAAAAA8ABQABAAYAAAABAA4ABQAAAAUAAAABAA0ABQACAAIAAAABAAwABQACAAIAAAABAAsABQACAAIAAAABAAoABQACAAIAAAABAA8ABQABAAMAAAACAA8ABQABAAMAAAADAA8ABQABAAMAAAAEAA8ABQABAAMAAAAFAA8ABQABAAMAAAAGAA8ABQABAAMAAAAHAA8ABQABAAMAAAAIAA8ABQABAAMAAAAJAA8ABQABAAMAAAAKAA8ABQABAAMAAAALAA8ABQABAAMAAAAMAA8ABQACAAMAAAAMAA4ABQACAAEAAAALAA4ABQABAAEAAAAKAA4ABQABAAEAAAAJAA4ABQABAAEAAAAIAA4ABQABAAEAAAAHAA4ABQABAAEAAAAGAA4ABQABAAEAAAAFAA4ABQABAAEAAAAEAA4ABQABAAEAAAADAA4ABQABAAEAAAACAA4ABQABAAEAAAA=")
+
+[node name="Camera" parent="." index="7"]
+position = Vector2(352, 352)
