@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://djj5t3bu2pgww" path="res://sprites/ui/sprDeathIcon.png" id="3_s5yx1"]
 [ext_resource type="Texture2D" uid="uid://i1633h1vqsc7" path="res://sprites/input/KeyShift.png" id="4_nqn8x"]
 [ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="4_nui6y"]
-[ext_resource type="Texture2D" uid="uid://blyyws256elgn" path="res://sprites/sprCollectibleIcon.png" id="5_s5yx1"]
+[ext_resource type="Texture2D" uid="uid://blyyws256elgn" path="res://sprites/ui/sprCollectibleIcon.png" id="5_s5yx1"]
 [ext_resource type="FontFile" uid="uid://bha4ogv0jof7x" path="res://fonts/fntBig.ttf" id="6_nui6y"]
 [ext_resource type="Texture2D" uid="uid://b0ps1pm3sqxot" path="res://sprites/ui/menu_underline.png" id="7_g23y7"]
 [ext_resource type="PackedScene" uid="uid://drfgevjxgjwv5" path="res://ui/new_button.tscn" id="10_jaax1"]

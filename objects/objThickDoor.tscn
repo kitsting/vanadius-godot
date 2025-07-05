@@ -1,0 +1,143 @@
+[gd_scene load_steps=19 format=3 uid="uid://cv7sk6p5lvq5l"]
+
+[ext_resource type="Script" uid="uid://kajokpgfpfcg" path="res://objects/obj_thick_door.gd" id="1_flxgb"]
+[ext_resource type="Texture2D" uid="uid://cypnjxp5etsoq" path="res://sprites/ThickDoorSideDown.png" id="1_hskbt"]
+[ext_resource type="Texture2D" uid="uid://dfk3fdg6ausgc" path="res://sprites/ThickDoorSide.png" id="2_flxgb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dull5"]
+atlas = ExtResource("2_flxgb")
+region = Rect2(0, 0, 72, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxyvn"]
+atlas = ExtResource("2_flxgb")
+region = Rect2(72, 0, 72, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubr0t"]
+atlas = ExtResource("2_flxgb")
+region = Rect2(144, 0, 72, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr5qw"]
+atlas = ExtResource("2_flxgb")
+region = Rect2(216, 0, 72, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5osnv"]
+atlas = ExtResource("2_flxgb")
+region = Rect2(288, 0, 72, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyq5q"]
+atlas = ExtResource("2_flxgb")
+region = Rect2(360, 0, 72, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_km1cd"]
+atlas = ExtResource("2_flxgb")
+region = Rect2(432, 0, 72, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro18k"]
+atlas = ExtResource("2_flxgb")
+region = Rect2(504, 0, 72, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl6sx"]
+atlas = ExtResource("2_flxgb")
+region = Rect2(576, 0, 72, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ieu4"]
+atlas = ExtResource("2_flxgb")
+region = Rect2(648, 0, 72, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80x4f"]
+atlas = ExtResource("2_flxgb")
+region = Rect2(720, 0, 72, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb0a4"]
+atlas = ExtResource("2_flxgb")
+region = Rect2(792, 0, 72, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsb3q"]
+atlas = ExtResource("2_flxgb")
+region = Rect2(864, 0, 72, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wv5t2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hskbt")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dull5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxyvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubr0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr5qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5osnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyq5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_km1cd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro18k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl6sx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ieu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80x4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pb0a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsb3q")
+}],
+"loop": false,
+"name": &"rise",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsb3q")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xyos"]
+size = Vector2(72, 14)
+
+[node name="objThickDoor" type="StaticBody2D" groups=["door"]]
+script = ExtResource("1_flxgb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_wv5t2")
+animation = &"rise"
+frame = 12
+frame_progress = 1.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1.90735e-06, -16.5)
+scale = Vector2(4.9, 2.65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_0xyos")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -70,7 +70,7 @@ func new_position(new_pos, time, relative = false):
 	var tween = get_tree().create_tween()
 	
 	if !relative:
-		tween.tween_property(self, "offset", new_pos, time)
+		tween.tween_property(self, "offset", new_pos-global_position, time)
 	else:
 		tween.tween_property(self, "offset", offset+new_pos, time)
 	
