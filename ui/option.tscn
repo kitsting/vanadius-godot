@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk3qssol3mag3"]
+[gd_scene load_steps=5 format=3 uid="uid://dk3qssol3mag3"]
 
 [ext_resource type="FontFile" uid="uid://we5onkvfxecy" path="res://fonts/van_small_font.ttf" id="1_3d0ex"]
 [ext_resource type="Texture2D" uid="uid://bpeqmlyyam1pa" path="res://sprites/ui/sprNewPage.png" id="2_2h7d6"]
 [ext_resource type="Script" uid="uid://ddtsuaoxmisar" path="res://ui/option.gd" id="2_ykyuu"]
-[ext_resource type="AudioStream" uid="uid://cqeo6dpxkn35u" path="res://sounds/sndPressurePlate.ogg" id="3_ag7ku"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2k4xw"]
 
@@ -35,11 +34,6 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_2h7d6")
 flip_v = true
-
-[node name="sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_ag7ku")
-pitch_scale = 0.8
-bus = &"sfx"
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

@@ -47,8 +47,8 @@ func _on_body_entered(body: Node2D) -> void:
 		body.direction = Vector2.ZERO
 		body.swap_anim("collectible")
 		
-		position.x = body.position.x+7
-		position.y = body.position.y-12
+		global_position.x = body.global_position.x+7
+		global_position.y = body.global_position.y-12
 		
 		z_index = 1
 		

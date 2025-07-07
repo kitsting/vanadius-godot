@@ -21,6 +21,8 @@ func _input(event: InputEvent) -> void:
 
 func exit():
 	emit_signal("done")
+	Audio.play_sound("res://sounds/sndPressurePlate.ogg", "menu", 0.0, true, 0.6)
+	Audio.block_channel("menu_enter", 0.1)
 	queue_free()
 
 func _on_video_btn_pressed() -> void:
@@ -77,3 +79,8 @@ func exit_submenu() -> void:
 	$BG/right_panel/accessibility.visible = false
 	$BG/right_panel/audio.visible = false
 	$BG/right_panel/video.visible = false
+	Audio.play_sound("res://sounds/sndPressurePlate.ogg", "menu", 0.0, true, 0.6)
+	Audio.block_channel("menu_enter", 0.1)
+	
+func backbutton_focus() -> void:
+	Audio.play_sound("res://sounds/sndPressurePlate.ogg", "menu_enter", 0.0, true, 0.8)

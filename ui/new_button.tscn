@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://drfgevjxgjwv5"]
+[gd_scene load_steps=4 format=3 uid="uid://drfgevjxgjwv5"]
 
 [ext_resource type="FontFile" uid="uid://bha4ogv0jof7x" path="res://fonts/fntBig.ttf" id="1_gq64y"]
+[ext_resource type="Script" uid="uid://brp54c5qa6w30" path="res://ui/new_button.gd" id="2_ffutx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_el7p0"]
 
@@ -15,3 +16,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_el7p0")
 text = "Text"
 flat = true
 alignment = 0
+script = ExtResource("2_ffutx")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

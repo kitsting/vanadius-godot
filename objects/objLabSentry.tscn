@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpi3254rs22mg"]
+[gd_scene load_steps=10 format=3 uid="uid://dpi3254rs22mg"]
 
 [ext_resource type="Texture2D" uid="uid://dmutrposvwfjc" path="res://sprites/sprLabSentryOff.png" id="1_bqtdb"]
 [ext_resource type="Script" uid="uid://yt351t76k44i" path="res://objects/obj_lab_sentry.gd" id="1_fjhs6"]
 [ext_resource type="Texture2D" uid="uid://dqrx86qaq7rvl" path="res://sprites/sprLabSentry.png" id="2_fjhs6"]
 [ext_resource type="Texture2D" uid="uid://c1s6b0pr3a74p" path="res://sprites/player/light/Flashlight.png" id="4_5tb5w"]
+[ext_resource type="Texture2D" uid="uid://luwd4cdimr8e" path="res://sprites/zed.png" id="5_wl18x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_42wpv"]
 animations = [{
@@ -30,6 +31,10 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjhs6"]
 size = Vector2(8, 104)
 
+[sub_resource type="Gradient" id="Gradient_3ky4u"]
+offsets = PackedFloat32Array(0, 0.15625, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="objLabSentry" type="PathFollow2D" groups=["damage", "lab_sentry"]]
 script = ExtResource("1_fjhs6")
 
@@ -48,3 +53,25 @@ shape = SubResource("RectangleShape2D_fjhs6")
 [node name="flashlight" type="PointLight2D" parent="."]
 energy = 0.24
 texture = ExtResource("4_5tb5w")
+
+[node name="sleep_particles" type="CPUParticles2D" parent="."]
+position = Vector2(-8, -8)
+emitting = false
+amount = 2
+texture = ExtResource("5_wl18x")
+lifetime = 2.0
+lifetime_randomness = 0.05
+emission_shape = 3
+emission_rect_extents = Vector2(6, 6)
+direction = Vector2(-1, -1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 15.0
+initial_velocity_max = 15.0
+linear_accel_min = -10.0
+linear_accel_max = -5.0
+color_ramp = SubResource("Gradient_3ky4u")
+
+[node name="onscreen" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(9.53674e-07, 1.07288e-06)
+scale = Vector2(2, 2)

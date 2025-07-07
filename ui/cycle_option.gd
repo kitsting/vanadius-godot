@@ -32,6 +32,7 @@ func _ready() -> void:
 	
 
 func _on_focus_entered() -> void:
+	Audio.play_sound("res://sounds/sndPressurePlate.ogg", "menu_enter", 0.0, true, 0.8)
 	$Label.label_settings.font_color = Game.focus_color
 
 
@@ -60,6 +61,8 @@ func _input(event):
 				$Selection.text = keys[cycle_position]
 				update_arrows()
 				Game.option_set(property, values[cycle_position])
+				Audio.play_sound("res://sounds/sndPressurePlate.ogg", "menu", 0.0, true, 1.0)
+				
 		if Input.is_action_just_pressed("ui_right"):
 			try_lockout()
 			if $Selection.text != keys.back():
@@ -67,6 +70,7 @@ func _input(event):
 				$Selection.text = keys[cycle_position]
 				Game.option_set(property, values[cycle_position])
 				update_arrows()
+				Audio.play_sound("res://sounds/sndPressurePlate.ogg", "menu", 0.0, true, 1.0)
 
 
 # Very brief input lockout to prevent double inputs

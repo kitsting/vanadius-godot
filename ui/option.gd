@@ -7,7 +7,7 @@ func _ready() -> void:
 
 func _on_focus_entered() -> void:
 	$indicator.visible = true
-	$sound.play()
+	Audio.play_sound("res://sounds/sndPressurePlate.ogg", "menu_enter", 0.0, true, 0.8)
 
 
 func _on_focus_exited() -> void:

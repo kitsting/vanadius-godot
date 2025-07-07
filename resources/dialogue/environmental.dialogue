@@ -6,7 +6,6 @@ It's not moving.
 It's a panel filled with buttons and lights you don't understand.
 => END
 
-
 ~ tube_empty
 It's some sort of test tube. It's empty.
 => END
@@ -18,4 +17,8 @@ It's some sort of test tube. It feels familiar.
 ~ tube_full
 It's some sort of test tube. You can see a figure inside.
 It's not moving.
+=> END
+
+~ door
+A very sturdy door. It's locked.
 => END

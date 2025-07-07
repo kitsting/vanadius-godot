@@ -38,5 +38,15 @@ func _on_confirm_pressed() -> void:
 
 
 func _on_cancel_pressed() -> void:
+	cancel()
+	
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		cancel()
+	
+	
+func cancel() -> void:
 	confirm = false
 	emit_signal("finished")
+	Audio.play_sound("res://sounds/sndPressurePlate.ogg", "menu", 0.0, true, 0.6)
+	Audio.block_channel("menu_enter", 0.1)

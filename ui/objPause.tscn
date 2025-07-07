@@ -324,6 +324,7 @@ layout_mode = 2
 text = "Options"
 
 [node name="Warp" parent="BG/NinePatchRect/options" instance=ExtResource("10_jaax1")]
+visible = false
 layout_mode = 2
 text = "Warp to Ruins"
 
