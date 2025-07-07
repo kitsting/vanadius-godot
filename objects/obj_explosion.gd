@@ -21,10 +21,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	queue_free()
 
 
-func set_color(color_light : Color, color_dark: Color):
+func set_color(color_light : Color, color_dark: Color) -> void:
 	material.set_shader_parameter("replace_0", color_light)
 	material.set_shader_parameter("replace_1", color_dark)
 
 
-func set_big_hitbox():
+func set_big_hitbox() -> void:
 	big_hitbox = true

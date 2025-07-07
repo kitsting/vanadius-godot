@@ -2,7 +2,7 @@ extends CanvasLayer
 
 signal done
 
-var submenu = false
+var submenu := false
 var last_button : Node = null
 
 
@@ -10,7 +10,7 @@ var last_button : Node = null
 func _ready() -> void:
 	%VideoBtn.grab_focus()
 	
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause") or Input.is_action_just_pressed("ui_cancel"):
 		if !submenu:
 			exit()
@@ -19,7 +19,7 @@ func _input(event: InputEvent) -> void:
 			last_button.grab_focus()
 
 
-func exit():
+func exit() -> void:
 	emit_signal("done")
 	Audio.play_sound("res://sounds/sndPressurePlate.ogg", "menu", 0.0, true, 0.6)
 	Audio.block_channel("menu_enter", 0.1)

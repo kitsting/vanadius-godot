@@ -1,6 +1,6 @@
 extends Area2D
 
-var activated = false
+var activated := false
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -20,9 +20,9 @@ func _on_body_entered(body: Node2D) -> void:
 			
 			await get_tree().create_timer(1.5).timeout
 			
-			var ref_labsentry = get_tree().get_first_node_in_group("lab_sentry")
+			var ref_labsentry : Node = get_tree().get_first_node_in_group("lab_sentry")
 			if ref_labsentry != null:
-				var new_tween = create_tween().tween_property(ref_labsentry, "progress", 100, 3)
+				var new_tween := create_tween().tween_property(ref_labsentry, "progress", 100, 3)
 				await new_tween.finished
 				await get_tree().create_timer(0.5).timeout
 				Audio.play_sound("res://sounds/sndSentryAlert.mp3", "labsentry", 0.0, false, 0.8)

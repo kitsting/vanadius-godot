@@ -44,11 +44,11 @@ func _process(delta: float) -> void:
 			$TheChain.pitch_scale = 1
 			$TheChain.play()
 		
-		var collide := move_and_collide(target_dir * 2.5)
+		var collide := move_and_collide(target_dir * 2.5 * (delta * 60))
 		
 		#Stop if hitting something (and explode)
 		if collide:
-			var new_explosion = load("res://objects/objExplosion.tscn").instantiate()
+			var new_explosion : Node = load("res://objects/objExplosion.tscn").instantiate()
 			new_explosion.position = collide.get_position()
 			add_sibling(new_explosion)
 			state = STATE.RETRACTING
@@ -64,7 +64,7 @@ func _process(delta: float) -> void:
 			$TheChain.pitch_scale = 0.5
 			$TheChain.play()
 		
-		var target_dir = position.direction_to(home_pos)
+		target_dir = position.direction_to(home_pos)
 		move_and_collide(target_dir * 1.5)
 		if position.distance_to(home_pos) <= 3:
 			position = home_pos
@@ -86,18 +86,18 @@ func _on_search_area_body_entered(body: Node2D) -> void:
 		
 
 #function from https://forum.godotengine.org/t/smooth-circle-with-draw-circle/26033/3
-func draw_circle_custom(draw_radius, draw_color : Color, max_error = 0.25):
+func draw_circle_custom(draw_radius : float, draw_color : Color, max_error := 0.25) -> void:
 	if draw_radius <= 0.0:
 		return
 
-	var maxpoints = 24
-	var numpoints = ceil(PI / acos(1 - max_error / draw_radius))
+	var maxpoints := 24
+	var numpoints : int = ceil(PI / acos(1 - max_error / draw_radius))
 	numpoints = clamp(numpoints, 3, maxpoints)
 
-	var points = PackedVector2Array([])
-	for i in numpoints:
-		var phi = i * PI * 2.0 / numpoints
-		var v = Vector2(sin(phi), cos(phi))
+	var points := PackedVector2Array([])
+	for i : int in numpoints:
+		var phi : float = i * PI * 2.0 / numpoints
+		var v := Vector2(sin(phi), cos(phi))
 		points.push_back(v * draw_radius)
 
 	draw_colored_polygon(points, draw_color)
@@ -114,7 +114,7 @@ func _draw() -> void:
 		draw_line(Vector2.ZERO, target_dir * max_distance, Color.RED, 2)
 		
 		
-func go():
+func go() -> void:
 	$LockIn.pitch_scale = 1
 	state = STATE.LUNGE
 	await get_tree().create_timer(1).timeout

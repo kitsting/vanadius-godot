@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var spikeout = false:
+@export var spikeout := false:
 	set(value):
 		spikeout = value
 		

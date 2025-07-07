@@ -1,12 +1,12 @@
 @tool
 extends Area2D
 
-@export var fast = false:
+@export var fast := false:
 	set(value):
 		fast = value
 		update_anim()
 
-@export_enum("Up","Down","Left","Right") var direction = "Up":
+@export_enum("Up","Down","Left","Right") var direction := "Up":
 	set(value):
 		direction = value
 		update_anim()
@@ -14,7 +14,7 @@ extends Area2D
 const BASE_SPD = 0.6 * 60
 const FAST_SPD = 1.4 * 60
 
-var spd = BASE_SPD
+var spd := BASE_SPD
 var target_body : Node = null
 
 

@@ -1,7 +1,7 @@
 @tool
 extends StaticBody2D
 
-@export_enum("big", "small") var size = "big":
+@export_enum("big", "small") var size := "big":
 	set(value):
 		size = value
 		if value == "big":
@@ -10,7 +10,7 @@ extends StaticBody2D
 			set_size(false)
 
 
-func set_size(big = true):
+func set_size(big := true) -> void:
 	$sprite_big.visible = big
 	$sprite_mini.visible = !big
 	$shape_big.disabled = !big
@@ -20,9 +20,9 @@ func set_size(big = true):
 	$area/shape_mini2.disabled = big
 
 
-func explode():
+func explode() -> void:
 	await get_tree().create_timer(0.05).timeout #chain explosion
-	var explosion = load("res://objects/objExplosion.tscn").instantiate()
+	var explosion : Node = load("res://objects/objExplosion.tscn").instantiate()
 	if size == "big":
 		explosion.position = position + $sprite_big.position
 	else:

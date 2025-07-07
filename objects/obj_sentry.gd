@@ -17,7 +17,7 @@ var color = Game.m_sentrycolor_neutral:
 			queue_redraw()
 		
 var canchase = true
-var speedup = Game.m_sentryspeed_time
+var speedup = 240
 
 var target : Node = null
 
@@ -84,7 +84,7 @@ func _physics_process(delta: float) -> void:
 		speedup -= 1;
 		if speedup <= 0:
 			spd += 0.1
-			speedup = Game.m_sentryspeed_time
+			speedup = 240
 
 
 #start chasing if the player is nearby

@@ -14,7 +14,7 @@ var target_body : Node = null
 	"Terminal", 
 	"Terminal (Grounded)", 
 	"Terminal (Back)", 
-	"Control") var orientation = 1:
+	"Control") var orientation := 1:
 		set(value):
 			match value:
 				0:
@@ -47,7 +47,7 @@ func _ready() -> void:
 
 
 	
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if can_read and Input.is_action_just_pressed("ui_accept"):
 		if target_body.pstate == target_body.PLAYERSTATE.ALIVE:
 			Game.show_textbox(file, node)

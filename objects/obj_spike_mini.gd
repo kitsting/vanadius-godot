@@ -17,7 +17,7 @@ func _ready() -> void:
 	elif area == Game.m_area_clock or area == Game.m_area_clock_sub1 or area == Game.m_area_clock_sub2:
 		$sprite.texture = load("res://sprites/spikes/sprSpikeClock.png")
 		
-	elif area == Game.m_area_factory or area == Game.m_area_factory_sub1:
+	elif area == Game.m_area_factory:
 		$sprite.texture = load("res://sprites/spikes/sprSpikeFactory.png")
 		
 	elif area == Game.m_area_outside:

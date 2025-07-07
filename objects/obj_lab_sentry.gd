@@ -43,5 +43,5 @@ func _process(delta: float) -> void:
 			path_spd = 1.1
 
 	if state == MODE.CHASE and player_reference != null:
-		var direction = global_position.direction_to(player_reference.global_position) * (chase_spd * delta * 60)
+		var direction := global_position.direction_to(player_reference.global_position) * (chase_spd * delta * 60)
 		global_position += direction

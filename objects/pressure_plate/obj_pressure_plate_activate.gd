@@ -1,10 +1,10 @@
 @tool
 extends Node2D
 
-var pressed = 0
+var pressed : int = 0
 
 
-@export_enum("Lasers Off", "Lasers On", "Toggle", "Weighted", "Safe") var behavior = 0:
+@export_enum("Lasers Off", "Lasers On", "Toggle", "Weighted", "Safe") var behavior := 0:
 	set(value):
 		val_to_sprite(value)
 		behavior = value
@@ -13,7 +13,7 @@ var pressed = 0
 func _ready() -> void:
 	val_to_sprite(behavior)
 
-func val_to_sprite(value : int):
+func val_to_sprite(value : int) -> void:
 	if value == 0:
 		$sprite.animation = "lasers_off"
 	elif value == 1:
@@ -56,8 +56,8 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 			
 			if behavior == 3:
 				#Make sure there isnt another weighted plate being pressed before setting lasers
-				var plates = get_tree().get_nodes_in_group("pressure_plate")
-				for plate in plates:
+				var plates := get_tree().get_nodes_in_group("pressure_plate")
+				for plate : Node in plates:
 					if plate.get_pressed() > 0:
 						return
 				Game.lasers = true
@@ -65,5 +65,5 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 				Game.safepressureplatepressed = false
 				
 				
-func get_pressed():
+func get_pressed() -> int:
 	return pressed

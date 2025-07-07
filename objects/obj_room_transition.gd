@@ -33,7 +33,7 @@ var target_body : Node = null
 
 
 #Update size on the first frame of physics, then disable
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !Engine.is_editor_hint():
 		if scale.x == 1:
 			update_size()
@@ -43,25 +43,25 @@ func _physics_process(delta: float) -> void:
 			set_physics_process(false)
 
 
-func update_size():
+func update_size() -> void:
 	$left_ray.force_raycast_update()
 	$right_ray.force_raycast_update()
 	
 	if $left_ray.is_colliding() and $right_ray.is_colliding() and auto_size:
 		if direction == 0: #Up
-			var size = $right_ray.get_collision_point().x - $left_ray.get_collision_point().x
+			var size : float = $right_ray.get_collision_point().x - $left_ray.get_collision_point().x
 			position.x = $left_ray.get_collision_point().x + (size/2)
 			scale.x = size / 32.0
 		elif direction == 1: #Down
-			var size = $left_ray.get_collision_point().x - $right_ray.get_collision_point().x
+			var size : float = $left_ray.get_collision_point().x - $right_ray.get_collision_point().x
 			position.x = $right_ray.get_collision_point().x + (size/2)
 			scale.x = size / 32.0
 		elif direction == 2: #Left
-			var size = $left_ray.get_collision_point().y - $right_ray.get_collision_point().y
+			var size : float = $left_ray.get_collision_point().y - $right_ray.get_collision_point().y
 			position.y = $right_ray.get_collision_point().y + (size/2) - ((wallsize-1) * 24)
 			scale.x = ((size + (wallsize*24)) / 32.0)
 		else: #Right
-			var size = $right_ray.get_collision_point().y - $left_ray.get_collision_point().y
+			var size : float = $right_ray.get_collision_point().y - $left_ray.get_collision_point().y
 			position.y = $left_ray.get_collision_point().y + (size/2) - ((wallsize-1) * 24)
 			scale.x = ((size + (wallsize*24)) / 32.0)
 

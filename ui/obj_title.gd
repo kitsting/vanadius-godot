@@ -32,7 +32,7 @@ func _on_quit_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
-	var new_settings = load("res://ui/objSettings.tscn").instantiate()
+	var new_settings : Node = load("res://ui/objSettings.tscn").instantiate()
 	add_sibling(new_settings)
 	await new_settings.done
 	await get_tree().create_timer(0.05).timeout
@@ -40,7 +40,7 @@ func _on_options_pressed() -> void:
 
 
 func _on_new_game_pressed() -> void:
-	var confirm_prompt = load("res://ui/save_prompt.tscn").instantiate()
+	var confirm_prompt : Node = load("res://ui/save_prompt.tscn").instantiate()
 	confirm_prompt.delete_mode = true
 	add_sibling(confirm_prompt)
 	await confirm_prompt.finished
@@ -56,7 +56,7 @@ func _on_new_game_pressed() -> void:
 
 
 func _on_resume_pressed() -> void:
-	var confirm_prompt = load("res://ui/save_prompt.tscn").instantiate()
+	var confirm_prompt : Node = load("res://ui/save_prompt.tscn").instantiate()
 	confirm_prompt.delete_mode = false
 	add_sibling(confirm_prompt)
 	await confirm_prompt.finished

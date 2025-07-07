@@ -4,11 +4,11 @@ func _ready() -> void:
 	spike_in()
 	
 
-func extend(time = 8.0) -> void:
+func extend(time := 8.0) -> void:
 	call_deferred("animate", time)
 	
 
-func animate(time = 8.0) -> void:
+func animate(time := 8.0) -> void:
 	spike_out()
 	Audio.play_sound("res://sounds/sndRetractingSpike.ogg", "survive")
 	
@@ -17,11 +17,11 @@ func animate(time = 8.0) -> void:
 	spike_in()
 	
 	
-func spike_out():
+func spike_out() -> void:
 	$AnimatedSprite2D.animation = "up"
 	$Area/CollisionShape2D.disabled = false
 	
-func spike_in():
+func spike_in() -> void:
 	$AnimatedSprite2D.animation = "down"
 	$Area/CollisionShape2D.disabled = true
 	

@@ -1,7 +1,7 @@
 extends Node
 
-var music_enabled = true
-var music_target_db = -6
+var music_enabled := true
+var music_target_db : float = -6
 
 var blocked_channels : Array[String] = []
 
@@ -14,7 +14,7 @@ var blocked_channels : Array[String] = []
 # allow_overwrite: allow resetting the sound if the same channel is requested. locks the channel if false
 func play_sound(sound : String, channel : String, volume : float = 0.0, allow_overwrite : bool = false, pitch: float = 1.0) -> void:
 	if !has_node(channel):
-		var new_channel = AudioStreamPlayer.new()
+		var new_channel : Node = AudioStreamPlayer.new()
 		new_channel.name = channel
 		new_channel.bus = "sfx"
 		add_child(new_channel)
@@ -30,16 +30,16 @@ func set_music(file : String, track : int = 1, fade_time : float = 0.25) -> void
 	print("Set music to "+file)
 	if file != "" and music_enabled:
 		if !has_node("Music/Track"+str(track)):
-			var new_channel = AudioStreamPlayer.new()
+			var new_channel : Node = AudioStreamPlayer.new()
 			new_channel.name = "Music/Track"+str(track)
 			new_channel.bus = "music"
 			add_child(new_channel)
 			
-		var channel = get_node("Music/Track"+str(track))
+		var channel : Node = get_node("Music/Track"+str(track))
 		
-		var loaded_stream = load(file)
+		var loaded_stream := load(file)
 		if loaded_stream != channel.stream or !channel.playing:
-			var out_tween = create_tween()
+			var out_tween := create_tween()
 			out_tween.tween_property(channel, "volume_db", -80, fade_time)
 			await out_tween.finished
 			
@@ -48,16 +48,16 @@ func set_music(file : String, track : int = 1, fade_time : float = 0.25) -> void
 			channel.play()
 			print("Actually playing " + file)
 			
-			var in_tween = create_tween()
+			var in_tween := create_tween()
 			in_tween.tween_property(channel, "volume_db", music_target_db, fade_time)
 
 
 # pause the song on a specified track
 func pause_music(track : int = 1, fade_time : float = 0.4) -> void:
-	var channel = get_node("Music/Track"+str(track))
+	var channel := get_node("Music/Track"+str(track))
 	
 	if !channel.stream_paused:
-		var tween = create_tween()
+		var tween := create_tween()
 		tween.tween_property(channel,"volume_db",-80,fade_time)
 		await tween.finished
 		channel.stream_paused = true
@@ -65,20 +65,20 @@ func pause_music(track : int = 1, fade_time : float = 0.4) -> void:
 
 # resume a paused track
 func resume_music(track : int = 1, fade_time : float = 0.4) -> void:
-	var channel = get_node("Music/Track"+str(track))
+	var channel := get_node("Music/Track"+str(track))
 	
 	if channel.stream_paused:
 		channel.stream_paused = false
-		var tween = create_tween()
+		var tween := create_tween()
 		tween.tween_property(channel,"volume_db",music_target_db,fade_time)
 
 
 # stop a track
-func stop_music(track : int = 1, fade_time : float = 1, purge = false) -> void:
-	var channel = get_node("Music/Track"+str(track))
+func stop_music(track : int = 1, fade_time : float = 1, purge := false) -> void:
+	var channel := get_node("Music/Track"+str(track))
 	
 	if channel.playing:
-		var tween = create_tween()
+		var tween := create_tween()
 		tween.tween_property(channel,"volume_db",-80,fade_time)
 		await tween.finished
 		channel.stop()
@@ -86,7 +86,7 @@ func stop_music(track : int = 1, fade_time : float = 1, purge = false) -> void:
 		if purge:
 			channel.queue_free()
 
-func block_channel(channel : String, time : float):
+func block_channel(channel : String, time : float) -> void:
 	blocked_channels.append(channel)
 	await get_tree().create_timer(time).timeout
 	blocked_channels.erase(channel)

@@ -1,7 +1,7 @@
 @tool
 extends HBoxContainer
 
-@export var label = "Label:":
+@export var label := "Label:":
 	set(new_label):
 		$Label.text = new_label
 		
@@ -9,13 +9,13 @@ extends HBoxContainer
 	get:
 		return label
 		
-@export var property = "controller_prompts"
+@export var property := "controller_prompts"
 
 @export var keys : Array[String]
 @export var values : Array
 
-var cycle_position = 0
-var lockout = false
+var cycle_position := 0
+var lockout := false
 
 func _ready() -> void:
 	$Label.label_settings.font_color = Game.unfocus_color
@@ -40,7 +40,7 @@ func _on_focus_exited() -> void:
 	$Label.label_settings.font_color = Game.unfocus_color
 	
 	
-func update_arrows():
+func update_arrows() -> void:
 	if keys[0] == $Selection.text:
 		$LeftArrow.modulate.a = 0.1
 	else:
@@ -52,7 +52,7 @@ func update_arrows():
 		$RightArrow.modulate.a = 1
 		
 		
-func _input(event):
+func _input(_event : InputEvent) -> void:
 	if has_focus() and !lockout:
 		if Input.is_action_just_pressed("ui_left"):
 			try_lockout()
@@ -74,7 +74,7 @@ func _input(event):
 
 
 # Very brief input lockout to prevent double inputs
-func try_lockout():
+func try_lockout() -> void:
 	lockout = true
 	await get_tree().create_timer(0.05).timeout
 	lockout = false

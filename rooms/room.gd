@@ -10,9 +10,7 @@ extends Node2D
 	Game.m_area_clock_sub1,
 	Game.m_area_clock_sub2,
 	Game.m_area_factory,
-	Game.m_area_factory_sub1,
 	Game.m_area_final,
-	Game.m_area_final_sub1,
 	Game.m_area_final_sub2,
 	Game.m_area_final_sub3,
 	Game.m_area_outside) var area : String = Game.m_area_cave
@@ -22,14 +20,22 @@ extends Node2D
 @export var silent : bool = false
 @export var allow_pausing : bool = true
 @export var suppress_area_display := false
-@export_range(0.0, 1.0, 0.05) var darkness_intensity : float = 0
-@export_range(0.0, 1.0, 0.05) var darkness_light : float = 1
+@export_range(0.0, 1.0, 0.05) var darkness_intensity : float = 0:
+	set(value):
+		darkness_intensity = value
+		if is_ready: update_darkness()
+@export_range(0.0, 1.0, 0.05) var darkness_light : float = 1:
+	set(value):
+		darkness_light = value
+		if is_ready: update_darkness()
 
 #Override the radius of all sentries in the room
 @export var override_sentry_radius : int = 0
 @export var override_mini_sentry_radius : int = 0
 
 var pause_cooldown : bool = false
+
+var is_ready := false
 
 
 
@@ -46,12 +52,12 @@ func _ready() -> void:
 	
 	if !suppress_area_display:
 		if Game.area != area and room_name == "":
-			var area_display = load("res://ui/area_display.tscn").instantiate()
+			var area_display : Node = load("res://ui/area_display.tscn").instantiate()
 			area_display.set_area_name(area)
 			add_child(area_display)
 			
 		if room_name != "":
-			var area_display = load("res://ui/area_display.tscn").instantiate()
+			var area_display : Node = load("res://ui/area_display.tscn").instantiate()
 			area_display.set_area_name(room_name)
 			add_child(area_display)
 	
@@ -74,7 +80,7 @@ func _ready() -> void:
 		
 	
 	#Get the size of the current room and lock the camera
-	var room_size = $Floor.get_used_rect()
+	var room_size : Rect2 = $Floor.get_used_rect()
 	
 	#Set camera limit to size of room - 1 (to prevent seeing tile borders)
 	if has_node("Camera"):
@@ -92,16 +98,17 @@ func _ready() -> void:
 	get_tree().call_group("player","set_pos_facing",Game.roomtargetx,Game.roomtargety,Game.roomtargetfacing)
 	
 	Game.current_room = internal_name
+	
+	is_ready = true
 
-func checkArea():
+
+func checkArea() -> String:
 	return area
 
-func _process(delta: float) -> void:
-	update_darkness()
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if allow_pausing and Input.is_action_just_pressed("pause") and !pause_cooldown:
-		var new_pause = load("res://ui/objPause.tscn").instantiate()
+		var new_pause : Node = load("res://ui/objPause.tscn").instantiate()
 		get_tree().paused = true
 		add_child(new_pause)
 		pause_cooldown = true
@@ -111,17 +118,17 @@ func _input(event: InputEvent) -> void:
 		pause_cooldown = false
 
 
-func set_pausable(pausable := true):
+func set_pausable(pausable := true) -> void:
 	allow_pausing = pausable
 
 
-func turn_on_lights():
+func turn_on_lights() -> void:
 	print("turning on lights")
-	var tween = create_tween()
+	var tween := create_tween()
 	tween.tween_property(self, "darkness_intensity", 0, 1)
 	tween.tween_property(self, "darkness_light", 0, 1)
 
 
-func update_darkness():
+func update_darkness() -> void:
 	$darkness.color = Color(1-darkness_intensity, 1-darkness_intensity, 1-darkness_intensity)
 	get_tree().call_group("player", "set_flashlight", darkness_intensity, darkness_light)

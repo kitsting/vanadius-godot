@@ -7,11 +7,11 @@ var speed : float = 1.0
 var wait : float = 0.0
 
 
-func _ready():
+func _ready() -> void:
 	$AnimationPlayer.play("FadeIn",-1,speed)
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
 	if anim_name == "FadeIn":
 		emit_signal("midpoint")
 		if wait > 0:

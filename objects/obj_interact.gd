@@ -6,7 +6,7 @@ var target_body : Node = null
 @export var file : String = "environmental"
 @export var node : String
 
-@export_enum("view", "use") var interact_mode = "view"
+@export_enum("view", "use") var interact_mode := "view"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,7 +15,7 @@ func _ready() -> void:
 
 	
 	
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if can_read and Input.is_action_just_pressed("ui_accept") and node != "":
 		if target_body.pstate == target_body.PLAYERSTATE.ALIVE:
 			Game.show_textbox(file, node)

@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-var delete_mode = true
-var confirm = false
+var delete_mode := true
+var confirm := false
 
 signal finished
 
@@ -40,7 +40,7 @@ func _on_confirm_pressed() -> void:
 func _on_cancel_pressed() -> void:
 	cancel()
 	
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		cancel()
 	

@@ -33,12 +33,12 @@ var dir : PLAYERDIR = PLAYERDIR.DOWN
 
 var direction := Vector2.ZERO
 
-var transitioning = false
+var transitioning := false
 
-@onready var indicator_off = preload("res://sprites/ui/sprSentryIndicatorOff.png")
-@onready var indicator_on = preload("res://sprites/ui/sprSentryIndicatorOn.png")
-@onready var indicator_null = preload("res://sprites/ui/sprSentryIndicatorNull.png")
-@onready var indicator_unsure = preload("res://sprites/ui/sprSentryIndicatorUnsure.png")
+#@onready var indicator_off = preload("res://sprites/ui/sprSentryIndicatorOff.png")
+#@onready var indicator_on = preload("res://sprites/ui/sprSentryIndicatorOn.png")
+#@onready var indicator_null = preload("res://sprites/ui/sprSentryIndicatorNull.png")
+#@onready var indicator_unsure = preload("res://sprites/ui/sprSentryIndicatorUnsure.png")
 
 
 func _ready() -> void:
@@ -61,25 +61,26 @@ func _process(delta: float) -> void:
 	
 	$sentry_indicator/texture.modulate.a = indicatoralpha
 	
-	var sentry_count = get_tree().get_node_count_in_group("objSentry")
-	var minisentry_count = get_tree().get_node_count_in_group("objSentryMini")
+	var sentry_count := get_tree().get_node_count_in_group("objSentry")
+	#var minisentry_count := get_tree().get_node_count_in_group("objSentryMini")
 	
 	if Game.alert and sentry_count != 0:
 		$sentry_indicator/warning_anim.play("warning")
 	else:
 		$sentry_indicator/warning_anim.stop()
 		$sentry_indicator/warning.visible = false
+	
 		
-	if Game.checkArea() != Game.m_area_deeplab:
-		if !Game.beingchased:
-			$sentry_indicator/texture.texture = indicator_off
-		else:
-			$sentry_indicator/texture.texture = indicator_on
-			
-		if sentry_count == 0 and minisentry_count == 0:
-			$sentry_indicator/texture.texture = indicator_null
-	else:
-		$sentry_indicator/texture.texture = indicator_unsure
+	#if Game.checkArea() != Game.m_area_deeplab:
+		#if !Game.beingchased:
+			#$sentry_indicator/texture.texture = indicator_off
+		#else:
+			#$sentry_indicator/texture.texture = indicator_on
+			#
+		#if sentry_count == 0 and minisentry_count == 0:
+			#$sentry_indicator/texture.texture = indicator_null
+	#else:
+		#$sentry_indicator/texture.texture = indicator_unsure
 			
 		
 	
@@ -110,7 +111,7 @@ func _process(delta: float) -> void:
 	
 	
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	if pstate != PLAYERSTATE.CUTSCENE and pstate != PLAYERSTATE.FALLING:
 		direction = Vector2.ZERO
@@ -176,7 +177,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		if deathtimer >= 5 and !transitioning:
 			transitioning = true
@@ -232,7 +233,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 				
 			die()
 
-func die():
+func die() -> void:
 	Game.kill_text()
 	Game.beingchased = false
 	
@@ -261,7 +262,7 @@ func swap_anim(anim_name : String, flip_x := false, play_backwards := false) -> 
 		$sprite.play_backwards(anim_name)
 
 
-func set_pos_facing(pos_x : int, pos_y : int, pos_facing : int):
+func set_pos_facing(pos_x : int, pos_y : int, pos_facing : PLAYERDIR) -> void:
 	if pos_x != 0 and pos_y != 0:
 		position = Vector2(pos_x, pos_y)
 	dir = pos_facing
@@ -270,17 +271,17 @@ func set_pos_facing(pos_x : int, pos_y : int, pos_facing : int):
 		$sprite.flip_h = true
 		
 		
-func set_state(state : PLAYERSTATE):
+func set_state(state : PLAYERSTATE) -> void:
 	pstate = state
 		
 		
-func set_flashlight(darkness : float, light : float):
+func set_flashlight(darkness : float, light : float) -> void:
 	if darkness > 0:
 		$flashlight.enabled = true
 		$flashlight.energy = darkness*light
 		
 
-func update_device(device):
+func update_device(device : Variant) -> void:
 	if Game.options["buttons"] == int(0):
 		if device == InputHelper.DEVICE_GENERIC or device == InputHelper.DEVICE_XBOX_CONTROLLER or device == InputHelper.DEVICE_PLAYSTATION_CONTROLLER or device == InputHelper.DEVICE_SWITCH_CONTROLLER or device == InputHelper.DEVICE_STEAMDECK_CONTROLLER:
 			%LabelKeyboard.visible = false
@@ -301,8 +302,6 @@ func call_clone(clone_velocity : Vector2) -> void:
 
 
 func _on_sprite_animation_changed() -> void:
-	print($sprite.animation)
-	
 	get_tree().call_group("objClone", "play_anim", $sprite.animation, $sprite.flip_h)
 
 func get_anim() -> String:
@@ -312,10 +311,10 @@ func is_anim_flipped() -> bool:
 	return $sprite.flip_h
 
 
-func set_camera_link(link : bool):
+func set_camera_link(link : bool) -> void:
 	$RemoteTransform2D.update_position = link
 	
 
 #Returns a generic death message
-func genericDeathMessage():
+func genericDeathMessage() -> String:
 	return extstd.choose(["Game Over","And it all ended here...","...Then there was darkness","...But it was not over","I love death, don't you?", "It's a good thing robots can't feel pain, huh?"]);

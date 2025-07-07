@@ -18,7 +18,6 @@ var color = Game.m_sentrycolor_neutral:
 			queue_redraw()
 		
 var canchase = true
-var speedup = Game.m_sentryspeed_time
 
 var playerstate = 0
 var target : Node = null
