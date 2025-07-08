@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://lwi3u7ebdlco"]
+
+[ext_resource type="Script" uid="uid://2n03e4ih6lcd" path="res://objects/pressure_plate/obj_shortcut_pad.gd" id="1_23il2"]
+[ext_resource type="Texture2D" uid="uid://c1r4lyws4ibew" path="res://sprites/pressure_plate/sprPressurePlateUnlock1.png" id="2_sl4te"]
+[ext_resource type="Texture2D" uid="uid://bvke4alknm4u1" path="res://sprites/pressure_plate/sprPressurePlateUnlock2.png" id="3_q7y1t"]
+[ext_resource type="AudioStream" uid="uid://cqeo6dpxkn35u" path="res://sounds/sndPressurePlate.ogg" id="10_hyjy4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rtb8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sl4te")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q7y1t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0msb"]
+size = Vector2(20, 18)
+
+[node name="objShortcutPad" type="Node2D"]
+script = ExtResource("1_23il2")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_rtb8n")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_h0msb")
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_hyjy4")
+pitch_scale = 1.1
+bus = &"sfx"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

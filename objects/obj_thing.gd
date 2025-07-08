@@ -14,7 +14,7 @@ var home_pos := Vector2.ZERO
 var target_dir := Vector2.ZERO
 var target_body : Node = null
 
-var max_distance := 150.0
+const MAX_DISTANCE := 150.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 			state = STATE.RETRACTING
 			
 		#Stop if too far
-		if position.distance_to(home_pos) > max_distance:
+		if position.distance_to(home_pos) > MAX_DISTANCE:
 			$Stop.play()
 			state = STATE.RETRACTING
 			
@@ -111,7 +111,7 @@ func _draw() -> void:
 		draw_circle_custom(45, Color(255, 0, 0, 0.1))
 		
 	if target_body != null and (state == STATE.LUNGE or state == STATE.LUNGE_LOCKIN):
-		draw_line(Vector2.ZERO, target_dir * max_distance, Color.RED, 2)
+		draw_line(Vector2.ZERO, target_dir * MAX_DISTANCE, Color.RED, 2)
 		
 		
 func go() -> void:

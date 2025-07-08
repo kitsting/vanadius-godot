@@ -56,7 +56,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	$debug/rm/value.text = Game.current_room
-	$debug/HBoxContainer/value.text = str(position)
+	$debug/HBoxContainer/value.text = ("%.2f" % position.x) + "x " + ("%.2f" % position.y) + "y"
 	
 	
 	$sentry_indicator/texture.modulate.a = indicatoralpha

@@ -39,12 +39,10 @@ target_room = "uid://bikltjseboo5o"
 target_x = 305
 target_y = 218
 direction = 3
-wallsize = 2.0
 
 [node name="objRoomTransition2" parent="TopObjects" index="1" instance=ExtResource("2_43eed")]
 position = Vector2(400, 512)
 target_room = "uid://brys1jyu4aco6"
-wallsize = 2.0
 
 [node name="Path2D" type="Path2D" parent="TopObjects" index="2"]
 position = Vector2(-7, 0)

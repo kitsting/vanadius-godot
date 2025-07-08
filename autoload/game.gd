@@ -119,6 +119,7 @@ var progress := {
 	"time_sec" : 0,
 	"collectibles" : [],
 	"visited_rooms" : [],
+	"gates" : [],
 	
 	#Set at save/load time
 	"last_area" : "",
@@ -182,21 +183,15 @@ func update_options() -> void:
 
 #Save files
 func save_options() -> void:
-	var options_file := FileAccess.open("user://"+m_configname, FileAccess.WRITE)
-	options_file.store_line(JSON.stringify(options))
-	print(m_configname + "saved")
+	save_file(m_configname, options)
 	update_options()
 	
 func save_progress() -> void:
-	var file := FileAccess.open("user://"+m_savename, FileAccess.WRITE)
-	file.store_line(JSON.stringify(progress))
-	print(m_savename + "saved")
+	save_file(m_savename, progress)
 	file_loaded = true
 	
 func save_stats() -> void:
-	var file := FileAccess.open("user://"+m_statsname, FileAccess.WRITE)
-	file.store_line(JSON.stringify(stats))
-	print(m_statsname + "saved")
+	save_file(m_statsname, stats)
 	
 
 #Load files
@@ -205,7 +200,7 @@ func load_options() -> void:
 	update_options()
 
 func load_progress() -> void:
-	if load_file(m_savename, progress):
+	if load_file(m_savename, progress, false):
 		file_loaded = true
 	else:
 		file_loaded = false
@@ -215,19 +210,37 @@ func load_stats() -> void:
 		
 
 ## Load a file into a dictionary with useful output. Returns true if it is successful, false if it is not
-func load_file(filename : String, destination : Dictionary) -> bool:
+func load_file(filename : String, destination : Dictionary, allow_floats := true) -> bool:
 	print("loading " + filename)
 	if FileAccess.file_exists("user://"+filename):
 		var file := FileAccess.open("user://"+filename, FileAccess.READ)
 		var text : Variant = JSON.parse_string(file.get_as_text())
 		for option : Variant in text:
 			if destination.has(option):
-				print_rich("[color=web_gray]" + option+" > "+str(text[option]) + "[/color]")
-				destination[option] = text[option]
+				var to_write = text[option]
+				if !allow_floats:
+					if to_write is float:
+						to_write = int(to_write)
+					if to_write is Array:
+						var new_array : Array[Variant] = []
+						for item in to_write:
+							if item is float:
+								new_array.append(int(item))
+							else:
+								new_array.append(item)
+						to_write = new_array
+				print_rich("[color=web_gray]" + option+" > "+str(to_write) + "[/color]")
+				destination[option] = to_write
 		return true
 	else:
 		print(filename + " doesn't exist")
 		return false
+
+
+func save_file(filename : String, source : Dictionary) -> void:
+	var file := FileAccess.open("user://"+filename, FileAccess.WRITE)
+	file.store_line(JSON.stringify(source))
+	print(filename + " saved")
 
 
 #Set values

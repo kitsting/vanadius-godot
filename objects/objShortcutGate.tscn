@@ -1,0 +1,213 @@
+[gd_scene load_steps=14 format=3 uid="uid://wsyenit6bvre"]
+
+[ext_resource type="Script" uid="uid://t45swkuss6wg" path="res://objects/obj_shortcut_gate.gd" id="1_swxvv"]
+[ext_resource type="Texture2D" uid="uid://c71jgxm1maq8w" path="res://sprites/gate/GateMask.png" id="2_6jq1l"]
+[ext_resource type="Texture2D" uid="uid://cw16j3cvku1uo" path="res://sprites/gate/shortcutGateConnector.png" id="3_irlch"]
+[ext_resource type="Texture2D" uid="uid://dkok0u3ywyjsj" path="res://sprites/gate/shortcutGateLeft.png" id="4_v5myt"]
+[ext_resource type="Texture2D" uid="uid://cm5txwkhlq2vr" path="res://sprites/gate/shortcutGateMiddle.png" id="5_0rmf8"]
+[ext_resource type="Texture2D" uid="uid://cl2umj8bcpaw7" path="res://sprites/gate/shortcutGateRight.png" id="6_tfpsg"]
+[ext_resource type="AudioStream" uid="uid://bakxnk0b7watw" path="res://sounds/sndGate.ogg" id="7_v5myt"]
+[ext_resource type="AudioStream" uid="uid://c5ewm1xlqcs7b" path="res://sounds/sndExplosion.ogg" id="8_0rmf8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7pjr"]
+size = Vector2(96, 8)
+
+[sub_resource type="Animation" id="Animation_6jq1l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Sprites:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 18)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lower:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Slam:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_irlch"]
+resource_name = "lower"
+length = 1.75
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Sprites:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 1, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 18), Vector2(-1, 19), Vector2(0, 18), Vector2(1, 19), Vector2(0, 18), Vector2(0, 25), Vector2(0, 48), Vector2(0, 46)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lower:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Slam:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_v5myt"]
+resource_name = "lowered"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Sprites:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 46)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5myt"]
+_data = {
+&"RESET": SubResource("Animation_6jq1l"),
+&"lower": SubResource("Animation_irlch"),
+&"lowered": SubResource("Animation_v5myt")
+}
+
+[node name="objShortcutGate" type="StaticBody2D" groups=["shortcut_gate"]]
+texture_filter = 1
+script = ExtResource("1_swxvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r7pjr")
+
+[node name="Mask" type="Sprite2D" parent="."]
+clip_children = 1
+position = Vector2(0, -32)
+texture = ExtResource("2_6jq1l")
+
+[node name="Sprites" type="Node2D" parent="Mask"]
+position = Vector2(0, 18)
+scale = Vector2(9.45833, 3)
+
+[node name="Connector" type="Sprite2D" parent="Mask/Sprites"]
+position = Vector2(-0.0526314, 0.666665)
+scale = Vector2(1.50877, 0.333333)
+texture = ExtResource("3_irlch")
+
+[node name="Left" type="Sprite2D" parent="Mask/Sprites"]
+position = Vector2(-4.47368, 0.666667)
+scale = Vector2(0.105263, 0.333333)
+texture = ExtResource("4_v5myt")
+
+[node name="CenterL" type="Sprite2D" parent="Mask/Sprites"]
+position = Vector2(-2.11454, 0.666667)
+scale = Vector2(0.105263, 0.333333)
+texture = ExtResource("5_0rmf8")
+
+[node name="CenterL2" type="Sprite2D" parent="Mask/Sprites"]
+position = Vector2(-3.72529e-09, 0.666667)
+scale = Vector2(0.105263, 0.333333)
+texture = ExtResource("5_0rmf8")
+
+[node name="CenterR" type="Sprite2D" parent="Mask/Sprites"]
+position = Vector2(2.11454, 0.666667)
+scale = Vector2(0.105263, 0.333333)
+texture = ExtResource("5_0rmf8")
+
+[node name="Right" type="Sprite2D" parent="Mask/Sprites"]
+position = Vector2(4.36842, 0.666667)
+scale = Vector2(0.105263, 0.333333)
+texture = ExtResource("6_tfpsg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_v5myt")
+}
+
+[node name="Lower" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_v5myt")
+pitch_scale = 1.5
+bus = &"sfx"
+
+[node name="Slam" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_0rmf8")
+bus = &"sfx"
