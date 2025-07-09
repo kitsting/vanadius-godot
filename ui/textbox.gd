@@ -10,19 +10,19 @@ var choice_selection := false
 var dialogue_resource := preload("res://resources/dialogue/signpost.dialogue")
 var dialogue_line : DialogueLine
 
-var next_id_1 = null
-var next_id_2 = null
+var next_id_1 : Variant = null
+var next_id_2 : Variant = null
 
 
 
-func set_text(file : String = "test", node : String = "test_text"):
+func set_text(file : String = "test", node : String = "test_text") -> void:
 	dialogue_resource = load("res://resources/dialogue/"+file+".dialogue")
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(node)
 	$BG/Label.dialogue_line = dialogue_line
 	
 	
 
-func _ready():
+func _ready() -> void:
 	Audio.play_sound("res://sounds/sndBeep.ogg", "beep")
 	$next.visible = false
 	$last.visible = false
@@ -32,7 +32,7 @@ func _ready():
 	await $BG/Label.finished_typing
 	can_dismiss = true
 
-func _input(event):
+func _input(_event) -> void:
 	if Input.is_action_just_pressed("ui_accept") and !$option_BG.visible:
 		if can_dismiss:
 			#Go to next line
@@ -46,7 +46,7 @@ func _input(event):
 			$BG/Label.skip_typing()
 
 
-func _on_dismiss_cooldown_timeout():
+func _on_dismiss_cooldown_timeout() -> void:
 	can_skip = true
 
 
@@ -66,12 +66,12 @@ func _on_label_finished_typing() -> void:
 		$option_BG.visible = true
 
 
-func _on_label_spoke(letter: String, letter_index: int, speed: float) -> void:
+func _on_label_spoke(_letter: String, _letter_index: int, _speed: float) -> void:
 	$text_sound.pitch_scale = randf_range(0.9,1.1)
 	$text_sound.play()
 	
 	
-func populate_choices():
+func populate_choices() -> void:
 	if len(dialogue_line.responses) >= 2:
 		$option_BG/hbox/option1.text = dialogue_line.responses[0].text
 		next_id_1 = dialogue_line.responses[0].next_id
@@ -103,7 +103,7 @@ func _on_option_2_pressed() -> void:
 		queue_free()
 
 
-func advance_text():
+func advance_text() -> void:
 	Audio.play_sound("res://sounds/sndBeep.ogg", "beep")
 	can_dismiss = false
 	$DismissCooldown.start(0.15)

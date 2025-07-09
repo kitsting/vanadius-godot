@@ -15,7 +15,7 @@ func _ready() -> void:
 	%Resume.grab_focus()
 	
 	
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if (Input.is_action_just_pressed("pause") or Input.is_action_just_pressed("ui_cancel")) and !settings:
 		exit()
 		
@@ -38,11 +38,11 @@ func _input(event: InputEvent) -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	%time_label.text = Game.getTimeString(Game.progress["time_sec"])
 
 
-func exit():
+func exit() -> void:
 	emit_signal("done")
 	queue_free()
 
@@ -55,7 +55,7 @@ func _on_resume_pressed() -> void:
 func _on_options_pressed() -> void:
 	settings = true
 	can_input = false
-	var new_settings = load("res://ui/objSettings.tscn").instantiate()
+	var new_settings : Node = load("res://ui/objSettings.tscn").instantiate()
 	add_sibling(new_settings)
 	await new_settings.done
 	await get_tree().create_timer(0.1).timeout

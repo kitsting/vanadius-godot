@@ -1,7 +1,7 @@
 @tool
 extends PathFollow2D
 
-@export_enum("up", "down", "left", "right") var direction = "down":
+@export_enum("up", "down", "left", "right") var direction := "down":
 	set(value):
 		direction = value
 		match value:
@@ -35,8 +35,8 @@ extends PathFollow2D
 @export var max_length := 120
 
 
-var disabled = false
-var color = Game.m_sentrycolor_neutral:
+var disabled := false
+var color := Game.m_sentrycolor_neutral:
 	set(value):
 		if color != value:
 			color = value
@@ -61,7 +61,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !Engine.is_editor_hint():
 		#trigger all sentries if the alert is on
 		if Game.alert:
@@ -81,7 +81,7 @@ func _physics_process(delta: float) -> void:
 			progress += path_speed * delta * 60
 
 
-func update_ray():
+func update_ray() -> void:
 	match direction:
 		"up":
 			$Area2D/CollisionShape2D.shape.b = Vector2(0, -detection_length)
@@ -98,7 +98,7 @@ func update_ray():
 	queue_redraw()
 
 
-func _draw():
+func _draw() -> void:
 	if !disabled:
 		match direction:
 			"up":

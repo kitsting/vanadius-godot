@@ -17,13 +17,8 @@ func _ready() -> void:
 	if savepos:
 		$sparkle_sprite.modulate = Color.RED
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
-	
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if collected and Input.is_action_just_pressed("ui_accept"):
 		if target_body != null:
 			target_body.pstate = target_body.PLAYERSTATE.ALIVE

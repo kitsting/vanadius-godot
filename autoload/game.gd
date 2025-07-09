@@ -217,13 +217,13 @@ func load_file(filename : String, destination : Dictionary, allow_floats := true
 		var text : Variant = JSON.parse_string(file.get_as_text())
 		for option : Variant in text:
 			if destination.has(option):
-				var to_write = text[option]
+				var to_write : Variant = text[option]
 				if !allow_floats:
 					if to_write is float:
 						to_write = int(to_write)
 					if to_write is Array:
 						var new_array : Array[Variant] = []
-						for item in to_write:
+						for item : Variant in to_write:
 							if item is float:
 								new_array.append(int(item))
 							else:

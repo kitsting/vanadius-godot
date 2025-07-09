@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgr2dqnia7jxg"]
+[gd_scene load_steps=6 format=3 uid="uid://cgr2dqnia7jxg"]
 
 [ext_resource type="Texture2D" uid="uid://cd740e6ene6rd" path="res://sprites/outsidebg/2.png" id="1_wjkl6"]
 [ext_resource type="Texture2D" uid="uid://dbct2woubmlqn" path="res://sprites/outsidebg/3.png" id="2_tpqdh"]
 [ext_resource type="Texture2D" uid="uid://cosnyusc20tyb" path="res://sprites/outsidebg/1.png" id="3_ovhip"]
 [ext_resource type="Texture2D" uid="uid://dkvkp121btexf" path="res://sprites/outsidebg/4.png" id="3_tpqdh"]
+[ext_resource type="Texture2D" uid="uid://cf22y8yuw5mhf" path="res://sprites/outsidebg/5.png" id="4_ovhip"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -45,6 +46,32 @@ offset_top = 34.0
 offset_right = 388.0
 offset_bottom = 70.0
 texture = ExtResource("3_tpqdh")
+stretch_mode = 1
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+texture_filter = 1
+position = Vector2(0, 48)
+motion_scale = Vector2(0.45, 0.8)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer5"]
+custom_minimum_size = Vector2(1000, 0)
+offset_top = 101.0
+offset_right = 1000.0
+offset_bottom = 171.0
+texture = ExtResource("4_ovhip")
+stretch_mode = 1
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+texture_filter = 1
+position = Vector2(0, 115)
+motion_scale = Vector2(0.5, 0.8)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer6"]
+custom_minimum_size = Vector2(1000, 0)
+offset_top = 101.0
+offset_right = 1000.0
+offset_bottom = 171.0
+texture = ExtResource("4_ovhip")
 stretch_mode = 1
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
