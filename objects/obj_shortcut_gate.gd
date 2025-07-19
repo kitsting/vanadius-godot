@@ -8,6 +8,7 @@ var lowered := false
 func _ready() -> void:
 	if gate_id in Game.progress["gates"]:
 		$AnimationPlayer.play("lowered")
+		lowered = true
 
 
 func lower() -> void:

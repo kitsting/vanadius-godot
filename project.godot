@@ -15,6 +15,7 @@ config/description="Vanadius"
 config/version="1.3.0"
 run/main_scene="uid://cwi5l3flprvsj"
 config/use_custom_user_dir=true
+config/custom_user_dir_name="Vanadius"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps="60"
 boot_splash/show_image=false
@@ -62,6 +63,10 @@ conveyable=""
 conveyor=""
 camera=""
 text=""
+
+[gui]
+
+theme/custom="uid://bd0ont8d25vdq"
 
 [input]
 

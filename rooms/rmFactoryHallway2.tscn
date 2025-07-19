@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=4 uid="uid://cjks7oep87qo5"]
+[gd_scene load_steps=5 format=4 uid="uid://cjks7oep87qo5"]
 
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_a8p3y"]
 [ext_resource type="TileSet" uid="uid://hmcf6vm4y7tx" path="res://resources/tilesets/small_tiles.tres" id="2_7ync3"]
+[ext_resource type="PackedScene" uid="uid://qg62xhb8whr7" path="res://objects/objSign.tscn" id="3_jt7sd"]
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="3_pqi6k"]
 
 [node name="Testroom" instance=ExtResource("1_a8p3y")]
@@ -20,11 +21,16 @@ tile_map_data = PackedByteArray("AAAHAAQAAAAAAAAACAAIAAQAAAAAAAAACAAHAAUAAAAAAAA
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." index="3"]
 position = Vector2(53, 0)
-tile_map_data = PackedByteArray("AAAVAAwAAAAAAAAAAgAHAAgAAAAAAAAAAgAHAAkAAAAAAAAAAgAKAAoAAAAAAAAAAgAKAAsAAAAAAAAAAgAKAAwAAAAAAAAAAgAKAA0AAAAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAAVAAwAAAAAAAAAAgAKAAsAAAAAAAAAAgAKAAwAAAAAAAAAAgAKAA0AAAAAAAAAAgAKAAgAAAAAAAAAAgA=")
 tile_set = ExtResource("2_7ync3")
 
 [node name="ObjPlayer" parent="Objects" index="0"]
-position = Vector2(46, 120)
+position = Vector2(46, 126)
+
+[node name="objSign" parent="Objects" index="1" instance=ExtResource("3_jt7sd")]
+position = Vector2(147, 88)
+node = "rmFactoryHallway2"
+orientation = 0
 
 [node name="objRoomTransition" parent="TopObjects" index="0" instance=ExtResource("3_pqi6k")]
 position = Vector2(16, 121)
@@ -50,7 +56,20 @@ direction = 2
 tile_map_data = PackedByteArray("AAAAAAAAAwABAAIAAAAAAAEAAwABAAMAAAABAAEAAwACAAMAAAABAAAAAwACAAIAAAAFAAAAAwAAAAIAAAAGAAEAAwABAAMAAAAHAAEAAwABAAMAAAAIAAAAAwABAAIAAAAJAAAAAwABAAIAAAAKAAEAAwABAAMAAAALAAEAAwABAAMAAAAMAAAAAwABAAIAAAANAAAAAwABAAIAAAAOAAEAAwABAAMAAAAOAAAAAwABAAIAAAAJAAEAAwABAAMAAAAIAAEAAwABAAMAAAAFAAEAAwAAAAMAAAAGAAAAAwABAAIAAAAHAAAAAwABAAIAAAALAAAAAwABAAIAAAAKAAAAAwABAAIAAAANAAEAAwABAAMAAAAMAAEAAwABAAMAAAAAAAYAAwABAAEAAAAEAAYAAwABAAEAAAADAAYAAwABAAEAAAACAAYAAwABAAEAAAABAAYAAwABAAEAAAAHAAYAAwABAAEAAAAGAAYAAwABAAEAAAAFAAYAAwABAAEAAAAIAAYAAwABAAEAAAAJAAYAAwABAAEAAAAMAAYAAwABAAEAAAALAAYAAwABAAEAAAAKAAYAAwABAAEAAAAOAAYAAwABAAEAAAANAAYAAwABAAEAAAANAAcAAwABAAIAAAALAAcAAwABAAIAAAAMAAcAAwABAAIAAAAIAAcAAwABAAIAAAAJAAcAAwABAAIAAAAKAAcAAwABAAIAAAAFAAcAAwABAAIAAAAGAAcAAwABAAIAAAAHAAcAAwABAAIAAAAEAAcAAwABAAIAAAADAAcAAwABAAIAAAACAAcAAwABAAIAAAAAAAcAAwABAAIAAAABAAcAAwABAAIAAAAOAAcAAwABAAIAAAD//wEAAwAAAAMAAAD//wAAAwAAAAIAAAD/////AwAAAAEAAAAAAP//AwABAAEAAAABAP//AwACAAEAAAAFAP//AwAAAAEAAAAGAP//AwABAAEAAAAHAP//AwABAAEAAAAIAP//AwABAAEAAAAJAP//AwABAAEAAAAKAP//AwABAAEAAAALAP//AwABAAEAAAAMAP//AwABAAEAAAANAP//AwABAAEAAAAOAP//AwABAAEAAAAPAP//AwACAAEAAAAPAAAAAwACAAIAAAAPAAEAAwACAAMAAAAPAAYAAwACAAEAAAAPAAcAAwACAAIAAAAPAAgAAwACAAMAAAAOAAgAAwABAAMAAAANAAgAAwABAAMAAAAMAAgAAwABAAMAAAALAAgAAwABAAMAAAAKAAgAAwABAAMAAAAJAAgAAwABAAMAAAAIAAgAAwABAAMAAAAHAAgAAwABAAMAAAAGAAgAAwABAAMAAAAFAAgAAwABAAMAAAAEAAgAAwABAAMAAAADAAgAAwABAAMAAAACAAgAAwABAAMAAAABAAgAAwABAAMAAAAAAAgAAwABAAMAAAD//wgAAwAAAAMAAAD//wcAAwAAAAIAAAD//wYAAwAAAAEAAAA=")
 
 [node name="Camera" parent="." index="8"]
-position = Vector2(46, 120)
+position = Vector2(46, 126)
 
 [node name="Marker2D" type="Marker2D" parent="." index="10"]
 position = Vector2(85, 56)
+
+[connection signal="body_entered" from="TileObjects/objConveyor" to="TileObjects/objConveyor" method="_on_body_entered"]
+[connection signal="body_exited" from="TileObjects/objConveyor" to="TileObjects/objConveyor" method="_on_body_exited"]
+[connection signal="body_entered" from="TileObjects/@Area2D@43850" to="TileObjects/@Area2D@43850" method="_on_body_entered"]
+[connection signal="body_exited" from="TileObjects/@Area2D@43850" to="TileObjects/@Area2D@43850" method="_on_body_exited"]
+[connection signal="body_entered" from="TileObjects/@Area2D@43851" to="TileObjects/@Area2D@43851" method="_on_body_entered"]
+[connection signal="body_exited" from="TileObjects/@Area2D@43851" to="TileObjects/@Area2D@43851" method="_on_body_exited"]
+[connection signal="body_entered" from="TileObjects/@Area2D@43852" to="TileObjects/@Area2D@43852" method="_on_body_entered"]
+[connection signal="body_exited" from="TileObjects/@Area2D@43852" to="TileObjects/@Area2D@43852" method="_on_body_exited"]
+[connection signal="body_entered" from="TileObjects/@Area2D@43853" to="TileObjects/@Area2D@43853" method="_on_body_entered"]
+[connection signal="body_exited" from="TileObjects/@Area2D@43853" to="TileObjects/@Area2D@43853" method="_on_body_exited"]
+[connection signal="body_entered" from="TileObjects/@Area2D@43854" to="TileObjects/@Area2D@43854" method="_on_body_entered"]
+[connection signal="body_exited" from="TileObjects/@Area2D@43854" to="TileObjects/@Area2D@43854" method="_on_body_exited"]

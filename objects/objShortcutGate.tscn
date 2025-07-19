@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://wsyenit6bvre"]
+[gd_scene load_steps=16 format=3 uid="uid://wsyenit6bvre"]
 
 [ext_resource type="Script" uid="uid://t45swkuss6wg" path="res://objects/obj_shortcut_gate.gd" id="1_swxvv"]
 [ext_resource type="Texture2D" uid="uid://c71jgxm1maq8w" path="res://sprites/gate/GateMask.png" id="2_6jq1l"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cl2umj8bcpaw7" path="res://sprites/gate/shortcutGateRight.png" id="6_tfpsg"]
 [ext_resource type="AudioStream" uid="uid://bakxnk0b7watw" path="res://sounds/sndGate.ogg" id="7_v5myt"]
 [ext_resource type="AudioStream" uid="uid://c5ewm1xlqcs7b" path="res://sounds/sndExplosion.ogg" id="8_0rmf8"]
+[ext_resource type="Texture2D" uid="uid://d2flki0y4tnr5" path="res://sprites/gate_slot_front.png" id="9_tfpsg"]
+[ext_resource type="Texture2D" uid="uid://c3s04l6anes2r" path="res://sprites/gate_slot_back.png" id="10_lirb6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7pjr"]
 size = Vector2(96, 8)
@@ -174,7 +176,7 @@ scale = Vector2(1.50877, 0.333333)
 texture = ExtResource("3_irlch")
 
 [node name="Left" type="Sprite2D" parent="Mask/Sprites"]
-position = Vector2(-4.47368, 0.666667)
+position = Vector2(-4.42291, 0.667)
 scale = Vector2(0.105263, 0.333333)
 texture = ExtResource("4_v5myt")
 
@@ -194,7 +196,7 @@ scale = Vector2(0.105263, 0.333333)
 texture = ExtResource("5_0rmf8")
 
 [node name="Right" type="Sprite2D" parent="Mask/Sprites"]
-position = Vector2(4.36842, 0.666667)
+position = Vector2(4.31718, 0.667)
 scale = Vector2(0.105263, 0.333333)
 texture = ExtResource("6_tfpsg")
 
@@ -211,3 +213,14 @@ bus = &"sfx"
 [node name="Slam" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_0rmf8")
 bus = &"sfx"
+
+[node name="slot_front" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 4)
+texture = ExtResource("9_tfpsg")
+
+[node name="slot_back" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -1
+position = Vector2(0, 4)
+texture = ExtResource("10_lirb6")

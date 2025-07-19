@@ -1,12 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgr2dqnia7jxg"]
+[gd_scene load_steps=7 format=3 uid="uid://cgr2dqnia7jxg"]
 
+[ext_resource type="Texture2D" uid="uid://wa63als3tq4f" path="res://sprites/outsidebg/clouds.png" id="1_h2u2n"]
 [ext_resource type="Texture2D" uid="uid://cd740e6ene6rd" path="res://sprites/outsidebg/2.png" id="1_wjkl6"]
 [ext_resource type="Texture2D" uid="uid://dbct2woubmlqn" path="res://sprites/outsidebg/3.png" id="2_tpqdh"]
-[ext_resource type="Texture2D" uid="uid://cosnyusc20tyb" path="res://sprites/outsidebg/1.png" id="3_ovhip"]
 [ext_resource type="Texture2D" uid="uid://dkvkp121btexf" path="res://sprites/outsidebg/4.png" id="3_tpqdh"]
 [ext_resource type="Texture2D" uid="uid://cf22y8yuw5mhf" path="res://sprites/outsidebg/5.png" id="4_ovhip"]
+[ext_resource type="Texture2D" uid="uid://ctuvjewts0p06" path="res://sprites/outsidebg/mountains.png" id="6_h2u2n"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="."]
+texture_filter = 1
+position = Vector2(0, 16)
+motion_scale = Vector2(0.1, 0.65)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer7"]
+custom_minimum_size = Vector2(1000, 400)
+offset_top = -200.0
+offset_right = 1000.0
+offset_bottom = 200.0
+texture = ExtResource("1_h2u2n")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 texture_filter = 1
@@ -81,8 +96,8 @@ motion_scale = Vector2(0.2, 0.8)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
 custom_minimum_size = Vector2(1000, 0)
-offset_top = 9.0
-offset_right = 388.0
-offset_bottom = 31.0
-texture = ExtResource("3_ovhip")
+offset_top = -20.0
+offset_right = 1000.0
+offset_bottom = 36.0
+texture = ExtResource("6_h2u2n")
 stretch_mode = 1

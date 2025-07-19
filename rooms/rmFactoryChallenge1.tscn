@@ -49,7 +49,8 @@ position = Vector2(-7, 0)
 curve = SubResource("Curve2D_1m68e")
 
 [node name="ObjSentry" parent="TopObjects/Path2D" index="0" instance=ExtResource("3_1m68e")]
-position = Vector2(127, 120)
+position = Vector2(127, 169.998)
+progress = 50.0
 
 [node name="Path2D2" type="Path2D" parent="TopObjects" index="3"]
 position = Vector2(176, 176)

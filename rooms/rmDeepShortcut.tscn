@@ -9,7 +9,7 @@
 [node name="Testroom" instance=ExtResource("1_v32xd")]
 area = "Deep Lab"
 internal_name = "rmDeepShortcut"
-silent = true
+beep_boop_room = true
 darkness_intensity = 0.3
 darkness_light = 0.7
 

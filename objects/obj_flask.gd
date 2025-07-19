@@ -30,9 +30,9 @@ func _physics_process(delta: float) -> void:
 	position += 100 * delta * move_direction
 	
 
-func explode():
+func explode() -> void:
 	if can_explode:
-		var explosion = load("res://objects/objExplosion.tscn").instantiate()
+		var explosion : Node = load("res://objects/objExplosion.tscn").instantiate()
 		explosion.position = position
 		explosion.set_color(Color("#c700b7"), Color("#c70054"))
 		add_sibling(explosion)
@@ -43,9 +43,9 @@ func explode():
 		queue_free()
 
 
-func _on_body_entered(body: Node2D) -> void:
-	explode()
+func _on_body_entered(_body: Node2D) -> void:
+	call_deferred("explode")
 
 func _on_area_entered(area: Area2D) -> void:
 	if extstd.match_group(area, ["objLaser", "objLaserGreen"]):
-		explode()
+		call_deferred("explode")

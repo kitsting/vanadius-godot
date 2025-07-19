@@ -1,7 +1,7 @@
 @tool
 extends Node2D
 
-@export var inverted = false:
+@export var inverted := false:
 	set(value):
 		inverted = value
 		if inverted:
@@ -13,7 +13,7 @@ extends Node2D
 			$laser.add_to_group("objLaser")
 			$laser.remove_from_group("objLaserGreen")
 
-@export var vertical = false:
+@export var vertical := false:
 	set(value):
 		vertical = value
 		if vertical:
@@ -21,7 +21,7 @@ extends Node2D
 		else:
 			rotation_degrees = 0
 
-var on = true
+var on := true
 
 
 # Called when the node enters the scene tree for the first time.
@@ -55,7 +55,7 @@ func _ready() -> void:
 	
 
 #Update size on the first frame of physics, then disable
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !Engine.is_editor_hint():
 		if $laser.scale.x == 1:
 			update_size()
@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 			set_process(false)
 			
 			
-func laser_change(value):
+func laser_change(value : bool) -> void:
 	if !inverted:
 		if value and !on:
 			$laser/sprite.play("red_on")
@@ -80,25 +80,25 @@ func laser_change(value):
 	update_collision(value)
 
 
-func update_size():
+func update_size() -> void:
 	$left_ray.force_raycast_update()
 	$right_ray.force_raycast_update()
 
 	if $left_ray.is_colliding() and $right_ray.is_colliding():
 		if !vertical:
-			var size = $right_ray.get_collision_point().x - $left_ray.get_collision_point().x
+			var size : float = $right_ray.get_collision_point().x - $left_ray.get_collision_point().x
 			$laser.scale.x = size / 10.0
 			$laser.position.x = to_local($left_ray.get_collision_point()).x + (size/2)
 			$stopperR.position.x = to_local($left_ray.get_collision_point()).x + 1
 			$stopperL.position.x = to_local($right_ray.get_collision_point()).x - 1
 		else:
-			var size = $right_ray.get_collision_point().y - $left_ray.get_collision_point().y
+			var size : float = $right_ray.get_collision_point().y - $left_ray.get_collision_point().y
 			$laser.scale.x = (size / 10.0) + 1
 			$laser.position.x = to_local($left_ray.get_collision_point()).x + (size/2) - 5
 			$stopperD.position.x = to_local($left_ray.get_collision_point()).x - 10
 
 
-func update_collision(laser_value):
+func update_collision(laser_value : bool) -> void:
 	if !inverted:
 		$laser/collision.disabled = !laser_value
 		on = laser_value

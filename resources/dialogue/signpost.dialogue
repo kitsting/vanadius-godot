@@ -18,7 +18,6 @@ If you encounter any issues, don't hesistate to call us!
 The Lab is up ahead, on your left. Remember to take proper Lab precautions.
 To all staff\: Please take caution navigating through the Mini Sentries.
 Their placement is temporary, and we apologize for the inconvenience.
-If you find yourself needing to head back, you can open your [color=red]pause menu[/color] to get back here.
 => END
 
 ~ rmRuinSecret1
@@ -244,3 +243,39 @@ We've decided that the main chassis of our prototypes will be made out of it.
 This is where the Big Sentry likes to spend its time.
 It's a bit... empty. But, it's also darker than the other rooms.
 => END
+
+
+~ rmRuinCaveConnector
+Above\: Vanadium Mines, Subject Calibration Area
+Please follow standard procedures before deploying a new Subject.
+=> END
+
+
+~ rmBonusIntro
+Ahead are the [color=yellow]original[/color] testing environments.
+We strongly advise against entering them.
+=> END
+
+~ rmBonus2
+Entry #?? (54 DAYS AGO)
+We've decided to build all of the Subjects now to test later.
+We don't know if this saves money or not.
+=> END
+
+
+~ rmBonusHalfway
+You're halfway through!
+South\: Shortcut\nEast\: The way forward
+=> END
+
+
+~ rmPowerCollectible
+[color=yellow]15 Collectibles[/color] are need to open the door.
+There are [color=yellow]20[/color] in all.
+=> END
+
+~ rmFactoryHallway2
+Safety notice for all staff\:
+Warning tape is NOT to be crossed under ANY circumstances.
+Failure to adhere to this rule may result in suspension, and eventually termination.
+Remember this company motto - "Heed the warning, wake up in the morning"

@@ -10,6 +10,8 @@ func _ready() -> void:
 		$PanelB.visible = false
 		$PanelC.visible = false
 		$StaticBodyClosed.queue_free()
+		$objInteract.queue_free()
+		$FakeTilesB.z_index = 999
 	else:
 		$StaticBodyOpen.queue_free()
 		$DoorSprite.visible = true

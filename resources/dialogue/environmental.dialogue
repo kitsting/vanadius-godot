@@ -3,7 +3,7 @@ It's not moving.
 => END
 
 ~ control_panel
-It's a panel filled with buttons and lights you don't understand.
+It's a panel filled with flashing lights and buttons you don't understand.
 => END
 
 ~ tube_empty
@@ -21,4 +21,25 @@ It's not moving.
 
 ~ door
 A very sturdy door. It's locked.
+=> END
+
+
+~ start_platform
+Do you want to start the elevator?
+- Yes
+	do get_tree().call_group("platform", "call_deferred", "lift")
+	do get_tree().call_group("interact_kill", "call_deferred", "queue_free")
+- No
+=> END
+
+
+~ enter_manhole
+There is a manhole here.
+Do you want to enter the manhole?
+- Yes
+- No
+=> END
+
+~ big_door
+Too heavy...
 => END

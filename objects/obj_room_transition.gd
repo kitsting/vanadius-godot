@@ -19,8 +19,12 @@ extends Area2D
 			3:
 				rotation_degrees = 90
 				
+@export_group("Sizing")
 @export var auto_size := true
 @export var wallsize : float = 2
+
+
+@export_group("Additional Settings")
 @export var play_animation := true
 
 @export var use_target_facing := false
@@ -30,6 +34,8 @@ extends Area2D
 @export var preserve_state := false
 
 var target_body : Node = null
+
+var triggered := false
 
 
 #Update size on the first frame of physics, then disable
@@ -67,7 +73,8 @@ func update_size() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and !triggered:
+		triggered = true
 		target_body = body
 		
 		Game.roomtargetx = target_x

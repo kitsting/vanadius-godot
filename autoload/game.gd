@@ -75,7 +75,7 @@ var showtimer := false
 var noclipmode := false
 var usedevtools := true
 
-var version := "1.3.0-beta0707"
+var version := "1.3.0-beta0718"
 
 var roomtargetarea := "Nonexistent"
 var area := roomtargetarea
@@ -107,6 +107,7 @@ var progress := {
 	"factory_complete" : false,
 	"gates_down" : false,
 	"power_complete" : false,
+	"bonus_revealed" : false,
 	
 	#Power plant progression
 	"pswitch_blue" : false,
@@ -136,6 +137,7 @@ var default_progress := progress.duplicate(true)
 
 var stats := {
 	"game_completed" : false,
+	"game_good_ending" : false,
 	"best_time_sec" : 100000,
 	"best_deaths" : 1000,
 }

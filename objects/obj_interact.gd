@@ -11,7 +11,7 @@ var target_body : Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$interact_sprite.play("view")
+	$interact_sprite.play(interact_mode)
 
 	
 	

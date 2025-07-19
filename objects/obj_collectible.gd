@@ -7,6 +7,8 @@ extends Area2D
 var collected : bool = false
 var target_body : Node = null
 
+var can_dismiss := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if collectible_id in Game.progress["collectibles"]:
@@ -19,7 +21,7 @@ func _ready() -> void:
 
 	
 func _input(_event: InputEvent) -> void:
-	if collected and Input.is_action_just_pressed("ui_accept"):
+	if collected and can_dismiss and Input.is_action_just_pressed("ui_accept"):
 		if target_body != null:
 			target_body.pstate = target_body.PLAYERSTATE.ALIVE
 			Game.progress_append("collectibles", collectible_id)
@@ -52,6 +54,10 @@ func _on_body_entered(body: Node2D) -> void:
 		$sound.play()
 		
 		target_body = body
+		
+		await get_tree().create_timer(0.3).timeout
+		
+		can_dismiss = true
 
 
 func _on_sparkle_timer_timeout() -> void:

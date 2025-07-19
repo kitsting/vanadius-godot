@@ -18,8 +18,11 @@ extends Node2D
 @export var internal_name : String = ""
 
 @export var silent : bool = false
+@export var beep_boop_room : bool = false
 @export var allow_pausing : bool = true
 @export var suppress_area_display := false
+
+@export_group("Darkness")
 @export_range(0.0, 1.0, 0.05) var darkness_intensity : float = 0:
 	set(value):
 		darkness_intensity = value
@@ -30,8 +33,13 @@ extends Node2D
 		if is_ready: update_darkness()
 
 #Override the radius of all sentries in the room
+@export_group("Sentry Override")
 @export var override_sentry_radius : int = 0
 @export var override_mini_sentry_radius : int = 0
+
+@export_group("Screen Settings")
+@export var single_screen_vertical : bool = false
+@export var single_screen_horizontal : bool = false
 
 var pause_cooldown : bool = false
 
@@ -89,10 +97,24 @@ func _ready() -> void:
 		$Camera.limit_top = (room_size.position.y*24) + 1
 		$Camera.limit_left = room_size.position.x*24 + 1
 		
+		if single_screen_vertical:
+			$Camera.limit_left = room_size.position.x*24 + 8
+			$Camera.limit_right = (room_size.end.x*24) - 8
+			
+		if single_screen_horizontal:
+			$Camera.limit_top = (room_size.position.y*24) + 6
+			$Camera.limit_bottom = (room_size.end.y*24) - 6
+		
 	if !silent:
-		Audio.set_music("res://music/"+Game.getMusic(area)+".ogg")
+		if beep_boop_room:
+			Audio.set_music("res://music/mysterious.ogg")
+		else:
+			Audio.set_music("res://music/"+Game.getMusic(area)+".ogg")
 	else:
-		Audio.stop_music()
+		if beep_boop_room and Game.progress.power_complete:
+			Audio.set_music("res://music/mysterious.ogg")
+		else:
+			Audio.stop_music()
 		
 	get_tree().call_group("player", "set_state", Game.roomtargetstate)
 	get_tree().call_group("player","set_pos_facing",Game.roomtargetx,Game.roomtargety,Game.roomtargetfacing)

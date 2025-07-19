@@ -35,22 +35,28 @@ target_room = "uid://4elevcopu5x"
 target_x = 130
 target_y = 50
 
-[node name="objRoomTransition2" parent="TopObjects" index="1" instance=ExtResource("4_gw5aq")]
+[node name="objRoomTransition3" parent="TopObjects" index="1" instance=ExtResource("4_gw5aq")]
+position = Vector2(344, 200)
+rotation = 4.71239
+target_room = "uid://byutb2434bsf1"
+direction = 2
+
+[node name="objRoomTransition2" parent="TopObjects" index="2" instance=ExtResource("4_gw5aq")]
 position = Vector2(180, 16)
 rotation = 3.14159
 target_room = "uid://dies16386ugm5"
 direction = 1
 
-[node name="ObjSentry" parent="TopObjects" index="2" instance=ExtResource("5_msmnw")]
+[node name="ObjSentry" parent="TopObjects" index="3" instance=ExtResource("5_msmnw")]
 position = Vector2(-40, -32)
 
-[node name="ObjSentry2" parent="TopObjects" index="3" instance=ExtResource("5_msmnw")]
+[node name="ObjSentry2" parent="TopObjects" index="4" instance=ExtResource("5_msmnw")]
 position = Vector2(400, -32)
 
-[node name="ObjSentry3" parent="TopObjects" index="4" instance=ExtResource("5_msmnw")]
+[node name="ObjSentry3" parent="TopObjects" index="5" instance=ExtResource("5_msmnw")]
 position = Vector2(400, 416)
 
-[node name="ObjSentry4" parent="TopObjects" index="5" instance=ExtResource("5_msmnw")]
+[node name="ObjSentry4" parent="TopObjects" index="6" instance=ExtResource("5_msmnw")]
 position = Vector2(-40, 416)
 
 [node name="Ceiling" parent="." index="6"]
@@ -58,3 +64,6 @@ tile_map_data = PackedByteArray("AAAAAAAABwAAAAEAAAAAAAEABwAAAAIAAAABAAEABwAAAAQ
 
 [node name="Camera" parent="." index="7"]
 position = Vector2(180, 344)
+
+[node name="Marker2D" type="Marker2D" parent="." index="9"]
+position = Vector2(312, 210)

@@ -220,13 +220,13 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 				deathmsg = extstd.choose(["Pointy!","It is advised not to touch sharp objects", genericDeathMessage()])
 				
 			elif area.is_in_group("objLaserBlue"):
-				deathmsg = "Timing is key"
+				deathmsg = extstd.choose(["Timing is key","Patience is a virtue", genericDeathMessage()])
 				
 			elif area.is_in_group("surviveSpike"):
 				deathmsg = extstd.choose(["Just wait it out...","It will be gone eventually...", genericDeathMessage()])
 				
 			elif area.is_in_group("objThing") or area.is_in_group("objLabSentry"):
-				deathmsg = extstd.choose(["Death by sphere","It knows","Darkness may severely limit visibility","Take caution when entering dark areas","Target acquired"])
+				deathmsg = extstd.choose(["Death by sphere","It knows","Darkness may severely limit visibility","Take caution when entering dark areas", genericDeathMessage()])
 				
 			else:
 				deathmsg = genericDeathMessage()

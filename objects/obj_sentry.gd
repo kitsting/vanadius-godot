@@ -99,17 +99,17 @@ func _on_radius_body_entered(body: Node2D) -> void:
 
 #function from https://forum.godotengine.org/t/smooth-circle-with-draw-circle/26033/3
 func draw_circle_custom(draw_radius : float, draw_color : Color, max_error := 0.25) -> void:
-	if radius <= 0.0:
+	if draw_radius <= 0.0:
 		return
 
-	var maxpoints = 24
-	var numpoints = ceil(PI / acos(1 - max_error / draw_radius))
+	var maxpoints := 24
+	var numpoints : int = ceil(PI / acos(1 - max_error / draw_radius))
 	numpoints = clamp(numpoints, 3, maxpoints)
 
-	var points = PackedVector2Array([])
-	for i in numpoints:
-		var phi = i * PI * 2.0 / numpoints
-		var v = Vector2(sin(phi), cos(phi))
+	var points := PackedVector2Array([])
+	for i : int in numpoints:
+		var phi : float = i * PI * 2.0 / numpoints
+		var v := Vector2(sin(phi), cos(phi))
 		points.push_back(v * draw_radius)
 
 	draw_colored_polygon(points, draw_color)

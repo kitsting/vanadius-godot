@@ -23,7 +23,7 @@ enum dir {
 			elif value == dir.RIGHT:
 				$Sprite2D.flip_h = false
 		
-@export var z_index_override = 0
+@export var z_index_override : int = 0
 
 @export var timer : float = 1.0
 @export var offset : float = 0.0
@@ -38,15 +38,15 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
-	var offset = Vector2(0, 0)
-	if direction == dir.DOWN:
-		Vector2(0, -4)
-	elif direction == dir.LEFT:
-		Vector2(4, 0)
-	elif direction == dir.RIGHT:
-		Vector2(-4, 0)
-	var new_flask = load("res://objects/objFlask.tscn").instantiate()
-	new_flask.position += offset
+	var spawn_offset := Vector2.ZERO
+	#if direction == dir.DOWN:
+		#spawn_offset = Vector2(0, -4)
+	#elif direction == dir.LEFT:
+		#spawn_offset = Vector2(4, 0)
+	#elif direction == dir.RIGHT:
+		#spawn_offset = Vector2(-4, 0)
+	var new_flask : Node = load("res://objects/objFlask.tscn").instantiate()
+	new_flask.position += spawn_offset
 	new_flask.direction = direction
 	add_child(new_flask)
 	new_flask.z_index += z_index_override

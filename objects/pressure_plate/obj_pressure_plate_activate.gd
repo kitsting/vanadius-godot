@@ -29,19 +29,23 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player") or area.is_in_group("objClone") or area.is_in_group("objPackage"):
 		if pressed == 0:
 			$sfx.pitch_scale = 0.9
-			$sfx.play()
 			$sprite.frame = 1
 			
 			if behavior == 0 or behavior == 3:
 				Game.lasers = false
+				$sfx.pitch_scale = 0.75
 			elif behavior == 1:
 				Game.lasers = true
 			elif behavior == 2:
 				Game.lasers = !Game.lasers
+				if Game.lasers == false:
+					$sfx.pitch_scale = 0.75
 			elif behavior == 4:
 				Game.safepressureplatepressed = true
 				Game.alert = false
 				Game.beingchased = false
+				
+			$sfx.play()
 		
 		pressed += 1
 		
@@ -52,7 +56,10 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		if pressed == 0:
 			$sprite.frame = 0
 			$sfx.pitch_scale = 1.0
-			$sfx.play()
+			
+			if behavior in [0,2,3]:
+				if !Game.lasers:
+					$sfx.pitch_scale = 0.85
 			
 			if behavior == 3:
 				#Make sure there isnt another weighted plate being pressed before setting lasers
@@ -63,6 +70,8 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 				Game.lasers = true
 			elif behavior == 4:
 				Game.safepressureplatepressed = false
+				
+			$sfx.play()
 				
 				
 func get_pressed() -> int:

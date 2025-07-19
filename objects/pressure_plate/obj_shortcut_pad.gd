@@ -1,6 +1,8 @@
 @tool
 extends Node2D
 
+@export var specific_gate : Node = null
+
 var pressed : int = 0
 
 
@@ -11,7 +13,13 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			$sfx.play()
 			$sprite.frame = 1
 			
-			get_tree().call_group("shortcut_gate", "lower")
+			if specific_gate == null:
+				get_tree().call_group("shortcut_gate", "lower")
+			else:
+				if specific_gate.has_method("lower"):
+					specific_gate.lower()
+				else:
+					get_tree().call_group("shortcut_gate", "lower")
 		
 		pressed += 1
 		

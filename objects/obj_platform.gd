@@ -39,3 +39,10 @@ func _physics_process(delta: float) -> void:
 			$Sprite2D.global_position = round(position)
 			$CollisionPolygon2D.disabled = true
 			emit_signal("tippy_top")
+
+
+func lift() -> void:
+	$CollisionPolygon2D.disabled = false
+	$AnimationPlayer.play("shake")
+	await $AnimationPlayer.animation_finished
+	target_body = get_tree().get_first_node_in_group("player")

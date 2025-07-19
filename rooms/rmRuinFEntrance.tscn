@@ -29,10 +29,6 @@ tile_map_data = PackedByteArray("AAAPAAgACAAHAAEAAAAQAAgACAAHAAEAAAARAAgACAAHAAE
 [node name="TileObjects" parent="." index="2"]
 tile_map_data = PackedByteArray("AAAAAAsAAAAAAAAACAD//wsAAAAAAAAACAD//wwAAAAAAAAACAAAAAwAAAAAAAAACAD+/wsAAAAAAAAACAD+/wwAAAAAAAAACAD8/wsAAAAAAAAACAD8/wwAAAAAAAAACAD9/wsAAAAAAAAACAD9/wwAAAAAAAAACAA=")
 
-[node name="Sprite2D" type="Sprite2D" parent="FloorObjects" index="0"]
-position = Vector2(104, 216)
-texture = ExtResource("2_qnjpl")
-
 [node name="ObjPlayer" parent="Objects" index="0"]
 position = Vector2(361, 48)
 
@@ -55,6 +51,10 @@ destroy_on_touch = true
 position = Vector2(120, 128)
 collectible_name = "Tucked Away in the Corner"
 collectible_id = "2"
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects" index="5"]
+position = Vector2(88, 216)
+texture = ExtResource("2_qnjpl")
 
 [node name="objSentryMini" parent="TopObjects" index="0" instance=ExtResource("4_03t3t")]
 position = Vector2(216, 96)
