@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://b7tdr1iqo8324"]
+[gd_resource type="TileSet" load_steps=26 format=3 uid="uid://b7tdr1iqo8324"]
 
 [ext_resource type="PackedScene" uid="uid://bsi4d2keoj851" path="res://objects/pressure_plate/objPressurePlateActivate.tscn" id="1_6k601"]
 [ext_resource type="PackedScene" uid="uid://hktosbx6boif" path="res://objects/conveyor/objConveyor.tscn" id="1_gtd35"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://dcom4xmjuurjc" path="res://objects/conveyor/objConveyorRightFast.tscn" id="8_6qggi"]
 [ext_resource type="PackedScene" uid="uid://x6ed72ambbwa" path="res://objects/objPowerDoor.tscn" id="9_tuuwc"]
 [ext_resource type="PackedScene" uid="uid://bhs4cjm4osxkq" path="res://objects/objColorDoor.tscn" id="10_idnp6"]
+[ext_resource type="PackedScene" uid="uid://bjx7mvfw4ylal" path="res://objects/dispenser_warning.tscn" id="11_kcvh0"]
+[ext_resource type="PackedScene" uid="uid://bp1ye6jgn04y8" path="res://objects/dispenser_warning_l.tscn" id="12_75o7x"]
+[ext_resource type="PackedScene" uid="uid://bt1htqtpkf7tr" path="res://objects/dispenser_warning_r.tscn" id="13_rodve"]
 [ext_resource type="PackedScene" uid="uid://ccmh7qw56y5o2" path="res://objects/pressure_plate/objClonePadCreate.tscn" id="14_17g4i"]
 [ext_resource type="PackedScene" uid="uid://dc1j0x5lfw1e8" path="res://objects/objRetractSpike.tscn" id="15_gtd35"]
 
@@ -34,6 +37,9 @@ scenes/8/scene = ExtResource("8_6qggi")
 resource_name = "Other"
 scenes/1/scene = ExtResource("9_tuuwc")
 scenes/2/scene = ExtResource("10_idnp6")
+scenes/3/scene = ExtResource("11_kcvh0")
+scenes/4/scene = ExtResource("12_75o7x")
+scenes/5/scene = ExtResource("13_rodve")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_j5qaw"]
 resource_name = "Pressure Plates"

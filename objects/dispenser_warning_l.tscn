@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp1ye6jgn04y8"]
+
+[ext_resource type="Texture2D" uid="uid://bwrgv3302jk2t" path="res://sprites/sprFlaskDispenserWarning.png" id="1_oluol"]
+
+[node name="DispenserWarning" type="Sprite2D"]
+rotation = 1.5708
+texture = ExtResource("1_oluol")

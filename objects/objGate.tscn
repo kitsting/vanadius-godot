@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://byku1v575g4rs"]
+[gd_scene load_steps=9 format=3 uid="uid://byku1v575g4rs"]
 
 [ext_resource type="Texture2D" uid="uid://b0drosaucj3yi" path="res://sprites/gate/sprGateConnector.png" id="1_h8k0b"]
 [ext_resource type="Texture2D" uid="uid://dhe84upyujgtf" path="res://sprites/gate/sprGateLeft.png" id="1_n28qe"]
 [ext_resource type="Script" uid="uid://ckef1e4jtar12" path="res://objects/obj_gate.gd" id="1_p0a23"]
 [ext_resource type="Texture2D" uid="uid://dre7u561q6ncx" path="res://sprites/gate/sprGateMiddle.png" id="3_p0a23"]
 [ext_resource type="Texture2D" uid="uid://qupxp7y6xsv2" path="res://sprites/gate/sprGateRight.png" id="4_saxjt"]
+[ext_resource type="Texture2D" uid="uid://c3s04l6anes2r" path="res://sprites/gate_slot_back.png" id="6_saxjt"]
+[ext_resource type="Texture2D" uid="uid://d2flki0y4tnr5" path="res://sprites/gate_slot_front.png" id="7_7kp6h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7pjr"]
 size = Vector2(96, 8)
@@ -37,3 +39,10 @@ texture = ExtResource("3_p0a23")
 [node name="Right" type="Sprite2D" parent="."]
 position = Vector2(42, -16)
 texture = ExtResource("4_saxjt")
+
+[node name="slot_back" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture = ExtResource("6_saxjt")
+
+[node name="slot_front" type="Sprite2D" parent="."]
+texture = ExtResource("7_7kp6h")

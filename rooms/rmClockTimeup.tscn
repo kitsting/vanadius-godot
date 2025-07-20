@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_ovhlo"]
 [ext_resource type="Script" uid="uid://cy5bnm1edtbww" path="res://rooms/clock_timeup.gd" id="2_hypxf"]
 [ext_resource type="LabelSettings" uid="uid://d08xk8kwh1ry4" path="res://resources/big_label.tres" id="3_ldku5"]
-[ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="4_ldku5"]
+[ext_resource type="FontFile" uid="uid://we5onkvfxecy" path="res://fonts/van_small_font.ttf" id="4_ajjas"]
 [ext_resource type="Texture2D" uid="uid://lbwape2bqtag" path="res://sprites/player/depressio.png" id="5_ajjas"]
 
 [node name="Testroom" instance=ExtResource("1_ovhlo")]
@@ -17,9 +17,9 @@ visible = false
 process_mode = 3
 script = ExtResource("2_hypxf")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="10"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Node" index="0"]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
+[node name="ColorRect" type="ColorRect" parent="Node/CanvasLayer" index="0"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer" index="1"]
+[node name="Label" type="Label" parent="Node/CanvasLayer" index="1"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -39,27 +39,26 @@ offset_right = 32.5
 offset_bottom = -23.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Time's Up!"
+text = "Time's  Up!"
 label_settings = ExtResource("3_ldku5")
 
-[node name="Label2" type="Label" parent="CanvasLayer" index="2"]
+[node name="Label2" type="RichTextLabel" parent="Node/CanvasLayer" index="2"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -59.5
-offset_top = -17.5
-offset_right = 59.5
-offset_bottom = 17.5
+offset_left = -160.0
+offset_right = 160.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Press the action button
-to try again"
-label_settings = ExtResource("4_ldku5")
+theme_override_fonts/normal_font = ExtResource("4_ajjas")
+bbcode_enabled = true
+text = "Press the action button to try again"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" index="3"]
+[node name="TextureRect" type="TextureRect" parent="Node/CanvasLayer" index="3"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

@@ -32,6 +32,88 @@ script = ExtResource("2_8xch4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorObjects/ending" index="0"]
 shape = SubResource("RectangleShape2D_3t3tl")
 
+[node name="stats" type="Control" parent="FloorObjects/ending" index="1"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -160.0
+offset_top = -376.0
+offset_right = 192.0
+offset_bottom = -184.0
+
+[node name="stats" type="VBoxContainer" parent="FloorObjects/ending/stats" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -33.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="FloorObjects/ending/stats/stats" index="0"]
+layout_mode = 2
+text = "Testing Complete"
+label_settings = ExtResource("5_skgqh")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="FloorObjects/ending/stats/stats" index="1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="time" type="HBoxContainer" parent="FloorObjects/ending/stats/stats" index="2"]
+layout_mode = 2
+alignment = 1
+
+[node name="name" type="Label" parent="FloorObjects/ending/stats/stats/time" index="0"]
+layout_mode = 2
+text = "Time:"
+label_settings = ExtResource("6_8xch4")
+horizontal_alignment = 1
+
+[node name="value" type="Label" parent="FloorObjects/ending/stats/stats/time" index="1"]
+layout_mode = 2
+text = "99999:999999999 woahhhh"
+label_settings = ExtResource("6_8xch4")
+horizontal_alignment = 1
+
+[node name="collectibles" type="HBoxContainer" parent="FloorObjects/ending/stats/stats" index="3"]
+layout_mode = 2
+alignment = 1
+
+[node name="name" type="Label" parent="FloorObjects/ending/stats/stats/collectibles" index="0"]
+layout_mode = 2
+text = "Collectibles:"
+label_settings = ExtResource("6_8xch4")
+horizontal_alignment = 1
+
+[node name="value" type="Label" parent="FloorObjects/ending/stats/stats/collectibles" index="1"]
+layout_mode = 2
+text = "ZERO"
+label_settings = ExtResource("6_8xch4")
+horizontal_alignment = 1
+
+[node name="suffix" type="Label" parent="FloorObjects/ending/stats/stats/collectibles" index="2"]
+layout_mode = 2
+text = "/ 20"
+label_settings = ExtResource("6_8xch4")
+horizontal_alignment = 1
+
+[node name="deaths" type="HBoxContainer" parent="FloorObjects/ending/stats/stats" index="4"]
+layout_mode = 2
+alignment = 1
+
+[node name="name" type="Label" parent="FloorObjects/ending/stats/stats/deaths" index="0"]
+layout_mode = 2
+text = "Deaths:"
+label_settings = ExtResource("6_8xch4")
+horizontal_alignment = 1
+
+[node name="value" type="Label" parent="FloorObjects/ending/stats/stats/deaths" index="1"]
+layout_mode = 2
+text = "5 MILLION!!!!!"
+label_settings = ExtResource("6_8xch4")
+horizontal_alignment = 1
+
 [node name="ObjPlayer" parent="Objects" index="0"]
 position = Vector2(155, 200)
 
@@ -62,42 +144,5 @@ position = Vector2(155, 224)
 target_room = "uid://dm82pv1us5l1f"
 target_x = 180
 target_y = 56
-
-[node name="stats" type="Control" parent="." index="11"]
-layout_mode = 3
-anchors_preset = 0
-offset_top = -256.0
-offset_right = 352.0
-offset_bottom = -64.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="stats" index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="stats/VBoxContainer" index="0"]
-layout_mode = 2
-text = "Testing Complete"
-label_settings = ExtResource("5_skgqh")
-horizontal_alignment = 1
-
-[node name="Spacer" type="Control" parent="stats/VBoxContainer" index="1"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="stats/VBoxContainer" index="2"]
-layout_mode = 2
-text = "Time: 99999:999999999 woahhhh"
-label_settings = ExtResource("6_8xch4")
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="stats/VBoxContainer" index="3"]
-layout_mode = 2
-text = "Deaths: 5 MILLION!!!!!"
-label_settings = ExtResource("6_8xch4")
-horizontal_alignment = 1
 
 [connection signal="body_entered" from="FloorObjects/ending" to="FloorObjects/ending" method="_on_body_entered"]

@@ -41,7 +41,7 @@ _data = {
 &"active": SubResource("Animation_vsegq")
 }
 
-[node name="DoorWire" type="TileMapLayer"]
+[node name="DoorWire" type="TileMapLayer" groups=["wire"]]
 modulate = Color(0.485302, 0.485302, 0.485302, 1)
 self_modulate = Color(0.0666667, 0.105882, 0.87451, 1)
 tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 2, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 0, 0, 0, 255, 255, 0, 0, 4, 0, 0, 0, 0, 0)

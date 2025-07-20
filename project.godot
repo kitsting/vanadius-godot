@@ -19,7 +19,7 @@ config/custom_user_dir_name="Vanadius"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps="60"
 boot_splash/show_image=false
-config/icon="uid://dkfam20l06jd5"
+config/icon="uid://c4xrvtwcl2djn"
 config/windows_native_icon="res://icon.ico"
 window/size/borderless=false
 

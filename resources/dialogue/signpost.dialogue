@@ -12,10 +12,11 @@ how do you feew about this??
 ~ rmRuinStart
 This facility has been brought to you by Veraille Solutions.
 If you encounter any issues, don't hesistate to call us!
+Note\: Due to recent facility overhauls, please watch out for lasers, spikes, and any other hazards.
 => END
 
 ~ rmRuinChallenge1
-The Lab is up ahead, on your left. Remember to take proper Lab precautions.
+[color=yellow]The Lab[/color] is up ahead, on your left. Remember to take proper [color=yellow]Lab[/color] precautions.
 To all staff\: Please take caution navigating through the Mini Sentries.
 Their placement is temporary, and we apologize for the inconvenience.
 => END
@@ -34,23 +35,23 @@ We also crank up their speed, which is great for increased security.
 => END
 
 ~ rmRuinFEntrance
-Navigation Directions:
+Navigation Directions\:
 ^ Main Hub
-< Control Center
-> Factory
+< [color=yellow]Control Room[/yellow]
+> [color=yellow]Factory[/yellow]
 => END
 
 ~ rmFactoryChallenge3
 Entry #20 (70 DAYS AGO)
 In order for this scheme to work, we require mass production.
-We built the Factory to keep everything in-house. Now, we can produce anything quickly and efficiently.
+We built the [color=yellow]Factory[/color] to keep everything in-house. Now, we can produce anything quickly and efficiently.
 Subjects, Sentries, you name it. Our contractors are sure to be pleased.
 => END
 
 ~ rmFactoryBlue2
 Entry #100 (30 DAYS AGO)
 The testing environments just aren't working.
-We've decided to redesign most of our facility to be a testing ground for Subjects.
+To save on costs and time, we've decided to repurpose most of our facility to be a testing ground for Subjects.
 As long as one is successful, we might be able to stand a chance.
 => END
 
@@ -76,9 +77,9 @@ Since this is likely undesirable, they can de disabled with pressure plates.
 
 ~ rmRuinControl2
 if !Game.progress["power_complete"]
-	Status\: Power Plant is not active.\nAll systems running on backup power.
+	Status\: [color=yellow]Power Plant[/color] is not active.\nAll systems running on backup power.
 else
-	Status\: Power Plant active.
+	Status\: [color=yellow]Power Plant[/color] active.
 if !Game.progress["gates_down"]
 	Subjects remaining\: 8\nSubject being tested\: #0023
 	Security Gates\: Locked
@@ -95,13 +96,13 @@ else
 
 ~ rmLabTutorial1
 Please take caution with Clones. They are very volatile, and will dissipate with even the slightest disturbance.
-To keep them out of harm's way, you can hold the action button to stop them from following you.
+To keep them out of harm's way, you can hold {{Game.get_input_sprite()}} to stop them from following you.
 => END
 
 ~ rmLabChallenge1
-We created Clones to help us move around lab materials.
+We created Clones to help us move around [color=yellow]Lab[/color] materials.
 Our plan was to have them be super resilient, but we started running out of money.
-After cuts to the Lab Department, there simply aren't enough funds to keep doing research.
+After cuts to the [color=yellow]Lab Department[/color], there simply aren't enough funds to keep doing research.
 => END
 
 
@@ -126,22 +127,20 @@ Our boss is upset that we spent so much on this discovery, but it will definitel
 
 ~ rmDeepStart
 [color=red]WARNING\: AUTHORIZED PERSONNEL ONLY[/color]\nSECURED FOR THE SAFETY OF ALL STAFF
-If access is needed, please visit the [color=yellow]control room[/color].
+If access is needed, please visit the [color=yellow]Control Room[/color].
 => END
 
 
 ~ rmRuinEnd
 The door will only open with the consent of all three departments\:
-The Lab Department,
-The Factory Department,
-and the Timekeeping Department.
+The Lab Department,[wait=0.6] the Factory Department,[wait=0.6] and the Timekeeping Department.
 => END
 
 
 ~ rmClockFloor6b
 Entry #21 (81 DAYS AGO)
 We've released Subject #1 into the testing environments.
-We expanded the Clock Tower so we can better keep track of testing time.
+We expanded the [color=yellow]Clock Tower[/color] so we can better keep track of testing time.
 We went a little overboard given our financial situation... But it looks pretty cool.
 => END
 
@@ -162,14 +161,14 @@ If we want to finish by the deadline, we should start deploying two at a time.
 
 ~ rmPowerStart
 Note to maintenance staff\:
-The door to the left will ONLY open if the Power Plant is active.
+The door to the left will ONLY open if the [color=yellow]Power Plant[/color] is active.
 Please visit the breaker room to activate it.
 => END
 
 
 ~ rmPowerSentry2
 Note to maintenance staff\:
-In the Power Plant, Sentries are always watching...
+In the [color=yellow]Power Plant[/color], Sentries are always watching...
 ...waiting...
 => END
 
@@ -185,15 +184,15 @@ Prototyping of Subject 03 begins tomorrow.
 
 ~ rmPowerSwitch
 if Game.progress["power_complete"]:
-	Power Plant Status\: Active
+	[color=yellow]Power Plant[/color] Status\: Active
 	=> END
 else:
-	Power Plant Status\: Deactivated\nAll systems running on backup power.
-	Do you want to reactivate the power plant?
+	[color=yellow]Power Plant[/color] Status\: Deactivated\nAll systems running on backup power.
+	Do you want to reactivate the [color=yellow]Power Plant[/color]?
 	- Yes
 		do Game.progress_set("power_complete", true)
 		do get_tree().call_group("room", "turn_on_lights")
-		Power Plant is now active.
+		The [color=yellow]Power Plant[/color] is now active.
 		=> END
 	- No
 => END
@@ -205,20 +204,20 @@ Prepare for immediate capture.
 => END
 
 ~ rmPowerExit
-[color=yellow]4 switches[/color] must be toggled to open up the Power Plant's exit.
+[color=yellow]4 switches[/color] must be toggled to open up the [color=yellow]Power Plant's[/color] exit.
 To find them, head to the north and the south.
 => END
 
 
 ~ rmOutsideBuildup2
 Designated Subject Point to the north!
-Power Plant shortcut to the east!
+[color=yellow]Power Plant[/color] shortcut to the east!
 => END
 
 
 ~ rmDeepFoyer
-This is the Deep Lab.
-We use it for storing Lab materials and whatever projects we aren't actively working on.
+This is the [color=yellow]Deep Lab[/color].
+We use it for storing [color=yellow]Lab[/color] materials and whatever projects we aren't actively working on.
 It also happens to be very dangerous, making it a perfect optional testing ground.
 We've put a reward at the end for any daring Subjects.
 => END

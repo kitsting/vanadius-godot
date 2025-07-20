@@ -75,7 +75,7 @@ var showtimer := false
 var noclipmode := false
 var usedevtools := true
 
-var version := "1.3.0-beta0718"
+var version := "1.3.0-beta0719"
 
 var roomtargetarea := "Nonexistent"
 var area := roomtargetarea
@@ -121,6 +121,8 @@ var progress := {
 	"collectibles" : [],
 	"visited_rooms" : [],
 	"gates" : [],
+	"completed_rooms" : [],
+	"read_entries" : [],
 	
 	#Set at save/load time
 	"last_area" : "",
@@ -146,6 +148,8 @@ var current_device := InputHelper.DEVICE_KEYBOARD
 signal device_changed
 
 signal gates_lowered
+
+var chase_cutscene_seen := false
 
 
 func _ready() -> void:
@@ -451,3 +455,10 @@ func add_clock_ui(intro_anim := false) -> void:
 		clock_ui.play_intro = intro_anim
 		add_child(clock_ui)
 		print("added")
+
+
+func get_input_sprite() -> String:
+	if current_device == InputHelper.DEVICE_KEYBOARD:
+		return "Space or Z"
+	else:
+		return "[img]res://sprites/input/ButtonAGeneric.png[/img]"

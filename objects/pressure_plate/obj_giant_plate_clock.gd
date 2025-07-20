@@ -41,6 +41,7 @@ func _on_body_entered(body: Node2D) -> void:
 		$AudioStreamPlayer.play()
 		Game.progress_set("clock_complete", true)
 		$sprite.play()
+		get_tree().call_group("wire", "call_deferred", "update_anim")
 		
 		if has_node("tiles_l"):
 			create_tween().tween_property(get_node("tiles_l"), "position", get_node("tiles_l").position - Vector2(90, 0), 2)

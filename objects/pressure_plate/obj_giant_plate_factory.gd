@@ -22,4 +22,5 @@ func _on_body_entered(body: Node2D) -> void:
 		$AudioStreamPlayer.play()
 		Game.progress_set("factory_complete", true)
 		$sprite.play()
+		get_tree().call_group("wire", "call_deferred", "update_anim")
 		

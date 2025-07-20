@@ -64,7 +64,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wlmg8"]
 size = Vector2(8, 8)
 
-[node name="objFlask" type="Area2D"]
+[node name="objFlask" type="Area2D" groups=["damage", "objFlask"]]
 script = ExtResource("1_wlmg8")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]

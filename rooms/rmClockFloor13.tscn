@@ -44,6 +44,7 @@ speed = 1.0
 [node name="objPit" parent="Objects" index="3" instance=ExtResource("3_j2fam")]
 position = Vector2(251.505, 95.6444)
 target_room = "uid://bhh12joa0ki0j"
+stop_music = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Objects/objPit" index="1"]
 position = Vector2(0.494705, 32.3556)

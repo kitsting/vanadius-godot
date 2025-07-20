@@ -60,16 +60,3 @@ position = Vector2(46, 126)
 
 [node name="Marker2D" type="Marker2D" parent="." index="10"]
 position = Vector2(85, 56)
-
-[connection signal="body_entered" from="TileObjects/objConveyor" to="TileObjects/objConveyor" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/objConveyor" to="TileObjects/objConveyor" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@43850" to="TileObjects/@Area2D@43850" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@43850" to="TileObjects/@Area2D@43850" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@43851" to="TileObjects/@Area2D@43851" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@43851" to="TileObjects/@Area2D@43851" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@43852" to="TileObjects/@Area2D@43852" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@43852" to="TileObjects/@Area2D@43852" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@43853" to="TileObjects/@Area2D@43853" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@43853" to="TileObjects/@Area2D@43853" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@43854" to="TileObjects/@Area2D@43854" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@43854" to="TileObjects/@Area2D@43854" method="_on_body_exited"]

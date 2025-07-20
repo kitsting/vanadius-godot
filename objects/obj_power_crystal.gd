@@ -2,9 +2,9 @@ extends StaticBody2D
 
 @export_enum("red", "blue", "green", "yellow") var color = "red"
 
-var can_read = false
+var can_read := false
 var target_body : Node = null
-var interactable = true
+var interactable := true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,7 +33,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		
 
 func _input(event: InputEvent) -> void:
-	if can_read and Input.is_action_just_pressed("ui_accept"):
+	if can_read and interactable and Input.is_action_just_pressed("ui_accept"):
 		if target_body.pstate == target_body.PLAYERSTATE.ALIVE:
 			Game.progress["pswitch_" + color] = true
 			interactable = false

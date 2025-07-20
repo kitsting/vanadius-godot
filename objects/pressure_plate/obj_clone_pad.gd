@@ -1,9 +1,9 @@
 @tool
 extends Node2D
 
-var pressed = 0
+var pressed : int = 0
 
-@export_enum("up", "down", "left", "right") var direction = "down":
+@export_enum("up", "down", "left", "right") var direction := "down":
 	set(value):
 		direction = value
 		$sprite.animation = value

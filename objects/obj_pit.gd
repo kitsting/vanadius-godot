@@ -7,6 +7,8 @@ extends Area2D
 
 @export var direction : Game.PLAYERDIR = Game.PLAYERDIR.DOWN
 
+@export var stop_music := true
+
 var can_use = false
 var target_body : Node = null
 
@@ -30,7 +32,9 @@ func _input(event: InputEvent) -> void:
 			
 			Game.progress_set("last_room", target_room)
 			
-			Audio.stop_music()
+			if stop_music:
+				Audio.stop_music()
+			
 			Game.transition_room(target_room, true)
 
 

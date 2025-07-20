@@ -29,7 +29,7 @@ orientation = 0
 position = Vector2(120, 344)
 target_room = "uid://hf8cryb4u56d"
 target_x = 145
-target_y = 150
+target_y = 80
 
 [node name="objRoomTransition3" parent="TopObjects" index="1" instance=ExtResource("3_vacdc")]
 position = Vector2(16, 288)

@@ -6,11 +6,11 @@ var created_clone : Node = null
 func create_clone(anim : String = "", flip : bool = false) -> void:
 	print("creating clone...")
 	if created_clone == null:
-		add_clone_to_scene(anim, flip)
+		call_deferred("add_clone_to_scene", anim, flip)
 	else:
 		if position.distance_to(created_clone.position) > 20:
 			created_clone.queue_free()
-			add_clone_to_scene(anim, flip)
+			call_deferred("add_clone_to_scene", anim, flip)
 			
 		
 func add_clone_to_scene(anim : String = "", flip : bool = false) -> void:

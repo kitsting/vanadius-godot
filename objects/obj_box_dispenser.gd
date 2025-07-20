@@ -1,12 +1,12 @@
 @tool
 extends Area2D
 
-@export var facing_left = false:
+@export var facing_left := false:
 	set(value):
 		facing_left = value
 		$Sprite2D.flip_h = value
 		
-@export var z_index_override = 0;
+@export var z_index_override : int = 0;
 		
 var current_box : Node = null
 
@@ -16,10 +16,10 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !Engine.is_editor_hint():
 		if current_box == null:
-			var offset = -4
+			var offset : int = -4
 			if facing_left:
 				offset = -offset
 			current_box = load("res://objects/objPackageMoveable.tscn").instantiate()

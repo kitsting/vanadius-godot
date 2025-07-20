@@ -172,6 +172,7 @@ func _physics_process(_delta: float) -> void:
 	direction = direction.normalized()
 	velocity += direction * (spd)
 	call_clone(velocity)
+	get_tree().call_group("objClone", "play_anim", $sprite.animation, $sprite.flip_h)
 	move_and_slide()
 	velocity = Vector2.ZERO
 	
@@ -213,7 +214,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			elif area.is_in_group("objSentryBounce"):
 				deathmsg = extstd.choose(["Patience is important", genericDeathMessage()])
 				
-			elif area.is_in_group("objExplosion"):
+			elif extstd.match_group(area, ["objExplosion", "objFlask"]):
 				deathmsg = extstd.choose(["Boom","The explosion was too powerful...", genericDeathMessage()])
 				
 			elif area.is_in_group("objGenericSpike"):
@@ -318,3 +319,6 @@ func set_camera_link(link : bool) -> void:
 #Returns a generic death message
 func genericDeathMessage() -> String:
 	return extstd.choose(["Game Over","And it all ended here...","...Then there was darkness","...But it was not over","I love death, don't you?", "It's a good thing robots can't feel pain, huh?"]);
+
+func external_die(node : Node) -> void:
+	_on_hitbox_area_entered(node)

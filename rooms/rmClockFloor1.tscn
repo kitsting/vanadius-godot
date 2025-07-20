@@ -26,6 +26,7 @@ position = Vector2(280, 120)
 [node name="objPit" parent="Objects" index="1" instance=ExtResource("2_5tdjr")]
 position = Vector2(273, 243)
 target_room = "uid://j72xfion22cc"
+stop_music = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Objects/objPit" index="1"]
 position = Vector2(3, 29)

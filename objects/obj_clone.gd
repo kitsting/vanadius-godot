@@ -3,7 +3,7 @@ extends CharacterBody2D
 var player_node : Node = null
 
 
-func _ready():
+func _ready() -> void:
 	Audio.play_sound("res://sounds/sndCloneAppear.ogg", "clone_appear")
 	
 	player_node = get_tree().get_first_node_in_group("player")
@@ -11,9 +11,14 @@ func _ready():
 		play_anim(player_node.get_anim(), player_node.is_anim_flipped())
 		
 
-func _process(delta : float) -> void:
+func _process(_delta : float) -> void:
 	if player_node != null:
 		$AnimatedSprite2D.flip_h = player_node.is_anim_flipped()
+		
+	if Input.is_action_pressed("ui_accept"):
+		$ColorRect.visible = true
+	else:
+		$ColorRect.visible = false
 
 
 
@@ -24,8 +29,16 @@ func move(mv_velocity : Vector2) -> void:
 		velocity = Vector2.ZERO
 
 func play_anim(anim : String, flip_h := false) -> void:
-	$AnimatedSprite2D.flip_h = flip_h
-	$AnimatedSprite2D.play(anim)
+	if !Input.is_action_pressed("ui_accept"):
+		$AnimatedSprite2D.play(anim)
+		$AnimatedSprite2D.flip_h = flip_h
+	else:
+		var anim_name : String = "idle_" + anim.split("_")[1]
+		if $AnimatedSprite2D.sprite_frames.has_animation(anim_name):
+			$AnimatedSprite2D.play(anim_name)
+		else:
+			$AnimatedSprite2D.play(anim)
+			$AnimatedSprite2D.flip_h = flip_h
 
 
 func kill() -> void:

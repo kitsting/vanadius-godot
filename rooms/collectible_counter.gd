@@ -9,9 +9,9 @@ func _ready() -> void:
 		for child in get_children():
 			if len(Game.progress.collectibles) >= child_num:
 				child.turn_on()
+				Audio.play_sound("res://sounds/sndCollectible.ogg", "light", -3, true, 0.7 + (child_num * 0.02))
 				await get_tree().create_timer(0.3).timeout
 				child_num += 1
-				Audio.play_sound("res://sounds/sndCollectible.ogg", "light", -3, true, 0.7 + (child_num * 0.02))
 				
 				
 		if len(Game.progress.collectibles) >= get_child_count():

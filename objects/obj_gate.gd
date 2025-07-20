@@ -11,8 +11,4 @@ func _ready() -> void:
 		$CenterL.texture = down_sprite
 		$CenterR.texture = down_sprite
 		$Right.texture = down_sprite
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+		z_index = -1

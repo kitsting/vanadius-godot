@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://dt0ekelj5l18u"]
+[gd_scene load_steps=8 format=4 uid="uid://dt0ekelj5l18u"]
 
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_dra8s"]
 [ext_resource type="PackedScene" uid="uid://dpi3254rs22mg" path="res://objects/objLabSentry.tscn" id="2_l3wvf"]
 [ext_resource type="PackedScene" uid="uid://qg62xhb8whr7" path="res://objects/objSign.tscn" id="2_lgaq4"]
 [ext_resource type="Texture2D" uid="uid://cnhmcnygeykom" path="res://sprites/environment/deeplab/foodbowl.png" id="3_ya3kg"]
+[ext_resource type="PackedScene" uid="uid://b3bfejchk2n8n" path="res://objects/objCollectible.tscn" id="4_8whp7"]
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="5_07es4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07es4"]
@@ -40,6 +41,11 @@ texture = ExtResource("3_ya3kg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/StaticBody2D" index="1"]
 position = Vector2(-0.5, 0.146942)
 shape = SubResource("RectangleShape2D_07es4")
+
+[node name="objCollectible" parent="Objects/StaticBody2D" index="2" instance=ExtResource("4_8whp7")]
+position = Vector2(-0.334015, -4.70599)
+collectible_name = "Kind of Cute?"
+collectible_id = "1714"
 
 [node name="objLabSentry" parent="TopObjects" index="0" instance=ExtResource("2_l3wvf")]
 position = Vector2(88, 128)

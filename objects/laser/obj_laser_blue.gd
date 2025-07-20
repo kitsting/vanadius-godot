@@ -71,6 +71,7 @@ func update_size():
 
 func _on_go_timer_timeout() -> void:
 	$laser/sprite.play("warning")
+	$AnimationPlayer.play("warn")
 	await get_tree().create_timer(1.5).timeout
 	if $onscreen.is_on_screen():
 		Audio.play_sound("res://sounds/laser_blue.ogg", "blue_laser", 0, true)

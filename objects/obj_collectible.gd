@@ -38,6 +38,7 @@ func _input(_event: InputEvent) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and !collected:
 		collected = true
+		$collected_screen/ColorRect/input.text = "Press " + Game.get_input_sprite() + " to continue"
 		$collected_screen.visible = true
 		
 		body.pstate = body.PLAYERSTATE.CUTSCENE

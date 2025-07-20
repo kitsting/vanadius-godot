@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://btjf0vbxbdw38"]
+[gd_scene load_steps=13 format=3 uid="uid://btjf0vbxbdw38"]
 
 [ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="1_1ki1p"]
 [ext_resource type="Script" uid="uid://t8a4hk5g0k2t" path="res://ui/ending_bad.gd" id="1_2w60o"]
 [ext_resource type="FontFile" uid="uid://we5onkvfxecy" path="res://fonts/van_small_font.ttf" id="2_yjsei"]
-[ext_resource type="Texture2D" uid="uid://bjp2w2uytfc6e" path="res://sprites/sprThamk.png" id="3_n47qo"]
 [ext_resource type="LabelSettings" uid="uid://d08xk8kwh1ry4" path="res://resources/big_label.tres" id="4_v8qgs"]
+[ext_resource type="Texture2D" uid="uid://ymxc3ig7c14d" path="res://sprites/ui/ending1/card1.png" id="4_vyik7"]
+[ext_resource type="Texture2D" uid="uid://beky8hahiae6j" path="res://sprites/ui/ending1/card2.png" id="5_ebkyi"]
+[ext_resource type="Texture2D" uid="uid://bo4iv3nolvnq2" path="res://sprites/ui/ending1/card3.png" id="6_1bie6"]
+[ext_resource type="Texture2D" uid="uid://das1q16plkedf" path="res://sprites/ui/ending1/card4.png" id="7_c4gh7"]
+[ext_resource type="Texture2D" uid="uid://ba6b8kxlb3u61" path="res://sprites/ui/ending1/card5.png" id="8_ewbur"]
 
 [sub_resource type="Animation" id="Animation_yjsei"]
 length = 0.001
@@ -18,7 +22,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -68,10 +72,58 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EndingScreen/Card2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EndingScreen/Card3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("EndingScreen/Card4:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("EndingScreen/Card5:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_v8qgs"]
 resource_name = "play_ending"
-length = 20.0
+length = 23.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -92,7 +144,7 @@ tracks/1/path = NodePath("EndingScreen/Label:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3, 4),
+"times": PackedFloat32Array(9, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -104,7 +156,7 @@ tracks/2/path = NodePath("EndingScreen/Label2:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(5, 6),
+"times": PackedFloat32Array(12, 13),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -116,7 +168,7 @@ tracks/3/path = NodePath("EndingScreen:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(9, 10),
+"times": PackedFloat32Array(17.5, 18.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -128,7 +180,55 @@ tracks/4/path = NodePath("quote:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(12, 13.5),
+"times": PackedFloat32Array(20.5, 22),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EndingScreen/Card2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EndingScreen/Card3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(5, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("EndingScreen/Card4:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(8, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("EndingScreen/Card5:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(12, 13),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -197,13 +297,49 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Card1" type="TextureRect" parent="EndingScreen"]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0, 0, 0, 0)
 layout_mode = 0
 offset_left = 36.0
 offset_top = 11.0
 offset_right = 286.0
 offset_bottom = 131.0
-texture = ExtResource("3_n47qo")
+texture = ExtResource("4_vyik7")
+
+[node name="Card2" type="TextureRect" parent="EndingScreen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 36.0
+offset_top = 11.0
+offset_right = 286.0
+offset_bottom = 131.0
+texture = ExtResource("5_ebkyi")
+
+[node name="Card3" type="TextureRect" parent="EndingScreen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 36.0
+offset_top = 11.0
+offset_right = 286.0
+offset_bottom = 131.0
+texture = ExtResource("6_1bie6")
+
+[node name="Card4" type="TextureRect" parent="EndingScreen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 36.0
+offset_top = 11.0
+offset_right = 286.0
+offset_bottom = 131.0
+texture = ExtResource("7_c4gh7")
+
+[node name="Card5" type="TextureRect" parent="EndingScreen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 36.0
+offset_top = 11.0
+offset_right = 286.0
+offset_bottom = 131.0
+texture = ExtResource("8_ewbur")
 
 [node name="Label" type="Label" parent="EndingScreen"]
 modulate = Color(1, 1, 1, 0)

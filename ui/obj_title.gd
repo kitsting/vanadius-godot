@@ -67,19 +67,25 @@ func _on_options_pressed() -> void:
 
 
 func _on_new_game_pressed() -> void:
-	var confirm_prompt : Node = load("res://ui/save_prompt.tscn").instantiate()
-	confirm_prompt.delete_mode = true
-	add_sibling(confirm_prompt)
-	await confirm_prompt.finished
-	
-	if confirm_prompt.is_confirm():
+	if Game.file_loaded:
+		var confirm_prompt : Node = load("res://ui/save_prompt.tscn").instantiate()
+		confirm_prompt.delete_mode = true
+		add_sibling(confirm_prompt)
+		await confirm_prompt.finished
+		
+		if confirm_prompt.is_confirm():
+			Game.reset()
+			Game.roomtargetstate = Game.PLAYERSTATE.CUTSCENE
+			Game.progress_set("last_room", "res://rooms/rmIntro.tscn")
+			Game.transition_room("res://rooms/rmIntro.tscn")
+		else:
+			await get_tree().create_timer(0.05).timeout
+			%NewGame.grab_focus()
+	else:
 		Game.reset()
 		Game.roomtargetstate = Game.PLAYERSTATE.CUTSCENE
 		Game.progress_set("last_room", "res://rooms/rmIntro.tscn")
 		Game.transition_room("res://rooms/rmIntro.tscn")
-	else:
-		await get_tree().create_timer(0.05).timeout
-		%NewGame.grab_focus()
 
 
 func _on_resume_pressed() -> void:

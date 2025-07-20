@@ -51,6 +51,7 @@ vertical = true
 [node name="objPit" parent="Objects" index="2" instance=ExtResource("4_f6j4q")]
 position = Vector2(324, 384)
 target_room = "uid://b6m42g4pqdx3j"
+stop_music = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Objects/objPit" index="1"]
 position = Vector2(0, 32)
