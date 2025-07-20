@@ -37,9 +37,16 @@ Do you want to start the elevator?
 There is a manhole here.
 Do you want to enter the manhole?
 - Yes
+	JUST KIDDING!!! There is no manhole (yet)
+	Congration, you done it
+	\:)
 - No
 => END
 
 ~ big_door
 Too heavy...
+=> END
+
+~ clock
+An analog clock. It's stuck.
 => END

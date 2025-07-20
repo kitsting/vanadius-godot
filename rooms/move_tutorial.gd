@@ -7,7 +7,7 @@ func _ready() -> void:
 	update_device(Game.current_device)
 
 
-func update_device(device):
+func update_device(device : Variant) -> void:
 	if Game.options["buttons"] == int(0):
 		if device == InputHelper.DEVICE_GENERIC or device == InputHelper.DEVICE_XBOX_CONTROLLER or device == InputHelper.DEVICE_PLAYSTATION_CONTROLLER or device == InputHelper.DEVICE_SWITCH_CONTROLLER or device == InputHelper.DEVICE_STEAMDECK_CONTROLLER:
 			$Control/PC.visible = false

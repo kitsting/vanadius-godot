@@ -13,6 +13,7 @@ _data = {
 point_count = 6
 
 [node name="Testroom" instance=ExtResource("1_j0d4p")]
+area = "Central Facility"
 internal_name = "rmRuinChallenge2"
 
 [node name="Floor" parent="." index="0"]

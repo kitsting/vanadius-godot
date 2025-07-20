@@ -9,6 +9,7 @@
 [node name="Testroom" instance=ExtResource("1_ovhlo")]
 area = "The Clock Tower"
 internal_name = "rmClockTimeup"
+silent = true
 
 [node name="ObjPlayer" parent="Objects" index="0"]
 visible = false

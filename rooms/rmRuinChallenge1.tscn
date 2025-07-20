@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c2kxjvt42rta7" path="res://objects/objSentryMini.tscn" id="4_jy0ee"]
 
 [node name="Testroom" instance=ExtResource("1_kj7vs")]
+area = "Central Facility"
 internal_name = "rmRuinChallenge1"
 
 [node name="Floor" parent="." index="0"]

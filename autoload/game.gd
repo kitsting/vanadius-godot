@@ -4,9 +4,9 @@ const unfocus_color = Color(0.494, 0.494, 0.494)
 const focus_color = Color.WHITE
 
 const m_area_null = ""
-const m_area_ruin = "Forgotten Ruins"
+const m_area_ruin = "Central Facility"
 const m_area_cave = "Mysterious Cave"
-const m_area_ruin_sub2 = "Ruin Transport Tubes"
+const m_area_ruin_sub2 = "Facility Transport Tubes"
 const m_area_lab = "The Lab"
 const m_area_deeplab = "Deep Lab"
 const m_area_clock = "The Clock Tower"
@@ -75,10 +75,15 @@ var showtimer := false
 var noclipmode := false
 var usedevtools := true
 
-var version := "1.3.0-beta0719"
+var version := "1.3.0-beta0720"
 
 var roomtargetarea := "Nonexistent"
 var area := roomtargetarea
+
+var currentroom := "":
+	set(value):
+		currentroom = value
+		print("set current room to " + str(value))
 
 var room_width := 320
 
@@ -87,7 +92,7 @@ var room_width := 320
 var options := {
 	#Audio
 	"master_volume" : 1.0,
-	"music_volume" : 0.8,
+	"music_volume" : 1.0,
 	"sound_volume" : 1.0,
 	#Accessibility
 	"screenshake" : true,
@@ -441,6 +446,11 @@ func stop_clock_timer() -> void:
 			clock_timer.queue_free()
 		if clock_ui != null:
 			clock_ui.queue_free()
+			
+func pause_clock_timer(set_pause := true) -> void:
+	if clock_counting:
+		if clock_timer != null:
+			clock_timer.paused = set_pause
 
 func decrement_clocktime() -> void:
 	Game.progress.towertime_left -= 1

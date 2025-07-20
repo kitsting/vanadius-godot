@@ -23,6 +23,7 @@ target_reciever = NodePath("../../Objects/objClonePadCreate")
 
 [node name="ObjPressurePlateActivate" parent="FloorObjects" index="1" instance=ExtResource("3_bo1o0")]
 position = Vector2(248, 200)
+set_room_clear = false
 
 [node name="ObjPlayer" parent="Objects" index="0"]
 position = Vector2(277, 56)

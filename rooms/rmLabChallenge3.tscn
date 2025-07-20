@@ -249,6 +249,7 @@ target_y = 56
 [node name="objPit" parent="." index="8" instance=ExtResource("3_xfjp6")]
 position = Vector2(168, 104)
 target_room = "uid://effbl6vfpqsv"
+set_room_clear = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="objPit" index="1"]
 position = Vector2(0, 39)

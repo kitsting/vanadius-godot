@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="2_0albw"]
 
 [node name="Testroom" instance=ExtResource("1_ndt3a")]
-area = "Ruin Transport Tubes"
+area = "Facility Transport Tubes"
 internal_name = "rmRuinTube2"
 darkness_intensity = 0.25
 darkness_light = 0.7

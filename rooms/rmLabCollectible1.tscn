@@ -25,6 +25,7 @@ tile_map_data = PackedByteArray("AAAEAAQAAQAAAAAAAwAEAAUAAQAAAAAAAwAEAAYAAQAAAAA
 
 [node name="ObjPressurePlateActivate" parent="FloorObjects" index="0" instance=ExtResource("2_kjhpp")]
 position = Vector2(167.591, 239.597)
+set_room_clear = false
 
 [node name="ObjPlayer" parent="Objects" index="0"]
 position = Vector2(312, 319)
@@ -48,80 +49,100 @@ inverted = true
 
 [node name="objCrate" parent="Objects" index="6" instance=ExtResource("5_3dt7y")]
 position = Vector2(232, 260)
+disable_on_room_clear = true
 
 [node name="objCrate2" parent="Objects" index="7" instance=ExtResource("5_3dt7y")]
 position = Vector2(260, 270)
+disable_on_room_clear = true
 
 [node name="objCrate5" parent="Objects" index="8" instance=ExtResource("5_3dt7y")]
 position = Vector2(256, 292)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate6" parent="Objects" index="9" instance=ExtResource("5_3dt7y")]
 position = Vector2(250, 310)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate7" parent="Objects" index="10" instance=ExtResource("5_3dt7y")]
 position = Vector2(256, 330)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate8" parent="Objects" index="11" instance=ExtResource("5_3dt7y")]
 position = Vector2(254, 356)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate9" parent="Objects" index="12" instance=ExtResource("5_3dt7y")]
 position = Vector2(262, 376)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate10" parent="Objects" index="13" instance=ExtResource("5_3dt7y")]
 position = Vector2(258, 394)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate11" parent="Objects" index="14" instance=ExtResource("5_3dt7y")]
 position = Vector2(243, 408)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate12" parent="Objects" index="15" instance=ExtResource("5_3dt7y")]
 position = Vector2(221, 401)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate13" parent="Objects" index="16" instance=ExtResource("5_3dt7y")]
 position = Vector2(201, 408)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate14" parent="Objects" index="17" instance=ExtResource("5_3dt7y")]
 position = Vector2(180, 400)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate15" parent="Objects" index="18" instance=ExtResource("5_3dt7y")]
 position = Vector2(143, 400)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate19" parent="Objects" index="19" instance=ExtResource("5_3dt7y")]
 position = Vector2(164, 392)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate16" parent="Objects" index="20" instance=ExtResource("5_3dt7y")]
 position = Vector2(124, 390)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate17" parent="Objects" index="21" instance=ExtResource("5_3dt7y")]
 position = Vector2(106, 380)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate18" parent="Objects" index="22" instance=ExtResource("5_3dt7y")]
 position = Vector2(97, 360)
 size = "small"
+disable_on_room_clear = true
 
 [node name="objCrate3" parent="Objects" index="23" instance=ExtResource("5_3dt7y")]
 position = Vector2(282, 248)
+disable_on_room_clear = true
 
 [node name="objCrate4" parent="Objects" index="24" instance=ExtResource("5_3dt7y")]
 position = Vector2(300, 267)
+disable_on_room_clear = true
 
 [node name="objCollectible" parent="Objects" index="25" instance=ExtResource("6_nwvpr")]
 position = Vector2(265, 208)
 collectible_name = "Demolitionist"
 collectible_id = "137"
+set_room_clear = true
 
 [node name="objSign" parent="Objects" index="26" instance=ExtResource("7_o7req")]
 position = Vector2(260, 160)

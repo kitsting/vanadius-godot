@@ -76,6 +76,7 @@ animations = [{
 [node name="ObjPressurePlateActivate" type="Node2D" groups=["pressure_plate"]]
 z_index = -2
 script = ExtResource("1_bniaf")
+set_room_clear = null
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

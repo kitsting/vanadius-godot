@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="5_ngyby"]
 
 [node name="Testroom" instance=ExtResource("1_oiitu")]
+area = "Central Facility"
 room_name = "Sentry Repair Room"
 internal_name = "rmRuinBreak"
 override_sentry_radius = 25

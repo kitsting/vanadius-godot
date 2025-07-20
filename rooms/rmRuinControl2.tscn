@@ -134,6 +134,7 @@ animations = [{
 }]
 
 [node name="Testroom" instance=ExtResource("1_epcpg")]
+area = "Central Facility"
 room_name = "Control Room"
 internal_name = "rmRuinControl2"
 beep_boop_room = true

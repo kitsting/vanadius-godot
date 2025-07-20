@@ -21,7 +21,10 @@ extends Node2D
 		else:
 			rotation_degrees = 0
 
+@export var disable_on_room_clear := false
+
 var on := true
+var disabled := false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -52,6 +55,13 @@ func _ready() -> void:
 			$stopperR.queue_free()
 		else:
 			$stopperD.queue_free()
+			
+		if disable_on_room_clear:
+			await get_tree().create_timer(0.05).timeout
+			if Game.currentroom in Game.progress.completed_rooms:
+				disabled = true
+				$laser/sprite.visible = false
+				$laser/collision.disabled = true
 	
 
 #Update size on the first frame of physics, then disable
@@ -66,18 +76,19 @@ func _physics_process(_delta: float) -> void:
 			
 			
 func laser_change(value : bool) -> void:
-	if !inverted:
-		if value and !on:
-			$laser/sprite.play("red_on")
-		elif !value and on:
-			$laser/sprite.play("red_off")
-	else:
-		if value and on:
-			$laser/sprite.play("green_off")
-		elif !value and !on:
-			$laser/sprite.play("green_on")
-			
-	update_collision(value)
+	if !disabled:
+		if !inverted:
+			if value and !on:
+				$laser/sprite.play("red_on")
+			elif !value and on:
+				$laser/sprite.play("red_off")
+		else:
+			if value and on:
+				$laser/sprite.play("green_off")
+			elif !value and !on:
+				$laser/sprite.play("green_on")
+				
+		update_collision(value)
 
 
 func update_size() -> void:

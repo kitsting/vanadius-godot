@@ -1,6 +1,6 @@
 extends Control
 
-var showing_credits = false
+var showing_credits := false
 
 var line : int = 0
 
@@ -108,7 +108,7 @@ func _on_credits_pressed() -> void:
 		$Credits/MarginContainer/Label.scroll_to_line(0)
 		$Credits/MarginContainer/Label.grab_focus()
 	
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if showing_credits:
 		if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("ui_accept"):
 			$Credits.visible = false

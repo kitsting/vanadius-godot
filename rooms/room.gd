@@ -52,6 +52,8 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	Game.currentroom = internal_name
+	
 	if area == Game.m_area_final and Game.progress.power_complete == false:
 		darkness_intensity = 0.4
 		darkness_light = 0.5

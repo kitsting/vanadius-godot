@@ -11,6 +11,13 @@ var _last_offset := Vector2(0, 0)
 
 var previous_positions : Array[Vector2] = []
 
+var freecam := false
+var limit_top_free : int = 0
+var limit_bottom_free : int = 0
+var limit_left_free : int = 0
+var limit_right_free : int = 0
+
+
 
 func _ready() -> void:
 	set_process(true)
@@ -85,7 +92,20 @@ func reset_pos(time : float) -> void:
 func _input(_event: InputEvent) -> void:
 	if Game.usedevtools:
 		if Input.is_action_just_pressed("debug_unlock_camera"):
-			limit_bottom = 100000
-			limit_top = -100000
-			limit_left = -100000
-			limit_right = 100000
+			freecam = !freecam
+			
+			if freecam:
+				limit_bottom_free = limit_bottom
+				limit_top_free = limit_top
+				limit_left_free = limit_left
+				limit_right_free = limit_right
+				
+				limit_bottom = 100000
+				limit_top = -100000
+				limit_left = -100000
+				limit_right = 100000
+			else:
+				limit_bottom = limit_bottom_free
+				limit_top = limit_top_free
+				limit_left = limit_left_free
+				limit_right = limit_right_free

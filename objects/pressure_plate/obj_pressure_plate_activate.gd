@@ -8,6 +8,8 @@ var pressed : int = 0
 	set(value):
 		val_to_sprite(value)
 		behavior = value
+		
+@export var set_room_clear := false
 
 
 func _ready() -> void:
@@ -27,6 +29,9 @@ func val_to_sprite(value : int) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player") or area.is_in_group("objClone") or area.is_in_group("objPackage"):
+		if set_room_clear:
+			Game.progress_append("completed_rooms", Game.currentroom)
+		
 		if pressed == 0:
 			$sfx.pitch_scale = 0.9
 			$sprite.frame = 1

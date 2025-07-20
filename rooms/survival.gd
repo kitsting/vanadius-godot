@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if !started and body.is_in_group("player"):
+	if !started and body.is_in_group("player") and !(Game.currentroom in Game.progress.completed_rooms):
 		started = true
 		get_tree().call_group("surviveSpike", "extend", 18)
 		get_tree().call_group("camera", "new_position", Vector2(0, -60), 0.5, true)

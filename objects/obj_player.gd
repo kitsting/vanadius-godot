@@ -15,10 +15,6 @@ enum PLAYERSTATE {
 	NOCLIP
 }
 
-#layer_depth("Ceiling",objPlayer.depth-225);
-#global.alert = false
-#screenaplha = 0
-
 var respawnoptions : bool = false
 var indicatoralpha : float = 0.8
 
@@ -35,10 +31,8 @@ var direction := Vector2.ZERO
 
 var transitioning := false
 
-#@onready var indicator_off = preload("res://sprites/ui/sprSentryIndicatorOff.png")
-#@onready var indicator_on = preload("res://sprites/ui/sprSentryIndicatorOn.png")
-#@onready var indicator_null = preload("res://sprites/ui/sprSentryIndicatorNull.png")
-#@onready var indicator_unsure = preload("res://sprites/ui/sprSentryIndicatorUnsure.png")
+var freecam := false
+var freecam_last_pos := Vector2.ZERO
 
 
 func _ready() -> void:
@@ -182,13 +176,22 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		if deathtimer >= 5 and !transitioning:
 			transitioning = true
+			Game.pause_clock_timer(false)
 			Game.transition_room("")
 			
 	if Game.usedevtools:
 		if Input.is_action_just_pressed("debug_unlock_camera"):
-			$Collision.disabled = true
-			$Hitbox/CollisionShape2D.disabled = true
-			$sprite.visible = false
+			freecam = !freecam
+			if freecam:
+				freecam_last_pos = position
+				$Collision.disabled = true
+				$Hitbox/CollisionShape2D.disabled = true
+				$sprite.visible = false
+			else:
+				position = freecam_last_pos
+				$Collision.disabled = false
+				$Hitbox/CollisionShape2D.disabled = false
+				$sprite.visible = true
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
@@ -198,6 +201,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		
 		if area.is_in_group("damage"):
 			pstate = PLAYERSTATE.DEAD
+			Game.pause_clock_timer(true)
 			
 			if area.is_in_group("objLaser"):
 				deathmsg = extstd.choose(["Lasers are no joke","Red means stop", genericDeathMessage()])

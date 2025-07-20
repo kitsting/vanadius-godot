@@ -84,20 +84,3 @@ tile_map_data = PackedByteArray("AAAAAAAAAwABAAIAAAABAAAAAwABAAIAAAACAAAAAwABAAI
 
 [node name="Camera" parent="." index="8"]
 position = Vector2(48, 198)
-
-[connection signal="body_entered" from="TileObjects/objConveyor" to="TileObjects/objConveyor" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/objConveyor" to="TileObjects/objConveyor" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@54342" to="TileObjects/@Area2D@54342" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@54342" to="TileObjects/@Area2D@54342" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@54343" to="TileObjects/@Area2D@54343" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@54343" to="TileObjects/@Area2D@54343" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@54344" to="TileObjects/@Area2D@54344" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@54344" to="TileObjects/@Area2D@54344" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@54345" to="TileObjects/@Area2D@54345" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@54345" to="TileObjects/@Area2D@54345" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@54346" to="TileObjects/@Area2D@54346" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@54346" to="TileObjects/@Area2D@54346" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@54347" to="TileObjects/@Area2D@54347" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@54347" to="TileObjects/@Area2D@54347" method="_on_body_exited"]
-[connection signal="body_entered" from="TileObjects/@Area2D@54348" to="TileObjects/@Area2D@54348" method="_on_body_entered"]
-[connection signal="body_exited" from="TileObjects/@Area2D@54348" to="TileObjects/@Area2D@54348" method="_on_body_exited"]

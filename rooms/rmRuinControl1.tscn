@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="3_o0g72"]
 
 [node name="Testroom" instance=ExtResource("1_iax0s")]
+area = "Central Facility"
 internal_name = "rmRuinControl1"
 
 [node name="Floor" parent="." index="0"]

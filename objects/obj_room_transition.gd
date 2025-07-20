@@ -18,6 +18,9 @@ extends Area2D
 				rotation_degrees = 270
 			3:
 				rotation_degrees = 90
+
+
+@export var set_room_clear := false
 				
 @export_group("Sizing")
 @export var auto_size := true
@@ -74,6 +77,9 @@ func update_size() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and !triggered:
+		if set_room_clear:
+			Game.progress_append("completed_rooms", Game.currentroom)
+		
 		triggered = true
 		target_body = body
 		

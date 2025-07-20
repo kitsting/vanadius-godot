@@ -7,6 +7,8 @@ extends Area2D
 
 @export var direction : Game.PLAYERDIR = Game.PLAYERDIR.DOWN
 
+@export var set_room_clear := false
+
 @export var stop_music := true
 
 var can_use = false
@@ -34,6 +36,9 @@ func _input(event: InputEvent) -> void:
 			
 			if stop_music:
 				Audio.stop_music()
+				
+			if set_room_clear:
+				Game.progress_append("completed_rooms", Game.currentroom)
 			
 			Game.transition_room(target_room, true)
 

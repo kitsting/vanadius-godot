@@ -8,6 +8,15 @@ extends StaticBody2D
 			set_size(true)
 		else:
 			set_size(false)
+			
+@export var disable_on_room_clear := false
+
+
+func _ready() -> void:
+	if disable_on_room_clear:
+		await get_tree().create_timer(0.05).timeout
+		if Game.currentroom in Game.progress.completed_rooms:
+			queue_free()
 
 
 func set_size(big := true) -> void:

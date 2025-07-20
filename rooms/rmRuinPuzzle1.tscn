@@ -14,6 +14,7 @@ _data = {
 point_count = 9
 
 [node name="Testroom" instance=ExtResource("1_8hxtd")]
+area = "Central Facility"
 internal_name = "rmRuinPuzzle1"
 
 [node name="Floor" parent="." index="0"]
@@ -32,6 +33,7 @@ tile_map_data = PackedByteArray("AAABAAcACgAAAAAAAQA=")
 
 [node name="ObjPressurePlateActivate" parent="FloorObjects" index="0" instance=ExtResource("2_rlx0k")]
 position = Vector2(16, 96)
+set_room_clear = false
 
 [node name="ObjPlayer" parent="Objects" index="0"]
 position = Vector2(408, 120)

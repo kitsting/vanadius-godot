@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bhh12joa0ki0j"]
+[gd_scene load_steps=14 format=4 uid="uid://bhh12joa0ki0j"]
 
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_wtuta"]
 [ext_resource type="PackedScene" uid="uid://crbf2p55kyiu" path="res://objects/DoorWire.tscn" id="2_hbrk8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bo774rdljiuxp" path="res://sprites/SomewhatFunctionalClock.png" id="4_e3pr0"]
 [ext_resource type="PackedScene" uid="uid://bi2bk1hxyhjh5" path="res://objects/pressure_plate/objGiantPlateClock.tscn" id="5_kfhji"]
 [ext_resource type="TileSet" uid="uid://dj4rnvi15wx87" path="res://resources/tilesets/tiles.tres" id="6_hbrk8"]
+[ext_resource type="PackedScene" uid="uid://diy0ps6ikrp1w" path="res://objects/objInteract.tscn" id="8_vytdj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e3pr0"]
 atlas = ExtResource("4_e3pr0")
@@ -32,6 +33,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmjbb"]
 size = Vector2(88, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glvtk"]
+size = Vector2(32, 20)
 
 [node name="Testroom" instance=ExtResource("1_wtuta")]
 area = "Tower Core"
@@ -114,3 +118,11 @@ tile_map_data = PackedByteArray("AAAAAAEACQAAAAIAAAABAAEACQAAAAQAAAABAAAACQABAAE
 
 [node name="Camera" parent="." index="7"]
 position = Vector2(168, 400)
+
+[node name="objInteract" parent="." index="9" instance=ExtResource("8_vytdj")]
+position = Vector2(167.88, 286.762)
+node = "clock"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objInteract" index="1"]
+position = Vector2(0.120026, 49)
+shape = SubResource("RectangleShape2D_glvtk")

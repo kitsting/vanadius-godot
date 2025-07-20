@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="3_07kh7"]
 
 [node name="Testroom" instance=ExtResource("1_rdgc5")]
+area = "Central Facility"
 internal_name = "rmRuinChallenge3"
 
 [node name="Floor" parent="." index="0"]

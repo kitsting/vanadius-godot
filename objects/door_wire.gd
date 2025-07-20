@@ -29,7 +29,7 @@ func update_color(value):
 
 
 
-func update_anim(value) -> void:
+func update_anim(value=mode) -> void:
 	if value == "lab" and Game.progress["lab_complete"]:
 		await get_tree().create_timer(randf_range(0.0, 0.5)).timeout
 		$AnimationPlayer.play("active")

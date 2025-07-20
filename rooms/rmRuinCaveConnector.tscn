@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://dgryc4ti8isrm"]
+[gd_scene load_steps=11 format=4 uid="uid://dgryc4ti8isrm"]
 
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_0ufn8"]
 [ext_resource type="Texture2D" uid="uid://djg30wuqexbbp" path="res://sprites/sprIntroPlatformIndent.png" id="2_m80kc"]
+[ext_resource type="TileSet" uid="uid://hmcf6vm4y7tx" path="res://resources/tilesets/small_tiles.tres" id="3_bmhnp"]
 [ext_resource type="Texture2D" uid="uid://w6f1ew3tbk4h" path="res://sprites/sprIntroBackwall.png" id="3_gq84g"]
 [ext_resource type="PackedScene" uid="uid://bo4x4vsbwga7x" path="res://objects/obj_platform.tscn" id="4_mwkyu"]
 [ext_resource type="TileSet" uid="uid://dj4rnvi15wx87" path="res://resources/tilesets/tiles.tres" id="5_3oo0a"]
@@ -13,6 +14,7 @@
 size = Vector2(44, 33.7036)
 
 [node name="Testroom" instance=ExtResource("1_0ufn8")]
+area = "Central Facility"
 internal_name = "rmRuinCaveConnector"
 beep_boop_room = true
 
@@ -25,6 +27,10 @@ texture = ExtResource("2_m80kc")
 
 [node name="Walls" parent="." index="1"]
 tile_map_data = PackedByteArray("AAAAAAUACAAGAAEAAAABAAUACAAHAAEAAAACAAUACAAHAAEAAAAEAAUACAAHAAEAAAADAAUACAAHAAEAAAAGAAUACAAHAAEAAAAFAAUACAAHAAEAAAAHAAUACAAHAAEAAAAIAAUACAAHAAEAAAAJAAUACAAHAAEAAAAKAAUACAAIAAEAAAAIAAYACAAHAAMAAAAHAAYACAAHAAMAAAAGAAYACAAHAAMAAAAFAAYACAAHAAMAAAAEAAYACAAHAAMAAAADAAYACAAHAAMAAAACAAYACAAHAAMAAAABAAYACAAHAAMAAAAAAAYACAAGAAMAAAAKAAYACAAIAAMAAAAJAAYACAAHAAMAAAAPAAUACAAHAAEAAAAQAAUACAAHAAEAAAARAAUACAAHAAEAAAASAAUACAAHAAEAAAATAAUACAAHAAEAAAAUAAUACAAIAAEAAAAUAAYACAAIAAMAAAATAAYACAAHAAMAAAASAAYACAAHAAMAAAARAAYACAAHAAMAAAAQAAYACAAHAAMAAAAPAAYACAAHAAMAAAAOAAYACAAGAAMAAAAOAAUACAAGAAEAAAA=")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileObjects" index="0"]
+tile_map_data = PackedByteArray("AAAgABkAAAAAAAAAAgAhABkAAAAAAAAAAgAiABkAAAAAAAAAAgAjABkAAAAAAAAAAgAkABkAAAAAAAAAAgAlABkAAAAAAAAAAgA=")
+tile_set = ExtResource("3_bmhnp")
 
 [node name="TextureRect" type="TextureRect" parent="." index="3"]
 z_index = -4

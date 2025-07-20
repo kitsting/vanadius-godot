@@ -4,6 +4,8 @@ extends Area2D
 @export var collectible_id : String
 @export var savepos : bool = false
 
+@export var set_room_clear := false
+
 var collected : bool = false
 var target_body : Node = null
 
@@ -37,6 +39,9 @@ func _input(_event: InputEvent) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and !collected:
+		if set_room_clear:
+			Game.progress_append("completed_rooms", Game.currentroom)
+		
 		collected = true
 		$collected_screen/ColorRect/input.text = "Press " + Game.get_input_sprite() + " to continue"
 		$collected_screen.visible = true
