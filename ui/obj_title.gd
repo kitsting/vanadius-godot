@@ -117,9 +117,9 @@ func _input(_event: InputEvent) -> void:
 			showing_credits = false
 			
 		if Input.is_action_just_pressed("ui_up"):
-			line = clamp(line - 2, 0, $Credits/MarginContainer/Label.get_visible_line_count()+2)
+			line = clamp(line - 2, 0, $Credits/MarginContainer/Label.get_visible_line_count()+8)
 			
 		if Input.is_action_just_pressed("ui_down"):
-			line = clamp(line + 2, 0, $Credits/MarginContainer/Label.get_visible_line_count()+2)
+			line = clamp(line + 2, 0, $Credits/MarginContainer/Label.get_visible_line_count()+8)
 			
 		$Credits/MarginContainer/Label.scroll_to_line(line)

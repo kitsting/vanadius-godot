@@ -379,10 +379,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 8
 
 [node name="Label" type="RichTextLabel" parent="Credits/MarginContainer"]
 layout_mode = 2
@@ -399,7 +399,11 @@ theme_override_fonts/normal_font = ExtResource("5_8tern")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkenn")
 bbcode_enabled = true
-text = "[color=yellow]Sound Attribution[/color]
+text = "A game by Kitsting
+
+With additional help and playtesting from Aegsphere and Luna Stephenson
+
+[color=yellow]Sound Attribution[/color]
 \"Wind, Synthesized, A.wav\",\"UI, Mechanical, Text-Scroll, 03, FX, 01, LOOP.wav\"
  InspectorJ (www.jshaw.co.uk)(Freesound.org)
 [color=gray]Licensed under Creative Commons: By Attribution 3.0

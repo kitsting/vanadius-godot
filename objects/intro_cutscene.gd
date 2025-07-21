@@ -14,15 +14,18 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func cutscene() -> void:
-	tutorial_node.modulate.a = 0
-	Audio.stop_music()
+	if tutorial_node != null:
+		tutorial_node.modulate.a = 0
+		Audio.stop_music()
 	platform_node.position.y = position.y
 	player_node.position = platform_node.position
 	platform_node.target_body = player_node
 
 	await platform_node.tippy_top
 	
-	Audio.resume_music()
+	if tutorial_node != null:
+		Audio.resume_music()
+	
 	if player_node.pstate == Game.PLAYERSTATE.CUTSCENE:
 		player_node.swap_anim("dead", false, true)
 	
@@ -31,5 +34,6 @@ func cutscene() -> void:
 	if player_node.pstate == Game.PLAYERSTATE.CUTSCENE:
 		player_node.pstate = Game.PLAYERSTATE.ALIVE
 
-	var tween := get_tree().create_tween()
-	tween.tween_property(tutorial_node, "modulate", Color(1,1,1,1), 0.5)
+	if tutorial_node != null:
+		var tween := get_tree().create_tween()
+		tween.tween_property(tutorial_node, "modulate", Color(1,1,1,1), 0.5)

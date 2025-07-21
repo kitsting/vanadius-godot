@@ -9,7 +9,12 @@ var settings := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	%collect_label.text = str(Game.progress["collectibles"].size()) + "/" + str(Game.m_total_collectibles)
+	if Game.stats.game_good_ending:
+		%collect_label.text = str(Game.progress["collectibles"].size()) + "/20"
+	elif Game.stats.game_completed:
+		%collect_label.text = str(Game.progress["collectibles"].size()) + "/" + str(Game.m_total_collectibles)
+	else:
+		%collect_label.text = str(Game.progress["collectibles"].size())
 	%death_label.text = str(int(Game.progress["deaths"]))
 	
 	%Resume.grab_focus()

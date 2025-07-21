@@ -6,7 +6,7 @@ var can_input := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Game.progress.time_sec < 30*60:
+	if Game.progress.time_sec < 20*60:
 		quote = "\"You walked the speedy path, yet the outcome was the same. Curious...\""
 	elif Game.stats.game_good_ending:
 		quote = "\"You've found freedom, yet you still choose the forsaken path? Interesting...\""

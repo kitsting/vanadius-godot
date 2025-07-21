@@ -50,3 +50,11 @@ Too heavy...
 ~ clock
 An analog clock. It's stuck.
 => END
+
+~ cave_box
+A box of supplies. It's covered by a green tarp.
+=> END
+
+~ cave_box_notarp
+A box of supplies. There is no tarp.
+=> END

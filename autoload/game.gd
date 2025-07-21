@@ -75,7 +75,7 @@ var showtimer := false
 var noclipmode := false
 var usedevtools := true
 
-var version := "1.3.0-beta0720"
+var version := "1.3.0-beta0721"
 
 var roomtargetarea := "Nonexistent"
 var area := roomtargetarea

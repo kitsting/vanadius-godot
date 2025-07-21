@@ -38,6 +38,7 @@ func _physics_process(delta: float) -> void:
 			position.y = min_y
 			$Sprite2D.global_position = round(position)
 			$CollisionPolygon2D.disabled = true
+			get_tree().call_group("camera", "shake", 1, 15, 2)
 			emit_signal("tippy_top")
 
 
