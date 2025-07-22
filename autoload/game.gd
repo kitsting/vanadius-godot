@@ -62,6 +62,8 @@ var clock_ui : Node = null
 
 var safepressureplatepressed := false
 
+var pause_screen := false
+
 var lasers := true:
 	set(value):
 		lasers = value
@@ -75,7 +77,7 @@ var showtimer := false
 var noclipmode := false
 var usedevtools := true
 
-var version := "1.3.0-beta0721"
+var version := "1.3.0-beta0722"
 
 var roomtargetarea := "Nonexistent"
 var area := roomtargetarea
@@ -472,3 +474,12 @@ func get_input_sprite() -> String:
 		return "Space or Z"
 	else:
 		return "[img]res://sprites/input/ButtonAGeneric.png[/img]"
+
+func _notification(what: int) -> void:
+	if options.pause_on_lost_focus:
+		if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT:
+			if !pause_screen:
+				get_tree().paused = true
+		elif what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_IN:
+			if !pause_screen:
+				get_tree().paused = false

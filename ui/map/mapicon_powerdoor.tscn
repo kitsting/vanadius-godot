@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dydl28d05hijd"]
+
+[ext_resource type="Texture2D" uid="uid://fvwmc1i8sgl" path="res://sprites/ui/map/mapicon_powerdoor_v.png" id="1_43lhm"]
+[ext_resource type="Script" uid="uid://fieydycrmcyd" path="res://ui/map/mapicon_powerdoor.gd" id="2_75l0s"]
+
+[node name="powerdoor" type="TextureRect"]
+offset_right = 7.0
+offset_bottom = 7.0
+texture = ExtResource("1_43lhm")
+stretch_mode = 2
+script = ExtResource("2_75l0s")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ci1wc7rp62n"]
+
+[ext_resource type="Texture2D" uid="uid://b450gkrtr74ii" path="res://sprites/ui/map/mapicon_shortcut.png" id="1_jyrud"]
+[ext_resource type="Script" uid="uid://b5ttqmv8e3kns" path="res://ui/map/mapicon_shortcut.gd" id="2_4bqaf"]
+
+[node name="shortcut" type="TextureRect"]
+offset_right = 7.0
+offset_bottom = 7.0
+texture = ExtResource("1_jyrud")
+stretch_mode = 2
+script = ExtResource("2_4bqaf")

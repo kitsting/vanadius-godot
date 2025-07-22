@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdn3p8f5jfap2"]
+
+[ext_resource type="Texture2D" uid="uid://co3eq4l31bm70" path="res://sprites/ui/map/mapnode_nsew.png" id="1_jn5wh"]
+[ext_resource type="Script" uid="uid://c7tbl57njsxmr" path="res://ui/map/map_node.gd" id="1_vgfhj"]
+[ext_resource type="Texture2D" uid="uid://b5en7wrrt64ye" path="res://sprites/ui/you_are_here1.png" id="3_fcw8v"]
+[ext_resource type="Texture2D" uid="uid://cia22wp4kb8bc" path="res://sprites/ui/you_are_here2.png" id="4_o20d6"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_3r36i"]
+frames = 2
+frame_0/texture = ExtResource("3_fcw8v")
+frame_0/duration = 0.4
+frame_1/texture = ExtResource("4_o20d6")
+frame_1/duration = 0.6
+
+[node name="map_node" type="TextureRect"]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
+offset_right = 13.0
+offset_bottom = 13.0
+texture = ExtResource("1_jn5wh")
+stretch_mode = 2
+script = ExtResource("1_vgfhj")
+
+[node name="you_are_here" type="NinePatchRect" parent="."]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 13.0
+offset_bottom = 13.0
+texture = SubResource("AnimatedTexture_3r36i")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7

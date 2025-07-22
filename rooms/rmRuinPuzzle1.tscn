@@ -50,10 +50,12 @@ target_room = "uid://hd68dja7lbnx"
 target_x = 24
 target_y = 78
 direction = 2
+reveal_node = ""
 
 [node name="objRoomTransition2" parent="TopObjects" index="1" instance=ExtResource("4_5gytq")]
 position = Vector2(224, 272)
 target_room = "uid://cca7uxvci3rs1"
+reveal_node = "transRuinChallenge2"
 
 [node name="Path2D" type="Path2D" parent="TopObjects" index="2"]
 curve = SubResource("Curve2D_dnew0")
@@ -72,3 +74,4 @@ position = Vector2(32, 16)
 rotation = 3.14159
 target_room = "uid://dk2stv11haq11"
 direction = 1
+reveal_node = ""

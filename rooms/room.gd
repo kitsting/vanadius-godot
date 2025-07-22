@@ -21,6 +21,7 @@ extends Node2D
 @export var beep_boop_room : bool = false
 @export var allow_pausing : bool = true
 @export var suppress_area_display := false
+@export var music := ""
 
 @export_group("Darkness")
 @export_range(0.0, 1.0, 0.05) var darkness_intensity : float = 0:
@@ -111,7 +112,10 @@ func _ready() -> void:
 		if beep_boop_room:
 			Audio.set_music("res://music/mysterious.ogg")
 		else:
-			Audio.set_music("res://music/"+Game.getMusic(area)+".ogg")
+			if music == "":
+				Audio.set_music("res://music/"+Game.getMusic(area)+".ogg")
+			else:
+				Audio.set_music("res://music/"+music+".ogg")
 	else:
 		if beep_boop_room and Game.progress.power_complete:
 			Audio.set_music("res://music/mysterious.ogg")
@@ -133,11 +137,13 @@ func checkArea() -> String:
 func _input(_event: InputEvent) -> void:
 	if allow_pausing and Input.is_action_just_pressed("pause") and !pause_cooldown:
 		var new_pause : Node = load("res://ui/objPause.tscn").instantiate()
+		Game.pause_screen = true
 		get_tree().paused = true
 		add_child(new_pause)
 		pause_cooldown = true
 		await new_pause.done
 		get_tree().paused = false
+		Game.pause_screen = false
 		await get_tree().create_timer(0.2).timeout
 		pause_cooldown = false
 

@@ -21,6 +21,7 @@ extends Area2D
 
 
 @export var set_room_clear := false
+@export var reveal_node := ""
 				
 @export_group("Sizing")
 @export var auto_size := true
@@ -79,6 +80,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and !triggered:
 		if set_room_clear:
 			Game.progress_append("completed_rooms", Game.currentroom)
+			
+		if reveal_node != "":
+			Game.progress_append("visited_rooms", reveal_node)
 		
 		triggered = true
 		target_body = body

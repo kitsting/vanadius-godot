@@ -8,10 +8,11 @@ extends Area2D
 @export var direction : Game.PLAYERDIR = Game.PLAYERDIR.DOWN
 
 @export var set_room_clear := false
+@export var reveal_node := ""
 
 @export var stop_music := true
 
-var can_use = false
+var can_use := false
 var target_body : Node = null
 
 # Called when the node enters the scene tree for the first time.
@@ -21,7 +22,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if can_use and target_body != null:
 		if Input.is_action_just_pressed("ui_accept"):
 			
@@ -39,6 +40,9 @@ func _input(event: InputEvent) -> void:
 				
 			if set_room_clear:
 				Game.progress_append("completed_rooms", Game.currentroom)
+				
+			if reveal_node != "":
+				Game.progress_append("visited_rooms", reveal_node)
 			
 			Game.transition_room(target_room, true)
 

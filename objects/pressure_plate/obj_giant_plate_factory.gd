@@ -1,6 +1,6 @@
 extends Area2D
 
-var pressed = false
+var pressed := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

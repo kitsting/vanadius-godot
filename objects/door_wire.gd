@@ -5,7 +5,7 @@ const LABCOLOR = Color("#111bdf")
 const FACTORYCOLOR = Color("#00b200")
 const CLOCKCOLOR = Color("#df1111")
 
-@export_enum("lab", "factory", "clock") var mode = "lab":
+@export_enum("lab", "factory", "clock") var mode := "lab":
 	set(value):
 		mode = value
 		update_color(value)
@@ -19,7 +19,7 @@ func _ready() -> void:
 
 
 
-func update_color(value):
+func update_color(value : String) -> void:
 	if value == "lab":
 		self_modulate = LABCOLOR
 	elif value == "factory":
@@ -29,7 +29,7 @@ func update_color(value):
 
 
 
-func update_anim(value=mode) -> void:
+func update_anim(value := mode) -> void:
 	if value == "lab" and Game.progress["lab_complete"]:
 		await get_tree().create_timer(randf_range(0.0, 0.5)).timeout
 		$AnimationPlayer.play("active")

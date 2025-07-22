@@ -10,7 +10,7 @@
 [node name="Testroom" type="Node2D" groups=["room"]]
 texture_filter = 1
 script = ExtResource("1_hy8ai")
-area = "Forgotten Ruins"
+area = "Central Facility"
 
 [node name="Floor" type="TileMapLayer" parent="."]
 z_index = -7

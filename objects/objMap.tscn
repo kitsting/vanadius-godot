@@ -1,15 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://71kxce1shkm6"]
+[gd_scene load_steps=31 format=3 uid="uid://71kxce1shkm6"]
 
 [ext_resource type="Script" uid="uid://b61cidvyunf0" path="res://objects/obj_map.gd" id="1_6fv54"]
 [ext_resource type="Texture2D" uid="uid://ciu7r8ami6e6l" path="res://sprites/ui/map_bg.png" id="1_64f5w"]
 [ext_resource type="Texture2D" uid="uid://5pl0vh58wpbq" path="res://sprites/vanadius_map.png" id="1_tod6v"]
+[ext_resource type="PackedScene" uid="uid://cdn3p8f5jfap2" path="res://ui/map/map_node.tscn" id="3_cng4x"]
+[ext_resource type="Texture2D" uid="uid://bc222njaw7dnu" path="res://sprites/ui/map/mapnode_nw.png" id="4_bhh24"]
+[ext_resource type="Texture2D" uid="uid://kqt8uhflwgia" path="res://sprites/ui/map/mapnode_rmRuinFEntrance1.png" id="5_3grd2"]
+[ext_resource type="Texture2D" uid="uid://b761i4dkdtuwq" path="res://sprites/ui/map/mapnode_ns.png" id="5_7n748"]
+[ext_resource type="Texture2D" uid="uid://byawa3plenf4t" path="res://sprites/ui/map/mapnode_s.png" id="5_37u06"]
+[ext_resource type="PackedScene" uid="uid://cdslpv1j3kwiq" path="res://ui/map/mapicon_gate.tscn" id="5_f70vo"]
+[ext_resource type="Texture2D" uid="uid://d1qikjfrx8lyq" path="res://sprites/ui/map/mapnode_rmRuinControl1.png" id="5_t0i1n"]
+[ext_resource type="PackedScene" uid="uid://dkh716n0rpac1" path="res://ui/map/mapicon_collectible.tscn" id="6_3grd2"]
+[ext_resource type="PackedScene" uid="uid://dydl28d05hijd" path="res://ui/map/mapicon_powerdoor.tscn" id="6_21n1s"]
+[ext_resource type="Texture2D" uid="uid://dr6tq1jest7fo" path="res://sprites/ui/map/mapicon_door.png" id="6_43t8d"]
+[ext_resource type="Texture2D" uid="uid://bveniv4lquo6a" path="res://sprites/ui/map/mapnode_wide_ew.png" id="6_nd0fe"]
+[ext_resource type="Texture2D" uid="uid://blyt5p5d0kd1y" path="res://sprites/ui/map/mapnode_wide_new.png" id="7_616w1"]
+[ext_resource type="Texture2D" uid="uid://o17bl2msfvwg" path="res://sprites/ui/map/hallway_node.png" id="7_c1iyk"]
+[ext_resource type="Texture2D" uid="uid://cp7a0y2skmwjl" path="res://sprites/ui/map/mapnode_nse.png" id="8_7n748"]
+[ext_resource type="Texture2D" uid="uid://4jkbkb13wd5b" path="res://sprites/ui/map/mapnode_rmRuinChallenge1.png" id="8_asf6c"]
+[ext_resource type="Texture2D" uid="uid://dmkw2wcad4li1" path="res://sprites/ui/map/mapnode_ew.png" id="16_vwf4d"]
+[ext_resource type="Texture2D" uid="uid://dqywsmbtp5is4" path="res://sprites/ui/map/mapnode_new.png" id="17_62r21"]
+[ext_resource type="Texture2D" uid="uid://ccucvxhyixgyq" path="res://sprites/ui/map/mapnode_rmFactoryChallenge3.png" id="17_mnun1"]
+[ext_resource type="Texture2D" uid="uid://b23eqqnjerdgt" path="res://sprites/ui/map/mapnode_tall_ns.png" id="18_tip1s"]
+[ext_resource type="Texture2D" uid="uid://cr0dhfhs4shk2" path="res://sprites/ui/map/mapnode_wide_nw.png" id="19_i4kgv"]
+[ext_resource type="Texture2D" uid="uid://bvc4hretvm8ii" path="res://sprites/ui/map/mapnode_e.png" id="20_gqgkc"]
+[ext_resource type="Texture2D" uid="uid://mi30rxxe7d8h" path="res://sprites/ui/map/mapnode_rmFactoryShortcut1.png" id="20_qug3e"]
+[ext_resource type="Texture2D" uid="uid://8uw11ssjf4j4" path="res://sprites/ui/map/hallway_node_thin.png" id="21_dpdn5"]
+[ext_resource type="Texture2D" uid="uid://cxrrgkpyqq4vl" path="res://sprites/ui/map/mapnode_tall_se.png" id="21_stg75"]
+[ext_resource type="PackedScene" uid="uid://d1ci1wc7rp62n" path="res://ui/map/mapicon_shortcut.tscn" id="22_qug3e"]
+[ext_resource type="Texture2D" uid="uid://rgnf3jty0l1a" path="res://sprites/ui/map/mapnode_fall_w.png" id="24_xujbb"]
+[ext_resource type="Texture2D" uid="uid://cr6faoun8fjne" path="res://sprites/ui/map/arrowhead.png" id="27_dpdn5"]
 
 [node name="objMap" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_6fv54")
 
 [node name="bg" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -25,7 +54,771 @@ grow_vertical = 2
 texture = ExtResource("1_64f5w")
 stretch_mode = 1
 
+[node name="nodes" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="rmRuinStart" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 1.0
+offset_right = 14.0
+texture = ExtResource("4_bhh24")
+area = 1
+room_id = "rmRuinStart"
+
+[node name="rmRuinStart3" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 12.0
+offset_right = 14.0
+offset_bottom = 37.0
+texture = ExtResource("5_t0i1n")
+area = 1
+room_id = "rmRuinControl1"
+
+[node name="gate" parent="nodes/rmRuinStart3" instance=ExtResource("5_f70vo")]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 11.0
+offset_right = 11.0
+offset_bottom = 20.0
+
+[node name="rmRuinStart4" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = -11.0
+offset_top = 12.0
+offset_right = 2.0
+offset_bottom = 37.0
+texture = ExtResource("4_bhh24")
+flip_h = true
+flip_v = true
+area = 1
+room_id = "rmRuinControl2"
+
+[node name="rmRuinStart7" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = -35.0
+offset_top = 24.0
+offset_right = -22.0
+offset_bottom = 49.0
+texture = ExtResource("4_bhh24")
+flip_h = true
+area = 1
+room_id = "rmRuinChallenge2"
+
+[node name="rmRuinStart8" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = -30.0
+offset_top = 12.0
+offset_right = -27.0
+offset_bottom = 25.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_h = true
+area = 1
+room_id = "transRuinChallenge2"
+
+[node name="rmRuinStart8" parent="nodes/rmRuinStart8" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 48.0
+offset_top = -12.0
+offset_right = 51.0
+offset_bottom = 1.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_h = true
+area = 1
+room_id = "transFEntrance"
+
+[node name="rmRuinStart6" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = -23.0
+offset_top = 24.0
+offset_right = -10.0
+offset_bottom = 49.0
+texture = ExtResource("17_62r21")
+flip_v = true
+area = 1
+room_id = "rmRuinChallenge3"
+
+[node name="rmRuinStart5" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = -11.0
+offset_top = 24.0
+offset_right = 2.0
+offset_bottom = 49.0
+texture = ExtResource("4_bhh24")
+area = 1
+room_id = "rmRuinHallway3"
+
+[node name="gate" parent="nodes/rmRuinStart5" instance=ExtResource("5_f70vo")]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 11.0
+offset_bottom = 10.0
+
+[node name="rmRuinStart2" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 26.0
+offset_bottom = 37.0
+texture = ExtResource("5_3grd2")
+area = 1
+room_id = "rmRuinFEntrance"
+
+[node name="collectible" parent="nodes/rmRuinStart2" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 3.08109
+offset_top = 14.8646
+offset_right = 10.0811
+offset_bottom = 21.8646
+collectible_id = "2"
+
+[node name="rmRuinTutorial2" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 1.0
+offset_top = -12.0
+offset_right = 14.0
+offset_bottom = 1.0
+area = 1
+room_id = "rmRuinTutorial2"
+
+[node name="rmRuinTutorial5" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = -24.0
+offset_right = 26.0
+offset_bottom = -11.0
+texture = ExtResource("5_37u06")
+area = 1
+room_id = "rmRuinBreak"
+
+[node name="collectible" parent="nodes/rmRuinTutorial5" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 10.0
+collectible_id = "3"
+
+[node name="rmRuinTutorial4" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = -12.0
+offset_right = 26.0
+offset_bottom = 1.0
+area = 1
+room_id = "rmRuinPuzzle2"
+
+[node name="gate" parent="nodes/rmRuinTutorial4" instance=ExtResource("5_f70vo")]
+layout_mode = 0
+offset_left = 2.09126
+offset_top = 0.574518
+offset_right = 11.0913
+offset_bottom = 9.57452
+
+[node name="powerdoor" parent="nodes/rmRuinTutorial4" instance=ExtResource("6_21n1s")]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 14.0
+offset_bottom = 10.0
+
+[node name="rmRuinTutorial3" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 1.0
+offset_top = -24.0
+offset_right = 14.0
+offset_bottom = -11.0
+texture = ExtResource("5_7n748")
+area = 1
+room_id = "rmRuinEnd"
+
+[node name="TextureRect" type="TextureRect" parent="nodes/rmRuinTutorial3"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 10.0
+texture = ExtResource("6_43t8d")
+stretch_mode = 2
+
+[node name="rmRuinTutorial1" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = -23.0
+offset_right = 2.0
+texture = ExtResource("6_nd0fe")
+area = 1
+room_id = "rmRuinTutorial1"
+
+[node name="rmRuinHallway2" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = -23.0
+offset_top = -12.0
+offset_right = 2.0
+offset_bottom = 1.0
+texture = ExtResource("7_616w1")
+area = 1
+room_id = "rmRuinHallway2"
+
+[node name="rmRuinHallway3" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = -23.0
+offset_top = -24.0
+offset_right = 2.0
+offset_bottom = -11.0
+texture = ExtResource("4_bhh24")
+flip_v = true
+area = 1
+room_id = "rmRuinSecret1"
+
+[node name="collectible" parent="nodes/rmRuinHallway3" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 2.52287
+offset_top = 2.93275
+offset_right = 9.52287
+offset_bottom = 9.93275
+collectible_id = "1"
+
+[node name="node5" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = -35.0
+offset_top = -24.0
+offset_right = -22.0
+offset_bottom = 1.0
+texture = ExtResource("8_asf6c")
+area = 1
+room_id = "rmRuinChallenge1"
+
+[node name="node6" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = -47.0
+offset_top = -24.0
+offset_right = -34.0
+offset_bottom = -11.0
+texture = ExtResource("4_bhh24")
+flip_h = true
+flip_v = true
+area = 1
+room_id = "rmRuinHallway1"
+
+[node name="node7" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -47.0
+offset_top = -12.0
+offset_right = -34.0
+offset_bottom = 1.0
+texture = ExtResource("4_bhh24")
+area = 3
+room_id = "rmLabStart"
+
+[node name="map_node" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = -35.0
+offset_right = -22.0
+texture = ExtResource("8_7n748")
+area = 1
+room_id = "rmRuinPuzzle1"
+
+[node name="map_node2" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 25.0
+offset_top = 24.0
+offset_right = 38.0
+offset_bottom = 37.0
+texture = ExtResource("16_vwf4d")
+area = 2
+room_id = "rmFactoryStart"
+
+[node name="map_node26" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 36.0
+offset_right = 14.0
+offset_bottom = 49.0
+texture = ExtResource("20_gqgkc")
+area = 1
+room_id = "rmRuinTube3"
+
+[node name="map_node28" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 133.0
+offset_top = 60.0
+offset_right = 146.0
+offset_bottom = 73.0
+texture = ExtResource("20_gqgkc")
+flip_h = true
+area = 1
+room_id = "rmRuinTube1"
+
+[node name="map_node32" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 65.0
+offset_right = 133.0
+offset_bottom = 68.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_h = true
+area = 1
+room_id = "transTube1"
+
+[node name="map_node33" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 63.0
+offset_right = 23.0
+offset_bottom = 66.0
+rotation = 1.5708
+texture = ExtResource("27_dpdn5")
+flip_h = true
+area = 1
+room_id = "transTube1"
+
+[node name="map_node36" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 128.0
+offset_top = 63.0
+offset_right = 135.0
+offset_bottom = 66.0
+rotation = 1.5708
+texture = ExtResource("27_dpdn5")
+flip_h = true
+area = 1
+room_id = "transTube1"
+
+[node name="map_node37" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 73.0
+offset_top = 63.0
+offset_right = 80.0
+offset_bottom = 66.0
+rotation = 1.5708
+texture = ExtResource("27_dpdn5")
+flip_h = true
+area = 1
+room_id = "transTube1"
+
+[node name="map_node29" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 60.0
+offset_right = 14.0
+offset_bottom = 73.0
+texture = ExtResource("5_37u06")
+flip_v = true
+area = 1
+room_id = "rmRuinTube2"
+
+[node name="map_node34" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 51.0
+offset_right = 9.0
+offset_bottom = 61.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_v = true
+area = 1
+room_id = "transTube2"
+
+[node name="map_node35" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 48.0
+offset_right = 11.0
+offset_bottom = 51.0
+texture = ExtResource("27_dpdn5")
+flip_v = true
+area = 1
+room_id = "transTube2"
+
+[node name="map_node27" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 33.0
+offset_right = 14.0
+offset_bottom = 41.0
+texture = ExtResource("21_dpdn5")
+stretch_mode = 0
+area = 1
+room_id = "transRuinTube3"
+
+[node name="map_node5" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 49.0
+offset_top = 36.0
+offset_right = 62.0
+offset_bottom = 49.0
+texture = ExtResource("16_vwf4d")
+area = 2
+room_id = "rmFactoryHallway1"
+
+[node name="map_node7" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 73.0
+offset_top = 24.0
+offset_right = 86.0
+offset_bottom = 37.0
+texture = ExtResource("17_62r21")
+area = 2
+room_id = "rmFactoryPackageRoom"
+
+[node name="gate" parent="nodes/map_node7" instance=ExtResource("5_f70vo")]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 11.0
+offset_bottom = 10.0
+
+[node name="map_node8" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 85.0
+offset_top = 24.0
+offset_right = 98.0
+offset_bottom = 37.0
+texture = ExtResource("17_62r21")
+area = 2
+room_id = "rmFactoryHallway2"
+
+[node name="map_node10" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 97.0
+offset_top = 24.0
+offset_right = 110.0
+offset_bottom = 37.0
+texture = ExtResource("4_bhh24")
+flip_v = true
+area = 2
+room_id = "rmFactoryBoxIntro"
+
+[node name="map_node19" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 97.0
+offset_top = 12.0
+offset_right = 110.0
+offset_bottom = 25.0
+texture = ExtResource("4_bhh24")
+flip_h = true
+area = 2
+room_id = "rmFactoryHallway4"
+
+[node name="map_node21" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 97.0
+offset_top = -12.0
+offset_right = 110.0
+offset_bottom = 1.0
+texture = ExtResource("4_bhh24")
+flip_h = true
+flip_v = true
+area = 2
+room_id = "rmFactoryHallway5"
+
+[node name="map_node11" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 97.0
+offset_top = 36.0
+offset_right = 110.0
+offset_bottom = 49.0
+texture = ExtResource("4_bhh24")
+area = 2
+room_id = "rmFactoryHallway3"
+
+[node name="map_node16" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 109.0
+offset_top = 48.0
+offset_right = 122.0
+offset_bottom = 61.0
+texture = ExtResource("4_bhh24")
+area = 2
+room_id = "rmFactoryBlueIntro"
+
+[node name="map_node17" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 109.0
+offset_top = 24.0
+offset_right = 122.0
+offset_bottom = 49.0
+texture = ExtResource("18_tip1s")
+area = 2
+room_id = "rmFactoryBlue1"
+
+[node name="map_node18" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 109.0
+offset_top = 12.0
+offset_right = 134.0
+offset_bottom = 25.0
+texture = ExtResource("19_i4kgv")
+area = 2
+room_id = "rmFactoryBlue1"
+
+[node name="collectible" parent="nodes/map_node18" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 2.67703
+offset_top = 3.49011
+offset_right = 9.67703
+offset_bottom = 10.4901
+collectible_id = "6"
+
+[node name="map_node12" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 85.0
+offset_top = 36.0
+offset_right = 98.0
+offset_bottom = 49.0
+texture = ExtResource("16_vwf4d")
+area = 2
+room_id = "rmFactoryBoxPuzzle2"
+
+[node name="map_node13" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 73.0
+offset_top = 36.0
+offset_right = 86.0
+offset_bottom = 49.0
+texture = ExtResource("4_bhh24")
+flip_h = true
+flip_v = true
+area = 2
+room_id = "rmFactoryLeverIntro"
+
+[node name="map_node14" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 73.0
+offset_top = 48.0
+offset_right = 86.0
+offset_bottom = 61.0
+texture = ExtResource("17_62r21")
+area = 2
+room_id = "rmFactoryLever1"
+
+[node name="map_node24" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 37.0
+offset_top = 48.0
+offset_right = 74.0
+offset_bottom = 61.0
+texture = ExtResource("20_qug3e")
+area = 2
+room_id = "rmFactoryShortcut1"
+
+[node name="shortcut" parent="nodes/map_node24" instance=ExtResource("22_qug3e")]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 3.0
+offset_right = 29.0
+offset_bottom = 10.0
+rotation = 1.5708
+shortcut_id = 1015
+
+[node name="map_node15" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 85.0
+offset_top = 48.0
+offset_right = 98.0
+offset_bottom = 61.0
+texture = ExtResource("6_nd0fe")
+area = 2
+room_id = "rmFactoryLever2"
+
+[node name="map_node22" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 109.0
+offset_top = -12.0
+offset_right = 134.0
+offset_bottom = 1.0
+texture = ExtResource("6_nd0fe")
+area = 2
+room_id = "rmFactoryHallway6"
+
+[node name="map_node25" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 133.0
+offset_top = -12.0
+offset_right = 146.0
+offset_bottom = 5.0
+texture = ExtResource("24_xujbb")
+area = 2
+room_id = "rmFactoryEnd"
+
+[node name="map_node30" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 138.0
+offset_top = 5.0
+offset_right = 141.0
+offset_bottom = 61.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 2
+room_id = "transFactoryFall"
+
+[node name="map_node31" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 136.0
+offset_top = 58.0
+offset_right = 143.0
+offset_bottom = 61.0
+texture = ExtResource("27_dpdn5")
+area = 2
+room_id = "transFactoryFall"
+
+[node name="map_node38" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 136.0
+offset_top = 30.0
+offset_right = 143.0
+offset_bottom = 33.0
+texture = ExtResource("27_dpdn5")
+area = 2
+room_id = "transFactoryFall"
+
+[node name="map_node9" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 73.0
+offset_top = 12.0
+offset_right = 86.0
+offset_bottom = 25.0
+texture = ExtResource("5_37u06")
+area = 7
+room_id = "rmOutside1"
+
+[node name="collectible" parent="nodes/map_node9" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 10.0
+collectible_id = "5"
+
+[node name="map_node6" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 61.0
+offset_top = 24.0
+offset_right = 74.0
+offset_bottom = 49.0
+texture = ExtResource("17_mnun1")
+area = 2
+room_id = "rmFactoryChallege3"
+
+[node name="collectible" parent="nodes/map_node6" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 3.27728
+offset_top = 2.69897
+offset_right = 10.2773
+offset_bottom = 9.69897
+collectible_id = "4"
+
+[node name="map_node3" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 37.0
+offset_top = 24.0
+offset_right = 50.0
+offset_bottom = 37.0
+texture = ExtResource("4_bhh24")
+flip_v = true
+area = 2
+room_id = "rmFactoryChallenge1"
+
+[node name="map_node4" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 37.0
+offset_top = 36.0
+offset_right = 50.0
+offset_bottom = 49.0
+texture = ExtResource("8_7n748")
+area = 2
+room_id = "rmFactoryChallenge2"
+
+[node name="map_node20" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 97.0
+offset_right = 110.0
+texture = ExtResource("8_7n748")
+flip_h = true
+area = 2
+room_id = "rmFactoryBoxFinal"
+
+[node name="map_node23" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.254902, 0.360784, 0.156863, 1)
+layout_mode = 0
+offset_left = 85.0
+offset_right = 98.0
+texture = ExtResource("21_stg75")
+area = 2
+room_id = "rmFactoryShortcut2"
+
+[node name="shortcut" parent="nodes/map_node23" instance=ExtResource("22_qug3e")]
+layout_mode = 0
+offset_left = 3.12679
+offset_top = 4.88347
+offset_right = 10.1268
+offset_bottom = 11.8835
+shortcut_id = 1359
+
 [node name="map" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

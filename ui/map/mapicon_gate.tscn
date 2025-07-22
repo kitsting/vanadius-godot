@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdslpv1j3kwiq"]
+
+[ext_resource type="Texture2D" uid="uid://4bjenxdq60bw" path="res://sprites/ui/map/mapicon_gate.png" id="1_0hqpb"]
+[ext_resource type="Script" uid="uid://q4ws8jjlmqrx" path="res://ui/map/mapicon_gate.gd" id="2_2fnyr"]
+
+[node name="gate" type="TextureRect"]
+offset_right = 9.0
+offset_bottom = 9.0
+texture = ExtResource("1_0hqpb")
+stretch_mode = 2
+script = ExtResource("2_2fnyr")

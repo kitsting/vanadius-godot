@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkh716n0rpac1"]
+
+[ext_resource type="Texture2D" uid="uid://wjhw6nosdxle" path="res://sprites/ui/map/mapicon_collectible_empty.png" id="1_4skw0"]
+[ext_resource type="Script" uid="uid://b7qai0svq2kh7" path="res://ui/map/mapicon_collectible.gd" id="2_ovsjs"]
+
+[node name="collectible" type="TextureRect"]
+offset_right = 7.0
+offset_bottom = 7.0
+texture = ExtResource("1_4skw0")
+stretch_mode = 2
+script = ExtResource("2_ovsjs")

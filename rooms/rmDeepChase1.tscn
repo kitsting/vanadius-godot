@@ -73,18 +73,23 @@ position = Vector2(780, -496)
 
 [node name="objCrate" parent="Objects" index="5" instance=ExtResource("6_nr7m2")]
 position = Vector2(666, -560)
+disable_on_room_clear = true
 
 [node name="objCrate2" parent="Objects" index="6" instance=ExtResource("6_nr7m2")]
 position = Vector2(654, -546)
+disable_on_room_clear = true
 
 [node name="objCrate3" parent="Objects" index="7" instance=ExtResource("6_nr7m2")]
 position = Vector2(664, -529)
+disable_on_room_clear = true
 
 [node name="objCrate4" parent="Objects" index="8" instance=ExtResource("6_nr7m2")]
 position = Vector2(648, -515)
+disable_on_room_clear = true
 
 [node name="objCrate5" parent="Objects" index="9" instance=ExtResource("6_nr7m2")]
 position = Vector2(666, -500)
+disable_on_room_clear = true
 
 [node name="objThing2" parent="Objects" index="10" instance=ExtResource("5_rfffe")]
 position = Vector2(540, -544)
@@ -121,6 +126,7 @@ target_room = "uid://cumo3bxsmxgo6"
 target_x = 180
 target_y = 360
 direction = 1
+set_room_clear = true
 
 [node name="Marker2D" type="Marker2D" parent="TopObjects" index="4"]
 position = Vector2(782, -614)
