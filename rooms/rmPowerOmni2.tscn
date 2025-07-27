@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://4elevcopu5x"]
+[gd_scene load_steps=6 format=4 uid="uid://4elevcopu5x"]
 
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_yfjyx"]
 [ext_resource type="TileSet" uid="uid://hmcf6vm4y7tx" path="res://resources/tilesets/small_tiles.tres" id="2_8oo6j"]
 [ext_resource type="PackedScene" uid="uid://c4jcieb4rta0t" path="res://objects/objOmniCamera.tscn" id="3_ji3da"]
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="4_ji3da"]
+[ext_resource type="PackedScene" uid="uid://bfap3c0mnqlb6" path="res://objects/objSentry.tscn" id="5_4jlvn"]
 
 [node name="Testroom" instance=ExtResource("1_yfjyx")]
 area = "Power Plant"
@@ -43,21 +44,36 @@ target_room = "uid://d1omj58y3dj45"
 target_x = 45
 target_y = 150
 direction = 2
+reveal_node = ""
 
 [node name="objRoomTransition2" parent="TopObjects" index="1" instance=ExtResource("4_ji3da")]
 position = Vector2(16, 144)
 rotation = 1.5708
 target_room = "uid://bhnw64eq724n1"
 direction = 3
+reveal_node = ""
 
 [node name="objRoomTransition3" parent="TopObjects" index="2" instance=ExtResource("4_ji3da")]
 position = Vector2(132, 16)
 rotation = 3.14159
 target_room = "uid://cdlkphjwh47ik"
 direction = 1
+reveal_node = ""
 
 [node name="Ceiling" parent="." index="6"]
 tile_map_data = PackedByteArray("AAAAAAEABwAAAAIAAAABAAEABwAAAAQAAAABAAAABwABAAEAAAAAAAAABwAAAAEAAAAAAAIABwAAAAMAAAABAAIABwACAAMAAAACAAEABwABAAMAAAADAAEABwACAAMAAAADAAAABwACAAEAAAACAAAABwABAAEAAAAHAAEABwAAAAMAAAAIAAEABwABAAMAAAAIAAAABwABAAEAAAAHAAAABwAAAAEAAAAJAAEABwABAAMAAAAKAAEABwABAAMAAAALAAEABwABAAMAAAAMAAEABwABAAMAAAANAAAABwABAAEAAAAOAAAABwABAAEAAAAPAAAABwABAAEAAAAQAAAABwABAAEAAAARAAAABwABAAEAAAARAAEABwABAAMAAAAQAAEABwABAAMAAAAPAAEABwABAAMAAAAOAAEABwABAAMAAAANAAEABwABAAMAAAAMAAAABwABAAEAAAALAAAABwABAAEAAAAKAAAABwABAAEAAAAJAAAABwABAAEAAAASAAIABwAAAAMAAAASAAEABwABAAQAAAASAAAABwABAAEAAAATAAAABwACAAEAAAATAAEABwACAAIAAAATAAIABwACAAMAAAASAAcABwAAAAEAAAATAAcABwACAAEAAAATAAgABwACAAIAAAASAAgABwABAAUAAAATAAkABwACAAMAAAASAAkABwABAAMAAAARAAkABwABAAMAAAAQAAkABwABAAMAAAAPAAkABwABAAMAAAAOAAkABwABAAMAAAANAAkABwABAAMAAAAMAAkABwABAAMAAAALAAkABwABAAMAAAAKAAkABwABAAMAAAAJAAkABwABAAMAAAAIAAkABwABAAMAAAAHAAkABwABAAMAAAAGAAkABwABAAMAAAAFAAkABwABAAMAAAAEAAkABwABAAMAAAADAAkABwABAAMAAAACAAkABwABAAMAAAABAAkABwABAAMAAAAAAAkABwAAAAMAAAAAAAgABwAAAAIAAAAAAAcABwAAAAEAAAABAAcABwACAAEAAAABAAgABwAAAAUAAAACAAgABwABAAEAAAADAAgABwABAAEAAAAEAAgABwABAAEAAAAFAAgABwABAAEAAAAGAAgABwABAAEAAAAHAAgABwABAAEAAAAIAAgABwABAAEAAAAJAAgABwABAAEAAAAKAAgABwABAAEAAAALAAgABwABAAEAAAAMAAgABwABAAEAAAANAAgABwABAAEAAAAOAAgABwABAAEAAAAPAAgABwABAAEAAAAQAAgABwABAAEAAAARAAgABwABAAEAAAA=")
 
 [node name="Camera" parent="." index="7"]
 position = Vector2(432, 156)
+
+[node name="ObjSentry" parent="." index="9" instance=ExtResource("5_4jlvn")]
+position = Vector2(-40, -24)
+
+[node name="ObjSentry2" parent="." index="10" instance=ExtResource("5_4jlvn")]
+position = Vector2(520, -24)
+
+[node name="ObjSentry3" parent="." index="11" instance=ExtResource("5_4jlvn")]
+position = Vector2(528, 256)
+
+[node name="ObjSentry4" parent="." index="12" instance=ExtResource("5_4jlvn")]
+position = Vector2(-40, 272)

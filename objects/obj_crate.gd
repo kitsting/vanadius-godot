@@ -13,10 +13,11 @@ extends StaticBody2D
 
 
 func _ready() -> void:
-	if disable_on_room_clear:
-		await get_tree().create_timer(0.05).timeout
-		if Game.currentroom in Game.progress.completed_rooms:
-			queue_free()
+	if !Engine.is_editor_hint():
+		if disable_on_room_clear:
+			await get_tree().create_timer(0.05).timeout
+			if Game.currentroom in Game.progress.completed_rooms:
+				queue_free()
 
 
 func set_size(big := true) -> void:

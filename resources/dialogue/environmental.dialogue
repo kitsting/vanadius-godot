@@ -20,7 +20,7 @@ It's not moving.
 => END
 
 ~ door
-A very sturdy door. It's locked.
+A very sturdy metal door. It's too heavy to open.
 => END
 
 
@@ -33,13 +33,20 @@ Do you want to start the elevator?
 => END
 
 
-~ enter_manhole
+~ enter_manhole_to
 There is a manhole here.
 Do you want to enter the manhole?
 - Yes
-	JUST KIDDING!!! There is no manhole (yet)
-	Congration, you done it
-	\:)
+	do Game.transition_manhole("res://rooms/rmOutsideCity1.tscn", Vector2.ZERO, "trans_manhole_to")
+- No
+=> END
+
+~ enter_manhole_back
+There is a manhole here.
+Do you want to enter the manhole?
+- Yes
+	do! Audio.stop_music()
+	do Game.transition_manhole("res://rooms/rmBonusManhole.tscn", Vector2(144,-520), "trans_manhole_back")
 - No
 => END
 
@@ -57,4 +64,70 @@ A box of supplies. It's covered by a green tarp.
 
 ~ cave_box_notarp
 A box of supplies. There is no tarp.
+=> END
+
+
+~ office_door1
+It's a door for someone taller than you. It's locked. There's a plaque above the window\:
+"Madeline Joopers - Head of Timekeeping Department"
+There's nobody inside.
+=> END
+
+~ office_door2
+It's a door for someone taller than you. It's locked. There's a plaque above the window\:
+"Ryan Ryans - Head of Factory Department"
+There's nobody inside.
+=> END
+
+~ office_door3
+It's a door for someone taller than you. It's locked. There's a plaque above the window\:
+"Dr. Lily Woods - Head of Lab Department"
+There's nobody inside.
+=> END
+
+~ office_door4
+It's a door for someone taller than you. It's locked. There's a plaque above the window\:
+"Brian Harvich - Communications Manager"
+There's a figure inside. They don't seem to notice you.
+=> END
+
+~ office_door5
+It's a door for someone taller than you. It's locked. There's a plaque above the window\:
+"Jon Deesling - Head of Mining Operations"
+There's nobody inside.
+=> END
+
+~ office_door6
+It's a door for someone taller than you. It's locked. There's a vandalized plaque above the window\:
+"Jeanne Kochiro - Super Cool Awesome Power Plant Guy"
+There's nobody inside. It seems like nobody has been inside for a long time.
+=> END
+
+~ office_door7
+It's a door for someone taller than you. It's locked. There's a plaque above the window\:
+"Conference Room"
+There are three figures inside, talking to each other. It's impossible to make out what they're saying.
+=> END
+
+
+~ office_billboard
+It's a billboard for various news and events. Read one?
+- Yes
+	"Van Speaking\: How Vanadius will change the world."
+	"Join Dr. Lily Woods and Mr. Jon Deesling as they discuss their incredible new discovery."
+	Someone hastily scribbled a red X over the posting.
+- No
+=> END
+
+
+~ table1
+It's a table with various tools strewn on it. Seems like it was used for fixing things.
+=> END
+
+~ table2
+It's a table long enough for you to lie down on. There's nothing on it except a few scratches.
+=> END
+
+~ mineshaft
+An entrance to a long, dark tunnel. It's boarded up.
 => END

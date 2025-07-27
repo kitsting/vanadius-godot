@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if !started and body.is_in_group("player") and !(Game.currentroom in Game.progress.completed_rooms):
 		started = true
-		get_tree().call_group("surviveSpike", "extend", 18)
+		get_tree().call_group("surviveSpike", "extend", 17.5)
 		get_tree().call_group("camera", "new_position", Vector2(0, -60), 0.5, true)
 		get_tree().call_group("player", "set_camera_link", false)
 		
@@ -30,7 +30,11 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		flask_node.process_mode = Node.PROCESS_MODE_INHERIT
 		
-		await get_tree().create_timer(15).timeout
+		await get_tree().create_timer(14.5).timeout
 		
-		get_tree().call_group("camera", "reset_pos", 0.25)
+		get_tree().call_group("camera", "new_position", Vector2(0, 40), 0.25, true)
+		
+		await get_tree().create_timer(0.25).timeout
+		
+		get_tree().call_group("camera", "reset_pos", 0.01)
 		get_tree().call_group("player", "set_camera_link", true)

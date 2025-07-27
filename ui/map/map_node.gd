@@ -46,6 +46,6 @@ func _ready() -> void:
 			
 		if room_id == Game.current_room:
 			# Center map on current room
-			get_parent().get_parent().move_position(position)
+			get_tree().call_group("map", "move_position", position)
 			
 			$you_are_here.visible = true

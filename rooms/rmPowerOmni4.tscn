@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=4 uid="uid://dies16386ugm5"]
+[gd_scene load_steps=7 format=4 uid="uid://dies16386ugm5"]
 
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_jdxkh"]
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="2_84n2r"]
 [ext_resource type="PackedScene" uid="uid://qg62xhb8whr7" path="res://objects/objSign.tscn" id="2_i7ger"]
+[ext_resource type="Texture2D" uid="uid://dxq4xtc5nkfls" path="res://sprites/environment/irondoor_ruins.png" id="4_l2ivo"]
+[ext_resource type="PackedScene" uid="uid://diy0ps6ikrp1w" path="res://objects/objInteract.tscn" id="5_4bou6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36so7"]
 
 [node name="Testroom" instance=ExtResource("1_jdxkh")]
 area = "Power Plant"
@@ -22,17 +26,33 @@ position = Vector2(270, 88)
 node = "rmPowerOmni4"
 orientation = 3
 
+[node name="Sprite2D6" type="Sprite2D" parent="Objects" index="2"]
+self_modulate = Color(0.5253, 0.760269, 0.998177, 1)
+position = Vector2(71.5384, 76.931)
+texture = ExtResource("4_l2ivo")
+metadata/_edit_group_ = true
+
+[node name="objInteract" parent="Objects/Sprite2D6" index="0" instance=ExtResource("5_4bou6")]
+position = Vector2(0.475586, -12.3691)
+node = "door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Sprite2D6/objInteract" index="1"]
+position = Vector2(0, 34)
+shape = SubResource("RectangleShape2D_36so7")
+
 [node name="objRoomTransition" parent="TopObjects" index="0" instance=ExtResource("2_84n2r")]
 position = Vector2(85, 224)
 target_room = "uid://cdlkphjwh47ik"
 target_x = 180
 target_y = 55
+reveal_node = "transPowerOmni3"
 
 [node name="objRoomTransition2" parent="TopObjects" index="1" instance=ExtResource("2_84n2r")]
 position = Vector2(344, 168)
 rotation = 4.71239
 target_room = "uid://d1a6uuou75fnx"
 direction = 2
+reveal_node = ""
 
 [node name="Ceiling" parent="." index="6"]
 tile_map_data = PackedByteArray("AAAAAAAABwAAAAEAAAAAAAEABwAAAAIAAAABAAEABwAAAAQAAAABAAAABwABAAEAAAACAAEABwABAAMAAAADAAEABwABAAMAAAADAAAABwABAAEAAAAEAAAABwABAAEAAAAEAAEABwABAAMAAAACAAAABwABAAEAAAAFAAYABwAAAAEAAAAFAAcABwAAAAIAAAAFAAgABwAAAAIAAAAFAAkABwAAAAMAAAAGAAYABwABAAEAAAAHAAYABwABAAEAAAAIAAYABwABAAEAAAAJAAYABwACAAEAAAAJAAcABwACAAIAAAAKAAgABwABAAEAAAALAAgABwABAAEAAAAMAAgABwABAAEAAAANAAgABwABAAEAAAAOAAgABwACAAEAAAAOAAkABwACAAMAAAANAAkABwABAAMAAAAMAAkABwABAAMAAAALAAkABwABAAMAAAAKAAkABwABAAMAAAAJAAkABwABAAMAAAAIAAkABwABAAMAAAAHAAkABwABAAMAAAAGAAkABwABAAMAAAAHAAgABwABAAIAAAAIAAgABwABAAIAAAAJAAgABwAAAAUAAAAIAAcABwABAAIAAAAHAAcABwABAAIAAAAGAAcABwABAAIAAAAGAAgABwABAAIAAAAAAAkABwAAAAMAAAAAAAgABwAAAAIAAAAAAAcABwAAAAIAAAAAAAYABwAAAAIAAAAAAAUABwAAAAIAAAAAAAQABwAAAAIAAAAAAAMABwAAAAIAAAAAAAIABwABAAQAAAABAAIABwACAAIAAAABAAMABwACAAIAAAABAAUABwACAAIAAAABAAQABwACAAIAAAABAAYABwACAAIAAAABAAcABwACAAIAAAABAAgABwACAAIAAAABAAkABwACAAMAAAANAAMABwAAAAMAAAAOAAMABwACAAMAAAAOAAIABwACAAIAAAANAAIABwAAAAIAAAAOAAEABwACAAIAAAANAAEABwABAAIAAAAMAAEABwABAAMAAAALAAEABwABAAMAAAAKAAEABwABAAMAAAAJAAEABwABAAMAAAAIAAEABwABAAMAAAAHAAEABwABAAMAAAAFAAEABwABAAMAAAAGAAEABwABAAMAAAAFAAAABwABAAEAAAAGAAAABwABAAEAAAAHAAAABwABAAEAAAAIAAAABwABAAEAAAAJAAAABwABAAEAAAAKAAAABwABAAEAAAALAAAABwABAAEAAAAOAAAABwACAAEAAAANAAAABwABAAEAAAAMAAAABwABAAEAAAA=")

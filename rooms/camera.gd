@@ -85,7 +85,7 @@ func new_position(new_pos : Vector2, time : float, relative := false) -> void:
 func reset_pos(time : float) -> void:
 	if previous_positions != []:
 		var tween := get_tree().create_tween()
-		tween.tween_property(self, "offset", previous_positions[0], time)
+		tween.tween_property(self, "offset", Vector2.ZERO, time)
 		previous_positions = []
 
 

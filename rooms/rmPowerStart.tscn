@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=4 uid="uid://ta0ytx7uypx"]
+[gd_scene load_steps=7 format=4 uid="uid://ta0ytx7uypx"]
 
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_powe2"]
 [ext_resource type="PackedScene" uid="uid://qg62xhb8whr7" path="res://objects/objSign.tscn" id="2_5qhfu"]
+[ext_resource type="Texture2D" uid="uid://dxq4xtc5nkfls" path="res://sprites/environment/irondoor_ruins.png" id="3_sjnun"]
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="3_vacdc"]
+[ext_resource type="PackedScene" uid="uid://diy0ps6ikrp1w" path="res://objects/objInteract.tscn" id="4_4j2ia"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67mkx"]
 
 [node name="Testroom" instance=ExtResource("1_powe2")]
 area = "Power Plant"
@@ -21,27 +25,44 @@ tile_map_data = PackedByteArray("AAABAAkAAQAAAAAAAQABAAoAAQAAAAAAAQABAAsAAQAAAAA
 position = Vector2(120, 320)
 
 [node name="objSign" parent="Objects" index="1" instance=ExtResource("2_5qhfu")]
-position = Vector2(130, 208)
+position = Vector2(117, 208)
 node = "rmPowerStart"
 orientation = 0
+
+[node name="Sprite2D6" type="Sprite2D" parent="Objects" index="2"]
+self_modulate = Color(0.5253, 0.760269, 0.998177, 1)
+position = Vector2(181.339, 196.567)
+texture = ExtResource("3_sjnun")
+metadata/_edit_group_ = true
+
+[node name="objInteract" parent="Objects/Sprite2D6" index="0" instance=ExtResource("4_4j2ia")]
+position = Vector2(0.475586, -12.3691)
+node = "door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Sprite2D6/objInteract" index="1"]
+position = Vector2(0, 34)
+shape = SubResource("RectangleShape2D_67mkx")
 
 [node name="objRoomTransition" parent="TopObjects" index="0" instance=ExtResource("3_vacdc")]
 position = Vector2(120, 344)
 target_room = "uid://hf8cryb4u56d"
 target_x = 145
 target_y = 80
+reveal_node = "transPowerStart"
 
 [node name="objRoomTransition3" parent="TopObjects" index="1" instance=ExtResource("3_vacdc")]
 position = Vector2(16, 288)
 rotation = 1.5708
 target_room = "uid://d1omj58y3dj45"
 direction = 3
+reveal_node = ""
 
 [node name="objRoomTransition2" parent="TopObjects" index="2" instance=ExtResource("3_vacdc")]
 position = Vector2(272, 16)
 rotation = 3.14159
 target_room = "uid://be743yyime4x2"
 direction = 1
+reveal_node = ""
 
 [node name="Ceiling" parent="." index="6"]
 tile_map_data = PackedByteArray("AAAAAAAABwAAAAEAAAABAAAABwABAAUAAAACAAAABwABAAEAAAADAAAABwABAAEAAAAEAAAABwABAAEAAAAFAAAABwABAAEAAAAGAAAABwABAAEAAAAHAAAABwABAAEAAAAIAAAABwACAAEAAAAIAAEABwACAAIAAAAIAAIABwACAAIAAAAIAAMABwACAAIAAAAIAAQABwACAAIAAAAIAAUABwACAAIAAAAIAAYABwACAAMAAAAHAAYABwABAAMAAAAGAAYABwABAAMAAAAFAAYABwABAAMAAAAEAAYABwABAAMAAAADAAYABwABAAMAAAACAAYABwAAAAQAAAABAAYABwABAAIAAAAAAAYABwAAAAIAAAACAAcABwACAAIAAAABAAcABwABAAIAAAABAAgABwABAAMAAAACAAgABwACAAMAAAAAAAgABwAAAAMAAAAAAAcABwAAAAIAAAAAAAUABwAAAAIAAAAAAAQABwAAAAIAAAAAAAMABwAAAAIAAAABAAMABwABAAIAAAABAAQABwABAAIAAAABAAUABwABAAIAAAACAAUABwABAAIAAAADAAUABwABAAIAAAAEAAUABwABAAIAAAAFAAUABwABAAIAAAAGAAUABwABAAIAAAAHAAUABwABAAIAAAAHAAQABwABAAIAAAAHAAMABwABAAIAAAAGAAMABwABAAIAAAAFAAMABwABAAIAAAAFAAQABwABAAIAAAAEAAQABwABAAIAAAADAAQABwABAAIAAAAGAAQABwABAAIAAAAEAAMABwABAAIAAAADAAMABwABAAIAAAADAAIABwABAAIAAAACAAMABwABAAIAAAACAAQABwABAAIAAAACAAIABwABAAIAAAAEAAIABwABAAIAAAAFAAIABwABAAIAAAAGAAIABwABAAIAAAAHAAIABwABAAIAAAABAAIABwABAAIAAAAAAAIABwAAAAIAAAAAAAEABwAAAAIAAAABAAEABwABAAIAAAACAAEABwABAAIAAAADAAEABwABAAIAAAAEAAEABwABAAIAAAAFAAEABwABAAIAAAAGAAEABwABAAIAAAAHAAEABwABAAIAAAANAAAABwAAAAEAAAANAAEABwAAAAIAAAANAAIABwAAAAIAAAANAAMABwAAAAIAAAANAAQABwAAAAIAAAAOAAQABwACAAIAAAAOAAUABwACAAIAAAANAAUABwAAAAIAAAANAAYABwAAAAIAAAAOAAYABwACAAIAAAAOAAMABwACAAIAAAAOAAIABwACAAIAAAAOAAEABwACAAIAAAAOAAAABwACAAEAAAAAAA0ABwAAAAEAAAABAA0ABwABAAEAAAACAA0ABwACAAEAAAACAA4ABwACAAMAAAABAA4ABwABAAMAAAAAAA4ABwAAAAMAAAAHAA0ABwAAAAEAAAAHAA4ABwAAAAMAAAAIAA4ABwABAAMAAAAJAA4ABwABAAMAAAAKAA4ABwABAAMAAAALAA4ABwABAAMAAAAMAA4ABwABAAMAAAAMAA0ABwABAAEAAAANAA0ABwABAAUAAAANAA4ABwABAAMAAAAOAA4ABwACAAMAAAAOAA0ABwACAAIAAAAOAAwABwACAAIAAAAOAAsABwACAAIAAAAOAAoABwACAAIAAAAOAAkABwACAAIAAAAOAAgABwAAAAQAAAANAAgABwAAAAIAAAANAAcABwAAAAIAAAAOAAcABwACAAIAAAANAAkABwAAAAIAAAANAAoABwAAAAIAAAANAAsABwAAAAIAAAANAAwABwAAAAIAAAALAA0ABwABAAEAAAAKAA0ABwABAAEAAAAJAA0ABwABAAEAAAAIAA0ABwABAAEAAAA=")

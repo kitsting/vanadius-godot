@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=4 uid="uid://c68guf8wxi4a4"]
+[gd_scene load_steps=6 format=4 uid="uid://c68guf8wxi4a4"]
 
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_ndt3a"]
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="2_0albw"]
+[ext_resource type="Texture2D" uid="uid://dxq4xtc5nkfls" path="res://sprites/environment/irondoor_ruins.png" id="3_vlyj5"]
+[ext_resource type="PackedScene" uid="uid://diy0ps6ikrp1w" path="res://objects/objInteract.tscn" id="4_vtjcx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_351qy"]
 
 [node name="Testroom" instance=ExtResource("1_ndt3a")]
 area = "Facility Transport Tubes"
@@ -20,6 +24,19 @@ tile_map_data = PackedByteArray("AAAFAAoAAAAAAAAABgAFAAsAAAAAAAAABgAFAAwAAAAAAAA
 
 [node name="ObjPlayer" parent="Objects" index="0"]
 position = Vector2(464, 280)
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects" index="1"]
+position = Vector2(408, 220)
+texture = ExtResource("3_vlyj5")
+metadata/_edit_group_ = true
+
+[node name="objInteract" parent="Objects/Sprite2D" index="0" instance=ExtResource("4_vtjcx")]
+position = Vector2(0.475586, -12.3691)
+node = "door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Sprite2D/objInteract" index="1"]
+position = Vector2(0, 34)
+shape = SubResource("RectangleShape2D_351qy")
 
 [node name="objRoomTransition" parent="TopObjects" index="0" instance=ExtResource("2_0albw")]
 position = Vector2(488, 276)

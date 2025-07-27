@@ -152,7 +152,7 @@ var stats := {
 }
 
 var current_device := InputHelper.DEVICE_KEYBOARD
-signal device_changed
+signal device_changed(device : Variant)
 
 signal gates_lowered
 
@@ -333,8 +333,35 @@ func transition_room(room : String, pit : bool = false) -> void:
 			get_tree().change_scene_to_file(room)
 		else:
 			get_tree().reload_current_scene()
-		
-		
+
+
+func transition_manhole(room : String = "", target : Vector2 = Vector2.ZERO, reveal_node := ""):
+	if reveal_node != "":
+		progress_append("visited_rooms", reveal_node)
+	
+	roomtargetx = target.x
+	roomtargety = target.y
+	
+	get_tree().paused = false
+	alert = false
+	beingchased = false
+	
+	var new_transition : Node = load("res://objects/ToBlack.tscn").instantiate()
+	new_transition.set_speed(1.25)
+	new_transition.set_wait(2)
+	get_tree().get_root().add_child(new_transition)
+	await new_transition.midpoint
+	if room != "":
+		get_tree().unload_current_scene()
+		Audio.play_sound("res://sounds/manhole.ogg", "fall")
+		await get_tree().create_timer(2).timeout
+			
+		get_tree().change_scene_to_file(room)
+	else:
+		get_tree().reload_current_scene()
+
+
+
 func getMusic(check_area : String) -> String:
 	match check_area:
 		m_area_null: return "musNone"

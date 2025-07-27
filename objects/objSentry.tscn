@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfap3c0mnqlb6"]
+[gd_scene load_steps=10 format=3 uid="uid://bfap3c0mnqlb6"]
 
 [ext_resource type="Script" uid="uid://cgdskyjan8ma6" path="res://objects/obj_sentry.gd" id="1_8mbie"]
 [ext_resource type="Texture2D" uid="uid://belqdiasfwqqs" path="res://sprites/sprSentry1.png" id="1_r8mkm"]
 [ext_resource type="Texture2D" uid="uid://bxjppf817emxp" path="res://sprites/sprSentry2.png" id="2_8mbie"]
+[ext_resource type="Texture2D" uid="uid://dwawn1iidowrs" path="res://sprites/sprSentry1_club.png" id="3_6ie1y"]
 [ext_resource type="AudioStream" uid="uid://co5srcebphvu5" path="res://sounds/sndSentryAlert.mp3" id="4_2tmn3"]
+[ext_resource type="Texture2D" uid="uid://q2votmc35f56" path="res://sprites/sprSentry2_club.png" id="4_e0ero"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2tmn3"]
 animations = [{
@@ -14,6 +16,17 @@ animations = [{
 "loop": true,
 "name": &"active",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6ie1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e0ero")
+}],
+"loop": true,
+"name": &"club",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,

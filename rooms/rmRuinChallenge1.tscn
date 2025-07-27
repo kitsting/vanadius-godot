@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c2kxjvt42rta7" path="res://objects/objSentryMini.tscn" id="4_jy0ee"]
 
 [node name="Testroom" instance=ExtResource("1_kj7vs")]
-area = "Central Facility"
 internal_name = "rmRuinChallenge1"
 
 [node name="Floor" parent="." index="0"]
@@ -44,30 +43,35 @@ position = Vector2(16, 144)
 rotation = 1.5708
 target_room = "uid://p3ctbbvlui64"
 direction = 3
+reveal_node = ""
 
 [node name="objRoomTransition5" parent="TopObjects" index="1" instance=ExtResource("2_bcw2n")]
 position = Vector2(112, 16)
 rotation = 3.14159
 target_room = "uid://cxrpcglvaqsb7"
 direction = 1
+reveal_node = "transLabShortcut"
 
 [node name="objRoomTransition2" parent="TopObjects" index="2" instance=ExtResource("2_bcw2n")]
 position = Vector2(368, 120)
 rotation = 4.71239
 target_room = "uid://k5totmxcuokc"
 direction = 2
+reveal_node = ""
 
 [node name="objRoomTransition3" parent="TopObjects" index="3" instance=ExtResource("2_bcw2n")]
 position = Vector2(368, 296)
 rotation = 4.71239
 target_room = "uid://yi3xp4k4dncb"
 direction = 2
+reveal_node = ""
 
 [node name="objRoomTransition4" parent="TopObjects" index="4" instance=ExtResource("2_bcw2n")]
 position = Vector2(132, 368)
 target_room = "uid://d2282kkpjo4uy"
 target_x = 35
 target_y = 54
+reveal_node = ""
 
 [node name="objSentryMini" parent="TopObjects" index="5" instance=ExtResource("4_jy0ee")]
 position = Vector2(197, 123)

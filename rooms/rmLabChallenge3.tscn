@@ -245,11 +245,13 @@ position = Vector2(168, 320)
 target_room = "uid://mmhqcsstewxl"
 target_x = 264
 target_y = 56
+reveal_node = ""
 
 [node name="objPit" parent="." index="8" instance=ExtResource("3_xfjp6")]
 position = Vector2(168, 104)
 target_room = "uid://effbl6vfpqsv"
 set_room_clear = true
+reveal_node = "transLabChallenge3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="objPit" index="1"]
 position = Vector2(0, 39)

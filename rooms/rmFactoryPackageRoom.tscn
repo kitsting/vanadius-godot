@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=4 uid="uid://bljpx0mr7qwau"]
+[gd_scene load_steps=8 format=4 uid="uid://bljpx0mr7qwau"]
 
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_1sq6n"]
 [ext_resource type="PackedScene" uid="uid://sj8deey0yefv" path="res://objects/objPackage.tscn" id="2_xdlsh"]
 [ext_resource type="PackedScene" uid="uid://byku1v575g4rs" path="res://objects/objGate.tscn" id="3_f0aow"]
+[ext_resource type="Texture2D" uid="uid://dxq4xtc5nkfls" path="res://sprites/environment/irondoor_ruins.png" id="4_ehbe8"]
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="4_xqvso"]
+[ext_resource type="PackedScene" uid="uid://diy0ps6ikrp1w" path="res://objects/objInteract.tscn" id="5_a3wqf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sf28l"]
 
 [node name="Testroom" instance=ExtResource("1_1sq6n")]
 area = "The Factory"
@@ -23,13 +27,13 @@ tile_map_data = PackedByteArray("AAADAAoAAAAAAAAAAQAEAAoAAAAAAAAAAQA=")
 position = Vector2(44, 152)
 
 [node name="AnimatableBody2D" parent="Objects" index="1" instance=ExtResource("2_xdlsh")]
-position = Vector2(80, 96)
+position = Vector2(106, 96)
 
 [node name="AnimatableBody2D2" parent="Objects" index="2" instance=ExtResource("2_xdlsh")]
-position = Vector2(93, 96)
+position = Vector2(119, 96)
 
 [node name="AnimatableBody2D4" parent="Objects" index="3" instance=ExtResource("2_xdlsh")]
-position = Vector2(106, 98)
+position = Vector2(132, 98)
 
 [node name="AnimatableBody2D5" parent="Objects" index="4" instance=ExtResource("2_xdlsh")]
 position = Vector2(264, 98)
@@ -98,7 +102,7 @@ position = Vector2(230, 201)
 position = Vector2(277, 107)
 
 [node name="AnimatableBody2D3" parent="Objects" index="26" instance=ExtResource("2_xdlsh")]
-position = Vector2(93, 106)
+position = Vector2(119, 106)
 
 [node name="AnimatableBody2D13" parent="Objects" index="27" instance=ExtResource("2_xdlsh")]
 position = Vector2(106, 155)
@@ -118,6 +122,20 @@ position = Vector2(86, 215)
 [node name="objGate" parent="Objects" index="32" instance=ExtResource("3_f0aow")]
 position = Vector2(192, 88)
 
+[node name="Sprite2D6" type="Sprite2D" parent="Objects" index="33"]
+self_modulate = Color(0.0598233, 0.874768, 0.535823, 1)
+position = Vector2(72, 76)
+texture = ExtResource("4_ehbe8")
+metadata/_edit_group_ = true
+
+[node name="objInteract" parent="Objects/Sprite2D6" index="0" instance=ExtResource("5_a3wqf")]
+position = Vector2(0.475586, -12.3691)
+node = "door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Sprite2D6/objInteract" index="1"]
+position = Vector2(0, 34)
+shape = SubResource("RectangleShape2D_sf28l")
+
 [node name="objRoomTransition" parent="TopObjects" index="0" instance=ExtResource("4_xqvso")]
 position = Vector2(16, 149)
 rotation = 1.5708
@@ -125,18 +143,21 @@ target_room = "uid://b7fs57w8x1t51"
 target_x = 388
 target_y = 130
 direction = 3
+reveal_node = ""
 
 [node name="objRoomTransition3" parent="TopObjects" index="1" instance=ExtResource("4_xqvso")]
 position = Vector2(344, 194)
 rotation = 4.71239
 target_room = "uid://cjks7oep87qo5"
 direction = 2
+reveal_node = ""
 
 [node name="objRoomTransition2" parent="TopObjects" index="2" instance=ExtResource("4_xqvso")]
 position = Vector2(192, 16)
 rotation = 3.14159
 target_room = "uid://dy0jb7h1r3u70"
 direction = 1
+reveal_node = ""
 
 [node name="Ceiling" parent="." index="6"]
 tile_map_data = PackedByteArray("AAAAAAAAAwABAAIAAAABAAAAAwABAAIAAAABAAEAAwAAAAQAAAAAAAEAAwABAAIAAAAAAAIAAwABAAMAAAABAAIAAwACAAMAAAACAAEAAwABAAMAAAADAAEAAwABAAMAAAAEAAEAAwABAAMAAAAEAAAAAwABAAIAAAADAAAAAwABAAIAAAACAAAAAwABAAIAAAAFAAEAAwACAAMAAAAFAAAAAwACAAIAAAAKAAEAAwAAAAMAAAAKAAAAAwAAAAIAAAALAAAAAwABAAIAAAAMAAAAAwABAAIAAAALAAEAAwABAAMAAAAMAAEAAwABAAMAAAANAAEAAwABAAQAAAAOAAEAAwABAAIAAAAOAAAAAwABAAIAAAANAAAAAwABAAIAAAANAAIAAwAAAAIAAAANAAMAAwAAAAIAAAANAAQAAwAAAAMAAAAOAAQAAwABAAMAAAAOAAMAAwABAAIAAAAOAAIAAwABAAIAAAANAAkAAwABAAEAAAAOAAkAAwABAAEAAAANAAoAAwABAAIAAAAOAAoAAwABAAIAAAAMAAoAAwABAAIAAAALAAoAAwABAAIAAAAKAAoAAwABAAIAAAAJAAoAAwABAAIAAAAIAAoAAwABAAIAAAAHAAoAAwABAAIAAAAGAAoAAwABAAIAAAAFAAoAAwAAAAIAAAAFAAkAAwAAAAEAAAAGAAkAAwABAAEAAAAHAAkAAwABAAEAAAAIAAkAAwABAAEAAAAJAAkAAwABAAEAAAAKAAkAAwABAAEAAAALAAkAAwABAAEAAAAMAAkAAwABAAEAAAAAAAcAAwABAAEAAAAAAAgAAwABAAIAAAAAAAkAAwABAAIAAAABAAkAAwAAAAUAAAABAAgAAwACAAIAAAABAAcAAwACAAEAAAACAAkAAwACAAEAAAABAAoAAwABAAIAAAAAAAoAAwABAAIAAAACAAoAAwACAAIAAAD//wIAAwAAAAMAAAD//wEAAwAAAAIAAAD//wAAAwAAAAIAAAD/////AwAAAAEAAAAAAP//AwABAAEAAAABAP//AwABAAEAAAACAP//AwABAAEAAAADAP//AwABAAEAAAAEAP//AwABAAEAAAAFAP//AwACAAEAAAAKAP//AwAAAAEAAAAMAP//AwABAAEAAAALAP//AwABAAEAAAANAP//AwABAAEAAAAOAP//AwABAAEAAAAPAP//AwACAAEAAAAPAAAAAwACAAIAAAAPAAEAAwACAAIAAAAPAAIAAwACAAIAAAAPAAMAAwACAAIAAAAPAAQAAwACAAMAAAAPAAkAAwACAAEAAAAPAAoAAwACAAIAAAAPAAsAAwACAAMAAAAOAAsAAwABAAMAAAANAAsAAwABAAMAAAAMAAsAAwABAAMAAAALAAsAAwABAAMAAAAKAAsAAwABAAMAAAAJAAsAAwABAAMAAAAIAAsAAwABAAMAAAAHAAsAAwABAAMAAAAGAAsAAwABAAMAAAAFAAsAAwAAAAMAAAACAAsAAwACAAMAAAABAAsAAwABAAMAAAAAAAsAAwABAAMAAAD//wsAAwAAAAMAAAD//woAAwAAAAIAAAD//wkAAwAAAAIAAAD//wgAAwAAAAIAAAD//wcAAwAAAAEAAAA=")

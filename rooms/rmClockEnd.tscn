@@ -77,6 +77,7 @@ position = Vector2(84, -14)
 target_room = "uid://cd2i0gn3so2yv"
 target_x = 275
 target_y = 209
+reveal_node = "transClockFall"
 
 [node name="Sprite2D" type="Sprite2D" parent="FloorObjects/objGiantPlateClock/pit_r" index="1"]
 position = Vector2(0, 46)
@@ -92,6 +93,7 @@ position = Vector2(-84, -14)
 target_room = "uid://cd2i0gn3so2yv"
 target_x = 275
 target_y = 209
+reveal_node = "transClockFall"
 
 [node name="Sprite2D" type="Sprite2D" parent="FloorObjects/objGiantPlateClock/pit_l" index="1"]
 position = Vector2(0, 46)

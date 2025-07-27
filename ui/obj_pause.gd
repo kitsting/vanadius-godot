@@ -9,6 +9,9 @@ var settings := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	update_input()
+	Game.connect("device_changed", update_input)
+	
 	if Game.stats.game_good_ending:
 		%collect_label.text = str(Game.progress["collectibles"].size()) + "/20"
 	elif Game.stats.game_completed:
@@ -21,6 +24,8 @@ func _ready() -> void:
 	
 	
 func _input(_event: InputEvent) -> void:
+	update_input()
+	
 	if (Input.is_action_just_pressed("pause") or Input.is_action_just_pressed("ui_cancel")) and !settings:
 		exit()
 		
@@ -71,3 +76,12 @@ func _on_options_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	Game.transition_room("res://ui/obj_title.tscn")
+	
+	
+func update_input() -> void:
+	if Game.current_device == InputHelper.DEVICE_KEYBOARD:
+		$BG/NinePatchRect/ColorRect/map_mode/TextureKeyboard.visible = true
+		$BG/NinePatchRect/ColorRect/map_mode/TextureGamepad.visible = false
+	else:
+		$BG/NinePatchRect/ColorRect/map_mode/TextureKeyboard.visible = false
+		$BG/NinePatchRect/ColorRect/map_mode/TextureGamepad.visible = true

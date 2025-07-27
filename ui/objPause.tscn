@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b87xy4bf2le0l"]
+[gd_scene load_steps=15 format=3 uid="uid://b87xy4bf2le0l"]
 
 [ext_resource type="Script" uid="uid://bj0y8ky2fwafu" path="res://ui/obj_pause.gd" id="1_p3d0u"]
 [ext_resource type="Texture2D" uid="uid://dw245kb85tfg6" path="res://sprites/ui/spr9Slice1.png" id="1_rsf8a"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://djj5t3bu2pgww" path="res://sprites/ui/sprDeathIcon.png" id="3_s5yx1"]
 [ext_resource type="Texture2D" uid="uid://i1633h1vqsc7" path="res://sprites/input/KeyShift.png" id="4_nqn8x"]
 [ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="4_nui6y"]
+[ext_resource type="Texture2D" uid="uid://cjo7fl7f7wsbj" path="res://sprites/input/ButtonXXbox.png" id="5_ihl7d"]
 [ext_resource type="Texture2D" uid="uid://blyyws256elgn" path="res://sprites/ui/sprCollectibleIcon.png" id="5_s5yx1"]
 [ext_resource type="FontFile" uid="uid://bha4ogv0jof7x" path="res://fonts/fntBig.ttf" id="6_nui6y"]
 [ext_resource type="Texture2D" uid="uid://b0ps1pm3sqxot" path="res://sprites/ui/menu_underline.png" id="7_g23y7"]
@@ -203,6 +204,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="map_mode" type="HBoxContainer" parent="BG/NinePatchRect/ColorRect"]
+z_index = 2
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -214,9 +216,15 @@ offset_top = -18.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="BG/NinePatchRect/ColorRect/map_mode"]
+[node name="TextureKeyboard" type="TextureRect" parent="BG/NinePatchRect/ColorRect/map_mode"]
 layout_mode = 2
 texture = ExtResource("4_nqn8x")
+stretch_mode = 2
+
+[node name="TextureGamepad" type="TextureRect" parent="BG/NinePatchRect/ColorRect/map_mode"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_ihl7d")
 stretch_mode = 2
 
 [node name="Label" type="Label" parent="BG/NinePatchRect/ColorRect/map_mode"]
@@ -254,6 +262,7 @@ texture = ExtResource("7_g23y7")
 stretch_mode = 2
 
 [node name="stats" type="HBoxContainer" parent="BG/NinePatchRect"]
+z_index = 2
 layout_mode = 0
 offset_left = 158.0
 offset_top = 8.0

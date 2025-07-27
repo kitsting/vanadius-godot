@@ -30,6 +30,8 @@ var target : Node = null
 
 @export var path_backwards := false
 
+@export var collision_disable := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$sprite.play("patrol")
@@ -44,6 +46,11 @@ func _ready() -> void:
 	
 	if path_backwards:
 		pathspd = -pathspd
+		
+	if collision_disable:
+		$collision/CollisionShape2D.disabled = true
+		$radius/CollisionShape2D.disabled = true
+		$sprite.play("club")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

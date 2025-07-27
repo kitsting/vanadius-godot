@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://71kxce1shkm6"]
+[gd_scene load_steps=48 format=3 uid="uid://71kxce1shkm6"]
 
 [ext_resource type="Script" uid="uid://b61cidvyunf0" path="res://objects/obj_map.gd" id="1_6fv54"]
 [ext_resource type="Texture2D" uid="uid://ciu7r8ami6e6l" path="res://sprites/ui/map_bg.png" id="1_64f5w"]
@@ -18,20 +18,37 @@
 [ext_resource type="Texture2D" uid="uid://o17bl2msfvwg" path="res://sprites/ui/map/hallway_node.png" id="7_c1iyk"]
 [ext_resource type="Texture2D" uid="uid://cp7a0y2skmwjl" path="res://sprites/ui/map/mapnode_nse.png" id="8_7n748"]
 [ext_resource type="Texture2D" uid="uid://4jkbkb13wd5b" path="res://sprites/ui/map/mapnode_rmRuinChallenge1.png" id="8_asf6c"]
+[ext_resource type="PackedScene" uid="uid://c887u7ufd5k2x" path="res://ui/map/mapicon_secret.tscn" id="9_p2q3s"]
+[ext_resource type="Texture2D" uid="uid://dsquo2trlfbd7" path="res://sprites/ui/map/mapnode_fall.png" id="10_t5iyk"]
+[ext_resource type="Texture2D" uid="uid://ddnb4ne5vgch1" path="res://sprites/ui/map/mapnode_fall_tall.png" id="11_8q7xd"]
 [ext_resource type="Texture2D" uid="uid://dmkw2wcad4li1" path="res://sprites/ui/map/mapnode_ew.png" id="16_vwf4d"]
 [ext_resource type="Texture2D" uid="uid://dqywsmbtp5is4" path="res://sprites/ui/map/mapnode_new.png" id="17_62r21"]
 [ext_resource type="Texture2D" uid="uid://ccucvxhyixgyq" path="res://sprites/ui/map/mapnode_rmFactoryChallenge3.png" id="17_mnun1"]
+[ext_resource type="Texture2D" uid="uid://cl2dogy2jurcc" path="res://sprites/ui/map/mapnode_big_2.png" id="18_0cwt2"]
 [ext_resource type="Texture2D" uid="uid://b23eqqnjerdgt" path="res://sprites/ui/map/mapnode_tall_ns.png" id="18_tip1s"]
 [ext_resource type="Texture2D" uid="uid://cr0dhfhs4shk2" path="res://sprites/ui/map/mapnode_wide_nw.png" id="19_i4kgv"]
+[ext_resource type="Texture2D" uid="uid://wfn8ukqvpk61" path="res://sprites/ui/map/mapnode_tall_e.png" id="19_p6mt8"]
 [ext_resource type="Texture2D" uid="uid://bvc4hretvm8ii" path="res://sprites/ui/map/mapnode_e.png" id="20_gqgkc"]
 [ext_resource type="Texture2D" uid="uid://mi30rxxe7d8h" path="res://sprites/ui/map/mapnode_rmFactoryShortcut1.png" id="20_qug3e"]
 [ext_resource type="Texture2D" uid="uid://8uw11ssjf4j4" path="res://sprites/ui/map/hallway_node_thin.png" id="21_dpdn5"]
+[ext_resource type="Texture2D" uid="uid://u5bmmdlripeo" path="res://sprites/ui/map/mapnode_rmBonusShortcut.png" id="21_k1db8"]
+[ext_resource type="Texture2D" uid="uid://davgpusvsgsoe" path="res://sprites/ui/map/mapnode_wide_sse.png" id="21_lwvpf"]
 [ext_resource type="Texture2D" uid="uid://cxrrgkpyqq4vl" path="res://sprites/ui/map/mapnode_tall_se.png" id="21_stg75"]
+[ext_resource type="Texture2D" uid="uid://3bjglke0crr" path="res://sprites/ui/map/mapnode_tall_ee.png" id="21_wqv41"]
+[ext_resource type="Texture2D" uid="uid://cmdbbfa0t8r7q" path="res://sprites/ui/map/mapnode_big_1.png" id="22_426se"]
+[ext_resource type="Texture2D" uid="uid://ddo5yqalgdsp3" path="res://sprites/ui/map/mapnode_w.png" id="22_cep3i"]
 [ext_resource type="PackedScene" uid="uid://d1ci1wc7rp62n" path="res://ui/map/mapicon_shortcut.tscn" id="22_qug3e"]
+[ext_resource type="Texture2D" uid="uid://dps8dm517fdur" path="res://sprites/ui/map/mapicon_county.png" id="23_pyyt5"]
 [ext_resource type="Texture2D" uid="uid://rgnf3jty0l1a" path="res://sprites/ui/map/mapnode_fall_w.png" id="24_xujbb"]
 [ext_resource type="Texture2D" uid="uid://cr6faoun8fjne" path="res://sprites/ui/map/arrowhead.png" id="27_dpdn5"]
+[ext_resource type="Texture2D" uid="uid://0a6y3k6htnj6" path="res://sprites/ui/map/mapnode_sse.png" id="29_fm4ng"]
+[ext_resource type="Texture2D" uid="uid://blkullf3hwsif" path="res://sprites/ui/map/mapnode_nne_fall.png" id="30_rssst"]
+[ext_resource type="Texture2D" uid="uid://dgrtfhw8fw66k" path="res://sprites/ui/map/mapnode_wide_nsw.png" id="30_t37wa"]
+[ext_resource type="Texture2D" uid="uid://i4muql1d4od7" path="res://sprites/ui/map/mapnode_rmIntro.png" id="31_jrbvb"]
+[ext_resource type="Texture2D" uid="uid://dk2pswskpeh63" path="res://sprites/ui/map/mapnode_wide_n_middle.png" id="31_mwdcs"]
+[ext_resource type="Texture2D" uid="uid://c2fks8otvefrq" path="res://sprites/ui/map/mapnode_end.png" id="37_gnm7i"]
 
-[node name="objMap" type="Control"]
+[node name="objMap" type="Control" groups=["map"]]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
@@ -92,7 +109,7 @@ layout_mode = 0
 offset_left = -11.0
 offset_top = 12.0
 offset_right = 2.0
-offset_bottom = 37.0
+offset_bottom = 25.0
 texture = ExtResource("4_bhh24")
 flip_h = true
 flip_v = true
@@ -105,7 +122,7 @@ layout_mode = 0
 offset_left = -35.0
 offset_top = 24.0
 offset_right = -22.0
-offset_bottom = 49.0
+offset_bottom = 37.0
 texture = ExtResource("4_bhh24")
 flip_h = true
 area = 1
@@ -143,11 +160,335 @@ layout_mode = 0
 offset_left = -23.0
 offset_top = 24.0
 offset_right = -10.0
-offset_bottom = 49.0
+offset_bottom = 37.0
 texture = ExtResource("17_62r21")
 flip_v = true
 area = 1
 room_id = "rmRuinChallenge3"
+
+[node name="mapicon_secret" parent="nodes/rmRuinStart6" instance=ExtResource("9_p2q3s")]
+layout_mode = 0
+offset_left = 2.46898
+offset_top = 2.40816
+offset_right = 11.469
+offset_bottom = 11.4082
+point_to = "rmRuinClub"
+
+[node name="rmRuinStart31" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = -47.0
+offset_top = 24.0
+offset_right = -34.0
+offset_bottom = 37.0
+texture = ExtResource("20_gqgkc")
+flip_v = true
+area = 8
+room_id = "rmRuinClub"
+
+[node name="collectible" parent="nodes/rmRuinStart31" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 3.45737
+offset_top = 2.90596
+offset_right = 10.4574
+offset_bottom = 9.90596
+collectible_id = "1251"
+
+[node name="rmRuinStart9" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -10.0
+offset_top = 36.0
+offset_right = 3.0
+offset_bottom = 53.0
+rotation = 1.5708
+texture = ExtResource("24_xujbb")
+area = 5
+room_id = "rmClockStart"
+
+[node name="rmRuinStart10" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -25.0
+offset_top = 36.0
+offset_right = -12.0
+offset_bottom = 53.0
+rotation = 1.5708
+texture = ExtResource("10_t5iyk")
+area = 5
+room_id = "rmClockFloor1"
+
+[node name="rmRuinStart11" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -53.0
+offset_top = 36.0
+offset_right = -40.0
+offset_bottom = 53.0
+texture = ExtResource("10_t5iyk")
+area = 5
+room_id = "rmClockFloor2"
+
+[node name="rmRuinStart18" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -68.0
+offset_top = 77.0
+offset_right = -55.0
+offset_bottom = 94.0
+texture = ExtResource("10_t5iyk")
+flip_v = true
+area = 5
+room_id = "rmClockFloor8"
+
+[node name="rmRuinStart19" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -68.0
+offset_top = 61.0
+offset_right = -55.0
+offset_bottom = 78.0
+texture = ExtResource("24_xujbb")
+flip_v = true
+area = 5
+room_id = "rmClockFloor9"
+
+[node name="rmRuinStart21" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -68.0
+offset_top = 45.0
+offset_right = -55.0
+offset_bottom = 62.0
+texture = ExtResource("10_t5iyk")
+flip_v = true
+area = 5
+room_id = "rmClockFloor10"
+
+[node name="rmRuinStart22" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -68.0
+offset_top = 29.0
+offset_right = -55.0
+offset_bottom = 46.0
+texture = ExtResource("10_t5iyk")
+flip_v = true
+area = 5
+room_id = "rmClockFloor11"
+
+[node name="rmRuinStart23" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -68.0
+offset_top = 13.0
+offset_right = -55.0
+offset_bottom = 30.0
+texture = ExtResource("10_t5iyk")
+flip_v = true
+area = 5
+room_id = "rmClockFloor12"
+
+[node name="rmRuinStart24" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -51.0
+offset_top = 1.0
+offset_right = -38.0
+offset_bottom = 18.0
+rotation = 1.57079
+texture = ExtResource("10_t5iyk")
+flip_v = true
+area = 5
+room_id = "rmClockFloor13"
+
+[node name="rmRuinStart25" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -40.0
+offset_top = 18.0
+offset_right = -27.0
+offset_bottom = 35.0
+rotation = 3.14159
+texture = ExtResource("10_t5iyk")
+flip_v = true
+area = 5
+room_id = "rmClockEnd"
+
+[node name="rmRuinStart26" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -15.0
+offset_top = 24.0
+offset_right = -12.0
+offset_bottom = 28.0
+rotation = 3.14159
+texture = ExtResource("7_c1iyk")
+flip_v = true
+area = 5
+room_id = "transClockFall"
+
+[node name="rmRuinStart28" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -31.0
+offset_top = 22.0
+offset_right = -15.0
+offset_bottom = 25.0
+rotation = 3.14159
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_v = true
+area = 5
+room_id = "transClockFall"
+
+[node name="rmRuinStart30" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -16.0
+offset_top = 22.0
+offset_right = -6.0
+offset_bottom = 25.0
+rotation = 3.14159
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_v = true
+area = 5
+room_id = "transClockFall"
+
+[node name="rmRuinStart29" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -45.0
+offset_top = 21.0
+offset_right = -42.0
+offset_bottom = 24.0
+rotation = 3.14159
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_v = true
+area = 5
+room_id = "transClockFall"
+
+[node name="rmRuinStart27" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -13.0
+offset_top = 28.0
+offset_right = -6.0
+offset_bottom = 32.0
+rotation = 3.14159
+texture = ExtResource("27_dpdn5")
+flip_v = true
+area = 5
+room_id = "transClockFall"
+
+[node name="rmRuinStart13" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -23.0
+offset_top = 51.0
+offset_right = -10.0
+offset_bottom = 68.0
+texture = ExtResource("10_t5iyk")
+area = 5
+room_id = "rmClockFloor4"
+
+[node name="rmRuinStart14" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -10.0
+offset_top = 66.0
+offset_right = 3.0
+offset_bottom = 83.0
+rotation = 1.57079
+texture = ExtResource("10_t5iyk")
+area = 5
+room_id = "rmClockFloor5"
+
+[node name="rmRuinStart15" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -38.0
+offset_top = 66.0
+offset_right = -25.0
+offset_bottom = 83.0
+texture = ExtResource("24_xujbb")
+area = 5
+room_id = "rmClockFloor6"
+
+[node name="rmRuinStart16" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -50.0
+offset_top = 66.0
+offset_right = -37.0
+offset_bottom = 79.0
+texture = ExtResource("22_cep3i")
+flip_h = true
+area = 5
+room_id = "rmClockFloor6b"
+
+[node name="collectible" parent="nodes/rmRuinStart16" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 2.98743
+offset_top = 3.12091
+offset_right = 9.98743
+offset_bottom = 10.1209
+collectible_id = "6271"
+
+[node name="rmRuinStart20" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -80.0
+offset_top = 65.0
+offset_right = -67.0
+offset_bottom = 78.0
+texture = ExtResource("22_cep3i")
+flip_h = true
+area = 5
+room_id = "rmClockFloor9b"
+
+[node name="collectible" parent="nodes/rmRuinStart20" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 2.98743
+offset_top = 3.12091
+offset_right = 9.98743
+offset_bottom = 10.1209
+collectible_id = "6223"
+
+[node name="rmRuinStart12" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -53.0
+offset_top = 64.0
+offset_right = -40.0
+offset_bottom = 93.0
+rotation = -1.57079
+texture = ExtResource("11_8q7xd")
+area = 5
+room_id = "rmClockFloor3"
+
+[node name="rmRuinStart17" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.560784, 0.337255, 0.231373, 1)
+layout_mode = 0
+offset_left = -57.0
+offset_top = 94.0
+offset_right = -44.0
+offset_bottom = 126.0
+rotation = -1.57079
+texture = ExtResource("11_8q7xd")
+flip_v = true
+area = 5
+room_id = "rmClockFloor7"
+
+[node name="collectible" parent="nodes/rmRuinStart17" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 2.61803
+offset_top = 22.4426
+offset_right = 9.61803
+offset_bottom = 29.4426
+collectible_id = "6272"
 
 [node name="rmRuinStart5" parent="nodes" instance=ExtResource("3_cng4x")]
 self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
@@ -155,7 +496,7 @@ layout_mode = 0
 offset_left = -11.0
 offset_top = 24.0
 offset_right = 2.0
-offset_bottom = 49.0
+offset_bottom = 37.0
 texture = ExtResource("4_bhh24")
 area = 1
 room_id = "rmRuinHallway3"
@@ -195,6 +536,1125 @@ offset_right = 14.0
 offset_bottom = 1.0
 area = 1
 room_id = "rmRuinTutorial2"
+
+[node name="rmRuinTutorial6" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 25.0
+offset_top = -48.0
+offset_right = 38.0
+offset_bottom = -35.0
+texture = ExtResource("8_7n748")
+flip_h = true
+area = 6
+room_id = "rmPowerStart"
+
+[node name="powerdoor" parent="nodes/rmRuinTutorial6" instance=ExtResource("6_21n1s")]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 3.0
+offset_right = 6.0
+offset_bottom = 10.0
+
+[node name="rmRuinTutorial28" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 30.0
+offset_top = -36.0
+offset_right = 33.0
+offset_bottom = -29.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_h = true
+area = 6
+room_id = "transPowerStart"
+
+[node name="rmRuinTutorial29" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 6.0
+offset_top = -30.0
+offset_right = 9.0
+offset_bottom = -23.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_h = true
+area = 6
+room_id = "transPowerStart"
+
+[node name="rmRuinTutorial30" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 7.0
+offset_top = -31.0
+offset_right = 32.0
+offset_bottom = -28.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_h = true
+area = 6
+room_id = "transPowerStart"
+
+[node name="rmRuinTutorial10" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 25.0
+offset_top = -47.0
+offset_right = 38.0
+offset_bottom = -22.0
+rotation = -1.57079
+texture = ExtResource("17_mnun1")
+flip_h = true
+area = 6
+room_id = "rmPowerSentry1"
+
+[node name="rmRuinTutorial13" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 61.0
+offset_top = -71.0
+offset_right = 86.0
+offset_bottom = -58.0
+rotation = -1.57079
+texture = ExtResource("7_616w1")
+area = 6
+room_id = "rmPowerSentry3"
+
+[node name="rmRuinTutorial14" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 61.0
+offset_top = -108.0
+offset_right = 74.0
+offset_bottom = -95.0
+texture = ExtResource("4_bhh24")
+flip_v = true
+area = 6
+room_id = "rmPowerSentry4"
+
+[node name="rmRuinTutorial35" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 73.0
+offset_top = -72.0
+offset_right = 86.0
+offset_bottom = -59.0
+texture = ExtResource("5_7n748")
+area = 8
+room_id = "rmBonusIntro"
+
+[node name="rmRuinTutorial47" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 85.0
+offset_top = -55.0
+offset_right = 98.0
+offset_bottom = -52.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 8
+room_id = "transBonusShortcut"
+
+[node name="rmRuinTutorial48" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 102.0
+offset_top = -108.0
+offset_right = 105.0
+offset_bottom = -71.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 8
+room_id = "transBonusHalfway"
+
+[node name="rmRuinTutorial49" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 138.0
+offset_top = -120.0
+offset_right = 141.0
+offset_bottom = -71.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 8
+room_id = "transBonusEnd"
+
+[node name="rmRuinTutorial36" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 73.0
+offset_top = -84.0
+offset_right = 86.0
+offset_bottom = -71.0
+texture = ExtResource("4_bhh24")
+flip_h = true
+flip_v = true
+area = 8
+room_id = "rmBonus1"
+
+[node name="rmRuinTutorial37" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 85.0
+offset_top = -84.0
+offset_right = 98.0
+offset_bottom = -71.0
+texture = ExtResource("4_bhh24")
+area = 8
+room_id = "rmBonus2"
+
+[node name="rmRuinTutorial46" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 97.0
+offset_top = -72.0
+offset_right = 146.0
+offset_bottom = -47.0
+texture = ExtResource("21_k1db8")
+area = 8
+room_id = "rmBonusShortcut"
+
+[node name="shortcut" parent="nodes/rmRuinTutorial46" instance=ExtResource("22_qug3e")]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 7.0
+offset_right = 10.0
+offset_bottom = 14.0
+shortcut_id = 1034
+
+[node name="shortcut2" parent="nodes/rmRuinTutorial46" instance=ExtResource("22_qug3e")]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 7.0
+offset_right = 46.0
+offset_bottom = 14.0
+shortcut_id = 1035
+
+[node name="rmRuinTutorial38" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 85.0
+offset_top = -96.0
+offset_right = 98.0
+offset_bottom = -83.0
+texture = ExtResource("5_7n748")
+area = 8
+room_id = "rmBonus3"
+
+[node name="rmRuinTutorial39" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 85.0
+offset_top = -108.0
+offset_right = 98.0
+offset_bottom = -95.0
+texture = ExtResource("5_7n748")
+area = 8
+room_id = "rmBonus4"
+
+[node name="rmRuinTutorial41" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 109.0
+offset_top = -120.0
+offset_right = 122.0
+offset_bottom = -107.0
+texture = ExtResource("16_vwf4d")
+area = 8
+room_id = "rmBonus5"
+
+[node name="rmRuinTutorial42" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 121.0
+offset_top = -120.0
+offset_right = 134.0
+offset_bottom = -107.0
+texture = ExtResource("4_bhh24")
+area = 8
+room_id = "rmBonus6"
+
+[node name="rmRuinTutorial43" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 121.0
+offset_top = -132.0
+offset_right = 134.0
+offset_bottom = -119.0
+texture = ExtResource("4_bhh24")
+flip_h = true
+flip_v = true
+area = 8
+room_id = "rmBonus7"
+
+[node name="rmRuinTutorial44" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 133.0
+offset_top = -132.0
+offset_right = 146.0
+offset_bottom = -119.0
+texture = ExtResource("8_7n748")
+flip_h = true
+flip_v = true
+area = 8
+room_id = "rmBonusEnd"
+
+[node name="rmRuinTutorial45" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 133.0
+offset_top = -156.0
+offset_right = 146.0
+offset_bottom = -131.0
+texture = ExtResource("21_stg75")
+flip_h = true
+area = 8
+room_id = "rmBonusManhole"
+
+[node name="rmRuinTutorial40" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 85.0
+offset_top = -120.0
+offset_right = 110.0
+offset_bottom = -107.0
+texture = ExtResource("21_lwvpf")
+area = 8
+room_id = "rmBonusHalfway"
+
+[node name="rmRuinTutorial34" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 61.0
+offset_top = -72.0
+offset_right = 74.0
+offset_bottom = -59.0
+texture = ExtResource("5_7n748")
+flip_v = true
+area = 6
+room_id = "rmCaveShortcut"
+
+[node name="shortcut" parent="nodes/rmRuinTutorial34" instance=ExtResource("22_qug3e")]
+layout_mode = 0
+offset_left = 2.5864
+offset_top = 3.01419
+offset_right = 9.5864
+offset_bottom = 10.0142
+shortcut_id = 1725
+
+[node name="rmRuinTutorial15" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 49.0
+offset_top = -108.0
+offset_right = 62.0
+offset_bottom = -95.0
+texture = ExtResource("16_vwf4d")
+area = 6
+room_id = "rmPowerSwitch"
+
+[node name="rmRuinTutorial12" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -83.0
+offset_right = 50.0
+offset_bottom = -58.0
+rotation = -1.57079
+texture = ExtResource("19_p6mt8")
+flip_h = true
+area = 6
+room_id = "rmPowerSecret2"
+
+[node name="collectible" parent="nodes/rmRuinTutorial12" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 2.99461
+offset_top = 15.4652
+offset_right = 9.99461
+offset_bottom = 22.4652
+collectible_id = "629"
+
+[node name="powerdoor" parent="nodes/rmRuinTutorial12" instance=ExtResource("6_21n1s")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.99998
+offset_right = 17.0
+offset_bottom = 16.0
+rotation = 1.57079
+
+[node name="rmRuinTutorial11" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -84.0
+offset_right = 62.0
+offset_bottom = -59.0
+texture = ExtResource("18_0cwt2")
+area = 6
+room_id = "rmPowerSentry2"
+
+[node name="rmRuinTutorial7" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = -48.0
+offset_right = 26.0
+offset_bottom = -35.0
+texture = ExtResource("16_vwf4d")
+area = 6
+room_id = "rmPowerOmni1"
+
+[node name="rmRuinTutorial50" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 37.0
+offset_top = -48.0
+offset_right = 50.0
+offset_bottom = -35.0
+texture = ExtResource("20_gqgkc")
+room_id = "rmCaveStart"
+
+[node name="rmRuinTutorial51" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 49.0
+offset_top = -48.0
+offset_right = 62.0
+offset_bottom = -35.0
+texture = ExtResource("16_vwf4d")
+room_id = "rmCaveHallway1"
+
+[node name="rmRuinTutorial56" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 61.0
+offset_top = -24.0
+offset_right = 74.0
+offset_bottom = -11.0
+texture = ExtResource("29_fm4ng")
+room_id = "rmCaveTutorialFinal"
+
+[node name="rmRuinTutorial61" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 25.0
+offset_top = -12.0
+offset_right = 50.0
+offset_bottom = 1.0
+texture = ExtResource("30_t37wa")
+area = 1
+room_id = "rmRuinCaveConnector"
+
+[node name="rmRuinTutorial67" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 25.0
+offset_top = 12.0
+offset_right = 50.0
+offset_bottom = 25.0
+texture = ExtResource("31_mwdcs")
+area = 1
+room_id = "rmRuinCaveConnector"
+
+[node name="rmRuinTutorial68" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 36.0
+offset_right = 39.0
+offset_bottom = 4.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 1
+room_id = "transOffice"
+
+[node name="rmRuinTutorial69" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = 36.0
+offset_top = 9.0
+offset_right = 39.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 1
+room_id = "transOffice"
+
+[node name="rmRuinTutorial62" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 37.0
+offset_top = -37.0
+offset_right = 50.0
+offset_bottom = -9.0
+texture = ExtResource("31_jrbvb")
+room_id = "rmIntro"
+
+[node name="rmRuinTutorial58" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 73.0
+offset_top = -12.0
+offset_right = 86.0
+offset_bottom = 1.0
+texture = ExtResource("16_vwf4d")
+room_id = "rmCaveExtension1"
+
+[node name="rmRuinTutorial63" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 5.0
+offset_right = 68.0
+offset_bottom = 8.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+room_id = "transCaveEnd"
+
+[node name="rmRuinTutorial66" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 4.0
+offset_right = 69.0
+offset_bottom = 7.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+room_id = "transCaveEnd"
+
+[node name="rmRuinTutorial64" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 3.0
+offset_right = 24.0
+offset_bottom = 7.0
+rotation = 1.57079
+texture = ExtResource("27_dpdn5")
+room_id = "transCaveEnd"
+
+[node name="rmRuinTutorial65" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 3.0
+offset_right = 59.0
+offset_bottom = 7.0
+rotation = 1.57079
+texture = ExtResource("27_dpdn5")
+room_id = "transCaveEnd"
+
+[node name="rmRuinTutorial59" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 85.0
+offset_top = -24.0
+offset_right = 98.0
+offset_bottom = 1.0
+texture = ExtResource("17_mnun1")
+room_id = "rmCaveExtension2"
+
+[node name="rmRuinTutorial60" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 97.0
+offset_top = -24.0
+offset_right = 110.0
+offset_bottom = -11.0
+texture = ExtResource("4_bhh24")
+room_id = "rmCaveExtension3"
+
+[node name="rmRuinTutorial74" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 102.0
+offset_top = -33.0
+offset_right = 105.0
+offset_bottom = -23.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+room_id = "rmCaveExtUp"
+
+[node name="rmRuinTutorial76" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 114.0
+offset_top = -42.0
+offset_right = 117.0
+offset_bottom = -17.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 7
+room_id = "rmCaveExtDown"
+
+[node name="rmRuinTutorial79" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 111.0
+offset_top = -19.0
+offset_right = 116.0
+offset_bottom = -16.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 7
+room_id = "rmCaveExtDown"
+
+[node name="rmRuinTutorial78" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 113.0
+offset_top = -43.0
+offset_right = 116.0
+offset_bottom = -40.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 7
+room_id = "rmCaveExtDown"
+
+[node name="rmRuinTutorial75" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 107.0
+offset_top = -32.0
+offset_right = 114.0
+offset_bottom = -28.0
+rotation = -3.14159
+texture = ExtResource("27_dpdn5")
+room_id = "rmCaveExtUp"
+
+[node name="rmRuinTutorial77" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 112.0
+offset_top = -21.0
+offset_right = 119.0
+offset_bottom = -17.0
+rotation = -4.71238
+texture = ExtResource("27_dpdn5")
+area = 7
+room_id = "rmCaveExtDown"
+
+[node name="rmRuinTutorial80" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 112.0
+offset_top = -31.0
+offset_right = 119.0
+offset_bottom = -27.0
+rotation = -6.28318
+texture = ExtResource("27_dpdn5")
+area = 7
+room_id = "rmCaveExtDown"
+
+[node name="rmRuinTutorial73" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 97.0
+offset_top = -35.0
+offset_right = 110.0
+offset_bottom = -18.0
+rotation = -1.57079
+texture = ExtResource("10_t5iyk")
+area = 7
+room_id = "rmCaveExtension4"
+
+[node name="collectible" parent="nodes/rmRuinTutorial73" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 3.24892
+offset_top = 3.10832
+offset_right = 10.2489
+offset_bottom = 10.1083
+collectible_id = "1258"
+
+[node name="rmRuinTutorial57" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 61.0
+offset_top = -12.0
+offset_right = 74.0
+offset_bottom = 5.0
+texture = ExtResource("30_rssst")
+room_id = "rmCaveEnd"
+
+[node name="powerdoor" parent="nodes/rmRuinTutorial57" instance=ExtResource("6_21n1s")]
+layout_mode = 0
+offset_left = 6.74372
+offset_top = 2.91513
+offset_right = 13.7437
+offset_bottom = 9.91513
+
+[node name="rmRuinTutorial55" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 73.0
+offset_top = -36.0
+offset_right = 86.0
+offset_bottom = -11.0
+texture = ExtResource("21_wqv41")
+flip_h = true
+room_id = "rmCaveTutorial3"
+
+[node name="rmRuinTutorial54" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 49.0
+offset_top = -36.0
+offset_right = 62.0
+offset_bottom = -23.0
+texture = ExtResource("24_xujbb")
+flip_h = true
+room_id = "rmCaveRuinFall"
+
+[node name="rmRuinTutorial70" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 54.0
+offset_top = -19.0
+offset_right = 57.0
+offset_bottom = -5.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_h = true
+room_id = "transCaveBack"
+
+[node name="rmRuinTutorial81" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 66.0
+offset_top = -51.0
+offset_right = 69.0
+offset_bottom = -47.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_h = true
+room_id = "transCaveShortcut"
+
+[node name="rmRuinTutorial82" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 66.0
+offset_top = -60.0
+offset_right = 69.0
+offset_bottom = -56.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_h = true
+room_id = "transCaveShortcut"
+
+[node name="rmRuinTutorial72" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 51.0
+offset_top = -7.0
+offset_right = 56.0
+offset_bottom = -4.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_h = true
+room_id = "transCaveBack"
+
+[node name="rmRuinTutorial71" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 52.0
+offset_top = -9.0
+offset_right = 59.0
+offset_bottom = -5.0
+rotation = 1.57079
+texture = ExtResource("27_dpdn5")
+flip_h = true
+room_id = "transCaveBack"
+
+[node name="rmRuinTutorial53" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 61.0
+offset_top = -36.0
+offset_right = 74.0
+offset_bottom = -23.0
+texture = ExtResource("17_62r21")
+room_id = "rmCaveTutorial2"
+
+[node name="powerdoor" parent="nodes/rmRuinTutorial53" instance=ExtResource("6_21n1s")]
+layout_mode = 0
+offset_left = -1.39262
+offset_top = 3.11155
+offset_right = 5.60738
+offset_bottom = 10.1116
+
+[node name="rmRuinTutorial52" parent="nodes" instance=ExtResource("3_cng4x")]
+layout_mode = 0
+offset_left = 61.0
+offset_top = -48.0
+offset_right = 74.0
+offset_bottom = -35.0
+texture = ExtResource("8_7n748")
+flip_h = true
+room_id = "rmCaveTutorial1"
+
+[node name="powerdoor" parent="nodes/rmRuinTutorial52" instance=ExtResource("6_21n1s")]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 10.0
+offset_bottom = 13.0
+rotation = -1.57079
+
+[node name="rmRuinTutorial8" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 1.0
+offset_top = -48.0
+offset_right = 14.0
+offset_bottom = -35.0
+texture = ExtResource("17_62r21")
+area = 6
+room_id = "rmPowerOmni2"
+
+[node name="rmRuinTutorial16" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 1.0
+offset_top = -60.0
+offset_right = 14.0
+offset_bottom = -47.0
+texture = ExtResource("8_7n748")
+area = 6
+room_id = "rmPowerOmni3"
+
+[node name="rmRuinTutorial32" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = -55.0
+offset_right = 25.0
+offset_bottom = -52.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 6
+room_id = "transPowerCollectible"
+
+[node name="rmRuinTutorial33" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 50.0
+offset_top = -55.0
+offset_right = 74.0
+offset_bottom = -52.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 6
+room_id = "transPowerCollectible"
+
+[node name="rmRuinTutorial31" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 73.0
+offset_top = -60.0
+offset_right = 86.0
+offset_bottom = -47.0
+texture = ExtResource("17_62r21")
+area = 6
+room_id = "rmPowerCollectible"
+
+[node name="TextureRect" type="TextureRect" parent="nodes/rmRuinTutorial31"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 10.0
+texture = ExtResource("23_pyyt5")
+stretch_mode = 2
+
+[node name="rmRuinTutorial17" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 1.0
+offset_top = -84.0
+offset_right = 14.0
+offset_bottom = -71.0
+texture = ExtResource("4_bhh24")
+flip_h = true
+flip_v = true
+area = 6
+room_id = "rmPowerOmni4"
+
+[node name="rmRuinTutorial24" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 6.0
+offset_top = -72.0
+offset_right = 9.0
+offset_bottom = -59.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_h = true
+flip_v = true
+area = 6
+room_id = "transPowerOmni3"
+
+[node name="rmRuinTutorial18" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = -84.0
+offset_right = 26.0
+offset_bottom = -71.0
+area = 6
+room_id = "rmPowerExit"
+
+[node name="rmRuinTutorial22" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = -72.0
+offset_right = 26.0
+offset_bottom = -59.0
+texture = ExtResource("17_62r21")
+area = 6
+room_id = "rmPowerFinalHallway2"
+
+[node name="rmRuinTutorial26" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 11.0
+offset_top = -67.0
+offset_right = 14.0
+offset_bottom = -64.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 6
+room_id = "transPowerFinal3"
+
+[node name="rmRuinTutorial27" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 1.0
+offset_top = -67.0
+offset_right = 4.0
+offset_bottom = -64.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 6
+room_id = "transPowerFinal3"
+
+[node name="rmRuinTutorial23" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 25.0
+offset_top = -72.0
+offset_right = 38.0
+offset_bottom = -59.0
+texture = ExtResource("22_cep3i")
+area = 6
+room_id = "rmPowerFinal4"
+
+[node name="rmRuinTutorial19" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = -96.0
+offset_right = 26.0
+offset_bottom = -83.0
+texture = ExtResource("17_62r21")
+flip_v = true
+area = 6
+room_id = "rmPowerFinalHallway1"
+
+[node name="rmRuinTutorial83" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 36.0
+offset_top = -168.0
+offset_right = 49.0
+offset_bottom = -155.0
+texture = ExtResource("16_vwf4d")
+area = 7
+room_id = "rmOutsideCity1"
+
+[node name="rmRuinTutorial94" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 24.0
+offset_top = -168.0
+offset_right = 37.0
+offset_bottom = -155.0
+texture = ExtResource("4_bhh24")
+flip_h = true
+area = 7
+room_id = "rmOutsideCity2"
+
+[node name="rmRuinTutorial95" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 24.0
+offset_top = -192.0
+offset_right = 37.0
+offset_bottom = -167.0
+texture = ExtResource("37_gnm7i")
+flip_h = true
+area = 7
+room_id = "rmOutsideCity3"
+
+[node name="rmRuinTutorial84" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 42.0
+offset_top = -151.0
+offset_right = 133.0
+offset_bottom = -148.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_v = true
+area = 8
+room_id = "trans_manhole_to"
+
+[node name="rmRuinTutorial88" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 41.0
+offset_top = -154.0
+offset_right = 44.0
+offset_bottom = -149.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_v = true
+area = 8
+room_id = "trans_manhole_to"
+
+[node name="rmRuinTutorial85" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 39.0
+offset_top = -157.0
+offset_right = 46.0
+offset_bottom = -153.0
+texture = ExtResource("27_dpdn5")
+flip_v = true
+area = 8
+room_id = "trans_manhole_to"
+
+[node name="rmRuinTutorial89" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 129.0
+offset_top = -146.0
+offset_right = 136.0
+offset_bottom = -142.0
+rotation = -1.57079
+texture = ExtResource("27_dpdn5")
+flip_v = true
+area = 8
+room_id = "trans_manhole_to"
+
+[node name="rmRuinTutorial90" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 74.0
+offset_top = -146.0
+offset_right = 81.0
+offset_bottom = -142.0
+rotation = -1.57079
+texture = ExtResource("27_dpdn5")
+flip_v = true
+area = 8
+room_id = "trans_manhole_to"
+
+[node name="rmRuinTutorial86" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 48.0
+offset_top = -163.0
+offset_right = 140.0
+offset_bottom = -160.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_v = true
+area = 7
+room_id = "trans_manhole_back"
+
+[node name="rmRuinTutorial91" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 138.0
+offset_top = -162.0
+offset_right = 141.0
+offset_bottom = -155.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_v = true
+area = 7
+room_id = "trans_manhole_back"
+
+[node name="rmRuinTutorial87" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 143.0
+offset_top = -153.0
+offset_right = 150.0
+offset_bottom = -149.0
+rotation = 3.14159
+texture = ExtResource("27_dpdn5")
+flip_v = true
+area = 7
+room_id = "trans_manhole_back"
+
+[node name="rmRuinTutorial92" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 53.0
+offset_top = -165.0
+offset_right = 60.0
+offset_bottom = -161.0
+rotation = 1.57079
+texture = ExtResource("27_dpdn5")
+flip_v = true
+area = 7
+room_id = "trans_manhole_back"
+
+[node name="rmRuinTutorial93" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 103.0
+offset_top = -165.0
+offset_right = 110.0
+offset_bottom = -161.0
+rotation = 1.57079
+texture = ExtResource("27_dpdn5")
+flip_v = true
+area = 7
+room_id = "trans_manhole_back"
+
+[node name="rmRuinTutorial21" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 25.0
+offset_top = -96.0
+offset_right = 38.0
+offset_bottom = -83.0
+texture = ExtResource("22_cep3i")
+flip_v = true
+area = 6
+room_id = "rmPowerFinal2"
+
+[node name="rmRuinTutorial20" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = 1.0
+offset_top = -108.0
+offset_right = 14.0
+offset_bottom = -83.0
+texture = ExtResource("19_p6mt8")
+flip_v = true
+area = 6
+room_id = "rmPowerFinal1"
+
+[node name="rmRuinTutorial9" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = -11.0
+offset_top = -48.0
+offset_right = 2.0
+offset_bottom = -23.0
+texture = ExtResource("19_p6mt8")
+area = 6
+room_id = "rmPowerSecret1"
+
+[node name="collectible" parent="nodes/rmRuinTutorial9" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 3.31668
+offset_top = 15.1643
+offset_right = 10.3167
+offset_bottom = 22.1643
+collectible_id = "6301"
+
+[node name="rmRuinTutorial25" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.188235, 0.376471, 0.509804, 1)
+layout_mode = 0
+offset_left = -11.0
+offset_top = -72.0
+offset_right = 2.0
+offset_bottom = -47.0
+texture = ExtResource("19_p6mt8")
+area = 6
+room_id = "rmPowerFinal3"
 
 [node name="rmRuinTutorial5" parent="nodes" instance=ExtResource("3_cng4x")]
 self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
@@ -284,7 +1744,7 @@ self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
 layout_mode = 0
 offset_left = -23.0
 offset_top = -24.0
-offset_right = 2.0
+offset_right = -10.0
 offset_bottom = -11.0
 texture = ExtResource("4_bhh24")
 flip_v = true
@@ -310,6 +1770,18 @@ texture = ExtResource("8_asf6c")
 area = 1
 room_id = "rmRuinChallenge1"
 
+[node name="node29" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = -30.0
+offset_top = -36.0
+offset_right = -27.0
+offset_bottom = -23.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 1
+room_id = "transLabShortcut"
+
 [node name="node6" parent="nodes" instance=ExtResource("3_cng4x")]
 self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
 layout_mode = 0
@@ -333,6 +1805,654 @@ offset_bottom = 1.0
 texture = ExtResource("4_bhh24")
 area = 3
 room_id = "rmLabStart"
+
+[node name="node8" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -59.0
+offset_top = -12.0
+offset_right = -46.0
+offset_bottom = 1.0
+texture = ExtResource("4_bhh24")
+flip_h = true
+area = 3
+room_id = "rmLabTutorial1"
+
+[node name="node10" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -47.0
+offset_top = -36.0
+offset_right = -34.0
+offset_bottom = -23.0
+texture = ExtResource("4_bhh24")
+area = 3
+room_id = "rmLabHallway1"
+
+[node name="node11" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -47.0
+offset_top = -60.0
+offset_right = -34.0
+offset_bottom = -35.0
+texture = ExtResource("18_tip1s")
+area = 3
+room_id = "rmLabTutorial2"
+
+[node name="node15" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
+layout_mode = 0
+offset_left = -35.0
+offset_top = -60.0
+offset_right = -22.0
+offset_bottom = -35.0
+texture = ExtResource("18_tip1s")
+area = 1
+room_id = "rmLabShortcut"
+
+[node name="shortcut" parent="nodes/node15" instance=ExtResource("22_qug3e")]
+layout_mode = 0
+offset_left = 3.37635
+offset_top = 7.52959
+offset_right = 10.3764
+offset_bottom = 14.5296
+shortcut_id = 102
+
+[node name="node12" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -47.0
+offset_top = -72.0
+offset_right = -34.0
+offset_bottom = -59.0
+texture = ExtResource("17_62r21")
+flip_v = true
+area = 3
+room_id = "rmLabChallenge2"
+
+[node name="node16" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -59.0
+offset_top = -84.0
+offset_right = -46.0
+offset_bottom = -71.0
+texture = ExtResource("4_bhh24")
+area = 3
+room_id = "rmLabChallenge4"
+
+[node name="node31" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -71.0
+offset_top = -84.0
+offset_right = -58.0
+offset_bottom = -71.0
+texture = ExtResource("17_62r21")
+area = 4
+room_id = "rmDeepHallway1"
+
+[node name="collectible" parent="nodes/node31" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 2.80677
+offset_top = 3.31017
+offset_right = 9.80677
+offset_bottom = 10.3102
+collectible_id = "622"
+
+[node name="node32" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_top = -84.0
+offset_right = -70.0
+offset_bottom = -71.0
+texture = ExtResource("4_bhh24")
+flip_h = true
+area = 4
+room_id = "rmDeepStart"
+
+[node name="gate" parent="nodes/node32" instance=ExtResource("5_f70vo")]
+layout_mode = 0
+offset_left = 2.20747
+offset_top = 1.3754
+offset_right = 11.2075
+offset_bottom = 10.3754
+
+[node name="node33" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_top = -96.0
+offset_right = -70.0
+offset_bottom = -83.0
+texture = ExtResource("4_bhh24")
+flip_v = true
+area = 4
+room_id = "rmDeepFoyer"
+
+[node name="node41" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -66.0
+offset_top = -96.0
+offset_right = -63.0
+offset_bottom = -83.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_v = true
+area = 4
+room_id = "transDeepShortcut2"
+
+[node name="node34" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -95.0
+offset_top = -96.0
+offset_right = -82.0
+offset_bottom = -83.0
+texture = ExtResource("16_vwf4d")
+flip_v = true
+area = 4
+room_id = "rmDeepThingIntro"
+
+[node name="node36" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -95.0
+offset_top = -108.0
+offset_right = -82.0
+offset_bottom = -95.0
+texture = ExtResource("4_bhh24")
+area = 4
+room_id = "rmDeepThing4"
+
+[node name="node37" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -95.0
+offset_top = -120.0
+offset_right = -82.0
+offset_bottom = -107.0
+texture = ExtResource("5_7n748")
+area = 4
+room_id = "rmDeepThing5"
+
+[node name="node38" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -95.0
+offset_top = -132.0
+offset_right = -82.0
+offset_bottom = -119.0
+texture = ExtResource("8_7n748")
+area = 4
+room_id = "rmDeepStorage"
+
+[node name="node44" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_top = -168.0
+offset_right = -70.0
+offset_bottom = -155.0
+texture = ExtResource("5_7n748")
+area = 4
+room_id = "rmDeepChaseEnd"
+
+[node name="node46" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -66.0
+offset_top = -168.0
+offset_right = -63.0
+offset_bottom = -134.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 4
+room_id = "transDeepFall"
+
+[node name="node48" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -65.0
+offset_top = -136.0
+offset_right = -52.0
+offset_bottom = -133.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 4
+room_id = "transDeepFall"
+
+[node name="node50" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -104.0
+offset_right = -52.0
+offset_bottom = -101.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 4
+room_id = "transDeepFall"
+
+[node name="node55" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -77.0
+offset_top = -104.0
+offset_right = -71.0
+offset_bottom = -101.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 4
+room_id = "transDeepFall"
+
+[node name="node51" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -66.0
+offset_top = -71.0
+offset_right = -63.0
+offset_bottom = -64.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 4
+room_id = "transDeepFall"
+
+[node name="node56" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -78.0
+offset_top = -103.0
+offset_right = -75.0
+offset_bottom = -96.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 4
+room_id = "transDeepFall"
+
+[node name="node57" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -78.0
+offset_top = -71.0
+offset_right = -75.0
+offset_bottom = -64.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 4
+room_id = "transDeepFall"
+
+[node name="node58" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -77.0
+offset_top = -66.0
+offset_right = -64.0
+offset_bottom = -63.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 4
+room_id = "transDeepFall"
+
+[node name="node49" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -54.0
+offset_top = -135.0
+offset_right = -51.0
+offset_bottom = -102.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 4
+room_id = "transDeepFall"
+
+[node name="node47" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -68.0
+offset_top = -167.0
+offset_right = -61.0
+offset_bottom = -163.0
+texture = ExtResource("27_dpdn5")
+area = 4
+room_id = "transDeepFall"
+
+[node name="node52" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -68.0
+offset_top = -142.0
+offset_right = -61.0
+offset_bottom = -138.0
+texture = ExtResource("27_dpdn5")
+area = 4
+room_id = "transDeepFall"
+
+[node name="node53" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -56.0
+offset_top = -130.0
+offset_right = -49.0
+offset_bottom = -126.0
+texture = ExtResource("27_dpdn5")
+area = 4
+room_id = "transDeepFall"
+
+[node name="node54" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -68.0
+offset_top = -73.0
+offset_right = -61.0
+offset_bottom = -69.0
+texture = ExtResource("27_dpdn5")
+flip_v = true
+area = 4
+room_id = "transDeepFall"
+
+[node name="node45" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -180.0
+offset_right = -45.0
+offset_bottom = -155.0
+rotation = 1.5708
+texture = ExtResource("21_wqv41")
+area = 4
+room_id = "rmDeepEnd"
+
+[node name="collectible" parent="nodes/node45" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 2.99991
+offset_top = 3.41053
+offset_right = 9.99991
+offset_bottom = 10.4105
+collectible_id = "706"
+
+[node name="node43" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -107.0
+offset_top = -144.0
+offset_right = -94.0
+offset_bottom = -131.0
+texture = ExtResource("22_cep3i")
+flip_h = true
+area = 4
+room_id = "rmDeepSentryHideout"
+
+[node name="collectible" parent="nodes/node43" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 3.13182
+offset_top = 2.70653
+offset_right = 10.1318
+offset_bottom = 9.70653
+collectible_id = "1714"
+
+[node name="node42" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -95.0
+offset_top = -156.0
+offset_right = -70.0
+offset_bottom = -131.0
+texture = ExtResource("22_426se")
+area = 4
+room_id = "rmDeepChase1"
+
+[node name="node40" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_top = -127.0
+offset_right = -70.0
+offset_bottom = -124.0
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 4
+room_id = "transDeepShortcut1"
+
+[node name="node39" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -132.0
+offset_right = -21.0
+offset_bottom = -119.0
+rotation = 1.5708
+texture = ExtResource("20_qug3e")
+flip_v = true
+area = 4
+room_id = "rmDeepShortcut"
+
+[node name="shortcut" parent="nodes/node39" instance=ExtResource("22_qug3e")]
+layout_mode = 0
+offset_left = 15.1886
+offset_top = 9.52682
+offset_right = 22.1886
+offset_bottom = 16.5268
+rotation = -1.5708
+shortcut_id = 634
+
+[node name="node35" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.270588, 0.231373, 0.254902, 1)
+layout_mode = 0
+offset_left = -107.0
+offset_top = -108.0
+offset_right = -94.0
+offset_bottom = -83.0
+texture = ExtResource("21_wqv41")
+area = 4
+room_id = "rmDeepThing2"
+
+[node name="node14" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -59.0
+offset_top = -72.0
+offset_right = -46.0
+offset_bottom = -47.0
+texture = ExtResource("19_p6mt8")
+area = 3
+room_id = "rmLabChallenge2"
+
+[node name="collectible" parent="nodes/node14" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 2.77982
+offset_top = 15.031
+offset_right = 9.77982
+offset_bottom = 22.031
+collectible_id = "137"
+
+[node name="node13" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -35.0
+offset_top = -72.0
+offset_right = -22.0
+offset_bottom = -59.0
+texture = ExtResource("8_7n748")
+flip_h = true
+area = 3
+room_id = "rmLabHallway2"
+
+[node name="node17" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -39.0
+offset_top = -71.0
+offset_right = -26.0
+offset_bottom = -54.0
+rotation = -1.5708
+texture = ExtResource("24_xujbb")
+flip_v = true
+area = 3
+room_id = "rmLabChallenge3"
+
+[node name="node20" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -59.0
+offset_top = -83.0
+offset_right = -46.0
+offset_bottom = -66.0
+rotation = -1.5708
+texture = ExtResource("24_xujbb")
+area = 3
+room_id = "rmLabEnd"
+
+[node name="node21" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -42.0
+offset_top = -88.0
+offset_right = -39.0
+offset_bottom = -62.0
+rotation = -1.5708
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 3
+room_id = "transLabEnd"
+
+[node name="node23" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -18.0
+offset_top = -29.0
+offset_right = 43.0
+offset_bottom = -26.0
+rotation = -1.5708
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 3
+room_id = "transLabEnd"
+
+[node name="node24" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -25.0
+offset_top = -28.0
+offset_right = -22.0
+offset_bottom = -19.0
+rotation = -1.5708
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 3
+room_id = "transLabEnd"
+
+[node name="node25" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -34.0
+offset_top = -28.0
+offset_right = -31.0
+offset_bottom = -25.0
+rotation = -1.5708
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 3
+room_id = "transLabEnd"
+
+[node name="node30" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -35.0
+offset_top = -27.0
+offset_right = -32.0
+offset_bottom = -24.0
+rotation = -1.5708
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+area = 3
+room_id = "transLabEnd"
+
+[node name="node22" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -44.0
+offset_top = -24.0
+offset_right = -37.0
+offset_bottom = -20.0
+texture = ExtResource("27_dpdn5")
+area = 3
+room_id = "transLabEnd"
+
+[node name="node26" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -20.0
+offset_top = -41.0
+offset_right = -13.0
+offset_bottom = -37.0
+texture = ExtResource("27_dpdn5")
+area = 3
+room_id = "transLabEnd"
+
+[node name="node28" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -23.0
+offset_top = -33.0
+offset_right = -16.0
+offset_bottom = -29.0
+rotation = 1.5708
+texture = ExtResource("27_dpdn5")
+area = 3
+room_id = "transLabEnd"
+
+[node name="node27" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -20.0
+offset_top = -81.0
+offset_right = -13.0
+offset_bottom = -77.0
+texture = ExtResource("27_dpdn5")
+area = 3
+room_id = "transLabEnd"
+
+[node name="node18" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -44.0
+offset_top = -76.0
+offset_right = -41.0
+offset_bottom = -71.0
+rotation = -1.5708
+texture = ExtResource("7_c1iyk")
+stretch_mode = 0
+flip_v = true
+area = 3
+room_id = "transLabChallenge3"
+
+[node name="node19" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -48.0
+offset_top = -74.0
+offset_right = -41.0
+offset_bottom = -70.0
+rotation = -1.5708
+texture = ExtResource("27_dpdn5")
+flip_v = true
+area = 3
+room_id = "transLabChallenge3"
+
+[node name="node9" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.529412, 0.294118, 0.619608, 1)
+layout_mode = 0
+offset_left = -59.0
+offset_top = -36.0
+offset_right = -46.0
+offset_bottom = -11.0
+texture = ExtResource("21_stg75")
+area = 3
+room_id = "rmLabChallenge1"
 
 [node name="map_node" parent="nodes" instance=ExtResource("3_cng4x")]
 self_modulate = Color(0.34902, 0.337255, 0.321569, 1)

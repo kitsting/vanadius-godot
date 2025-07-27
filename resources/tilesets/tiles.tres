@@ -1015,6 +1015,11 @@ texture_region_size = Vector2i(24, 24)
 7:7/0/terrain = 3
 7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 7:7/0/terrains_peering_bit/top_side = 3
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0mn7m"]
 resource_name = "Power"
@@ -1505,6 +1510,8 @@ texture_region_size = Vector2i(24, 24)
 6:8/0 = 0
 7:8/0 = 0
 8:8/0 = 0
+4:0/0 = 0
+3:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bvcex"]
 resource_name = "Tower"
