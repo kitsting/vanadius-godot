@@ -94,7 +94,7 @@ horizontal_alignment = 1
 
 [node name="suffix" type="Label" parent="FloorObjects/ending/stats/stats/collectibles" index="2"]
 layout_mode = 2
-text = "/ 20"
+text = "/ 19"
 label_settings = ExtResource("6_8xch4")
 horizontal_alignment = 1
 
@@ -144,6 +144,6 @@ position = Vector2(155, 224)
 target_room = "uid://dm82pv1us5l1f"
 target_x = 180
 target_y = 56
-reveal_node = ""
+set_room = true
 
 [connection signal="body_entered" from="FloorObjects/ending" to="FloorObjects/ending" method="_on_body_entered"]

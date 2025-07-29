@@ -193,6 +193,8 @@ autoplay = "default"
 position = Vector2(320, 136)
 rotation = 4.71239
 target_room = "uid://cd2i0gn3so2yv"
+target_x = 62
+target_y = 248
 direction = 2
 reveal_node = ""
 

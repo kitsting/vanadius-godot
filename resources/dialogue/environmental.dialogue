@@ -131,3 +131,7 @@ It's a table long enough for you to lie down on. There's nothing on it except a 
 ~ mineshaft
 An entrance to a long, dark tunnel. It's boarded up.
 => END
+
+~ city_door
+The door is too big for you to open.
+=> END

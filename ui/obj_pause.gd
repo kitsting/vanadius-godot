@@ -12,9 +12,9 @@ func _ready() -> void:
 	update_input()
 	Game.connect("device_changed", update_input)
 	
-	if Game.stats.game_good_ending:
-		%collect_label.text = str(Game.progress["collectibles"].size()) + "/20"
-	elif Game.stats.game_completed:
+	if Game.progress.bonus_revealed:
+		%collect_label.text = str(Game.progress["collectibles"].size()) + "/19"
+	elif Game.progress.power_complete:
 		%collect_label.text = str(Game.progress["collectibles"].size()) + "/" + str(Game.m_total_collectibles)
 	else:
 		%collect_label.text = str(Game.progress["collectibles"].size())

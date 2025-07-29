@@ -55,7 +55,6 @@ anchors_preset = 0
 script = ExtResource("1_6fv54")
 
 [node name="bg" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -522,9 +521,9 @@ room_id = "rmRuinFEntrance"
 [node name="collectible" parent="nodes/rmRuinStart2" instance=ExtResource("6_3grd2")]
 layout_mode = 0
 offset_left = 3.08109
-offset_top = 14.8646
+offset_top = 2.8646
 offset_right = 10.0811
-offset_bottom = 21.8646
+offset_bottom = 9.8646
 collectible_id = "2"
 
 [node name="rmRuinTutorial2" parent="nodes" instance=ExtResource("3_cng4x")]
@@ -631,6 +630,34 @@ texture = ExtResource("4_bhh24")
 flip_v = true
 area = 6
 room_id = "rmPowerSentry4"
+
+[node name="mapicon_secret" parent="nodes/rmRuinTutorial14" instance=ExtResource("9_p2q3s")]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 11.0
+offset_bottom = 11.0
+point_to = "rmPowerStairs"
+
+[node name="rmRuinTutorial96" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
+layout_mode = 0
+offset_left = 73.0
+offset_top = -108.0
+offset_right = 86.0
+offset_bottom = -95.0
+texture = ExtResource("22_cep3i")
+flip_v = true
+area = 8
+room_id = "rmPowerStairs"
+
+[node name="collectible" parent="nodes/rmRuinTutorial96" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 3.05173
+offset_top = 2.75196
+offset_right = 10.0517
+offset_bottom = 9.75196
+collectible_id = "707"
 
 [node name="rmRuinTutorial35" parent="nodes" instance=ExtResource("3_cng4x")]
 self_modulate = Color(0.678431, 0.266667, 0.266667, 1)
@@ -906,6 +933,7 @@ area = 6
 room_id = "rmPowerOmni1"
 
 [node name="rmRuinTutorial50" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 37.0
 offset_top = -48.0
@@ -915,6 +943,7 @@ texture = ExtResource("20_gqgkc")
 room_id = "rmCaveStart"
 
 [node name="rmRuinTutorial51" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 49.0
 offset_top = -48.0
@@ -924,6 +953,7 @@ texture = ExtResource("16_vwf4d")
 room_id = "rmCaveHallway1"
 
 [node name="rmRuinTutorial56" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 61.0
 offset_top = -24.0
@@ -977,6 +1007,7 @@ area = 1
 room_id = "transOffice"
 
 [node name="rmRuinTutorial62" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 37.0
 offset_top = -37.0
@@ -986,6 +1017,7 @@ texture = ExtResource("31_jrbvb")
 room_id = "rmIntro"
 
 [node name="rmRuinTutorial58" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 73.0
 offset_top = -12.0
@@ -995,6 +1027,7 @@ texture = ExtResource("16_vwf4d")
 room_id = "rmCaveExtension1"
 
 [node name="rmRuinTutorial63" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 22.0
 offset_top = 5.0
@@ -1005,6 +1038,7 @@ stretch_mode = 0
 room_id = "transCaveEnd"
 
 [node name="rmRuinTutorial66" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 66.0
 offset_top = 4.0
@@ -1015,6 +1049,7 @@ stretch_mode = 0
 room_id = "transCaveEnd"
 
 [node name="rmRuinTutorial64" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 17.0
 offset_top = 3.0
@@ -1025,6 +1060,7 @@ texture = ExtResource("27_dpdn5")
 room_id = "transCaveEnd"
 
 [node name="rmRuinTutorial65" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 52.0
 offset_top = 3.0
@@ -1035,6 +1071,7 @@ texture = ExtResource("27_dpdn5")
 room_id = "transCaveEnd"
 
 [node name="rmRuinTutorial59" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 85.0
 offset_top = -24.0
@@ -1044,6 +1081,7 @@ texture = ExtResource("17_mnun1")
 room_id = "rmCaveExtension2"
 
 [node name="rmRuinTutorial60" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 97.0
 offset_top = -24.0
@@ -1053,6 +1091,7 @@ texture = ExtResource("4_bhh24")
 room_id = "rmCaveExtension3"
 
 [node name="rmRuinTutorial74" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 102.0
 offset_top = -33.0
@@ -1099,6 +1138,7 @@ area = 7
 room_id = "rmCaveExtDown"
 
 [node name="rmRuinTutorial75" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 107.0
 offset_top = -32.0
@@ -1153,6 +1193,7 @@ offset_bottom = 10.1083
 collectible_id = "1258"
 
 [node name="rmRuinTutorial57" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 61.0
 offset_top = -12.0
@@ -1169,6 +1210,7 @@ offset_right = 13.7437
 offset_bottom = 9.91513
 
 [node name="rmRuinTutorial55" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 73.0
 offset_top = -36.0
@@ -1179,6 +1221,7 @@ flip_h = true
 room_id = "rmCaveTutorial3"
 
 [node name="rmRuinTutorial54" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 49.0
 offset_top = -36.0
@@ -1189,6 +1232,7 @@ flip_h = true
 room_id = "rmCaveRuinFall"
 
 [node name="rmRuinTutorial70" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 54.0
 offset_top = -19.0
@@ -1200,6 +1244,7 @@ flip_h = true
 room_id = "transCaveBack"
 
 [node name="rmRuinTutorial81" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 66.0
 offset_top = -51.0
@@ -1211,6 +1256,7 @@ flip_h = true
 room_id = "transCaveShortcut"
 
 [node name="rmRuinTutorial82" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 66.0
 offset_top = -60.0
@@ -1222,6 +1268,7 @@ flip_h = true
 room_id = "transCaveShortcut"
 
 [node name="rmRuinTutorial72" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 51.0
 offset_top = -7.0
@@ -1233,6 +1280,7 @@ flip_h = true
 room_id = "transCaveBack"
 
 [node name="rmRuinTutorial71" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 52.0
 offset_top = -9.0
@@ -1244,6 +1292,7 @@ flip_h = true
 room_id = "transCaveBack"
 
 [node name="rmRuinTutorial53" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 61.0
 offset_top = -36.0
@@ -1260,6 +1309,7 @@ offset_right = 5.60738
 offset_bottom = 10.1116
 
 [node name="rmRuinTutorial52" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.298039, 0.298039, 0.54902, 1)
 layout_mode = 0
 offset_left = 61.0
 offset_top = -48.0
@@ -1379,6 +1429,78 @@ offset_right = 26.0
 offset_bottom = -71.0
 area = 6
 room_id = "rmPowerExit"
+
+[node name="rmRuinTutorial97" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 25.0
+offset_top = -84.0
+offset_right = 38.0
+offset_bottom = -71.0
+texture = ExtResource("4_bhh24")
+area = 7
+room_id = "rmOutsideBuildup1"
+
+[node name="rmRuinTutorial98" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 25.0
+offset_top = -108.0
+offset_right = 38.0
+offset_bottom = -95.0
+texture = ExtResource("8_7n748")
+area = 7
+room_id = "rmOutsideBuildup2"
+
+[node name="collectible" parent="nodes/rmRuinTutorial98" instance=ExtResource("6_3grd2")]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 10.0
+collectible_id = "704"
+
+[node name="rmRuinTutorial100" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 25.0
+offset_top = -120.0
+offset_right = 38.0
+offset_bottom = -107.0
+texture = ExtResource("5_7n748")
+area = 7
+room_id = "rmOutsideBuildup3"
+
+[node name="rmRuinTutorial101" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 25.0
+offset_top = -132.0
+offset_right = 38.0
+offset_bottom = -119.0
+texture = ExtResource("5_37u06")
+area = 7
+room_id = "rmOutsideEnd"
+
+[node name="rmRuinTutorial99" parent="nodes" instance=ExtResource("3_cng4x")]
+self_modulate = Color(0.643137, 0.568627, 0.364706, 1)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -108.0
+offset_right = 50.0
+offset_bottom = -95.0
+texture = ExtResource("16_vwf4d")
+area = 7
+room_id = "rmOutsideShortcut"
+
+[node name="shortcut" parent="nodes/rmRuinTutorial99" instance=ExtResource("22_qug3e")]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 17.0
+rotation = -1.57079
+shortcut_id = 1421
 
 [node name="rmRuinTutorial22" parent="nodes" instance=ExtResource("3_cng4x")]
 self_modulate = Color(0.188235, 0.376471, 0.509804, 1)

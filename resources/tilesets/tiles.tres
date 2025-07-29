@@ -1264,6 +1264,9 @@ texture_region_size = Vector2i(24, 24)
 7:7/0/terrain = 2
 7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 7:7/0/terrains_peering_bit/top_side = 2
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wt4oy"]
 resource_name = "Ruins"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cwi5l3flprvsj"]
+[gd_scene load_steps=27 format=4 uid="uid://cwi5l3flprvsj"]
 
 [ext_resource type="Script" uid="uid://b2ydgrt08vxai" path="res://ui/obj_title.gd" id="1_inmak"]
 [ext_resource type="PackedScene" uid="uid://drfgevjxgjwv5" path="res://ui/new_button.tscn" id="1_n6lsq"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dkvkp121btexf" path="res://sprites/outsidebg/4.png" id="6_g6v4u"]
 [ext_resource type="Texture2D" uid="uid://b2y8pvu02r2p4" path="res://sprites/ui/subheading.png" id="8_tw88j"]
 [ext_resource type="Texture2D" uid="uid://dw245kb85tfg6" path="res://sprites/ui/spr9Slice1.png" id="13_nkenn"]
+[ext_resource type="Texture2D" uid="uid://cxr5k8rh3kqow" path="res://sprites/ui/star.png" id="14_utd7e"]
 
 [sub_resource type="Shader" id="Shader_8tern"]
 code = "shader_type canvas_item;
@@ -421,6 +422,31 @@ Kevin MacLeod (incompetech.com)
 [color=gray]Licensed under Creative Commons: By Attribution 4.0
 http://creativecommons.org/licenses/by/4.0/[/color]"
 scroll_active = false
+
+[node name="stars" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_bottom = 12.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="goodend_star" type="TextureRect" parent="stars"]
+layout_mode = 2
+texture = ExtResource("14_utd7e")
+stretch_mode = 2
+
+[node name="end_star" type="TextureRect" parent="stars"]
+layout_mode = 2
+texture = ExtResource("14_utd7e")
+stretch_mode = 2
+
+[node name="collectible_star" type="TextureRect" parent="stars"]
+layout_mode = 2
+texture = ExtResource("14_utd7e")
+stretch_mode = 2
 
 [connection signal="pressed" from="Options/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Options/NewGame" to="." method="_on_new_game_pressed"]

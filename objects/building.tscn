@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://daak7swe48waj"]
+
+[ext_resource type="Script" uid="uid://dlgme6hupr46u" path="res://objects/building.gd" id="1_gfisn"]
+[ext_resource type="Texture2D" uid="uid://da6ttffkjwns4" path="res://sprites/environment/building_trans.png" id="1_k07no"]
+
+[node name="building" type="StaticBody2D"]
+script = ExtResource("1_gfisn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -36)
+texture = ExtResource("1_k07no")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-96, 60, 64, 60, 96, 0, 96, -76, -96, -76)

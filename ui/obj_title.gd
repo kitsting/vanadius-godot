@@ -53,6 +53,16 @@ func _ready() -> void:
 			$OutsideBG.visible = true
 			$BackgroundH.visible = false
 			
+	if !Game.stats.game_completed:
+		$stars/end_star.queue_free()
+	if !Game.stats.game_good_ending:
+		$stars/goodend_star.queue_free()
+		
+	if !len(Game.progress.collectibles) >= 19:
+		$stars/collectible_star.queue_free()
+	else:
+		Game.stats.all_collectibles = true
+			
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()

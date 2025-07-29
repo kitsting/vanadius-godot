@@ -37,6 +37,8 @@ extends Area2D
 @export var target_state := Game.PLAYERSTATE.ALIVE
 @export var preserve_state := false
 
+@export var set_room := true
+
 var target_body : Node = null
 
 var triggered := false
@@ -87,8 +89,9 @@ func _on_body_entered(body: Node2D) -> void:
 		triggered = true
 		target_body = body
 		
-		Game.roomtargetx = target_x
-		Game.roomtargety = target_y
+		if set_room:
+			Game.roomtargetx = target_x
+			Game.roomtargety = target_y
 		Game.alert = false
 		Game.beingchased = false
 		
@@ -97,7 +100,8 @@ func _on_body_entered(body: Node2D) -> void:
 		else:
 			Game.roomtargetstate = body.pstate
 			
-		Game.progress_set("last_room", target_room)
+		if set_room:
+			Game.progress_set("last_room", target_room)
 		
 		match direction:
 			0: #Up

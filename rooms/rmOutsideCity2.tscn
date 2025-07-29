@@ -22,11 +22,16 @@ tile_map_data = PackedByteArray("AAAPAAMABgAGAAEAAAAPAAQABgAGAAMAAAAQAAQABgAHAAM
 position = Vector2(264, 96)
 texture = ExtResource("2_q4nf5")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="FloorObjects" index="1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FloorObjects/StaticBody2D" index="0"]
+polygon = PackedVector2Array(72, 336, 0, 336, 0, -96, 408, -96, 408, 64, 424, 64, 424, -112, -16, -112, -16, 352, 72, 352)
+
 [node name="ObjPlayer" parent="Objects" index="0"]
 position = Vector2(352, 184)
 
 [node name="Sprite2D10" type="Sprite2D" parent="Objects" index="1"]
-position = Vector2(336, 8)
+position = Vector2(336, 30)
 texture = ExtResource("3_481gc")
 offset = Vector2(0, -20)
 flip_h = true
@@ -96,8 +101,20 @@ target_y = 168
 direction = 2
 reveal_node = ""
 
+[node name="objRoomTransition2" parent="TopObjects" index="1" instance=ExtResource("4_bdcl8")]
+position = Vector2(204, -32)
+rotation = 3.14159
+scale = Vector2(14, 1)
+target_room = "uid://cngbu26moya5n"
+direction = 1
+reveal_node = ""
+auto_size = false
+
 [node name="Ceiling" parent="." index="6"]
 tile_map_data = PackedByteArray("AAAQAAoABgABAAEAAAAPAAsABgABAAIAAAAOAAsABgABAAUAAAANAAsABgABAAEAAAAMAAsABgABAAEAAAALAAwABgABAAUAAAAKAAwABgABAAEAAAAJAAwABgABAAEAAAAMAAwABgABAAIAAAANAAwABgABAAIAAAAOAAwABgABAAIAAAAPAAwABgABAAIAAAAQAAwABgABAAIAAAAQAAsABgABAAIAAAAQAA0ABgABAAIAAAARAA0ABgACAAIAAAARAAwABgACAAIAAAARAAsABgACAAIAAAARAAoABgACAAEAAAARAA4ABgACAAMAAAAQAA4ABgABAAMAAAAPAA4ABgABAAMAAAAOAA4ABgABAAMAAAANAA4ABgABAAMAAAAMAA4ABgABAAMAAAALAA4ABgABAAMAAAAKAA4ABgABAAMAAAAJAA4ABgABAAMAAAAJAA0ABgABAAIAAAAKAA0ABgABAAIAAAALAA0ABgABAAIAAAAMAA0ABgABAAIAAAANAA0ABgABAAIAAAAOAA0ABgABAAIAAAAPAA0ABgABAAIAAAAIAA0ABgABAAIAAAAHAA0ABgABAAUAAAAGAA0ABgABAAEAAAAGAA4ABgABAAMAAAAHAA4ABgABAAMAAAAIAA4ABgABAAMAAAAQAAIABgABAAMAAAAPAAIABgAAAAMAAAARAAIABgACAAMAAAARAAEABgACAAEAAAAPAAEABgAAAAEAAAAQAAEABgABAAEAAAAPAAoABgABAAEAAAAOAAoABgAAAAEAAAALAAsABgAAAAEAAAAIAAwABgABAAEAAAAHAAwABgAAAAEAAAAFAA0ABgABAAEAAAAEAA0ABgABAAEAAAADAA0ABgAAAAEAAAADAA4ABgAAAAMAAAAEAA4ABgABAAMAAAAFAA4ABgABAAMAAAA=")
 
 [node name="Camera" parent="." index="7"]
 position = Vector2(352, 184)
+
+[node name="Marker2D" type="Marker2D" parent="." index="9"]
+position = Vector2(180, 8)

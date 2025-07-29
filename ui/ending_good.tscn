@@ -1,0 +1,385 @@
+[gd_scene load_steps=9 format=3 uid="uid://ipaht4wuml74"]
+
+[ext_resource type="LabelSettings" uid="uid://d08xk8kwh1ry4" path="res://resources/big_label.tres" id="1_jqlj5"]
+[ext_resource type="Script" uid="uid://bngwlo2106o01" path="res://ui/ending_good.gd" id="1_osfsy"]
+[ext_resource type="FontFile" uid="uid://we5onkvfxecy" path="res://fonts/van_small_font.ttf" id="2_kr838"]
+[ext_resource type="LabelSettings" uid="uid://cmwi1a1vki4hp" path="res://resources/small_label.tres" id="3_k6gbp"]
+[ext_resource type="Texture2D" uid="uid://b0t6qohfi4r3k" path="res://sprites/ui/ending2/end.png" id="3_kr838"]
+
+[sub_resource type="Animation" id="Animation_osfsy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/image/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/image/TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/stats/time:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/stats/deaths:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/stats/collectibles:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/Label:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("quote:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kr838"]
+resource_name = "ending"
+length = 17.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/image/TextureRect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.8),
+"transitions": PackedFloat32Array(1, 1.36604),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -140)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/image/TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/stats/time:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(7.1, 8.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/stats/deaths:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(8.8, 9.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/stats/collectibles:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(10.5, 11.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/Label:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(5.3, 6.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(13, 14.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("quote:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(14.9, 15.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k6gbp"]
+_data = {
+&"RESET": SubResource("Animation_osfsy"),
+&"ending": SubResource("Animation_kr838")
+}
+
+[node name="ending_good" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_osfsy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_k6gbp")
+}
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="image" type="Control" parent="Control"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 148.0
+offset_right = 308.0
+offset_bottom = 180.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/image"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 2
+texture_repeat = 1
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 320.0
+texture = ExtResource("3_kr838")
+
+[node name="stats" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 115.0
+offset_right = 168.0
+offset_bottom = 168.0
+alignment = 2
+
+[node name="time" type="HBoxContainer" parent="Control/stats"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="quote_text2" type="RichTextLabel" parent="Control/stats/time"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_kr838")
+bbcode_enabled = true
+text = "Total Time:"
+autowrap_mode = 2
+
+[node name="quote_text" type="RichTextLabel" parent="Control/stats/time"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_kr838")
+bbcode_enabled = true
+text = "999:99:99"
+autowrap_mode = 2
+
+[node name="deaths" type="HBoxContainer" parent="Control/stats"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="quote_text2" type="RichTextLabel" parent="Control/stats/deaths"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_kr838")
+bbcode_enabled = true
+text = "Deaths:"
+autowrap_mode = 2
+
+[node name="quote_text" type="RichTextLabel" parent="Control/stats/deaths"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_kr838")
+bbcode_enabled = true
+text = "999:99:99"
+autowrap_mode = 2
+
+[node name="collectibles" type="HBoxContainer" parent="Control/stats"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="quote_text2" type="RichTextLabel" parent="Control/stats/collectibles"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_kr838")
+bbcode_enabled = true
+text = "Collectibles:"
+autowrap_mode = 2
+
+[node name="quote_text" type="RichTextLabel" parent="Control/stats/collectibles"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_kr838")
+bbcode_enabled = true
+text = "19/19"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 115.0
+offset_bottom = 55.0
+text = "The End"
+label_settings = ExtResource("1_jqlj5")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/Label"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 20.0
+offset_right = 77.0
+offset_bottom = 43.0
+text = "Freedom at last"
+label_settings = ExtResource("3_k6gbp")
+horizontal_alignment = 1
+
+[node name="quote" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -42.0
+offset_right = 96.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="quote_text" type="RichTextLabel" parent="quote"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_kr838")
+bbcode_enabled = true
+text = "\"The journey has finally reached it's conclusion. But where one adventure ends, another begins. How will you find this strange new world?\""
+autowrap_mode = 2
+
+[node name="attribution" type="Label" parent="quote"]
+layout_mode = 2
+text = "- Wise Vanadius Girl"
+label_settings = ExtResource("3_k6gbp")
+horizontal_alignment = 2

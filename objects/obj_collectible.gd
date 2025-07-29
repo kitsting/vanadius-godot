@@ -28,6 +28,7 @@ func _input(_event: InputEvent) -> void:
 			target_body.pstate = target_body.PLAYERSTATE.ALIVE
 			Game.progress_append("collectibles", collectible_id)
 			
+			
 			if savepos:
 				Game.roomtargetx = target_body.position.x
 				Game.roomtargety = target_body.position.y
