@@ -136,7 +136,6 @@ target_room = "uid://twseun7faog0"
 target_x = 720
 target_y = 152
 direction = 3
-reveal_node = ""
 
 [node name="objRoomTransition2" parent="TopObjects" index="1" instance=ExtResource("2_5wauk")]
 position = Vector2(752, 143)
@@ -145,7 +144,6 @@ target_room = "uid://twseun7faog0"
 target_x = -360
 target_y = 152
 direction = 2
-reveal_node = ""
 
 [node name="objRoomTransition3" parent="TopObjects" index="2" instance=ExtResource("2_5wauk")]
 position = Vector2(152, 16)

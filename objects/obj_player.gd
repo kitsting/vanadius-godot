@@ -187,11 +187,13 @@ func _input(_event: InputEvent) -> void:
 				$Collision.disabled = true
 				$Hitbox/CollisionShape2D.disabled = true
 				$sprite.visible = false
+				spd /= 2 #more cinematic speed for the trailer
 			else:
 				position = freecam_last_pos
 				$Collision.disabled = false
 				$Hitbox/CollisionShape2D.disabled = false
 				$sprite.visible = true
+				spd *= 2
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:

@@ -324,6 +324,7 @@ texture = ExtResource("6_o8n1n")
 stretch_mode = 2
 
 [node name="debug" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="debug"]
 modulate = Color(1, 1, 1, 0.588235)

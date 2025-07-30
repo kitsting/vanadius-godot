@@ -78,7 +78,7 @@ func _on_quit_pressed() -> void:
 	Game.transition_room("res://ui/obj_title.tscn")
 	
 	
-func update_input() -> void:
+func update_input(_device : Variant = "") -> void:
 	if Game.current_device == InputHelper.DEVICE_KEYBOARD:
 		$BG/NinePatchRect/ColorRect/map_mode/TextureKeyboard.visible = true
 		$BG/NinePatchRect/ColorRect/map_mode/TextureGamepad.visible = false

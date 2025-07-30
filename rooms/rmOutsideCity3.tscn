@@ -154,7 +154,6 @@ target_room = "uid://dy4goh865p5mb"
 target_x = 180
 target_y = 8
 auto_size = false
-set_room = true
 
 [node name="objRoomTransition2" parent="TopObjects" index="1" instance=ExtResource("6_vlpbq")]
 position = Vector2(202, -224)

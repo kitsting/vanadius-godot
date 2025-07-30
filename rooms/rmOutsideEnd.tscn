@@ -144,6 +144,5 @@ position = Vector2(155, 224)
 target_room = "uid://dm82pv1us5l1f"
 target_x = 180
 target_y = 56
-set_room = true
 
 [connection signal="body_entered" from="FloorObjects/ending" to="FloorObjects/ending" method="_on_body_entered"]

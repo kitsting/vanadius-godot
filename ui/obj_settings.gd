@@ -31,7 +31,7 @@ func _on_video_btn_pressed() -> void:
 	submenu = true
 	last_button = %VideoBtn
 	$BG/right_panel/video.get_child(0).grab_focus()
-	$BG/NinePatchRect/Label.text = "Video Options"
+	$BG/NinePatchRect/Label.text = "Video Settings"
 
 
 func _on_audio_btn_pressed() -> void:
@@ -40,7 +40,7 @@ func _on_audio_btn_pressed() -> void:
 	submenu = true
 	last_button = %AudioBtn
 	$BG/right_panel/audio.get_child(0).grab_focus()
-	$BG/NinePatchRect/Label.text = "Audio Options"
+	$BG/NinePatchRect/Label.text = "Audio Settings"
 
 
 func _on_access_btn_pressed() -> void:
@@ -49,7 +49,7 @@ func _on_access_btn_pressed() -> void:
 	submenu = true
 	last_button = %AccessBtn
 	$BG/right_panel/accessibility.get_child(0).grab_focus()
-	$BG/NinePatchRect/Label.text = "Accessibility Options"
+	$BG/NinePatchRect/Label.text = "Accessibility Settings"
 	
 
 

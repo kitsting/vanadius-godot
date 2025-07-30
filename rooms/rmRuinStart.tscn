@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bx4jckuwc5a1a" path="res://sprites/environment/sprRuinGrafitti3.png" id="3_0mx1r"]
 
 [node name="Testroom" instance=ExtResource("1_6pume")]
-area = "Central Facility"
 internal_name = "rmRuinStart"
 
 [node name="Floor" parent="." index="0"]
@@ -22,7 +21,7 @@ tile_map_data = PackedByteArray("AAAEABQAAAAAAAAAAQAEABUAAAAAAAAAAQAFABUAAAAAAAA
 tile_set = ExtResource("2_3dyox")
 
 [node name="Sprite2D" type="Sprite2D" parent="FloorObjects" index="1"]
-position = Vector2(230, 96)
+position = Vector2(232, 72)
 texture = ExtResource("3_0mx1r")
 
 [node name="ObjPlayer" parent="Objects" index="0"]

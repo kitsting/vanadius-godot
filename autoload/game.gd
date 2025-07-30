@@ -77,7 +77,7 @@ var showtimer := false
 var noclipmode := false
 var usedevtools := true
 
-var version := "1.3.0-prerelease0728"
+var version := "1.3.0"
 
 var roomtargetarea := "Nonexistent"
 var area := roomtargetarea
@@ -337,7 +337,7 @@ func transition_room(room : String, pit : bool = false) -> void:
 			get_tree().reload_current_scene()
 
 
-func transition_manhole(room : String = "", target : Vector2 = Vector2.ZERO, reveal_node := ""):
+func transition_manhole(room : String = "", target : Vector2 = Vector2.ZERO, reveal_node := "") -> void:
 	if reveal_node != "":
 		progress_append("visited_rooms", reveal_node)
 	

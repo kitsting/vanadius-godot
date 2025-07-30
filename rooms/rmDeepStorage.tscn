@@ -1,9 +1,10 @@
-[gd_scene load_steps=34 format=4 uid="uid://chvn5rnfd4key"]
+[gd_scene load_steps=35 format=4 uid="uid://chvn5rnfd4key"]
 
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_dpx7g"]
 [ext_resource type="Texture2D" uid="uid://bvnbchy550rci" path="res://sprites/environment/deeplab/sprTestTube.png" id="2_ax2ew"]
 [ext_resource type="Script" uid="uid://cacfkobxdukko" path="res://rooms/door_riser.gd" id="2_lotia"]
 [ext_resource type="PackedScene" uid="uid://diy0ps6ikrp1w" path="res://objects/objInteract.tscn" id="3_7mgmc"]
+[ext_resource type="Texture2D" uid="uid://v2qcuuqygh7n" path="res://sprites/environment/grafitti_key_right.png" id="3_su7ts"]
 [ext_resource type="Texture2D" uid="uid://6178m3csmvu7" path="res://sprites/environment/deeplab/sprSubject24.png" id="4_7bsap"]
 [ext_resource type="Texture2D" uid="uid://b0oq6ddrcciu5" path="res://sprites/environment/deeplab/sprTestGlass.png" id="5_7e8qo"]
 [ext_resource type="Texture2D" uid="uid://cer4olhk8jhly" path="res://sprites/environment/deeplab/sprSubject25.png" id="6_ulup4"]
@@ -193,6 +194,11 @@ script = ExtResource("2_lotia")
 position = Vector2(14.8862, -31.6998)
 shape = SubResource("RectangleShape2D_34lbt")
 debug_color = Color(0.0466666, 0.7, 0, 0.239216)
+
+[node name="Sprite2D" type="Sprite2D" parent="FloorObjects" index="1"]
+modulate = Color(0.553759, 0.409335, 0.493045, 0.243137)
+position = Vector2(384, 175)
+texture = ExtResource("3_su7ts")
 
 [node name="ObjPlayer" parent="Objects" index="0"]
 position = Vector2(347, 344)
@@ -385,14 +391,12 @@ position = Vector2(347, 368)
 target_room = "uid://b7wgo3pus6td1"
 target_x = 375
 target_y = 55
-reveal_node = ""
 
 [node name="objRoomTransition2" parent="TopObjects" index="1" instance=ExtResource("17_34lbt")]
 position = Vector2(328, 16)
 rotation = 3.14159
 target_room = "uid://cs10b1kjjtnot"
 direction = 1
-reveal_node = ""
 
 [node name="objRoomTransition3" parent="TopObjects" index="2" instance=ExtResource("17_34lbt")]
 position = Vector2(416, 168)

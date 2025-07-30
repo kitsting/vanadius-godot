@@ -322,6 +322,7 @@ anchor_bottom = 1.0
 offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
+theme_override_constants/separation = -2
 alignment = 2
 
 [node name="Version" type="HBoxContainer" parent="Info"]
@@ -361,6 +362,7 @@ stretch_mode = 2
 
 [node name="Credits" type="NinePatchRect" parent="."]
 visible = false
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -396,6 +398,7 @@ focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
 focus_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("5_8tern")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkenn")

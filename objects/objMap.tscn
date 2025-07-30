@@ -140,13 +140,11 @@ flip_h = true
 area = 1
 room_id = "transRuinChallenge2"
 
-[node name="rmRuinStart8" parent="nodes/rmRuinStart8" instance=ExtResource("3_cng4x")]
+[node name="rmRuinStart32" parent="nodes" instance=ExtResource("3_cng4x")]
 self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
 layout_mode = 0
-offset_left = 48.0
-offset_top = -12.0
-offset_right = 51.0
-offset_bottom = 1.0
+offset_left = 18.0
+offset_right = 21.0
 texture = ExtResource("7_c1iyk")
 stretch_mode = 0
 flip_h = true
@@ -982,7 +980,7 @@ offset_right = 50.0
 offset_bottom = 25.0
 texture = ExtResource("31_mwdcs")
 area = 1
-room_id = "rmRuinCaveConnector"
+room_id = "rmRuinOffice"
 
 [node name="rmRuinTutorial68" parent="nodes" instance=ExtResource("3_cng4x")]
 self_modulate = Color(0.34902, 0.337255, 0.321569, 1)
@@ -2999,7 +2997,7 @@ offset_right = 74.0
 offset_bottom = 49.0
 texture = ExtResource("17_mnun1")
 area = 2
-room_id = "rmFactoryChallege3"
+room_id = "rmFactoryChallenge3"
 
 [node name="collectible" parent="nodes/map_node6" instance=ExtResource("6_3grd2")]
 layout_mode = 0

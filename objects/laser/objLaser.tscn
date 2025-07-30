@@ -100,7 +100,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1evjx"]
-size = Vector2(10, 9)
+size = Vector2(10, 7)
 
 [node name="ObjLaser" type="Node2D"]
 script = ExtResource("1_waox4")

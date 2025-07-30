@@ -1,13 +1,9 @@
 extends Area2D
 
 @export var state : Game.PLAYERSTATE = Game.PLAYERSTATE.CUTSCENE
-@export var destroy_on_touch = false
+@export var destroy_on_touch := false
 
-var touched = false
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var touched := false
 
 
 func _on_body_entered(body: Node2D) -> void:

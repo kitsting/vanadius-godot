@@ -1,18 +1,18 @@
 extends StaticBody2D
 
-var flipped = false
+var flipped := false
 
-var can_flip = false
+var can_flip := false
 
 func _ready() -> void:
 	$interact_sprite.play("use")
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if can_flip and Input.is_action_just_pressed("ui_accept") and !$sprite.is_playing():
 		flip()
 
 
-func flip():
+func flip() -> void:
 	get_tree().call_group("conveyor","reverse_direction")
 	
 	if !flipped:

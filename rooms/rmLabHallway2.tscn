@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://mmhqcsstewxl"]
+[gd_scene load_steps=7 format=4 uid="uid://mmhqcsstewxl"]
 
 [ext_resource type="PackedScene" uid="uid://b0tny0anub82o" path="res://rooms/template.tscn" id="1_m3r52"]
 [ext_resource type="PackedScene" uid="uid://bw4rse7gdvqsp" path="res://objects/objFlaskDispenser.tscn" id="2_hyio5"]
 [ext_resource type="Texture2D" uid="uid://bnhuy21gqq2jb" path="res://sprites/sprBlackFade.png" id="2_wiey4"]
 [ext_resource type="PackedScene" uid="uid://doujotg1xutqp" path="res://objects/objCrate.tscn" id="3_24fmd"]
+[ext_resource type="Texture2D" uid="uid://6tqsqdrsde0a" path="res://sprites/environment/grafitti_key_down.png" id="3_u1moq"]
 [ext_resource type="PackedScene" uid="uid://bp1smyxq0rjkj" path="res://objects/objRoomTransition.tscn" id="4_2b1qh"]
 
 [node name="Testroom" instance=ExtResource("1_m3r52")]
@@ -28,6 +29,11 @@ texture = ExtResource("2_wiey4")
 
 [node name="TileObjects" parent="." index="2"]
 tile_map_data = PackedByteArray("AAAMAAcAAQAAAAAABAALAAcAAQAAAAAABAAKAAcAAQAAAAAABAAJAAcAAQAAAAAABAAIAAcAAQAAAAAABAAHAAcAAQAAAAAABAAGAAcAAQAAAAAABAAFAAcAAQAAAAAABAAEAAcAAQAAAAAABAADAAcAAQAAAAAABAACAAcAAQAAAAAABAABAAcAAQAAAAAABAAAAAcAAQAAAAAABAAMAAYAAQAAAAAABAALAAYAAQAAAAAABAAKAAYAAQAAAAAABAAJAAYAAQAAAAAABAAIAAYAAQAAAAAABAAHAAYAAQAAAAAABAAGAAYAAQAAAAAABAAFAAYAAQAAAAAABAAEAAYAAQAAAAAABAADAAYAAQAAAAAABAACAAYAAQAAAAAABAABAAYAAQAAAAAABAAAAAYAAQAAAAAABAD//wYAAQAAAAAABAAMAAUAAQAAAAAABAALAAUAAQAAAAAABAAKAAUAAQAAAAAABAAJAAUAAQAAAAAABAAIAAUAAQAAAAAABAAHAAUAAQAAAAAABAAGAAUAAQAAAAAABAAFAAUAAQAAAAAABAAEAAUAAQAAAAAABAADAAUAAQAAAAAABAACAAUAAQAAAAAABAABAAUAAQAAAAAABAAAAAUAAQAAAAAABAD//wUAAQAAAAAABAA=")
+
+[node name="Sprite2D" type="Sprite2D" parent="FloorObjects" index="0"]
+modulate = Color(0.553759, 0.409335, 0.493045, 0.243137)
+position = Vector2(270, 199)
+texture = ExtResource("3_u1moq")
 
 [node name="ObjPlayer" parent="Objects" index="0"]
 position = Vector2(46, 149)
