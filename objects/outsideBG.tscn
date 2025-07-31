@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cgr2dqnia7jxg"]
 
-[ext_resource type="Texture2D" uid="uid://wa63als3tq4f" path="res://sprites/outsidebg/clouds.png" id="1_h2u2n"]
-[ext_resource type="Texture2D" uid="uid://cd740e6ene6rd" path="res://sprites/outsidebg/2.png" id="1_wjkl6"]
-[ext_resource type="Texture2D" uid="uid://dbct2woubmlqn" path="res://sprites/outsidebg/3.png" id="2_tpqdh"]
-[ext_resource type="Texture2D" uid="uid://dkvkp121btexf" path="res://sprites/outsidebg/4.png" id="3_tpqdh"]
-[ext_resource type="Texture2D" uid="uid://cf22y8yuw5mhf" path="res://sprites/outsidebg/5.png" id="4_ovhip"]
-[ext_resource type="Texture2D" uid="uid://ctuvjewts0p06" path="res://sprites/outsidebg/mountains.png" id="6_h2u2n"]
+[ext_resource type="Texture2D" uid="uid://wa63als3tq4f" path="res://sprites/environment/outsidebg/clouds.png" id="1_h2u2n"]
+[ext_resource type="Texture2D" uid="uid://cd740e6ene6rd" path="res://sprites/environment/outsidebg/2.png" id="1_wjkl6"]
+[ext_resource type="Texture2D" uid="uid://dbct2woubmlqn" path="res://sprites/environment/outsidebg/3.png" id="2_tpqdh"]
+[ext_resource type="Texture2D" uid="uid://dkvkp121btexf" path="res://sprites/environment/outsidebg/4.png" id="3_tpqdh"]
+[ext_resource type="Texture2D" uid="uid://cf22y8yuw5mhf" path="res://sprites/environment/outsidebg/5.png" id="4_ovhip"]
+[ext_resource type="Texture2D" uid="uid://ctuvjewts0p06" path="res://sprites/environment/outsidebg/mountains.png" id="6_h2u2n"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 

@@ -2379,7 +2379,7 @@ offset_right = -46.0
 offset_bottom = -47.0
 texture = ExtResource("19_p6mt8")
 area = 3
-room_id = "rmLabChallenge2"
+room_id = "rmLabCollectible1"
 
 [node name="collectible" parent="nodes/node14" instance=ExtResource("6_3grd2")]
 layout_mode = 0

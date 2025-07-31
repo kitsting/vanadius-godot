@@ -135,3 +135,20 @@ An entrance to a long, dark tunnel. It's boarded up.
 ~ city_door
 The door is too big for you to open.
 => END
+
+
+~ trailer1
+Are we... ready?
+=> END
+
+~ trailer2
+Will this... work?
+=> END
+
+~ trailer3
+I suppose the only way to find out...
+=> END
+
+~ trailer4
+Is to go for it.
+=> END

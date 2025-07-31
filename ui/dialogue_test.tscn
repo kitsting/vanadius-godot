@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1xxjun1r1gbg"]
+
+[ext_resource type="Script" uid="uid://ccoj2ew65jko1" path="res://ui/dialogue_test.gd" id="1_kj4h8"]
+
+[node name="TextureRect" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2947, 0.628205, 0, 1)
+script = ExtResource("1_kj4h8")

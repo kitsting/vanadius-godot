@@ -75,7 +75,7 @@ var alert := false
 #Developer tools
 var showtimer := false
 var noclipmode := false
-var usedevtools := true
+var usedevtools := false
 
 var version := "1.3.0"
 

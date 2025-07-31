@@ -64,7 +64,7 @@ func _process(delta: float) -> void:
 		$sentry_indicator/warning_anim.stop()
 		$sentry_indicator/warning.visible = false
 	
-		
+	#Old Sentry Indicator code
 	#if Game.checkArea() != Game.m_area_deeplab:
 		#if !Game.beingchased:
 			#$sentry_indicator/texture.texture = indicator_off
